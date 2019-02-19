@@ -15,17 +15,25 @@ class MovieCell: UITableViewCell {
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
   
+  private var movie: Movies.List.ViewModel?
+  
   func populate(with movie: Movies.List.ViewModel) {
+    self.movie = movie
     self.titleView.text = movie.title
     self.descriptionView.text = movie.description
-    self.posterView.image = nil
     
-    MoviesWorker().fetchPoster(for: movie, completion: populatePoster)
+    if movie.poster == nil {
+      self.posterView.image = nil
+      MoviesWorker().fetchPoster(for: movie, completion: populatePoster)
+    } else {
+      self.posterView.image = movie.poster!
+    }
   }
   
   func populatePoster(_ poster: UIImage?) {
     DispatchQueue.main.async {
       self.posterView.image = poster
+      self.movie?.poster = poster
     }
   }
   

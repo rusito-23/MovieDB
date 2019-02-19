@@ -76,36 +76,36 @@
                                 <rect key="frame" x="16" y="84" width="343" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="255" id="k4o-hu-cxi" customClass="MovieCell" customModule="MovieDB" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="255"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="177" id="k4o-hu-cxi" customClass="MovieCell" customModule="MovieDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="177"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k4o-hu-cxi" id="vOa-CZ-4ps">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="255"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="177"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Description" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="cst-pu-BR6">
-                                                    <rect key="frame" x="186" y="50.5" width="153" height="200"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cst-pu-BR6">
+                                                    <rect key="frame" x="124" y="51" width="215" height="117"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="EDb-SW-DHb"/>
-                                                        <constraint firstAttribute="height" constant="200" id="ckV-bv-rME"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="117" id="EDb-SW-DHb"/>
+                                                        <constraint firstAttribute="height" constant="117" id="ckV-bv-rME"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AnV-Al-1FQ">
-                                                    <rect key="frame" x="8" y="4" width="170" height="246.5"/>
+                                                    <rect key="frame" x="8" y="4" width="108" height="164"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="170" id="AEb-qy-8yU"/>
+                                                        <constraint firstAttribute="width" constant="108" id="AEb-qy-8yU"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title long enough to cover two lines so we can see" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NqK-ff-fUg">
-                                                    <rect key="frame" x="186" y="4" width="153" height="38.5"/>
+                                                    <rect key="frame" x="124" y="4" width="215" height="39"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="38.5" id="G0w-zd-51U"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -117,9 +117,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="NqK-ff-fUg" secondAttribute="trailing" constant="4" id="AhS-Nj-Wov"/>
                                                 <constraint firstItem="NqK-ff-fUg" firstAttribute="leading" secondItem="AnV-Al-1FQ" secondAttribute="trailing" constant="8" id="CNR-eJ-qTG"/>
                                                 <constraint firstItem="cst-pu-BR6" firstAttribute="top" secondItem="NqK-ff-fUg" secondAttribute="bottom" constant="8" symbolic="YES" id="J2a-jg-JQZ"/>
-                                                <constraint firstAttribute="bottom" secondItem="AnV-Al-1FQ" secondAttribute="bottom" constant="4" id="RQt-bu-W1A"/>
+                                                <constraint firstAttribute="bottom" secondItem="AnV-Al-1FQ" secondAttribute="bottom" constant="9" id="RQt-bu-W1A"/>
                                                 <constraint firstItem="NqK-ff-fUg" firstAttribute="top" secondItem="vOa-CZ-4ps" secondAttribute="top" constant="4" id="SG9-3o-dr0"/>
-                                                <constraint firstAttribute="bottom" secondItem="cst-pu-BR6" secondAttribute="bottom" constant="4" id="ThU-jk-xdi"/>
+                                                <constraint firstAttribute="bottom" secondItem="cst-pu-BR6" secondAttribute="bottom" constant="9" id="ThU-jk-xdi"/>
                                                 <constraint firstItem="cst-pu-BR6" firstAttribute="leading" secondItem="AnV-Al-1FQ" secondAttribute="trailing" constant="8" id="dQg-2O-QQe"/>
                                             </constraints>
                                         </tableViewCellContentView>

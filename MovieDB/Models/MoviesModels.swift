@@ -34,7 +34,7 @@ enum Movies
       }
       
     }
-    struct ViewModel
+    class ViewModel
     {
       var title: String?
       var description: String?
