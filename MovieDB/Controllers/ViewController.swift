@@ -15,6 +15,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+  @IBAction func exploreMovies(_ sender: Any) {
+    self.performSegue(withIdentifier: "MoviesListSegue", sender: nil)
+  }
+  
 }
 
