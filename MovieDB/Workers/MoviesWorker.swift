@@ -12,9 +12,11 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class MoviesWorker {
-  
+
+  // MARK: variables
   // discover
   private let endPoint = "https://api.themoviedb.org/3/"
   private let filterStarter = "/movie?"
@@ -31,6 +33,8 @@ class MoviesWorker {
     case poster
   }
   
+  // MARK: private util methods
+  
   private func createUrl(for action: Action, with path: String?) -> URL? {
     switch action {
     case .discover:
@@ -39,53 +43,39 @@ class MoviesWorker {
       guard let `path` = path else {
         return nil
       }
-      return NSURL.init(string: posterEndPoint + path) as! URL
+      return URL(string: posterEndPoint + path)
     }
   }
   
-  private func createUrlRequest(for action: Action, with path: String?) -> URLRequest? {
-    guard let url = createUrl(for: action, with: path) else {
-      return nil
-    }
-    var urlRequest = URLRequest(url: url,
-                                cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                                timeoutInterval: 10.0 * 1000)
-    urlRequest.httpMethod = "GET"
-    urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-    return urlRequest
-  }
+  // MARK: public methods
   
   func findAll(completion: @escaping (Movies.List.Response?) -> Void) {
-    guard let urlRequest = createUrlRequest(for: .discover, with: nil) else {
+    guard let url = createUrl(for: .discover, with: nil) else {
       completion(nil)
       return
     }
     
-    let task = urlSession.dataTask(with: urlRequest) { (data, response, error) -> Void in
-      
-      guard error == nil else {
-        completion(nil)
-        print("request has given error")
-        return
-      }
-      
-      guard let data = data else {
-        completion(nil)
-        print("error: data came nil")
-        return
-      }
-      
-      // TODO: parsear las peliculas
-      guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-        let movies = json?["results"] as? [[String: Any]] else {
+    AF.request(url,
+               method: .get,
+               parameters: ["include_docs": "true"])
+      .validate()
+      .responseJSON { response in
+        guard response.result.isSuccess else {
           completion(nil)
           return
-      }
-      
-      let result = Movies.List.Response(json: movies)
-      completion(result)
+        }
+        
+        guard let value = response.result.value as? [String: Any],
+          let movies = value["results"] as? [[String: Any]] else {
+            print("Malformed data received from findAllMovies service")
+            completion(nil)
+            return
+        }
+        
+        let result = Movies.List.Response(json: movies)
+        completion(result)
     }
-    task.resume()
+    
   }
   
   func fetchPoster(for movie: Movies.List.ViewModel, completion: @escaping (UIImage?) -> Void) {
@@ -94,14 +84,16 @@ class MoviesWorker {
       return
     }
     
-    DispatchQueue.global().async {
-      guard let data = NSData.init(contentsOf: url),
-            let poster = UIImage.init(data: data as Data) else {
-        completion(nil)
-        return
-      }
-      completion(poster)
-    }
+    AF.request(url, method: .get)
+      .validate()
+      .responseData(completionHandler: { (responseData) in
+        guard let image = UIImage(data: responseData.data!) else {
+          completion(nil)
+          return
+        }
+        completion(image)
+      })
+    
   }
   
 }

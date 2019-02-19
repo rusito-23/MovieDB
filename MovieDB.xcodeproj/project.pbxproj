@@ -125,7 +125,6 @@
 				D5E044C9814A69C01C5C9439 /* Pods-MovieDBUITests.debug.xcconfig */,
 				2D79FCEBCEEBF50849F7819D /* Pods-MovieDBUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -274,6 +273,7 @@
 				9B8C99E1221B48D900709385 /* Frameworks */,
 				9B8C99E2221B48D900709385 /* Resources */,
 				873527B9D76FEC513FF66955 /* [CP] Embed Pods Frameworks */,
+				9BCF326C221C83D7004CAB8A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -436,6 +436,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovieDB/Pods-MovieDB-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9BCF326C221C83D7004CAB8A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" -type f\\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"\n";
 		};
 		CCC13CB4F1FA7068911978C5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

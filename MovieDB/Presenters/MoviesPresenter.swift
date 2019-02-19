@@ -31,7 +31,7 @@ class MoviesPresenter: MoviesPresentationLogic {
         self.viewController?.displayError()
         return
       }
-      self.viewController?.displayMovies(movies: res.movies ?? [])
+      self.viewController?.displayMovies(movies: res.movies)
     }
   }
 }
