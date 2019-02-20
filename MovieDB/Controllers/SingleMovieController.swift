@@ -18,19 +18,14 @@ class SingleMovieViewController: UIViewController {
   @IBOutlet weak var titleView: UITextView!
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
-  // constraints
-  var descriptionConstraint = NSLayoutConstraint()
-  var titleConstraint = NSLayoutConstraint()
 
   // MARK: view lifecycle
   override func viewDidLoad() {
-    descriptionView.addConstraint(descriptionConstraint)
-    titleView.addConstraint(titleConstraint)
     posterView.contentMode = .scaleAspectFit
     self.populate(movie)
   }
   
-  func populate(_ movie: Movies.List.ViewModel?) {
+  private func populate(_ movie: Movies.List.ViewModel?) {
     guard let `movie` = movie else {
       _ = navigationController?.popViewController(animated: true)
       return
@@ -38,9 +33,7 @@ class SingleMovieViewController: UIViewController {
     
     titleView.text = movie.title
     descriptionView.text = movie.description
-    // update height constraints for text views
-    updateTextViewsConstraints()
-    
+
     if let poster = movie.poster {
       posterView.image = poster
     } else {
@@ -48,20 +41,13 @@ class SingleMovieViewController: UIViewController {
     }
   }
   
-  func populatePoster(_ poster: UIImage?) {
+  private func populatePoster(_ poster: UIImage?) {
     DispatchQueue.main.async { [weak self] in
       if let `self` = self {
         self.movie?.poster = poster
         self.posterView.image = poster
       }
     }
-  }
-  
-  func updateTextViewsConstraints() {
-    // update description view height constraint
-    descriptionConstraint.constant = descriptionView.contentSize.height
-    // update title view height constraint
-    titleConstraint.constant = titleView.contentSize.height
   }
   
 }
