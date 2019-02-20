@@ -26,6 +26,7 @@ class SingleMovieViewController: UIViewController {
   override func viewDidLoad() {
     descriptionView.addConstraint(descriptionConstraint)
     titleView.addConstraint(titleConstraint)
+    posterView.contentMode = .scaleAspectFit
     self.populate(movie)
   }
   

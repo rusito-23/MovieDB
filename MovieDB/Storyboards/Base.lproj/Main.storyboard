@@ -90,14 +90,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7AK-lo-2kf">
-                                <rect key="frame" x="16" y="128" width="343" height="475"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="491"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="177" id="k4o-hu-cxi" customClass="MovieCell" customModule="MovieDB" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="177"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="177"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k4o-hu-cxi" id="vOa-CZ-4ps">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="177"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="177"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="Description" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cst-pu-BR6">
@@ -152,12 +152,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tGo-HX-KXZ" firstAttribute="leading" secondItem="lit-uw-VM4" secondAttribute="leading" constant="16" id="17N-Sw-uAs"/>
-                            <constraint firstItem="lit-uw-VM4" firstAttribute="trailing" secondItem="7AK-lo-2kf" secondAttribute="trailing" constant="16" id="5sh-PY-tMI"/>
-                            <constraint firstItem="7AK-lo-2kf" firstAttribute="top" secondItem="tGo-HX-KXZ" secondAttribute="bottom" constant="8" id="EWT-Aj-Ti5"/>
                             <constraint firstItem="lit-uw-VM4" firstAttribute="trailing" secondItem="tGo-HX-KXZ" secondAttribute="trailing" constant="16" id="Fo0-Mp-awY"/>
-                            <constraint firstItem="7AK-lo-2kf" firstAttribute="leading" secondItem="lit-uw-VM4" secondAttribute="leading" constant="16" id="VS8-1t-iLA"/>
+                            <constraint firstItem="lit-uw-VM4" firstAttribute="trailing" secondItem="7AK-lo-2kf" secondAttribute="trailing" id="Hmm-ts-Jbq"/>
+                            <constraint firstItem="7AK-lo-2kf" firstAttribute="top" secondItem="tGo-HX-KXZ" secondAttribute="bottom" id="T6Q-or-vHD"/>
+                            <constraint firstItem="VRf-AC-N01" firstAttribute="top" secondItem="7AK-lo-2kf" secondAttribute="bottom" id="WBE-4c-SKh"/>
+                            <constraint firstItem="7AK-lo-2kf" firstAttribute="leading" secondItem="lit-uw-VM4" secondAttribute="leading" id="hTe-xv-xgH"/>
                             <constraint firstItem="VRf-AC-N01" firstAttribute="leading" secondItem="lit-uw-VM4" secondAttribute="leading" constant="16" id="iCC-EC-hcc"/>
-                            <constraint firstItem="VRf-AC-N01" firstAttribute="top" secondItem="7AK-lo-2kf" secondAttribute="bottom" constant="8" id="let-zC-72a"/>
                             <constraint firstItem="tGo-HX-KXZ" firstAttribute="top" secondItem="lit-uw-VM4" secondAttribute="top" constant="16" id="tuE-XU-asP"/>
                             <constraint firstItem="lit-uw-VM4" firstAttribute="bottom" secondItem="VRf-AC-N01" secondAttribute="bottom" constant="16" id="uFs-ff-S1q"/>
                             <constraint firstItem="lit-uw-VM4" firstAttribute="trailing" secondItem="VRf-AC-N01" secondAttribute="trailing" constant="16" id="uke-Rd-ci7"/>
