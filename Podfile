@@ -7,6 +7,7 @@ target 'MovieDB' do
 
   # Pods for MovieDB
   pod 'Alamofire', '~> 5.0.0-beta.2'
+  pod 'RealmSwift'
 
   target 'MovieDBTests' do
     inherit! :search_paths

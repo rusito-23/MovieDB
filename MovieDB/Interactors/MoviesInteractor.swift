@@ -19,15 +19,15 @@ protocol MoviesBusinessLogic
 
 protocol MoviesDataStore
 {
-  //var name: String { get set }
+  var movie: Movies.List.ViewModel? { get }
 }
 
 class MoviesInteractor: MoviesBusinessLogic, MoviesDataStore
 {
   var presenter: MoviesPresentationLogic?
   var worker: MoviesWorker?
-  //var name: String = ""
-  
+  var movie: Movies.List.ViewModel?
+
   // MARK: Do something
   
   func fetchMovies()

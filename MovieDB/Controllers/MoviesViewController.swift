@@ -62,6 +62,11 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)
   {
+    if segue.destination is SingleMovieViewController {
+      let vc = segue.destination as? SingleMovieViewController
+      vc?.movie = self.selectedMovie
+    }
+
     if let scene = segue.identifier {
       let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
       if let router = router, router.responds(to: selector) {
@@ -76,13 +81,13 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
   {
     super.viewDidLoad()
     errorView.isHidden = true
-    self.moviesTableView.allowsSelection = false
     refreshMovies()
   }
   
   // MARK: fetch movies
   
   var movies: [Movies.List.ViewModel] = []
+  var selectedMovie: Movies.List.ViewModel?
   
   func refreshMovies()
   {
@@ -100,8 +105,14 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
     self.movies = movies
     self.moviesTableView.reloadData()
   }
+  
+  func displayMovie(_ movie: Movies.List.ViewModel) {
+    self.selectedMovie = movie
+    self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
+  }
 }
 
+// MARK: extensions
 
 extension MoviesViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -112,9 +123,16 @@ extension MoviesViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
     let movie = self.movies[indexPath.row]
     
+    cell.selectionStyle = .none
     cell.populate(with: movie)
     return cell
   }
-  
-  
+
+}
+
+extension MoviesViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let movie = self.movies[indexPath.row]
+    self.displayMovie(movie)
+  }
 }
