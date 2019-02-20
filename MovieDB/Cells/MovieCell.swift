@@ -11,9 +11,12 @@ import UIKit
 
 class MovieCell: UITableViewCell {
   
+  // MARK: Outlets
   @IBOutlet weak var titleView: UITextView!
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
+  // constraints
+  var titleConstraint = NSLayoutConstraint()
   
   private var movie: Movies.List.ViewModel?
   
@@ -21,7 +24,8 @@ class MovieCell: UITableViewCell {
     self.movie = movie
     self.titleView.text = movie.title
     self.descriptionView.text = movie.description
-    
+    updateTextViewConstraints()
+
     if movie.poster == nil {
       self.posterView.image = nil
       MoviesWorker().fetchPoster(for: movie, completion: populatePoster)
@@ -35,6 +39,17 @@ class MovieCell: UITableViewCell {
       self.posterView.image = poster
       self.movie?.poster = poster
     }
+  }
+  
+  private func updateTextViewConstraints() {
+    // remove old constraints
+    titleView.removeConstraint(titleConstraint)
+
+    // update title height constraint
+    titleConstraint.constant = self.titleView.contentSize.height
+
+    // re-add constraints
+    titleView.addConstraint(titleConstraint)
   }
   
 }

@@ -13,15 +13,19 @@ class SingleMovieViewController: UIViewController {
   
   //  MARK: self variables
   var movie: Movies.List.ViewModel?
-  
+
   // MARK: Outlets
   @IBOutlet weak var titleView: UITextView!
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
-  @IBOutlet weak var descriptionViewHeightConstraint: NSLayoutConstraint!
-  
+  // constraints
+  var descriptionConstraint = NSLayoutConstraint()
+  var titleConstraint = NSLayoutConstraint()
+
   // MARK: view lifecycle
   override func viewDidLoad() {
+    descriptionView.addConstraint(descriptionConstraint)
+    titleView.addConstraint(titleConstraint)
     self.populate(movie)
   }
   
@@ -33,7 +37,9 @@ class SingleMovieViewController: UIViewController {
     
     titleView.text = movie.title
     descriptionView.text = movie.description
-    descriptionViewHeightConstraint.constant = self.descriptionView.contentSize.height
+    // update height constraints for text views
+    updateTextViewsConstraints()
+    
     if let poster = movie.poster {
       posterView.image = poster
     } else {
@@ -48,6 +54,13 @@ class SingleMovieViewController: UIViewController {
         self.posterView.image = poster
       }
     }
+  }
+  
+  func updateTextViewsConstraints() {
+    // update description view height constraint
+    descriptionConstraint.constant = descriptionView.contentSize.height
+    // update title view height constraint
+    titleConstraint.constant = titleView.contentSize.height
   }
   
 }
