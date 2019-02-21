@@ -78,9 +78,9 @@ class MoviesWorker {
     
   }
   
-  func fetchPoster(for movie: Movies.List.ViewModel, completion: @escaping (UIImage?) -> Void) {
+  func fetchPoster(for movie: Movies.List.ViewModel, completion: @escaping (UIImage?, Movies.List.ViewModel) -> Void) {
     guard let url = createUrl(for: .poster, with: movie.posterUrl) else {
-      completion(nil)
+      completion(nil, movie)
       return
     }
     
@@ -88,10 +88,10 @@ class MoviesWorker {
       .validate()
       .responseData(completionHandler: { (responseData) in
         guard let image = UIImage(data: responseData.data!) else {
-          completion(nil)
+          completion(nil, movie)
           return
         }
-        completion(image)
+        completion(image, movie)
       })
     
   }

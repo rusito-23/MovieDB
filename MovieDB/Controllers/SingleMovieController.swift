@@ -41,7 +41,7 @@ class SingleMovieViewController: UIViewController {
     }
   }
   
-  private func populatePoster(_ poster: UIImage?) {
+  private func populatePoster(_ poster: UIImage?, _ movie: Movies.List.ViewModel) {
     DispatchQueue.main.async { [weak self] in
       if let `self` = self {
         self.movie?.poster = poster

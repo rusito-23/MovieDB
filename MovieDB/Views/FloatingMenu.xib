@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FloatingMenu" customModule="MovieDB" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="fgP-hr-H7W"/>
+                <outlet property="menuOption0" destination="odz-4H-OqO" id="MrS-e9-dAv"/>
+                <outlet property="menuOption1" destination="OMt-QT-2e3" id="hWz-AF-gbs"/>
+                <outlet property="menuOption2" destination="N0u-eU-kLZ" id="Dfp-ow-1kf"/>
+                <outlet property="menuOptionContainer" destination="nRX-wI-Uac" id="MZR-GL-qHT"/>
+                <outlet property="showButton" destination="Pqh-Ej-OXL" id="9jL-9z-qq9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="218" height="332"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqh-Ej-OXL" customClass="FloatingButton" customModule="MovieDB" customModuleProvider="target">
+                    <rect key="frame" x="160" y="274" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="G0u-1a-se4"/>
+                        <constraint firstAttribute="height" constant="50" id="ThE-Ck-eD7"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ZF6-8R-c6k"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="rEZ-9V-rnh"/>
+                    </constraints>
+                    <state key="normal" image="ic_options"/>
+                    <connections>
+                        <action selector="onShowButton:" destination="-1" eventType="touchUpInside" id="3H6-0s-Kbe"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRX-wI-Uac">
+                    <rect key="frame" x="0.0" y="98" width="218" height="168"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odz-4H-OqO" customClass="FloatingButton" customModule="MovieDB" customModuleProvider="target">
+                            <rect key="frame" x="169" y="130" width="30" height="30"/>
+                            <color key="backgroundColor" red="0.78173575129999995" green="0.39776043300000002" blue="0.72893371070000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="Jz3-bm-dT2"/>
+                                <constraint firstAttribute="height" constant="30" id="UjO-a6-hEs"/>
+                            </constraints>
+                            <connections>
+                                <action selector="onMenuOption:" destination="-1" eventType="touchUpInside" id="pBc-Fk-Bru"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Option 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tek-6l-l3f">
+                            <rect key="frame" x="48" y="135" width="113" height="21"/>
+                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="113" id="MeH-4u-qBn"/>
+                                <constraint firstAttribute="height" constant="21" id="qkO-TA-eDl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMt-QT-2e3" customClass="FloatingButton" customModule="MovieDB" customModuleProvider="target">
+                            <rect key="frame" x="169" y="92" width="30" height="30"/>
+                            <color key="backgroundColor" red="0.78173575129999995" green="0.39776043300000002" blue="0.72893371070000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="YMl-wx-uqf"/>
+                                <constraint firstAttribute="height" constant="30" id="eoh-h5-QKr"/>
+                            </constraints>
+                            <connections>
+                                <action selector="onMenuOption:" destination="-1" eventType="touchUpInside" id="zBm-Tr-Mta"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Option 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dva-Cg-Z9s">
+                            <rect key="frame" x="48" y="97" width="113" height="21"/>
+                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="2eN-vg-btl"/>
+                                <constraint firstAttribute="width" constant="113" id="pYS-4h-B5c"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0u-eU-kLZ" customClass="FloatingButton" customModule="MovieDB" customModuleProvider="target">
+                            <rect key="frame" x="169" y="54" width="30" height="30"/>
+                            <color key="backgroundColor" red="0.78173575129999995" green="0.39776043300000002" blue="0.72893371070000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="Y9c-50-tTl"/>
+                                <constraint firstAttribute="height" constant="30" id="y8A-on-e76"/>
+                            </constraints>
+                            <connections>
+                                <action selector="onMenuOption:" destination="-1" eventType="touchUpInside" id="cF7-dx-ia9"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Option 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlG-vi-E5y">
+                            <rect key="frame" x="48" y="59" width="113" height="21"/>
+                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="113" id="39v-bP-0BF"/>
+                                <constraint firstAttribute="height" constant="21" id="LFL-KP-CXh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="OMt-QT-2e3" firstAttribute="top" secondItem="N0u-eU-kLZ" secondAttribute="bottom" constant="8" id="1W0-Dr-ofO"/>
+                        <constraint firstAttribute="height" constant="168" id="5T5-AX-1mC"/>
+                        <constraint firstAttribute="bottom" secondItem="odz-4H-OqO" secondAttribute="bottom" constant="8" id="Dgn-NI-gTP"/>
+                        <constraint firstItem="OMt-QT-2e3" firstAttribute="leading" secondItem="dva-Cg-Z9s" secondAttribute="trailing" constant="8" id="K6Z-lp-aWO"/>
+                        <constraint firstItem="KlG-vi-E5y" firstAttribute="leading" secondItem="dva-Cg-Z9s" secondAttribute="leading" id="PhR-dL-4vH"/>
+                        <constraint firstItem="odz-4H-OqO" firstAttribute="leading" secondItem="Tek-6l-l3f" secondAttribute="trailing" constant="8" id="U1Y-mI-I45"/>
+                        <constraint firstItem="odz-4H-OqO" firstAttribute="top" secondItem="OMt-QT-2e3" secondAttribute="bottom" constant="8" id="URj-RD-DIL"/>
+                        <constraint firstAttribute="bottom" secondItem="Tek-6l-l3f" secondAttribute="bottom" constant="12" id="X0M-bX-wtJ"/>
+                        <constraint firstItem="dva-Cg-Z9s" firstAttribute="top" secondItem="KlG-vi-E5y" secondAttribute="bottom" constant="17" id="cAu-1S-Ckh"/>
+                        <constraint firstItem="Tek-6l-l3f" firstAttribute="top" secondItem="dva-Cg-Z9s" secondAttribute="bottom" constant="17" id="gKK-dS-c6E"/>
+                        <constraint firstAttribute="trailing" secondItem="odz-4H-OqO" secondAttribute="trailing" constant="19" id="meq-Oa-yP5"/>
+                        <constraint firstItem="N0u-eU-kLZ" firstAttribute="leading" secondItem="KlG-vi-E5y" secondAttribute="trailing" constant="8" id="uN3-wM-1O5"/>
+                        <constraint firstAttribute="trailing" secondItem="OMt-QT-2e3" secondAttribute="trailing" constant="19" id="x0B-Lh-fDx"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Pqh-Ej-OXL" secondAttribute="bottom" constant="8" id="HAX-iY-Mac"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Pqh-Ej-OXL" secondAttribute="trailing" constant="8" id="Nzs-lb-hIL"/>
+                <constraint firstItem="nRX-wI-Uac" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="PyM-Fu-t6D"/>
+                <constraint firstItem="Pqh-Ej-OXL" firstAttribute="top" secondItem="nRX-wI-Uac" secondAttribute="bottom" constant="8" id="nMY-xc-KKR"/>
+                <constraint firstItem="nRX-wI-Uac" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="yr3-Cw-JZ1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="129.59999999999999" y="-187.1064467766117"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_options" width="512" height="512"/>
+    </resources>
+</document>

@@ -16,29 +16,26 @@ class MovieCell: UITableViewCell {
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
 
-  private var movie: Movies.List.ViewModel?
-  
   func populate(with movie: Movies.List.ViewModel) {
-    self.movie = movie
     self.titleView.text = movie.title
     self.descriptionView.text = movie.description
+    self.posterView.image = nil
     
     // show three dots on truncated text
     self.descriptionView.textContainer.lineBreakMode = .byTruncatingTail
     self.titleView.textContainer.lineBreakMode = .byTruncatingTail
 
     if movie.poster == nil {
-      self.posterView.image = nil
       MoviesWorker().fetchPoster(for: movie, completion: populatePoster)
     } else {
       self.posterView.image = movie.poster!
     }
   }
   
-  func populatePoster(_ poster: UIImage?) {
+  func populatePoster(_ poster: UIImage?, _ movie: Movies.List.ViewModel) {
     DispatchQueue.main.async {
       self.posterView.image = poster
-      self.movie?.poster = poster
+      movie.poster = poster
     }
   }
   

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		62D20EC0F3D65FA1FFEEE8BE /* Pods_MovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234C52B7600CF5357590424 /* Pods_MovieDBTests.framework */; };
+		9B82E81C221EE0BF00B84486 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E81B221EE0BF00B84486 /* Buttons.swift */; };
+		9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82E81E221EE4B700B84486 /* FloatingMenu.xib */; };
+		9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E822221EE9C500B84486 /* FloatingMenu.swift */; };
+		9B82E825221F1C6000B84486 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E824221F1C6000B84486 /* ViewExtensions.swift */; };
 		9B8C99E8221B48D900709385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C99E7221B48D900709385 /* AppDelegate.swift */; };
 		9B8C99EA221B48D900709385 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C99E9221B48D900709385 /* ViewController.swift */; };
 		9B8C99ED221B48D900709385 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8C99EB221B48D900709385 /* Main.storyboard */; };
@@ -52,6 +56,10 @@
 		2F11760C7E970B7C5055EC7E /* Pods-MovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.release.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.release.xcconfig"; sourceTree = "<group>"; };
 		3E5E25F54CB1C3D6670A83B8 /* Pods-MovieDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBTests.release.xcconfig"; path = "Target Support Files/Pods-MovieDBTests/Pods-MovieDBTests.release.xcconfig"; sourceTree = "<group>"; };
 		638B416A9227474DD24E57B7 /* Pods_MovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B82E81B221EE0BF00B84486 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		9B82E81E221EE4B700B84486 /* FloatingMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingMenu.xib; sourceTree = "<group>"; };
+		9B82E822221EE9C500B84486 /* FloatingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
+		9B82E824221F1C6000B84486 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		9B8C99E4221B48D900709385 /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8C99E7221B48D900709385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B8C99E9221B48D900709385 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +138,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9B82E81A221EE0A700B84486 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				9B82E81B221EE0BF00B84486 /* Buttons.swift */,
+				9B82E822221EE9C500B84486 /* FloatingMenu.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		9B82E81D221EE49700B84486 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B82E81E221EE4B700B84486 /* FloatingMenu.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9B8C99DB221B48D900709385 = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +180,8 @@
 		9B8C99E6221B48D900709385 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				9B82E81D221EE49700B84486 /* Views */,
+				9B82E81A221EE0A700B84486 /* CustomViews */,
 				9BA4984D221C4323007B37B3 /* Cells */,
 				9BA4984A221B5294007B37B3 /* Extensions */,
 				9B8C9A1C221B4D5E00709385 /* Presenters */,
@@ -252,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				9BA4984B221B52A7007B37B3 /* DateExtensions.swift */,
+				9B82E824221F1C6000B84486 /* ViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -376,6 +404,7 @@
 				9B8C99F2221B48DA00709385 /* LaunchScreen.storyboard in Resources */,
 				9B8C99EF221B48DA00709385 /* Assets.xcassets in Resources */,
 				9B8C99ED221B48D900709385 /* Main.storyboard in Resources */,
+				9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,9 +540,12 @@
 				9B8C99EA221B48D900709385 /* ViewController.swift in Sources */,
 				9B8C9A25221B4D8A00709385 /* MoviesRouter.swift in Sources */,
 				9B8C9A26221B4D8A00709385 /* MoviesModels.swift in Sources */,
+				9B82E81C221EE0BF00B84486 /* Buttons.swift in Sources */,
 				9B8C99E8221B48D900709385 /* AppDelegate.swift in Sources */,
 				9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */,
 				9B8C9A24221B4D8A00709385 /* MoviesWorker.swift in Sources */,
+				9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */,
+				9B82E825221F1C6000B84486 /* ViewExtensions.swift in Sources */,
 				9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */,
 				9B8C9A27221B4D8A00709385 /* MoviesViewController.swift in Sources */,
 				9B8C9A23221B4D8A00709385 /* MoviesPresenter.swift in Sources */,
@@ -695,6 +727,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V67S6WRV9Z;
 				INFOPLIST_FILE = MovieDB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -713,6 +746,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V67S6WRV9Z;
 				INFOPLIST_FILE = MovieDB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
