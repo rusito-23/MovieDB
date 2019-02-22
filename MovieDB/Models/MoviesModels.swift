@@ -11,53 +11,64 @@
 //
 
 import UIKit
+import RealmSwift
 
+// MARK: REALM object
+class Movie: Object {
+  @objc dynamic var title: String?
+  @objc dynamic var overview: String?
+  @objc dynamic var releaseDate: Date?
+  @objc dynamic var posterUrl: String?
+  
+  convenience init?(json: [String: Any]) {
+    self.init()
+
+    guard let title = json["title"] as? String,
+      let description = json["overview"] as? String,
+      let releaseDateString = json["release_date"] as? String,
+      let posterUrl = json["poster_path"] as? String else {
+        print("error al parsear la pelicula: ")
+        print(json)
+        return nil
+    }
+    
+    self.title = title
+    self.overview = description
+    self.releaseDate = Date(string: releaseDateString, format: .snakeFormat)
+    self.posterUrl = posterUrl
+  }
+  
+}
+
+// MARK: Service/View structs
 enum Movies
 {
-  // MARK: Use cases
   
-  enum List
+  struct Request
   {
-    struct Request
-    {
-    }
-    struct Response
-    {
-      var movies: [ViewModel] = []
-      
-      init? (json movies: [[String: Any]]) {
-        for json in movies {
-          if let movie = ViewModel(json: json) {
-            self.movies.append(movie)
-          }
-        }
-      }
-      
-    }
-    class ViewModel
-    {
-      var title: String?
-      var description: String?
-      var releaseDate: Date?
-      var posterUrl: String?
-      var poster: UIImage?
-      
-      init?(json: [String: Any]) {
-        guard let title = json["title"] as? String,
-            let description = json["overview"] as? String,
-            let releaseDateString = json["release_date"] as? String,
-            let posterUrl = json["poster_path"] as? String else {
-              print("error al parsear la pelicula: ")
-              print(json)
-              return nil
-        }
-        
-        self.title = title
-        self.description = description
-        self.releaseDate = Date(string: releaseDateString, format: .snakeFormat)
-        self.posterUrl = posterUrl
-      }
-      
-    }
   }
+  
+  struct Response
+  {
+    var movies: [Movie] = []
+    
+    init? (json movies: [[String: Any]]) {
+      for json in movies {
+        if let movie = Movie(json: json) {
+          self.movies.append(movie)
+        }
+      }
+    }
+    
+  }
+  
+  struct ViewModel
+  {
+    var title: String?
+    var overview: String?
+    var releaseDate: Date?
+    var poster: UIImage?
+  }
+  
 }
+

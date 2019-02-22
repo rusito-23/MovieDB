@@ -14,7 +14,7 @@ import UIKit
 
 protocol MoviesDisplayLogic: class
 {
-  func displayMovies(movies: [Movies.List.ViewModel])
+  func displayMovies(movies: [Movies.ViewModel])
   func displayError()
 }
 
@@ -73,12 +73,12 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
   
   // MARK: fetch movies
   
-  var movies: [Movies.List.ViewModel] = []
-  var selectedMovie: Movies.List.ViewModel?
+  var movies: [Movies.ViewModel] = []
+  var selectedMovie: Movies.ViewModel?
   
   func refreshMovies()
   {
-    interactor?.fetchMovies()
+    interactor?.findMovies()
   }
   
   func displayError() {
@@ -86,14 +86,15 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
     errorView.isHidden = false
   }
   
-  func displayMovies(movies: [Movies.List.ViewModel])
+  func displayMovies(movies: [Movies.ViewModel])
   {
+    print("displaying movies")
     errorView.isHidden = true
     self.movies = movies
     self.moviesTableView.reloadData()
   }
   
-  func displayMovie(_ movie: Movies.List.ViewModel) {
+  func displayMovie(_ movie: Movies.ViewModel) {
     self.selectedMovie = movie
     self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
   }

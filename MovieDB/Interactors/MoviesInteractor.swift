@@ -14,26 +14,66 @@ import UIKit
 
 protocol MoviesBusinessLogic
 {
-  func fetchMovies()
+  func findMovies()
 }
 
 protocol MoviesDataStore
 {
-  var movie: Movies.List.ViewModel? { get }
+  var movie: Movies.ViewModel? { get }
 }
 
 class MoviesInteractor: MoviesBusinessLogic, MoviesDataStore
 {
   var presenter: MoviesPresentationLogic?
-  var worker: MoviesWorker?
-  var movie: Movies.List.ViewModel?
+  var movieService: MovieService?
+  var movie: Movies.ViewModel?
 
-  // MARK: Do something
+  // MARK: find Movies
   
-  func fetchMovies()
+  func findMovies()
   {
-    worker = MoviesWorker()
-    worker?.findAll(completion: presenter!.presentMovies)
+    // TODO: si no están en db, buscarlas con la API
+    // if not in db {
+    movieService = MovieService()
+    movieService?.findAll(completion: self.onMoviesFetched)
+    // else
+    // fetchFromDBBB
   }
   
+  // MARK: handle MovieService response
+  func onMoviesFetched(response: Movies.Response?) {
+    guard let res = response else {
+      presenter?.presentMovies(nil)
+      return
+    }
+    
+    let dispatchGroup = DispatchGroup()
+    
+    var movies: [Movies.ViewModel] = []
+    for movie in res.movies {
+      dispatchGroup.enter()
+      movieService?.fetchPoster(for: movie, completion: { (_ poster: UIImage?) -> Void in
+        print("Fetched poster")
+        
+        var viewModel = Movies.ViewModel()
+        viewModel.title = movie.title
+        viewModel.overview = movie.overview
+        viewModel.poster = poster
+        
+        movies.append(viewModel)
+        dispatchGroup.leave()
+      })
+    }
+    
+    // wait for all images to be loaded
+    dispatchGroup.notify(queue: .main) { [weak self] in
+      print("All posters fetched")
+      guard let `self` = self else {
+        return
+      }
+      self.presenter?.presentMovies(movies)
+    }
+  }
+
+
 }

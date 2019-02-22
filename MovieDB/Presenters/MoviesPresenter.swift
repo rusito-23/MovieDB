@@ -13,7 +13,7 @@
 import UIKit
 
 protocol MoviesPresentationLogic {
-  func presentMovies(response: Movies.List.Response?)
+  func presentMovies(_ movies: [Movies.ViewModel]?)
 }
 
 class MoviesPresenter: MoviesPresentationLogic {
@@ -21,17 +21,18 @@ class MoviesPresenter: MoviesPresentationLogic {
   
   // MARK: Do something
   
-  func presentMovies(response: Movies.List.Response?) {
+  func presentMovies(_ movies: [Movies.ViewModel]?) {
     DispatchQueue.main.async {  [weak self] in
       guard let `self` = self else {
         return
       }
       
-      guard let res = response else {
+      guard let `movies` = movies else {
         self.viewController?.displayError()
         return
       }
-      self.viewController?.displayMovies(movies: res.movies)
+      print("Presenting")
+      self.viewController?.displayMovies(movies: movies)
     }
   }
 }

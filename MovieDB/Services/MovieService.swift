@@ -14,7 +14,7 @@ import Foundation
 import UIKit
 import Alamofire
 
-class MoviesWorker {
+class MovieService {
 
   // MARK: variables
   // discover
@@ -49,7 +49,7 @@ class MoviesWorker {
   
   // MARK: public methods
   
-  func findAll(completion: @escaping (Movies.List.Response?) -> Void) {
+  func findAll(completion: @escaping (Movies.Response?) -> Void) {
     guard let url = createUrl(for: .discover, with: nil) else {
       completion(nil)
       return
@@ -72,15 +72,15 @@ class MoviesWorker {
             return
         }
         
-        let result = Movies.List.Response(json: movies)
+        let result = Movies.Response(json: movies)
         completion(result)
     }
     
   }
   
-  func fetchPoster(for movie: Movies.List.ViewModel, completion: @escaping (UIImage?, Movies.List.ViewModel) -> Void) {
+  func fetchPoster(for movie: Movie, completion: @escaping (UIImage?) -> Void) {
     guard let url = createUrl(for: .poster, with: movie.posterUrl) else {
-      completion(nil, movie)
+      completion(nil)
       return
     }
     
@@ -88,10 +88,10 @@ class MoviesWorker {
       .validate()
       .responseData(completionHandler: { (responseData) in
         guard let image = UIImage(data: responseData.data!) else {
-          completion(nil, movie)
+          completion(nil)
           return
         }
-        completion(image, movie)
+        completion(image)
       })
     
   }

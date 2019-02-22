@@ -12,7 +12,7 @@ import UIKit
 class SingleMovieViewController: UIViewController {
   
   //  MARK: self variables
-  var movie: Movies.List.ViewModel?
+  var movie: Movies.ViewModel?
 
   // MARK: Outlets
   @IBOutlet weak var titleView: UITextView!
@@ -25,29 +25,16 @@ class SingleMovieViewController: UIViewController {
     self.populate(movie)
   }
   
-  private func populate(_ movie: Movies.List.ViewModel?) {
+  private func populate(_ movie: Movies.ViewModel?) {
     guard let `movie` = movie else {
       _ = navigationController?.popViewController(animated: true)
       return
     }
     
     titleView.text = movie.title
-    descriptionView.text = movie.description
+    descriptionView.text = movie.overview
+    posterView.image = movie.poster
 
-    if let poster = movie.poster {
-      posterView.image = poster
-    } else {
-      MoviesWorker().fetchPoster(for: movie, completion: populatePoster)
-    }
-  }
-  
-  private func populatePoster(_ poster: UIImage?, _ movie: Movies.List.ViewModel) {
-    DispatchQueue.main.async { [weak self] in
-      if let `self` = self {
-        self.movie?.poster = poster
-        self.posterView.image = poster
-      }
-    }
   }
   
 }
