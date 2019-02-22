@@ -28,10 +28,15 @@ class MoviesPresenter: MoviesPresentationLogic {
       }
       
       guard let `movies` = movies else {
-        self.viewController?.displayError()
+        self.viewController?.displayError("Ocurrió un error al buscar las peliculas")
         return
       }
-      print("Presenting")
+      
+      guard movies.count != 0 else {
+        self.viewController?.displayError("No se encontraron peliculas")
+        return
+      }
+
       self.viewController?.displayMovies(movies: movies)
     }
   }

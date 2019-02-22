@@ -9,27 +9,22 @@
 import Foundation
 import RealmSwift
 
-protocol GenericDAO {
-  func save<T:Object>(_ object: T) -> Bool
-  func saveAll<T:Object>(_ objects: [T]) -> Int
-  func findAll<T:Object>() -> [T]
-}
 
-class AbstractDAOImpl: GenericDAO {
+class GenericDAO <T:Object> {
   
   //  MARK: setup
-  var object: Object.Type
   var realm: Realm?
-  
-  init<T:Object>(_ type: T.Type) {
-    self.object = type
-    self.realm = try? Realm()
+  init() {
+    do {
+      realm = try Realm()
+    } catch {
+      print("Error al inicializar Realm: \(error)")
+    }
   }
 
-  
   //   MARK: protocol implementation
   
-  func save<T:Object>(_ object: T) -> Bool {
+  func save(_ object: T) -> Bool {
     guard let `realm` = realm else {
       return false
     }
@@ -39,14 +34,13 @@ class AbstractDAOImpl: GenericDAO {
         realm.add(object)
       }
     } catch {
-      print("Error info: \(error)")
       return false
     }
     
     return true
   }
   
-  func saveAll<T:Object>(_ objects: [T]) -> Int {
+  func saveAll(_ objects: [T]) -> Int {
     var count = 0
     for obj in objects {
       if save(obj) { count += 1 }
@@ -54,8 +48,8 @@ class AbstractDAOImpl: GenericDAO {
     return count
   }
   
-  func findAll<T: Object>() -> [T] {
-    let results = realm?.objects(self.object)
+  func findAll() -> [T] {
+    let results = realm?.objects(T.self)
     guard let res = results else {
       return []
     }

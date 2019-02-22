@@ -15,6 +15,7 @@ import RealmSwift
 
 // MARK: REALM object
 class Movie: Object {
+  @objc dynamic var id: Int = 0
   @objc dynamic var title: String?
   @objc dynamic var overview: String?
   @objc dynamic var releaseDate: Date?
@@ -23,7 +24,9 @@ class Movie: Object {
   convenience init?(json: [String: Any]) {
     self.init()
 
-    guard let title = json["title"] as? String,
+    guard
+      let id = json["id"] as? Int,
+      let title = json["title"] as? String,
       let description = json["overview"] as? String,
       let releaseDateString = json["release_date"] as? String,
       let posterUrl = json["poster_path"] as? String else {
@@ -32,6 +35,7 @@ class Movie: Object {
         return nil
     }
     
+    self.id = id
     self.title = title
     self.overview = description
     self.releaseDate = Date(string: releaseDateString, format: .snakeFormat)
@@ -59,7 +63,6 @@ enum Movies
         }
       }
     }
-    
   }
   
   struct ViewModel

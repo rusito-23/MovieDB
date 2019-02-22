@@ -19,25 +19,28 @@ protocol MoviesBusinessLogic
 
 protocol MoviesDataStore
 {
-  var movie: Movies.ViewModel? { get }
 }
 
 class MoviesInteractor: MoviesBusinessLogic, MoviesDataStore
 {
   var presenter: MoviesPresentationLogic?
-  var movieService: MovieService?
-  var movie: Movies.ViewModel?
-
+  var movieService: MovieService? = MovieService()
+  var movieDAO: GenericDAO<Movie> = GenericDAO()
+  
   // MARK: find Movies
   
   func findMovies()
   {
-    // TODO: si no están en db, buscarlas con la API
-    // if not in db {
-    movieService = MovieService()
-    movieService?.findAll(completion: self.onMoviesFetched)
-    // else
-    // fetchFromDBBB
+    let movies: [Movie] = movieDAO.findAll()
+    if movies.count != 0 {
+      // populate with db content
+      print("Finding from db")
+      self.populateWithPostersAndPresent(for: movies)
+    } else {
+      // bring the movies from the api
+      print("Fetching from Service")
+      movieService?.findAll(completion: self.onMoviesFetched)
+    }
   }
   
   // MARK: handle MovieService response
@@ -46,34 +49,38 @@ class MoviesInteractor: MoviesBusinessLogic, MoviesDataStore
       presenter?.presentMovies(nil)
       return
     }
+    populateWithPostersAndPresent(for: res.movies)
     
+    // save them into the db
+    _ = movieDAO.saveAll(res.movies)
+  }
+
+  // MARK: common methods for Service and DB responses
+  // populate posters and send movies to presenter
+  func populateWithPostersAndPresent(for movies: [Movie]) {
+    print("Start poster fetch")
     let dispatchGroup = DispatchGroup()
     
-    var movies: [Movies.ViewModel] = []
-    for movie in res.movies {
+    var viewModels: [Movies.ViewModel] = []
+    for movie in movies {
       dispatchGroup.enter()
       movieService?.fetchPoster(for: movie, completion: { (_ poster: UIImage?) -> Void in
-        print("Fetched poster")
-        
         var viewModel = Movies.ViewModel()
         viewModel.title = movie.title
         viewModel.overview = movie.overview
         viewModel.poster = poster
         
-        movies.append(viewModel)
+        viewModels.append(viewModel)
         dispatchGroup.leave()
       })
     }
     
     // wait for all images to be loaded
     dispatchGroup.notify(queue: .main) { [weak self] in
-      print("All posters fetched")
-      guard let `self` = self else {
-        return
-      }
-      self.presenter?.presentMovies(movies)
+      print("Finished fetching posters")
+      guard let `self` = self else { return }
+      self.presenter?.presentMovies(viewModels)
     }
   }
-
 
 }

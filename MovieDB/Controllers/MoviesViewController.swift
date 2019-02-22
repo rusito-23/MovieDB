@@ -15,7 +15,7 @@ import UIKit
 protocol MoviesDisplayLogic: class
 {
   func displayMovies(movies: [Movies.ViewModel])
-  func displayError()
+  func displayError(_ msg: String)
 }
 
 class MoviesViewController: UIViewController, MoviesDisplayLogic
@@ -81,14 +81,13 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
     interactor?.findMovies()
   }
   
-  func displayError() {
-    errorView.text = "Ocurrio un error al buscar las peliculas"
+  func displayError(_ msg: String) {
+    errorView.text = msg
     errorView.isHidden = false
   }
   
   func displayMovies(movies: [Movies.ViewModel])
   {
-    print("displaying movies")
     errorView.isHidden = true
     self.movies = movies
     self.moviesTableView.reloadData()

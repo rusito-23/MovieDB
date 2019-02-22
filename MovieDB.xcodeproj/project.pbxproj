@@ -13,6 +13,7 @@
 		9B25C6AF222044CC00338D41 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B25C6AE222044CC00338D41 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B25C6B1222044D200338D41 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B25C6B0222044D200338D41 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B25C6B3222044D700338D41 /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B25C6B2222044D700338D41 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9B25C6BA2220680A00338D41 /* GenericDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25C6B92220680A00338D41 /* GenericDAO.swift */; };
 		9B82E81C221EE0BF00B84486 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E81B221EE0BF00B84486 /* Buttons.swift */; };
 		9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82E81E221EE4B700B84486 /* FloatingMenu.xib */; };
 		9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E822221EE9C500B84486 /* FloatingMenu.swift */; };
@@ -73,6 +74,7 @@
 		9B25C6AE222044CC00338D41 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		9B25C6B0222044D200338D41 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		9B25C6B2222044D700338D41 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		9B25C6B92220680A00338D41 /* GenericDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDAO.swift; sourceTree = "<group>"; };
 		9B82E81B221EE0BF00B84486 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		9B82E81E221EE4B700B84486 /* FloatingMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingMenu.xib; sourceTree = "<group>"; };
 		9B82E822221EE9C500B84486 /* FloatingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9B25C6B422204B2A00338D41 /* DAOS */ = {
+			isa = PBXGroup;
+			children = (
+				9B25C6B92220680A00338D41 /* GenericDAO.swift */,
+			);
+			path = DAOS;
+			sourceTree = "<group>";
+		};
 		9B82E81A221EE0A700B84486 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +192,7 @@
 		9B8C99E6221B48D900709385 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				9B25C6B422204B2A00338D41 /* DAOS */,
 				9B82E81D221EE49700B84486 /* Views */,
 				9B82E81A221EE0A700B84486 /* CustomViews */,
 				9BA4984D221C4323007B37B3 /* Cells */,
@@ -488,6 +499,7 @@
 				9B8C99EA221B48D900709385 /* ViewController.swift in Sources */,
 				9B8C9A26221B4D8A00709385 /* MoviesModels.swift in Sources */,
 				9B82E81C221EE0BF00B84486 /* Buttons.swift in Sources */,
+				9B25C6BA2220680A00338D41 /* GenericDAO.swift in Sources */,
 				9B8C99E8221B48D900709385 /* AppDelegate.swift in Sources */,
 				9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */,
 				9B8C9A24221B4D8A00709385 /* MovieService.swift in Sources */,
