@@ -28,7 +28,6 @@
 		9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B922B19221C9184007E8AE7 /* SingleMovieController.swift */; };
 		9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984B221B52A7007B37B3 /* DateExtensions.swift */; };
 		9BA4984F221C4331007B37B3 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984E221C4331007B37B3 /* MovieCell.swift */; };
-		B344E158A6026189EB7CD3EC /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638B416A9227474DD24E57B7 /* Pods_MovieDB.framework */; };
 		E878AD38A6B4114C444BD987 /* Pods_MovieDBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E47F7A39C58339FD6B7465 /* Pods_MovieDBUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B344E158A6026189EB7CD3EC /* Pods_MovieDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,12 +297,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B8C9A0C221B48DA00709385 /* Build configuration list for PBXNativeTarget "MovieDB" */;
 			buildPhases = (
-				3E820688DC448E2BC8A31169 /* [CP] Check Pods Manifest.lock */,
+				9BCF326C221C83D7004CAB8A /* ShellScript */,
 				9B8C99E0221B48D900709385 /* Sources */,
 				9B8C99E1221B48D900709385 /* Frameworks */,
 				9B8C99E2221B48D900709385 /* Resources */,
-				873527B9D76FEC513FF66955 /* [CP] Embed Pods Frameworks */,
-				9BCF326C221C83D7004CAB8A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -425,50 +421,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3E820688DC448E2BC8A31169 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MovieDB-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		873527B9D76FEC513FF66955 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MovieDB/Pods-MovieDB-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovieDB/Pods-MovieDB-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9BCF326C221C83D7004CAB8A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
