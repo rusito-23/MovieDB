@@ -21,8 +21,7 @@ protocol MoviesDisplayLogic: class
 class MoviesViewController: UIViewController, MoviesDisplayLogic
 {
   var interactor: MoviesBusinessLogic?
-  var router: (NSObjectProtocol & MoviesRoutingLogic & MoviesDataPassing)?
-  
+
   // MARK: outlets
   
   @IBOutlet weak var errorView: UITextView!
@@ -46,16 +45,11 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
   
   private func setup()
   {
-    let viewController = self
     let interactor = MoviesInteractor()
     let presenter = MoviesPresenter()
-    let router = MoviesRouter()
-    viewController.interactor = interactor
-    viewController.router = router
+    self.interactor = interactor
     interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
+    presenter.viewController = self
   }
   
   // MARK: Routing
@@ -65,13 +59,6 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
     if segue.destination is SingleMovieViewController {
       let vc = segue.destination as? SingleMovieViewController
       vc?.movie = self.selectedMovie
-    }
-
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
     }
   }
   
