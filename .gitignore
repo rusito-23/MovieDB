@@ -1,0 +1,11 @@
+
+# No subir los binarios de las libs
+Carthage/
+
+# No subir archivos de macOS
+.DS_Store
+*.swp
+*~.nib
+
+# no subir binarios
+build/

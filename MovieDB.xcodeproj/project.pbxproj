@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62D20EC0F3D65FA1FFEEE8BE /* Pods_MovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1234C52B7600CF5357590424 /* Pods_MovieDBTests.framework */; };
+		9B2BD98122202DD7004CCC59 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2BD98022202DD7004CCC59 /* Alamofire.framework */; };
+		9B2BD98322202DE0004CCC59 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2BD98222202DE0004CCC59 /* Realm.framework */; };
+		9B2BD98522202DE5004CCC59 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2BD98422202DE5004CCC59 /* RealmSwift.framework */; };
 		9B82E81C221EE0BF00B84486 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E81B221EE0BF00B84486 /* Buttons.swift */; };
 		9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82E81E221EE4B700B84486 /* FloatingMenu.xib */; };
 		9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E822221EE9C500B84486 /* FloatingMenu.swift */; };
@@ -28,7 +30,6 @@
 		9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B922B19221C9184007E8AE7 /* SingleMovieController.swift */; };
 		9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984B221B52A7007B37B3 /* DateExtensions.swift */; };
 		9BA4984F221C4331007B37B3 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984E221C4331007B37B3 /* MovieCell.swift */; };
-		E878AD38A6B4114C444BD987 /* Pods_MovieDBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27E47F7A39C58339FD6B7465 /* Pods_MovieDBUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,12 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1234C52B7600CF5357590424 /* Pods_MovieDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		27E47F7A39C58339FD6B7465 /* Pods_MovieDBUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDBUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D79FCEBCEEBF50849F7819D /* Pods-MovieDBUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBUITests.release.xcconfig"; path = "Target Support Files/Pods-MovieDBUITests/Pods-MovieDBUITests.release.xcconfig"; sourceTree = "<group>"; };
-		2F11760C7E970B7C5055EC7E /* Pods-MovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.release.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.release.xcconfig"; sourceTree = "<group>"; };
-		3E5E25F54CB1C3D6670A83B8 /* Pods-MovieDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBTests.release.xcconfig"; path = "Target Support Files/Pods-MovieDBTests/Pods-MovieDBTests.release.xcconfig"; sourceTree = "<group>"; };
-		638B416A9227474DD24E57B7 /* Pods_MovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B2BD98022202DD7004CCC59 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		9B2BD98222202DE0004CCC59 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		9B2BD98422202DE5004CCC59 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		9B82E81B221EE0BF00B84486 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		9B82E81E221EE4B700B84486 /* FloatingMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingMenu.xib; sourceTree = "<group>"; };
 		9B82E822221EE9C500B84486 /* FloatingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
@@ -81,9 +79,6 @@
 		9B922B19221C9184007E8AE7 /* SingleMovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMovieController.swift; sourceTree = "<group>"; };
 		9BA4984B221B52A7007B37B3 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9BA4984E221C4331007B37B3 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
-		C208120178ED951349338CC5 /* Pods-MovieDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.debug.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.debug.xcconfig"; sourceTree = "<group>"; };
-		CFB922FF1A0A2EDAE264FD63 /* Pods-MovieDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBTests.debug.xcconfig"; path = "Target Support Files/Pods-MovieDBTests/Pods-MovieDBTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D5E044C9814A69C01C5C9439 /* Pods-MovieDBUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBUITests.debug.xcconfig"; path = "Target Support Files/Pods-MovieDBUITests/Pods-MovieDBUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B2BD98322202DE0004CCC59 /* Realm.framework in Frameworks */,
+				9B2BD98122202DD7004CCC59 /* Alamofire.framework in Frameworks */,
+				9B2BD98522202DE5004CCC59 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +96,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62D20EC0F3D65FA1FFEEE8BE /* Pods_MovieDBTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +103,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E878AD38A6B4114C444BD987 /* Pods_MovieDBUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,24 +112,11 @@
 		11F3EE02BCE64716DA04C8C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				638B416A9227474DD24E57B7 /* Pods_MovieDB.framework */,
-				1234C52B7600CF5357590424 /* Pods_MovieDBTests.framework */,
-				27E47F7A39C58339FD6B7465 /* Pods_MovieDBUITests.framework */,
+				9B2BD98422202DE5004CCC59 /* RealmSwift.framework */,
+				9B2BD98222202DE0004CCC59 /* Realm.framework */,
+				9B2BD98022202DD7004CCC59 /* Alamofire.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		407FC067B47D3E1FB12255D2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C208120178ED951349338CC5 /* Pods-MovieDB.debug.xcconfig */,
-				2F11760C7E970B7C5055EC7E /* Pods-MovieDB.release.xcconfig */,
-				CFB922FF1A0A2EDAE264FD63 /* Pods-MovieDBTests.debug.xcconfig */,
-				3E5E25F54CB1C3D6670A83B8 /* Pods-MovieDBTests.release.xcconfig */,
-				D5E044C9814A69C01C5C9439 /* Pods-MovieDBUITests.debug.xcconfig */,
-				2D79FCEBCEEBF50849F7819D /* Pods-MovieDBUITests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		9B82E81A221EE0A700B84486 /* CustomViews */ = {
@@ -160,7 +143,6 @@
 				9B8C99FB221B48DA00709385 /* MovieDBTests */,
 				9B8C9A06221B48DA00709385 /* MovieDBUITests */,
 				9B8C99E5221B48D900709385 /* Products */,
-				407FC067B47D3E1FB12255D2 /* Pods */,
 				11F3EE02BCE64716DA04C8C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -675,11 +657,14 @@
 		};
 		9B8C9A0D221B48DA00709385 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C208120178ED951349338CC5 /* Pods-MovieDB.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V67S6WRV9Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MovieDB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -694,11 +679,14 @@
 		};
 		9B8C9A0E221B48DA00709385 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F11760C7E970B7C5055EC7E /* Pods-MovieDB.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V67S6WRV9Z;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MovieDB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -713,7 +701,6 @@
 		};
 		9B8C9A10221B48DA00709385 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFB922FF1A0A2EDAE264FD63 /* Pods-MovieDBTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -734,7 +721,6 @@
 		};
 		9B8C9A11221B48DA00709385 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E5E25F54CB1C3D6670A83B8 /* Pods-MovieDBTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -755,7 +741,6 @@
 		};
 		9B8C9A13221B48DA00709385 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5E044C9814A69C01C5C9439 /* Pods-MovieDBUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -775,7 +760,6 @@
 		};
 		9B8C9A14221B48DA00709385 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D79FCEBCEEBF50849F7819D /* Pods-MovieDBUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

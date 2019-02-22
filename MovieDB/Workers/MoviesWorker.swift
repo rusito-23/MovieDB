@@ -55,7 +55,7 @@ class MoviesWorker {
       return
     }
     
-    AF.request(url,
+    Alamofire.request(url,
                method: .get,
                parameters: ["include_docs": "true"])
       .validate()
@@ -84,7 +84,7 @@ class MoviesWorker {
       return
     }
     
-    AF.request(url, method: .get)
+    Alamofire.request(url, method: .get)
       .validate()
       .responseData(completionHandler: { (responseData) in
         guard let image = UIImage(data: responseData.data!) else {
