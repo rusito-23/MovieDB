@@ -10,48 +10,21 @@
 //  see http://clean-swift.com
 //
 
+import Foundation
 import UIKit
 import RealmSwift
 
-// MARK: REALM object
-class Movie: Object {
-  @objc dynamic var id: Int = 0
-  @objc dynamic var title: String?
-  @objc dynamic var overview: String?
-  @objc dynamic var releaseDate: Date?
-  @objc dynamic var posterUrl: String?
-  
-  convenience init?(json: [String: Any]) {
-    self.init()
-
-    guard
-      let id = json["id"] as? Int,
-      let title = json["title"] as? String,
-      let description = json["overview"] as? String,
-      let releaseDateString = json["release_date"] as? String,
-      let posterUrl = json["poster_path"] as? String else {
-        print("error al parsear la pelicula: ")
-        print(json)
-        return nil
-    }
-    
-    self.id = id
-    self.title = title
-    self.overview = description
-    self.releaseDate = Date(string: releaseDateString, format: .snakeFormat)
-    self.posterUrl = posterUrl
-  }
-  
-}
 
 // MARK: Service/View structs
 enum Movies
 {
   
+  //  MARK: Request
   struct Request
   {
   }
   
+  //  MARK: Response
   struct Response
   {
     var movies: [Movie] = []
@@ -65,8 +38,10 @@ enum Movies
     }
   }
   
+  //  MARK: ViewModel
   struct ViewModel
   {
+    var id: Int?
     var title: String?
     var overview: String?
     var releaseDate: Date?

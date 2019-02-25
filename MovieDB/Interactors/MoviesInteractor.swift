@@ -12,20 +12,17 @@
 
 import UIKit
 
+
 protocol MoviesBusinessLogic
 {
   func findMovies()
 }
 
-protocol MoviesDataStore
-{
-}
-
-class MoviesInteractor: MoviesBusinessLogic, MoviesDataStore
+class MoviesInteractor: MoviesBusinessLogic
 {
   var presenter: MoviesPresentationLogic?
   var movieService: MovieService? = MovieService()
-  var movieDAO: GenericDAO<Movie> = GenericDAO()
+  var movieDAO = GenericDAOImpl<Movie>()
   
   // MARK: find Movies
   
@@ -65,12 +62,7 @@ class MoviesInteractor: MoviesBusinessLogic, MoviesDataStore
     for movie in movies {
       dispatchGroup.enter()
       movieService?.fetchPoster(for: movie, completion: { (_ poster: UIImage?) -> Void in
-        var viewModel = Movies.ViewModel()
-        viewModel.title = movie.title
-        viewModel.overview = movie.overview
-        viewModel.poster = poster
-        
-        viewModels.append(viewModel)
+        viewModels.append(movie.asViewModel(with: poster))
         dispatchGroup.leave()
       })
     }
@@ -82,5 +74,5 @@ class MoviesInteractor: MoviesBusinessLogic, MoviesDataStore
       self.presenter?.presentMovies(viewModels)
     }
   }
-
+  
 }

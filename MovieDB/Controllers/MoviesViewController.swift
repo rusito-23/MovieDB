@@ -58,7 +58,7 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
   {
     if segue.destination is SingleMovieViewController {
       let vc = segue.destination as? SingleMovieViewController
-      vc?.movie = self.selectedMovie
+      vc?.id = self.selectedMovie
     }
   }
   
@@ -74,7 +74,7 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
   // MARK: fetch movies
   
   var movies: [Movies.ViewModel] = []
-  var selectedMovie: Movies.ViewModel?
+  var selectedMovie: Int?
   
   func refreshMovies()
   {
@@ -94,7 +94,7 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
   }
   
   func displayMovie(_ movie: Movies.ViewModel) {
-    self.selectedMovie = movie
+    self.selectedMovie = movie.id
     self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
   }
 }
