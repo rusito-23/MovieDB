@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorView" customModule="MovieDB" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="JR7-Vg-qik"/>
+                <outlet property="errorMessage" destination="hLb-s8-Ied" id="2oG-Eg-d9f"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="W5c-OM-f0Y">
+                    <rect key="frame" x="8" y="0.0" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="j68-vP-nki"/>
+                        <constraint firstAttribute="width" constant="50" id="rOx-Yb-2hQ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLb-s8-Ied">
+                    <rect key="frame" x="66" y="0.0" width="317" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="os6-lS-CRp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="W5c-OM-f0Y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="1c3-Oy-2yt"/>
+                <constraint firstItem="W5c-OM-f0Y" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="BG4-yv-y9Z"/>
+                <constraint firstItem="hLb-s8-Ied" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="bB4-GH-bqY"/>
+                <constraint firstItem="hLb-s8-Ied" firstAttribute="leading" secondItem="W5c-OM-f0Y" secondAttribute="trailing" constant="8" id="ifu-VG-gJb"/>
+                <constraint firstItem="W5c-OM-f0Y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="npX-YN-67y"/>
+                <constraint firstItem="hLb-s8-Ied" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="8" id="qWX-rp-kvN"/>
+                <constraint firstItem="hLb-s8-Ied" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="wdE-PQ-O5C"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="221.59999999999999" y="9.8950524737631191"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="warning" width="160" height="160"/>
+    </resources>
+</document>

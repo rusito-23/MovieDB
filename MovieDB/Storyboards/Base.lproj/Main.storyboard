@@ -137,34 +137,26 @@
                                     <outlet property="delegate" destination="VtA-Xt-7pm" id="49b-bL-NLX"/>
                                 </connections>
                             </tableView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="ERROR" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czm-Hb-cQ4">
-                                <rect key="frame" x="16" y="315.5" width="343" height="36"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="n7K-c1-orK"/>
-                                </constraints>
-                                <color key="textColor" red="1" green="0.12023770070000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJc-iK-lLj" customClass="ErrorView" customModule="MovieDB" customModuleProvider="target">
+                                <rect key="frame" x="48" y="311" width="279" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tGo-HX-KXZ" firstAttribute="leading" secondItem="lit-uw-VM4" secondAttribute="leading" constant="16" id="17N-Sw-uAs"/>
-                            <constraint firstItem="Czm-Hb-cQ4" firstAttribute="leading" secondItem="lit-uw-VM4" secondAttribute="leading" constant="16" id="64V-Sk-BbI"/>
                             <constraint firstItem="lit-uw-VM4" firstAttribute="trailing" secondItem="tGo-HX-KXZ" secondAttribute="trailing" constant="16" id="Fo0-Mp-awY"/>
                             <constraint firstItem="lit-uw-VM4" firstAttribute="trailing" secondItem="7AK-lo-2kf" secondAttribute="trailing" id="Hmm-ts-Jbq"/>
-                            <constraint firstItem="lit-uw-VM4" firstAttribute="trailing" secondItem="Czm-Hb-cQ4" secondAttribute="trailing" constant="16" id="JjD-74-Nx0"/>
                             <constraint firstItem="7AK-lo-2kf" firstAttribute="bottom" secondItem="lit-uw-VM4" secondAttribute="bottom" id="PQ8-W3-BhO"/>
                             <constraint firstItem="7AK-lo-2kf" firstAttribute="top" secondItem="tGo-HX-KXZ" secondAttribute="bottom" id="T6Q-or-vHD"/>
                             <constraint firstItem="tGo-HX-KXZ" firstAttribute="top" secondItem="lit-uw-VM4" secondAttribute="top" id="eUe-dA-fY2"/>
                             <constraint firstItem="7AK-lo-2kf" firstAttribute="leading" secondItem="lit-uw-VM4" secondAttribute="leading" id="hTe-xv-xgH"/>
-                            <constraint firstItem="Czm-Hb-cQ4" firstAttribute="centerY" secondItem="q2d-aJ-Lau" secondAttribute="centerY" id="hb0-KL-Frh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lit-uw-VM4"/>
                     </view>
                     <connections>
-                        <outlet property="errorView" destination="Czm-Hb-cQ4" id="ZX0-yX-O3R"/>
+                        <outlet property="errorView" destination="AJc-iK-lLj" id="WdM-Ug-FjI"/>
                         <outlet property="moviesTableView" destination="7AK-lo-2kf" id="qYN-rv-oGo"/>
                         <segue destination="Pux-JQ-O3I" kind="show" identifier="SingleMovieSegue" id="bpu-5k-7Qz"/>
                     </connections>

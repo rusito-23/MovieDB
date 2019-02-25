@@ -18,13 +18,13 @@ protocol MoviesDisplayLogic: class
   func displayError(_ msg: String)
 }
 
-class MoviesViewController: UIViewController, MoviesDisplayLogic
+class MoviesViewController: UIViewController
 {
   var interactor: MoviesBusinessLogic?
 
   // MARK: outlets
   
-  @IBOutlet weak var errorView: UITextView!
+  @IBOutlet weak var errorView: ErrorView!
   @IBOutlet weak var moviesTableView: UITableView!
   
   // MARK: Object lifecycle
@@ -67,7 +67,6 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    errorView.isHidden = true
     refreshMovies()
   }
   
@@ -81,25 +80,32 @@ class MoviesViewController: UIViewController, MoviesDisplayLogic
     interactor?.findMovies()
   }
   
-  func displayError(_ msg: String) {
-    errorView.text = msg
-    errorView.isHidden = false
-  }
-  
-  func displayMovies(movies: [Movies.ViewModel])
-  {
-    errorView.isHidden = true
-    self.movies = movies
-    self.moviesTableView.reloadData()
-  }
-  
+
   func displayMovie(_ movie: Movies.ViewModel) {
     self.selectedMovie = movie.id
     self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
   }
 }
 
-// MARK: extensions
+// MARK: extensions for MoviesDisplayLogic
+
+extension MoviesViewController: MoviesDisplayLogic {
+  
+  func displayError(_ msg: String) {
+    self.errorView.isHidden = false
+    self.errorView.errorMessage.text = msg
+  }
+  
+  func displayMovies(movies: [Movies.ViewModel])
+  {
+    self.movies = movies
+    self.moviesTableView.reloadData()
+  }
+  
+}
+
+
+// MARK: extensions for tableView
 
 extension MoviesViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
