@@ -16,7 +16,7 @@
 		9B25C6BA2220680A00338D41 /* GenericDAOImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25C6B92220680A00338D41 /* GenericDAOImpl.swift */; };
 		9B25C6BE2220824D00338D41 /* GenericDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25C6BD2220824D00338D41 /* GenericDAO.swift */; };
 		9B25C6C0222088C200338D41 /* SingleMovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25C6BF222088C200338D41 /* SingleMovieInteractor.swift */; };
-		9B82E81C221EE0BF00B84486 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E81B221EE0BF00B84486 /* Buttons.swift */; };
+		9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E81B221EE0BF00B84486 /* FloatingButton.swift */; };
 		9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82E81E221EE4B700B84486 /* FloatingMenu.xib */; };
 		9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E822221EE9C500B84486 /* FloatingMenu.swift */; };
 		9B82E825221F1C6000B84486 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E824221F1C6000B84486 /* ViewExtensions.swift */; };
@@ -39,6 +39,8 @@
 		9BD28D912224192600B9661A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD28D902224192600B9661A /* Movie.swift */; };
 		9BD28D93222423DB00B9661A /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD28D92222423DB00B9661A /* ErrorView.xib */; };
 		9BD28D952224253800B9661A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD28D942224253800B9661A /* ErrorView.swift */; };
+		9BD28D9B22244CC000B9661A /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD28D9A22244CC000B9661A /* ButtonExtensions.swift */; };
+		9BD28D9D22244DA600B9661A /* RoundShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD28D9C22244DA600B9661A /* RoundShadowButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +85,7 @@
 		9B25C6B92220680A00338D41 /* GenericDAOImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDAOImpl.swift; sourceTree = "<group>"; };
 		9B25C6BD2220824D00338D41 /* GenericDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDAO.swift; sourceTree = "<group>"; };
 		9B25C6BF222088C200338D41 /* SingleMovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMovieInteractor.swift; sourceTree = "<group>"; };
-		9B82E81B221EE0BF00B84486 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		9B82E81B221EE0BF00B84486 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		9B82E81E221EE4B700B84486 /* FloatingMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingMenu.xib; sourceTree = "<group>"; };
 		9B82E822221EE9C500B84486 /* FloatingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
 		9B82E824221F1C6000B84486 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
@@ -112,6 +114,8 @@
 		9BD28D902224192600B9661A /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		9BD28D92222423DB00B9661A /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		9BD28D942224253800B9661A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		9BD28D9A22244CC000B9661A /* ButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtensions.swift; sourceTree = "<group>"; };
+		9BD28D9C22244DA600B9661A /* RoundShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,9 +168,10 @@
 		9B82E81A221EE0A700B84486 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				9B82E81B221EE0BF00B84486 /* Buttons.swift */,
+				9B82E81B221EE0BF00B84486 /* FloatingButton.swift */,
 				9B82E822221EE9C500B84486 /* FloatingMenu.swift */,
 				9BD28D942224253800B9661A /* ErrorView.swift */,
+				9BD28D9C22244DA600B9661A /* RoundShadowButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			children = (
 				9BA4984B221B52A7007B37B3 /* DateExtensions.swift */,
 				9B82E824221F1C6000B84486 /* ViewExtensions.swift */,
+				9BD28D9A22244CC000B9661A /* ButtonExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -519,13 +525,15 @@
 				9B8C9A26221B4D8A00709385 /* MoviesModels.swift in Sources */,
 				9BD28D952224253800B9661A /* ErrorView.swift in Sources */,
 				9BD28D912224192600B9661A /* Movie.swift in Sources */,
-				9B82E81C221EE0BF00B84486 /* Buttons.swift in Sources */,
+				9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */,
 				9B25C6C0222088C200338D41 /* SingleMovieInteractor.swift in Sources */,
 				9B25C6BA2220680A00338D41 /* GenericDAOImpl.swift in Sources */,
 				9B8C99E8221B48D900709385 /* AppDelegate.swift in Sources */,
 				9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */,
+				9BD28D9B22244CC000B9661A /* ButtonExtensions.swift in Sources */,
 				9B8C9A24221B4D8A00709385 /* MovieService.swift in Sources */,
 				9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */,
+				9BD28D9D22244DA600B9661A /* RoundShadowButton.swift in Sources */,
 				9B25C6BE2220824D00338D41 /* GenericDAO.swift in Sources */,
 				9B82E825221F1C6000B84486 /* ViewExtensions.swift in Sources */,
 				9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */,
