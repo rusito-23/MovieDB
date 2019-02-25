@@ -30,6 +30,8 @@ class SingleMovieViewController: UIViewController {
   @IBOutlet weak var titleView: UITextView!
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
+  @IBOutlet weak var errorView: ErrorView!
+  @IBOutlet weak var contentView: UIView!
   
   // MARK: Object lifecycle
   
@@ -65,7 +67,6 @@ class SingleMovieViewController: UIViewController {
 }
 
 // MARK: protocol implementation
-// TODO: implementar en serio esto
 extension SingleMovieViewController: SingleMovieDisplay {
   
   func displayMovie(_ movie: Movies.ViewModel) {
@@ -76,7 +77,11 @@ extension SingleMovieViewController: SingleMovieDisplay {
   }
   
   func displayError(_ msg: String) {
-    print("SingleMovieController Error: \(msg)")
+    self.titleView.isHidden = true
+    self.descriptionView.isHidden = true
+    
+    self.errorView.errorMessage.text = msg
+    self.errorView.isHidden = false
   }
   
 }
