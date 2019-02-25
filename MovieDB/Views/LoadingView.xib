@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingView" customModule="MovieDB" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="h9H-92-jm2"/>
+                <outlet property="loadingView" destination="snr-JB-0up" id="CQt-UB-8c4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snr-JB-0up" customClass="LOTAnimationView">
+                    <rect key="frame" x="127.5" y="285" width="120" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="S7f-qz-kKd"/>
+                        <constraint firstAttribute="height" constant="120" id="lMo-73-FsZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="snr-JB-0up" secondAttribute="trailing" constant="127.5" id="3iO-nr-38y"/>
+                <constraint firstItem="snr-JB-0up" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="265" id="5VM-94-OSk"/>
+                <constraint firstItem="snr-JB-0up" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6fz-eF-vnZ"/>
+                <constraint firstItem="snr-JB-0up" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="127.5" id="zcg-cm-kI2"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40000000000001" y="152.47376311844079"/>
+        </view>
+    </objects>
+</document>

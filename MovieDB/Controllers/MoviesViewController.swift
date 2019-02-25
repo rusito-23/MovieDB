@@ -24,8 +24,9 @@ class MoviesViewController: UIViewController
 
   // MARK: outlets
   
-  @IBOutlet weak var errorView: ErrorView!
-  @IBOutlet weak var moviesTableView: UITableView!
+  @IBOutlet private weak var errorView: ErrorView!
+  @IBOutlet private weak var moviesTableView: UITableView!
+  @IBOutlet private weak var loadingView: LoadingView!
   
   // MARK: Object lifecycle
   
@@ -43,8 +44,7 @@ class MoviesViewController: UIViewController
   
   // MARK: Setup
   
-  private func setup()
-  {
+  private func setup() {
     let interactor = MoviesInteractor()
     let presenter = MoviesPresenter()
     self.interactor = interactor
@@ -54,8 +54,7 @@ class MoviesViewController: UIViewController
   
   // MARK: Routing
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.destination is SingleMovieViewController {
       let vc = segue.destination as? SingleMovieViewController
       vc?.id = self.selectedMovie
@@ -64,10 +63,17 @@ class MoviesViewController: UIViewController
   
   // MARK: View lifecycle
   
-  override func viewDidLoad()
-  {
+  override func viewDidLoad() {
     super.viewDidLoad()
     refreshMovies()
+  }
+  
+  func loading(_ run: Bool) {
+    if run {
+      self.loadingView.isHidden = false
+    } else {
+      self.loadingView.isHidden = true
+    }
   }
   
   // MARK: fetch movies
@@ -75,8 +81,8 @@ class MoviesViewController: UIViewController
   var movies: [Movies.ViewModel] = []
   var selectedMovie: Int?
   
-  func refreshMovies()
-  {
+  func refreshMovies() {
+    loading(true)
     interactor?.findMovies()
   }
   
@@ -98,6 +104,7 @@ extension MoviesViewController: MoviesDisplayLogic {
   
   func displayMovies(movies: [Movies.ViewModel])
   {
+    loading(false)
     self.movies = movies
     self.moviesTableView.reloadData()
   }
