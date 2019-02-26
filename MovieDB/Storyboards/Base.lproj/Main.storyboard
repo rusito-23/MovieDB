@@ -160,7 +160,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sbb-uS-hgx" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                                         <subviews>
                                             <textView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="MOVIE TITLE" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdu-gj-7dC">
                                                 <rect key="frame" x="8" y="8" width="359" height="39"/>
@@ -184,6 +184,7 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.51764705879999995" green="0.1058823529" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ioG-dj-GIV" secondAttribute="bottom" constant="16" id="AJB-cW-9Hm"/>
                                             <constraint firstItem="eyR-gO-HDK" firstAttribute="top" secondItem="Fdu-gj-7dC" secondAttribute="bottom" constant="8" id="B1P-Zl-n5G"/>
                                             <constraint firstItem="Fdu-gj-7dC" firstAttribute="leading" secondItem="Sbb-uS-hgx" secondAttribute="leading" constant="8" id="Bg6-sz-uog"/>
                                             <constraint firstAttribute="trailing" secondItem="eyR-gO-HDK" secondAttribute="trailing" constant="8" id="JQW-td-xU3"/>
@@ -191,18 +192,18 @@
                                             <constraint firstAttribute="trailing" secondItem="Fdu-gj-7dC" secondAttribute="trailing" constant="8" id="Vr9-da-8jf"/>
                                             <constraint firstItem="eyR-gO-HDK" firstAttribute="leading" secondItem="Sbb-uS-hgx" secondAttribute="leading" constant="8" id="YUD-VH-NVw"/>
                                             <constraint firstItem="ioG-dj-GIV" firstAttribute="leading" secondItem="Sbb-uS-hgx" secondAttribute="leading" constant="8" id="fbC-IW-R2a"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="450" id="gAB-Xu-MP9"/>
                                             <constraint firstItem="ioG-dj-GIV" firstAttribute="top" secondItem="eyR-gO-HDK" secondAttribute="bottom" constant="8" id="mCb-wh-OzT"/>
                                             <constraint firstAttribute="trailing" secondItem="ioG-dj-GIV" secondAttribute="trailing" constant="8" id="o7p-6h-rDM"/>
-                                            <constraint firstAttribute="height" constant="800" id="yHr-jx-tYm"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.51764705879999995" green="0.1058823529" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Sbb-uS-hgx" secondAttribute="trailing" id="Jbe-5o-2Hj"/>
-                                    <constraint firstItem="Sbb-uS-hgx" firstAttribute="leading" secondItem="U7q-H4-sls" secondAttribute="leading" id="K0X-NS-M6Y"/>
-                                    <constraint firstItem="Sbb-uS-hgx" firstAttribute="top" secondItem="U7q-H4-sls" secondAttribute="top" id="euW-Sw-ctU"/>
-                                    <constraint firstAttribute="bottom" secondItem="Sbb-uS-hgx" secondAttribute="bottom" id="tul-wn-qBj"/>
+                                    <constraint firstItem="Sbb-uS-hgx" firstAttribute="leading" secondItem="U7q-H4-sls" secondAttribute="leading" id="UzR-25-vMa"/>
+                                    <constraint firstItem="Sbb-uS-hgx" firstAttribute="top" secondItem="U7q-H4-sls" secondAttribute="top" id="Y7u-gD-MEn"/>
+                                    <constraint firstAttribute="bottom" secondItem="Sbb-uS-hgx" secondAttribute="bottom" id="p4m-DG-hPE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sbb-uS-hgx" secondAttribute="trailing" id="yzV-aT-dxJ"/>
                                 </constraints>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GmN-e6-yZ0" customClass="ErrorView" customModule="MovieDB" customModuleProvider="target">
