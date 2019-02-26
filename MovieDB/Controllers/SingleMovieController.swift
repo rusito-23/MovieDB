@@ -63,24 +63,34 @@ class SingleMovieViewController: UIViewController {
   override func viewDidLoad() {
     self.posterView.contentMode = .scaleAspectFit
     self.interactor?.find(by: self.id)
-    self.prepareSwipeGestureDown()
+    self.prepareLongPress()
   }
   
   //  MARK: UI Logic
+  // TODO: this could belong to another class??
   
-  func prepareSwipeGestureDown() {
+  func prepareLongPress() {
     self.scrollView.canCancelContentTouches = false
     
-    let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(onSwipeDown))
-    swipeDown.direction = .down
-    self.contentView.addGestureRecognizer(swipeDown)
-  }
+    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress))
+    longPress.minimumPressDuration = 0.2
+    longPress.delegate = self
 
-  @objc func onSwipeDown() {
-    print("Swipedown")
-    self.performSegue(withIdentifier: "UnwindSegue", sender: self)
+    self.posterView.addGestureRecognizer(longPress)
   }
   
+  @objc func onLongPress(_ sender: UILongPressGestureRecognizer) {
+    
+    if (sender.state != .ended) {
+      
+      self.posterView.center = sender.location(in: self.view)
+
+    } else {
+      self.performSegue(withIdentifier: "UnwindSegue", sender: self)
+    }
+    
+  }
+
 }
 
 // MARK: protocol implementation
@@ -99,5 +109,12 @@ extension SingleMovieViewController: SingleMovieDisplay {
     self.errorView.errorMessage.text = msg
     self.errorView.isHidden = false
   }
+  
+}
+
+
+extension SingleMovieViewController: UIGestureRecognizerDelegate {
+  
+  
   
 }
