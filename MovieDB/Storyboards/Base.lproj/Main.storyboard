@@ -226,6 +226,7 @@
                         <outlet property="descriptionView" destination="eyR-gO-HDK" id="wd4-mS-GVC"/>
                         <outlet property="errorView" destination="GmN-e6-yZ0" id="d5w-7I-Iq8"/>
                         <outlet property="posterView" destination="ioG-dj-GIV" id="GtL-fD-DUZ"/>
+                        <outlet property="scrollView" destination="U7q-H4-sls" id="qQ9-Uq-Yjf"/>
                         <outlet property="titleView" destination="Fdu-gj-7dC" id="qgo-MK-Xbw"/>
                     </connections>
                 </viewController>

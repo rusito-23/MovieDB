@@ -32,6 +32,7 @@ class SingleMovieViewController: UIViewController {
   @IBOutlet weak var posterView: UIImageView!
   @IBOutlet weak var errorView: ErrorView!
   @IBOutlet weak var contentView: UIView!
+  @IBOutlet weak var scrollView: UIScrollView!
   
   // MARK: Object lifecycle
   
@@ -73,7 +74,6 @@ extension SingleMovieViewController: SingleMovieDisplay {
     titleView.text = movie.title
     descriptionView.text = movie.overview
     posterView.image = movie.poster
-    
   }
   
   func displayError(_ msg: String) {
