@@ -12,7 +12,7 @@ import UIKit
 class MovieCell: UITableViewCell {
   
   // MARK: Outlets
-  @IBOutlet weak var titleView: UITextView!
+  @IBOutlet weak var titleView: UILabel!
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
 
@@ -23,7 +23,6 @@ class MovieCell: UITableViewCell {
 
     // show three dots on truncated text
     self.descriptionView.textContainer.lineBreakMode = .byTruncatingTail
-    self.titleView.textContainer.lineBreakMode = .byTruncatingTail
   }
   
 }

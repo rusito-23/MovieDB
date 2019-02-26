@@ -35,6 +35,7 @@
 		9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B922B19221C9184007E8AE7 /* SingleMovieController.swift */; };
 		9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984B221B52A7007B37B3 /* DateExtensions.swift */; };
 		9BA4984F221C4331007B37B3 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984E221C4331007B37B3 /* MovieCell.swift */; };
+		9BA4C56222258A43004FC90D /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4C56122258A42004FC90D /* MovieCell.xib */; };
 		9BD19EFA2224698300DA094B /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD19EF92224698000DA094B /* Lottie.framework */; };
 		9BD19EFB2224699C00DA094B /* Lottie.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9BD19EF92224698000DA094B /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9BD19EFF2224732500DA094B /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BD19EFE2224732500DA094B /* loading.json */; };
@@ -116,6 +117,7 @@
 		9B922B19221C9184007E8AE7 /* SingleMovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMovieController.swift; sourceTree = "<group>"; };
 		9BA4984B221B52A7007B37B3 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9BA4984E221C4331007B37B3 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		9BA4C56122258A42004FC90D /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		9BD19EF92224698000DA094B /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		9BD19EFE2224732500DA094B /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		9BD28D8E22208BA400B9661A /* SingleMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMoviePresenter.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				9BA4984E221C4331007B37B3 /* MovieCell.swift */,
+				9BA4C56122258A42004FC90D /* MovieCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				9BD28DA62224633100B9661A /* LoadingView.xib in Resources */,
 				9BD19EFF2224732500DA094B /* loading.json in Resources */,
 				9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */,
+				9BA4C56222258A43004FC90D /* MovieCell.xib in Resources */,
 				9BD28D93222423DB00B9661A /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

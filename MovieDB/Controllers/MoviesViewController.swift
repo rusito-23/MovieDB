@@ -65,6 +65,7 @@ class MoviesViewController: UIViewController
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    prepareNib()
     refreshMovies()
   }
   
@@ -131,6 +132,17 @@ extension MoviesViewController: UITableViewDataSource {
 }
 
 extension MoviesViewController: UITableViewDelegate {
+  
+  // register nib file for cell view
+  func prepareNib() {
+    let nib = UINib.init(nibName: "MovieCell", bundle: nil)
+    self.moviesTableView.register(nib, forCellReuseIdentifier: "MovieCell")
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 200
+  }
+
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let movie = self.movies[indexPath.row]
     self.displayMovie(movie)
