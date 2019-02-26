@@ -77,7 +77,7 @@ class MoviesViewController: UIViewController
     }
   }
   
-  // MARK: fetch movies
+  // MARK: fetch movies and selection
   
   var movies: [Movies.ViewModel] = []
   var selectedMovie: Int?
@@ -87,8 +87,7 @@ class MoviesViewController: UIViewController
     interactor?.findMovies()
   }
   
-
-  func displayMovie(_ movie: Movies.ViewModel) {
+  func didSelectMovie(_ movie: Movies.ViewModel) {
     self.selectedMovie = movie.id
     self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
   }
@@ -124,7 +123,6 @@ extension MoviesViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
     let movie = self.movies[indexPath.row]
     
-    cell.selectionStyle = .none
     cell.populate(with: movie)
     return cell
   }
@@ -140,11 +138,11 @@ extension MoviesViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 200
+    return 200 // this number comes from the loaded nib height
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let movie = self.movies[indexPath.row]
-    self.displayMovie(movie)
+    self.didSelectMovie(movie)
   }
 }

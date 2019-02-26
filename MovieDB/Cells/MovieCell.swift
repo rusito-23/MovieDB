@@ -17,6 +17,8 @@ class MovieCell: UITableViewCell {
   @IBOutlet weak var posterView: UIImageView!
 
   func populate(with movie: Movies.ViewModel) {
+    self.selectionStyle = .none
+    
     self.titleView.text = movie.title
     self.descriptionView.text = movie.overview
     self.posterView.image = movie.poster
