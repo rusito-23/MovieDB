@@ -61,6 +61,10 @@ class MoviesViewController: UIViewController
     }
   }
   
+  @IBAction func unwindSingleMovie(segue: UIStoryboardSegue) {
+    print("unwindSingleMovie")
+  }
+  
   // MARK: View lifecycle
   
   override func viewDidLoad() {
@@ -91,6 +95,7 @@ class MoviesViewController: UIViewController
     self.selectedMovie = movie.id
     self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
   }
+  
 }
 
 // MARK: extensions for MoviesDisplayLogic

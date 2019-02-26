@@ -61,8 +61,24 @@ class SingleMovieViewController: UIViewController {
 
   // MARK: view lifecycle
   override func viewDidLoad() {
-    posterView.contentMode = .scaleAspectFit
+    self.posterView.contentMode = .scaleAspectFit
     self.interactor?.find(by: self.id)
+    self.prepareSwipeGestureDown()
+  }
+  
+  //  MARK: UI Logic
+  
+  func prepareSwipeGestureDown() {
+    self.scrollView.canCancelContentTouches = false
+    
+    let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(onSwipeDown))
+    swipeDown.direction = .down
+    self.contentView.addGestureRecognizer(swipeDown)
+  }
+
+  @objc func onSwipeDown() {
+    print("Swipedown")
+    self.performSegue(withIdentifier: "UnwindSegue", sender: self)
   }
   
 }
