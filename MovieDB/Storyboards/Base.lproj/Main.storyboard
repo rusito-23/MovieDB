@@ -35,14 +35,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popcorn" translatesAutoresizingMaskIntoConstraints="NO" id="xgn-1g-MJF">
-                                <rect key="frame" x="137" y="252" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="5ib-ux-t8J"/>
                                     <constraint firstAttribute="height" constant="100" id="lUX-UG-gep"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MovieDB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yeg-GW-qdj">
-                                <rect key="frame" x="16" y="80" width="343" height="45"/>
+                                <rect key="frame" x="16" y="80" width="343" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -71,14 +71,12 @@
                         <constraints>
                             <constraint firstItem="0Cs-kn-2nV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="4wT-rR-0f2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yeg-GW-qdj" secondAttribute="trailing" constant="16" id="8CV-yk-Nso"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xgn-1g-MJF" secondAttribute="trailing" constant="138" id="8sC-TV-4WY"/>
+                            <constraint firstItem="xgn-1g-MJF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PxL-SS-M21"/>
                             <constraint firstItem="Yeg-GW-qdj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Ta2-1y-142"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0Cs-kn-2nV" secondAttribute="bottom" constant="20" id="Vtb-JU-CX7"/>
-                            <constraint firstItem="xgn-1g-MJF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137" id="aLr-JR-zqI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Cs-kn-2nV" secondAttribute="trailing" constant="16" id="cnS-gq-Ddn"/>
-                            <constraint firstItem="0Cs-kn-2nV" firstAttribute="top" secondItem="xgn-1g-MJF" secondAttribute="bottom" constant="245" id="mFG-PR-8nw"/>
+                            <constraint firstItem="xgn-1g-MJF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="g1j-bH-G06"/>
                             <constraint firstItem="Yeg-GW-qdj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="soj-SZ-O5t"/>
-                            <constraint firstItem="xgn-1g-MJF" firstAttribute="top" secondItem="Yeg-GW-qdj" secondAttribute="bottom" constant="127" id="t5p-CQ-dXK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
