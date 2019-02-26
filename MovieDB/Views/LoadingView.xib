@@ -21,18 +21,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snr-JB-0up" customClass="LOTAnimationView">
-                    <rect key="frame" x="127.5" y="285" width="120" height="120"/>
+                    <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="120" id="S7f-qz-kKd"/>
-                        <constraint firstAttribute="height" constant="120" id="lMo-73-FsZ"/>
+                        <constraint firstAttribute="width" constant="100" id="D5E-X2-NB8"/>
+                        <constraint firstAttribute="height" constant="100" id="IhQ-xX-3ep"/>
                     </constraints>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="snr-JB-0up" secondAttribute="trailing" constant="127.5" id="3iO-nr-38y"/>
-                <constraint firstItem="snr-JB-0up" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="265" id="5VM-94-OSk"/>
-                <constraint firstItem="snr-JB-0up" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6fz-eF-vnZ"/>
-                <constraint firstItem="snr-JB-0up" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="127.5" id="zcg-cm-kI2"/>
+                <constraint firstItem="snr-JB-0up" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BW4-Hd-QJ6"/>
+                <constraint firstItem="snr-JB-0up" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GYC-Ku-QjL"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="138.40000000000001" y="152.47376311844079"/>

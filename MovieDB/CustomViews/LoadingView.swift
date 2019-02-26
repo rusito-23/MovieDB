@@ -33,7 +33,8 @@ class LoadingView: UIView {
   private func loadBundle() {
     Bundle.main.loadNibNamed("LoadingView", owner: self, options: nil)
     addSubview(contentView)
-    contentView.translatesAutoresizingMaskIntoConstraints = false
+    contentView.frame = self.bounds
+    contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
   }
   
   private func loadAnimation() {
