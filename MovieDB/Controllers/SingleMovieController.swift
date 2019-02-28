@@ -31,6 +31,7 @@ class SingleMovieViewController: UIViewController {
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
   @IBOutlet weak var errorView: ErrorView!
+  var loadingView: LoadingView = LoadingView()
 
   // MARK: Object lifecycle
   
@@ -59,44 +60,34 @@ class SingleMovieViewController: UIViewController {
 
   // MARK: view lifecycle
   override func viewDidLoad() {
+    loading(true)
     self.interactor?.find(by: self.id)
-    self.prepareLongPress()
   }
   
-  //  MARK: UI Logic
-  // TODO: this could belong to another class??
-  
-  func prepareLongPress() {
-    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress))
-    longPress.minimumPressDuration = 0.2
-
-    self.posterView.addGestureRecognizer(longPress)
-  }
-  
-  @objc func onLongPress(_ sender: UILongPressGestureRecognizer) {
-    
-    if (sender.state != .ended) {
-      
-      self.posterView.center = sender.location(in: self.view)
-
+  func loading(_ run: Bool) {
+    if run {
+      loadingView.setupWithSuperView(self.view)
     } else {
-      self.performSegue(withIdentifier: "UnwindSegue", sender: self)
+      loadingView.removeFromSuperview()
     }
-    
   }
-
+  
 }
 
 // MARK: protocol implementation
 extension SingleMovieViewController: SingleMovieDisplay {
   
   func displayMovie(_ movie: Movies.ViewModel) {
+    loading(false)
+    
     titleView.text = movie.title
     descriptionView.text = movie.overview
     posterView.image = movie.poster
   }
   
   func displayError(_ msg: String) {
+    loading(false)
+    
     self.titleView.isHidden = true
     self.descriptionView.isHidden = true
     

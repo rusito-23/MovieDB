@@ -28,6 +28,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <color key="backgroundColor" red="0.51764705879999995" green="0.1058823529" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="snr-JB-0up" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BW4-Hd-QJ6"/>
                 <constraint firstItem="snr-JB-0up" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GYC-Ku-QjL"/>

@@ -43,5 +43,10 @@ class LoadingView: UIView {
     loadingView.play()
   }
   
+  public func setupWithSuperView(_ superView: UIView) {
+    self.frame.size = superView.frame.size
+    superView.addSubview(self)
+  }
+  
 
 }
