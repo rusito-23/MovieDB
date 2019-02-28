@@ -11,12 +11,14 @@ import UIKit
 import RealmSwift
 
 // MARK: REALM object
+
 class Movie: Object {
   @objc dynamic var id: Int = 0
   @objc dynamic var title: String?
   @objc dynamic var overview: String?
   @objc dynamic var releaseDate: Date?
   @objc dynamic var posterUrl: String?
+  @objc dynamic var backDropPath: String?
   
   override static func primaryKey() -> String? {
     return "id"
@@ -30,6 +32,7 @@ class Movie: Object {
       let title = json["title"] as? String,
       let description = json["overview"] as? String,
       let releaseDateString = json["release_date"] as? String,
+      let backDropPath = json["backdrop_path"] as? String,
       let posterUrl = json["poster_path"] as? String else {
         print("error al parsear la pelicula: ")
         print(json)
@@ -41,6 +44,7 @@ class Movie: Object {
     self.overview = description
     self.releaseDate = Date(string: releaseDateString, format: .snakeFormat)
     self.posterUrl = posterUrl
+    self.backDropPath = backDropPath
   }
   
   func asViewModel(with poster: UIImage?) -> Movies.ViewModel {

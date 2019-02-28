@@ -25,7 +25,7 @@ class SingleMovieInteractor: SingleMovieBusiness {
       return
     }
     
-    movieService.fetchPoster(for: movie, completion: { [weak self] (_ poster: UIImage!) in
+    movieService.fetchBackDrop(for: movie, completion: { [weak self] (_ poster: UIImage!) in
       guard let `self` = self else { return }
       
       let viewModel = movie.asViewModel(with: poster)

@@ -78,12 +78,23 @@ class MovieService {
     
   }
   
+  func fetchBackDrop(for movie: Movie, completion: @escaping (UIImage?) -> Void) {
+    guard let url = createUrl(for: .poster, with: movie.backDropPath) else {
+      completion(nil)
+      return
+    }
+    fetchImage(with: url, completion: completion)
+  }
+
   func fetchPoster(for movie: Movie, completion: @escaping (UIImage?) -> Void) {
     guard let url = createUrl(for: .poster, with: movie.posterUrl) else {
       completion(nil)
       return
     }
+    fetchImage(with: url, completion: completion)
+  }
     
+  private func fetchImage(with url: URL, completion: @escaping (UIImage?) -> Void) {
     Alamofire.request(url, method: .get)
       .validate()
       .responseData(completionHandler: { (responseData) in
@@ -93,7 +104,6 @@ class MovieService {
         }
         completion(image)
       })
-    
   }
   
 }

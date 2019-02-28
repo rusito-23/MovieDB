@@ -27,13 +27,11 @@ class SingleMovieViewController: UIViewController {
   var id: Int?
 
   // MARK: Outlets
-  @IBOutlet weak var titleView: UITextView!
+  @IBOutlet weak var titleView: UILabel!
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
   @IBOutlet weak var errorView: ErrorView!
-  @IBOutlet weak var contentView: UIView!
-  @IBOutlet weak var scrollView: UIScrollView!
-  
+
   // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -61,7 +59,6 @@ class SingleMovieViewController: UIViewController {
 
   // MARK: view lifecycle
   override func viewDidLoad() {
-    self.posterView.contentMode = .scaleAspectFit
     self.interactor?.find(by: self.id)
     self.prepareLongPress()
   }
@@ -70,11 +67,8 @@ class SingleMovieViewController: UIViewController {
   // TODO: this could belong to another class??
   
   func prepareLongPress() {
-    self.scrollView.canCancelContentTouches = false
-    
     let longPress = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress))
     longPress.minimumPressDuration = 0.2
-    longPress.delegate = self
 
     self.posterView.addGestureRecognizer(longPress)
   }
@@ -109,12 +103,5 @@ extension SingleMovieViewController: SingleMovieDisplay {
     self.errorView.errorMessage.text = msg
     self.errorView.isHidden = false
   }
-  
-}
-
-
-extension SingleMovieViewController: UIGestureRecognizerDelegate {
-  
-  
   
 }
