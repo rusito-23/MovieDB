@@ -28,7 +28,7 @@ class SingleMovieInteractor: SingleMovieBusiness {
     movieService.fetchBackDrop(for: movie, completion: { [weak self] (_ poster: UIImage!) in
       guard let `self` = self else { return }
 
-      let viewModel = movie.asViewModel(with: poster)
+      let viewModel = movie.asViewModel(poster: poster)
       self.presenter?.present(viewModel)
     })
     

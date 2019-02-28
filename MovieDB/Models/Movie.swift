@@ -47,7 +47,7 @@ class Movie: Object {
     self.backDropPath = backDropPath
   }
   
-  func asViewModel(with poster: UIImage?) -> Movies.ViewModel {
+  func asViewModel(poster: UIImage?) -> Movies.ViewModel {
     var viewModel = Movies.ViewModel()
     viewModel.id = self.id
     viewModel.title = self.title

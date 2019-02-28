@@ -53,7 +53,15 @@ class MoviesInteractor: MoviesBusinessLogic
   }
 
   // MARK: common methods for Service and DB responses
+  
+  // present without posters, currently used
+  func presentWithoutPosters(for movies: [Movie]) {
+    let viewModels: [Movies.ViewModel] = movies.map { $0.asViewModel(poster: nil) }
+    self.presenter?.presentMovies(viewModels)
+  }
+  
   // populate posters and send movies to presenter
+  // currently unused
   func populateWithPostersAndPresent(for movies: [Movie]) {
     print("Start poster fetch")
     let dispatchGroup = DispatchGroup()
@@ -62,7 +70,7 @@ class MoviesInteractor: MoviesBusinessLogic
     for movie in movies {
       dispatchGroup.enter()
       movieService?.fetchPoster(for: movie, completion: { (_ poster: UIImage?) -> Void in
-        viewModels.append(movie.asViewModel(with: poster))
+        viewModels.append(movie.asViewModel(poster: poster))
         dispatchGroup.leave()
       })
     }

@@ -48,6 +48,8 @@
 		9BD28D9D22244DA600B9661A /* RoundShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD28D9C22244DA600B9661A /* RoundShadowButton.swift */; };
 		9BD28DA62224633100B9661A /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD28DA52224633100B9661A /* LoadingView.xib */; };
 		9BD28DA8222463C400B9661A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD28DA7222463C400B9661A /* LoadingView.swift */; };
+		9BE7BA612228810700CF69CD /* MovieCellInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE7BA602228810700CF69CD /* MovieCellInteractor.swift */; };
+		9BE7BA632228828700CF69CD /* MovieCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE7BA622228828700CF69CD /* MovieCellPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,8 @@
 		9BD28D9C22244DA600B9661A /* RoundShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowButton.swift; sourceTree = "<group>"; };
 		9BD28DA52224633100B9661A /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		9BD28DA7222463C400B9661A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		9BE7BA602228810700CF69CD /* MovieCellInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCellInteractor.swift; sourceTree = "<group>"; };
+		9BE7BA622228828700CF69CD /* MovieCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +294,7 @@
 		9B8C9A18221B4D3600709385 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				9BE7BA602228810700CF69CD /* MovieCellInteractor.swift */,
 				9B8C9A22221B4D8A00709385 /* MoviesInteractor.swift */,
 				9B25C6BF222088C200338D41 /* SingleMovieInteractor.swift */,
 			);
@@ -318,6 +323,7 @@
 			children = (
 				9B8C9A1D221B4D8A00709385 /* MoviesPresenter.swift */,
 				9BD28D8E22208BA400B9661A /* SingleMoviePresenter.swift */,
+				9BE7BA622228828700CF69CD /* MovieCellPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -568,6 +574,7 @@
 				9BD28D912224192600B9661A /* Movie.swift in Sources */,
 				9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */,
 				9B25C6C0222088C200338D41 /* SingleMovieInteractor.swift in Sources */,
+				9BE7BA612228810700CF69CD /* MovieCellInteractor.swift in Sources */,
 				9B25C6BA2220680A00338D41 /* GenericDAOImpl.swift in Sources */,
 				9B8C99E8221B48D900709385 /* AppDelegate.swift in Sources */,
 				9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */,
@@ -583,6 +590,7 @@
 				9B8C9A23221B4D8A00709385 /* MoviesPresenter.swift in Sources */,
 				9BA4984F221C4331007B37B3 /* MovieCell.swift in Sources */,
 				9B8C9A28221B4D8A00709385 /* MoviesInteractor.swift in Sources */,
+				9BE7BA632228828700CF69CD /* MovieCellPresenter.swift in Sources */,
 				9BD28D8F22208BA400B9661A /* SingleMoviePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
