@@ -30,8 +30,8 @@ class SingleMovieViewController: UIViewController {
   @IBOutlet weak var titleView: UILabel!
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
-  @IBOutlet weak var errorView: ErrorView!
-  var loadingView: LoadingView = LoadingView()
+  let errorView = ErrorView()
+  let loadingView = LoadingView()
 
   // MARK: Object lifecycle
   
@@ -87,12 +87,8 @@ extension SingleMovieViewController: SingleMovieDisplay {
   
   func displayError(_ msg: String) {
     loading(false)
-    
-    self.titleView.isHidden = true
-    self.descriptionView.isHidden = true
-    
     self.errorView.errorMessage.text = msg
-    self.errorView.isHidden = false
+    self.errorView.setupForSuperView(self.view)
   }
   
 }

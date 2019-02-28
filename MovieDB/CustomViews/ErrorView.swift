@@ -36,5 +36,14 @@ class ErrorView: UIView {
     contentView.frame = self.bounds
     contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
   }
+  
+  func setupForSuperView(_ superView: UIView) {
+    
+    // setup size
+    self.frame.size = superView.frame.size
+
+    // add to superView
+    superView.addSubview(self)
+  }
 
 }

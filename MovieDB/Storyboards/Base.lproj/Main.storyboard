@@ -116,30 +116,17 @@
                                     <outlet property="delegate" destination="VtA-Xt-7pm" id="49b-bL-NLX"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJc-iK-lLj" customClass="ErrorView" customModule="MovieDB" customModuleProvider="target">
-                                <rect key="frame" x="48" y="311" width="279" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pNw-nU-eXk" customClass="LoadingView" customModule="MovieDB" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.12023770070000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="lit-uw-VM4" firstAttribute="trailing" secondItem="7AK-lo-2kf" secondAttribute="trailing" id="Hmm-ts-Jbq"/>
-                            <constraint firstItem="pNw-nU-eXk" firstAttribute="top" secondItem="lit-uw-VM4" secondAttribute="top" id="PFN-wH-wgR"/>
                             <constraint firstItem="7AK-lo-2kf" firstAttribute="bottom" secondItem="lit-uw-VM4" secondAttribute="bottom" id="PQ8-W3-BhO"/>
-                            <constraint firstItem="pNw-nU-eXk" firstAttribute="trailing" secondItem="lit-uw-VM4" secondAttribute="trailing" id="SNq-Nh-apW"/>
-                            <constraint firstItem="pNw-nU-eXk" firstAttribute="bottom" secondItem="lit-uw-VM4" secondAttribute="bottom" id="epd-hZ-mD7"/>
-                            <constraint firstItem="pNw-nU-eXk" firstAttribute="leading" secondItem="lit-uw-VM4" secondAttribute="leading" id="gKB-u2-yxj"/>
                             <constraint firstItem="7AK-lo-2kf" firstAttribute="leading" secondItem="lit-uw-VM4" secondAttribute="leading" id="hTe-xv-xgH"/>
                             <constraint firstItem="7AK-lo-2kf" firstAttribute="top" secondItem="lit-uw-VM4" secondAttribute="top" id="uDH-DK-DAb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lit-uw-VM4"/>
                     </view>
                     <connections>
-                        <outlet property="errorView" destination="AJc-iK-lLj" id="WdM-Ug-FjI"/>
-                        <outlet property="loadingView" destination="pNw-nU-eXk" id="OZM-m2-tzl"/>
                         <outlet property="moviesTableView" destination="7AK-lo-2kf" id="qYN-rv-oGo"/>
                         <segue destination="Ipy-kV-kw8" kind="show" identifier="SingleMovieSegue" id="iYl-Nm-zxv"/>
                     </connections>
@@ -164,7 +151,7 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wg-Gd-l4x">
                                 <rect key="frame" x="16" y="310" width="343" height="337"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -175,17 +162,11 @@
                                     <constraint firstAttribute="height" constant="200" id="ffS-uY-eCH"/>
                                 </constraints>
                             </imageView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAo-vM-kPs" customClass="ErrorView" customModule="MovieDB" customModuleProvider="target">
-                                <rect key="frame" x="48" y="309" width="279" height="49"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.51764705879999995" green="0.1058823529" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zLr-3U-CAp" firstAttribute="trailing" secondItem="JQG-5I-MNz" secondAttribute="trailing" constant="16" id="1M8-S5-QTK"/>
                             <constraint firstItem="JQG-5I-MNz" firstAttribute="top" secondItem="rI4-fv-SRZ" secondAttribute="bottom" constant="8" id="6lM-mg-VFl"/>
-                            <constraint firstItem="MAo-vM-kPs" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" constant="48" id="OPZ-Nh-rGu"/>
-                            <constraint firstItem="MAo-vM-kPs" firstAttribute="centerY" secondItem="lEu-4p-HBv" secondAttribute="centerY" id="S0f-IT-PyE"/>
-                            <constraint firstItem="MAo-vM-kPs" firstAttribute="top" secondItem="JQG-5I-MNz" secondAttribute="bottom" constant="7" id="YnC-jc-2UZ"/>
                             <constraint firstItem="rI4-fv-SRZ" firstAttribute="trailing" secondItem="zLr-3U-CAp" secondAttribute="trailing" id="aoU-Cm-Imz"/>
                             <constraint firstItem="9Wg-Gd-l4x" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" constant="16" id="cPI-rP-f2W"/>
                             <constraint firstItem="rI4-fv-SRZ" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" id="cuB-Yn-8t3"/>
@@ -193,14 +174,12 @@
                             <constraint firstItem="zLr-3U-CAp" firstAttribute="trailing" secondItem="9Wg-Gd-l4x" secondAttribute="trailing" constant="16" id="hwp-4J-r8f"/>
                             <constraint firstItem="zLr-3U-CAp" firstAttribute="bottom" secondItem="9Wg-Gd-l4x" secondAttribute="bottom" constant="20" id="jtt-1W-FBm"/>
                             <constraint firstItem="JQG-5I-MNz" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" constant="16" id="pf0-Wu-FGp"/>
-                            <constraint firstItem="MAo-vM-kPs" firstAttribute="centerX" secondItem="lEu-4p-HBv" secondAttribute="centerX" id="qns-im-hgY"/>
                             <constraint firstItem="rI4-fv-SRZ" firstAttribute="top" secondItem="zLr-3U-CAp" secondAttribute="top" id="s7G-Oe-pXX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zLr-3U-CAp"/>
                     </view>
                     <connections>
                         <outlet property="descriptionView" destination="9Wg-Gd-l4x" id="0wj-59-TYB"/>
-                        <outlet property="errorView" destination="MAo-vM-kPs" id="A0f-Vr-FBi"/>
                         <outlet property="posterView" destination="rI4-fv-SRZ" id="kIL-40-0FV"/>
                         <outlet property="titleView" destination="JQG-5I-MNz" id="4it-xt-JKP"/>
                         <segue destination="6t6-BP-Kb2" kind="unwind" identifier="UnwindSegue" unwindAction="unwindSingleMovieWithSegue:" id="Bn8-CX-MG4"/>

@@ -24,10 +24,10 @@ class MoviesViewController: UIViewController
 
   // MARK: outlets
   
-  @IBOutlet private weak var errorView: ErrorView!
   @IBOutlet private weak var moviesTableView: UITableView!
-  @IBOutlet private weak var loadingView: LoadingView!
-  
+  let loadingView = LoadingView()
+  let errorView = ErrorView()
+
   // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -75,9 +75,9 @@ class MoviesViewController: UIViewController
   
   func loading(_ run: Bool) {
     if run {
-      self.loadingView.isHidden = false
+      loadingView.setupWithSuperView(self.view)
     } else {
-      self.loadingView.isHidden = true
+      loadingView.removeFromSuperview()
     }
   }
   
@@ -103,8 +103,9 @@ class MoviesViewController: UIViewController
 extension MoviesViewController: MoviesDisplayLogic {
   
   func displayError(_ msg: String) {
-    self.errorView.isHidden = false
-    self.errorView.errorMessage.text = msg
+    loading(false)
+    errorView.errorMessage.text = msg
+    errorView.setupForSuperView(self.view)
   }
   
   func displayMovies(movies: [Movies.ViewModel])
