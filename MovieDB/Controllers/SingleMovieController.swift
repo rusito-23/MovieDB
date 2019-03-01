@@ -62,6 +62,14 @@ class SingleMovieViewController: UIViewController {
   override func viewDidLoad() {
     loading(true)
     self.interactor?.find(by: self.id)
+    
+    let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(back))
+    swipeDown.direction = .down
+    self.posterView.addGestureRecognizer(swipeDown)
+  }
+  
+  @objc func back() {
+    self.performSegue(withIdentifier: "UnwindSegue", sender: self)
   }
   
   func loading(_ run: Bool) {

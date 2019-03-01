@@ -16,14 +16,12 @@ class PosterSegue: UIStoryboardSegue {
     let moviesVC = self.source as! MoviesViewController
     let singleVC = self.destination as! SingleMovieViewController
     
-    let moviesView = moviesVC.view!
     let singleView = singleVC.view!
 
     let screenHeight = UIScreen.main.bounds.size.height
     
-    UIView.animate(withDuration: 0.4, animations: { () -> Void in
-      moviesView.frame = moviesView.frame.offsetBy(dx: 0.0, dy: -screenHeight)
-      singleView.frame = singleView.frame.offsetBy(dx: 0.0, dy: -screenHeight)
+    UIView.animate(withDuration: 1, animations: { () -> Void in
+      singleView.frame = singleView.frame.offsetBy(dx: 0.0, dy: -screenHeight * 0.5)
     }) { (Finished) -> Void in
       moviesVC.present(singleVC,
                        animated: false,
