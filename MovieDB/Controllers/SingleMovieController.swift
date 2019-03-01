@@ -63,6 +63,7 @@ class SingleMovieViewController: UIViewController {
     loading(true)
     self.interactor?.find(by: self.id)
     
+    // TODO: hacer que esto sea un PanGesture, para poder mover la imagen junto con el usuario
     let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(back))
     swipeDown.direction = .down
     self.posterView.addGestureRecognizer(swipeDown)
