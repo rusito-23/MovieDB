@@ -31,11 +31,11 @@ class MoviesInteractor: MoviesBusinessLogic
     let movies: [Movie] = movieDAO.findAll()
     if movies.count != 0 {
       // populate with db content
-      print("Finding from db")
+      logger.verbose("Finding from db")
       self.presentWithoutPosters(movies)
     } else {
       // bring the movies from the api
-      print("Fetching from Service")
+      logger.verbose("Fetching from Service")
       movieService?.findAll(completion: self.onMoviesFetched)
     }
   }
@@ -63,7 +63,7 @@ class MoviesInteractor: MoviesBusinessLogic
   // populate posters and send movies to presenter
   // currently unused
   func populateWithPostersAndPresent(_ movies: [Movie]) {
-    print("Start poster fetch")
+    logger.verbose("Start poster fetch")
     let dispatchGroup = DispatchGroup()
     
     var viewModels: [Movies.ViewModel] = []
@@ -77,7 +77,7 @@ class MoviesInteractor: MoviesBusinessLogic
     
     // wait for all images to be loaded
     dispatchGroup.notify(queue: .main) { [weak self] in
-      print("Finished fetching posters")
+      logger.verbose("Finished fetching posters")
       guard let `self` = self else { return }
       self.presenter?.presentMovies(viewModels)
     }

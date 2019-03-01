@@ -67,7 +67,7 @@ class MovieService {
         
         guard let value = response.result.value as? [String: Any],
           let movies = value["results"] as? [[String: Any]] else {
-            print("Malformed data received from findAllMovies service")
+            logger.error("Malformed data received from findAllMovies service")
             completion(nil)
             return
         }

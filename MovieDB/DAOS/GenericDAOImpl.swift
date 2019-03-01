@@ -19,7 +19,7 @@ class GenericDAOImpl <T:Object> : GenericDAO {
     do {
       realm = try Realm()
     } catch {
-      print("Error al inicializar Realm: \(error)")
+      logger.error("Error al inicializar Realm: \(error)")
     }
   }
 

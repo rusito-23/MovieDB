@@ -34,8 +34,7 @@ class Movie: Object {
       let releaseDateString = json["release_date"] as? String,
       let backDropPath = json["backdrop_path"] as? String,
       let posterUrl = json["poster_path"] as? String else {
-        print("error al parsear la pelicula: ")
-        print(json)
+        logger.error("Error parsing movie: \(json) ")
         return nil
     }
     

@@ -19,6 +19,9 @@
 		9B4A4A7C22296C0500B20399 /* MovieCellLoading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4A4A7B22296C0500B20399 /* MovieCellLoading.xib */; };
 		9B4A4A8022296D9C00B20399 /* MovieCellLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A4A7F22296D9B00B20399 /* MovieCellLoading.swift */; };
 		9B4A4A842229713E00B20399 /* poster_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B4A4A832229713E00B20399 /* poster_loading.json */; };
+		9B4A4A86222983E800B20399 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; };
+		9B4A4A882229861800B20399 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; };
+		9B4A4A892229861800B20399 /* SwiftyBeaver.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E81B221EE0BF00B84486 /* FloatingButton.swift */; };
 		9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82E81E221EE4B700B84486 /* FloatingMenu.xib */; };
 		9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E822221EE9C500B84486 /* FloatingMenu.swift */; };
@@ -79,6 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9B4A4A892229861800B20399 /* SwiftyBeaver.framework in CopyFiles */,
 				9BD19EFB2224699C00DA094B /* Lottie.framework in CopyFiles */,
 				9B25C6AF222044CC00338D41 /* Alamofire.framework in CopyFiles */,
 				9B25C6B1222044D200338D41 /* Realm.framework in CopyFiles */,
@@ -101,6 +105,7 @@
 		9B4A4A7B22296C0500B20399 /* MovieCellLoading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCellLoading.xib; sourceTree = "<group>"; };
 		9B4A4A7F22296D9B00B20399 /* MovieCellLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCellLoading.swift; sourceTree = "<group>"; };
 		9B4A4A832229713E00B20399 /* poster_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = poster_loading.json; sourceTree = "<group>"; };
+		9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		9B82E81B221EE0BF00B84486 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		9B82E81E221EE4B700B84486 /* FloatingMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingMenu.xib; sourceTree = "<group>"; };
 		9B82E822221EE9C500B84486 /* FloatingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
@@ -147,6 +152,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B4A4A86222983E800B20399 /* SwiftyBeaver.framework in Frameworks */,
+				9B4A4A882229861800B20399 /* SwiftyBeaver.framework in Frameworks */,
 				9B25C6AA2220443700338D41 /* Realm.framework in Frameworks */,
 				9BD19EFA2224698300DA094B /* Lottie.framework in Frameworks */,
 				9B25C6A82220442D00338D41 /* Alamofire.framework in Frameworks */,
@@ -174,6 +181,7 @@
 		11F3EE02BCE64716DA04C8C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */,
 				9BD19EF92224698000DA094B /* Lottie.framework */,
 				9B25C6AB2220444000338D41 /* RealmSwift.framework */,
 				9B25C6A92220443700338D41 /* Realm.framework */,

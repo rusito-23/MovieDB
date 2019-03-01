@@ -62,7 +62,7 @@ class MoviesViewController: UIViewController
   }
   
   @IBAction func unwindSingleMovie(segue: UIStoryboardSegue) {
-    print("unwindSingleMovie")
+    logger.verbose("unwindSingleMovie")
   }
   
   // MARK: View lifecycle

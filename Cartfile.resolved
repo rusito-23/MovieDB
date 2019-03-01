@@ -1,3 +1,4 @@
 github "Alamofire/Alamofire" "4.5.0"
+github "SwiftyBeaver/SwiftyBeaver" "1.6.2"
 github "airbnb/lottie-ios" "5a54b18137b3b03247138e929ac5760e1af7eadd"
 github "realm/realm-cocoa" "v3.13.1"
