@@ -9,12 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  
   @IBAction func exploreMovies(_ sender: Any) {
     self.performSegue(withIdentifier: "MoviesListSegue", sender: nil)
   }
