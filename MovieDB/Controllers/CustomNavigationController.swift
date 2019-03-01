@@ -22,6 +22,9 @@ class CustomNavigationController: UINavigationController, UINavigationController
   }
   
   func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    viewController.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "ic_arrow_back_white")
+    viewController.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "ic_arrow_back_white")
+    
     let item = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
     viewController.navigationItem.backBarButtonItem = item
   }

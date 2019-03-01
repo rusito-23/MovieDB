@@ -57,6 +57,10 @@ class SingleMovieViewController: UIViewController {
     interactor.presenter = presenter
     presenter.viewController = self
   }
+  
+  override var prefersStatusBarHidden: Bool {
+    return true
+  }
 
   // MARK: view lifecycle
   override func viewDidLoad() {

@@ -168,18 +168,31 @@
                                     <constraint firstAttribute="height" constant="300" id="bHT-zF-7Zg"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDG-y1-oov">
+                                <rect key="frame" x="16" y="20" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="2Vn-OR-yeE"/>
+                                    <constraint firstAttribute="width" constant="32" id="w7f-ld-bSG"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="ic_arrow_back_white"/>
+                                <connections>
+                                    <segue destination="6t6-BP-Kb2" kind="unwind" unwindAction="unwindSingleMovieWithSegue:" id="2cw-dN-v0o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.51764705879999995" green="0.1058823529" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zLr-3U-CAp" firstAttribute="trailing" secondItem="JQG-5I-MNz" secondAttribute="trailing" constant="16" id="1M8-S5-QTK"/>
                             <constraint firstItem="JQG-5I-MNz" firstAttribute="top" secondItem="rI4-fv-SRZ" secondAttribute="bottom" constant="8" id="6lM-mg-VFl"/>
                             <constraint firstItem="rI4-fv-SRZ" firstAttribute="top" secondItem="lEu-4p-HBv" secondAttribute="top" id="Jkh-Pd-GrH"/>
+                            <constraint firstItem="nDG-y1-oov" firstAttribute="top" secondItem="zLr-3U-CAp" secondAttribute="top" id="NkG-Zk-y4l"/>
                             <constraint firstItem="rI4-fv-SRZ" firstAttribute="trailing" secondItem="zLr-3U-CAp" secondAttribute="trailing" id="aoU-Cm-Imz"/>
                             <constraint firstItem="9Wg-Gd-l4x" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" constant="16" id="cPI-rP-f2W"/>
                             <constraint firstItem="rI4-fv-SRZ" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" id="cuB-Yn-8t3"/>
                             <constraint firstItem="9Wg-Gd-l4x" firstAttribute="top" secondItem="JQG-5I-MNz" secondAttribute="bottom" constant="8" id="hqh-LH-u9a"/>
                             <constraint firstItem="zLr-3U-CAp" firstAttribute="trailing" secondItem="9Wg-Gd-l4x" secondAttribute="trailing" constant="16" id="hwp-4J-r8f"/>
                             <constraint firstItem="zLr-3U-CAp" firstAttribute="bottom" secondItem="9Wg-Gd-l4x" secondAttribute="bottom" constant="20" id="jtt-1W-FBm"/>
+                            <constraint firstItem="nDG-y1-oov" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" constant="16" id="lTI-ut-v5L"/>
                             <constraint firstItem="JQG-5I-MNz" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" constant="16" id="pf0-Wu-FGp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zLr-3U-CAp"/>
@@ -198,6 +211,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_arrow_back_white" width="156.52174377441406" height="156.52174377441406"/>
         <image name="popcorn" width="160" height="160"/>
     </resources>
 </document>
