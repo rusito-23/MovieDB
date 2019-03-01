@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import Alamofire
 
 
 class MovieCell: UITableViewCell {
@@ -21,7 +21,7 @@ class MovieCell: UITableViewCell {
   
   //  MARK: SETUP
   var interactor: MovieCellInteractor?
-  
+
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setup()
@@ -59,15 +59,27 @@ class MovieCell: UITableViewCell {
     loadingPoster(false)
     self.posterView.image = poster
   }
-
+  
+  func cancelPoster() {
+    self.interactor?.cancelOldPoster()
+    self.posterView.image = nil
+  }
+  
+  // loading indicator handler
   var loadingView = MovieCellLoading()
   private func loadingPoster(_ run: Bool) {
     if run {
-      self.posterView.image = nil
+      cancelPoster()
       loadingView.setupWithSuperView(self.posterContainer)
     } else {
       loadingView.removeFromSuperview()
     }
+  }
+  
+  // prevent cell from loading the wrong image by canceling old request
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    loadingPoster(true)
   }
   
 

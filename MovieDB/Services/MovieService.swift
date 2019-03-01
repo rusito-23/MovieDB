@@ -78,24 +78,26 @@ class MovieService {
     
   }
   
+  // fetches the backDrop for a specific movie
   func fetchBackDrop(for movie: Movie, completion: @escaping (UIImage?) -> Void) {
     guard let url = createUrl(for: .poster, with: movie.backDropPath) else {
       completion(nil)
       return
     }
-    fetchImage(with: url, completion: completion)
+    _ = fetchImage(with: url, completion: completion)
   }
 
-  func fetchPoster(for movie: Movie, completion: @escaping (UIImage?) -> Void) {
+  // fetches poster for a movie, returns the request so we can cancel it
+  func fetchPoster(for movie: Movie, completion: @escaping (UIImage?) -> Void) -> Request? {
     guard let url = createUrl(for: .poster, with: movie.posterUrl) else {
       completion(nil)
-      return
+      return nil
     }
-    fetchImage(with: url, completion: completion)
+    return fetchImage(with: url, completion: completion)
   }
     
-  private func fetchImage(with url: URL, completion: @escaping (UIImage?) -> Void) {
-    Alamofire.request(url, method: .get)
+  private func fetchImage(with url: URL, completion: @escaping (UIImage?) -> Void) -> Request {
+    return Alamofire.request(url, method: .get)
       .validate()
       .responseData(completionHandler: { (responseData) in
         guard let image = UIImage(data: responseData.data!) else {

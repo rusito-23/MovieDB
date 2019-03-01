@@ -69,7 +69,7 @@ class MoviesInteractor: MoviesBusinessLogic
     var viewModels: [Movies.ViewModel] = []
     for movie in movies {
       dispatchGroup.enter()
-      movieService?.fetchPoster(for: movie, completion: { (_ poster: UIImage?) -> Void in
+      _ = movieService?.fetchPoster(for: movie, completion: { (_ poster: UIImage?) -> Void in
         viewModels.append(movie.asViewModel(poster: poster))
         dispatchGroup.leave()
       })

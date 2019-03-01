@@ -8,9 +8,11 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 protocol MovieCellBuisnessLogic {
   func loadPoster(for viewModel: Movies.ViewModel)
+  func cancelOldPoster()
 }
 
 class MovieCellInteractor: MovieCellBuisnessLogic {
@@ -20,7 +22,8 @@ class MovieCellInteractor: MovieCellBuisnessLogic {
   var presenter: MovieCellPresenter?
   var movieService: MovieService? = MovieService()
   var movieDAO = GenericDAOImpl<Movie>()
-  
+  var request: Request?
+
   //  MARK: load poster
   
   func loadPoster(for viewModel: Movies.ViewModel) {
@@ -31,11 +34,15 @@ class MovieCellInteractor: MovieCellBuisnessLogic {
         return
     }
     
-    movieService?.fetchPoster(for: movie, completion: { [weak self] (_ poster: UIImage!) in
+    request = movieService?.fetchPoster(for: movie, completion: { [weak self] (_ poster: UIImage!) in
       guard let `self` = self else { return }
       self.presenter?.presentPoster(poster)
     })
 
   }
   
+  func cancelOldPoster() {
+    self.request?.cancel()
+  }
+
 }
