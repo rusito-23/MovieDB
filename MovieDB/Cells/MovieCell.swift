@@ -17,6 +17,7 @@ class MovieCell: UITableViewCell {
   @IBOutlet weak var titleView: UILabel!
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
+  @IBOutlet weak var posterContainer: UIView!
   
   //  MARK: SETUP
   var interactor: MovieCellInteractor?
@@ -50,16 +51,23 @@ class MovieCell: UITableViewCell {
     self.descriptionView.textContainer.lineBreakMode = .byTruncatingTail
     
     // load poster
-    if let poster = movie.poster {
-      self.posterView.image = poster
-    } else {
-      interactor?.loadPoster(for: movie)
-    }
-    
+    loadingPoster(true)
+    interactor?.loadPoster(for: movie)
   }
   
   func populatePoster(poster: UIImage?) {
+    loadingPoster(false)
     self.posterView.image = poster
+  }
+
+  var loadingView = MovieCellLoading()
+  private func loadingPoster(_ run: Bool) {
+    if run {
+      self.posterView.image = nil
+      loadingView.setupWithSuperView(self.posterContainer)
+    } else {
+      loadingView.removeFromSuperview()
+    }
   }
   
 

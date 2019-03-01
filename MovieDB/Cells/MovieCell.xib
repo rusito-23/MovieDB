@@ -37,10 +37,19 @@
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vp5-Ev-ScC">
+                            <rect key="frame" x="8" y="8" width="126" height="184"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="126" id="yUt-DC-AlZ"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.51764705882352935" green="0.10588235294117647" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="sDF-fa-XfS" firstAttribute="top" secondItem="xdd-Vl-nut" secondAttribute="bottom" id="BA0-Ha-KsX"/>
+                        <constraint firstItem="vp5-Ev-ScC" firstAttribute="top" secondItem="K7k-qP-bak" secondAttribute="top" constant="8" id="Ngz-BV-0dA"/>
+                        <constraint firstAttribute="bottom" secondItem="vp5-Ev-ScC" secondAttribute="bottom" constant="8" id="OCN-hh-iRg"/>
+                        <constraint firstItem="vp5-Ev-ScC" firstAttribute="leading" secondItem="K7k-qP-bak" secondAttribute="leading" constant="8" id="Ozj-TT-BYU"/>
                         <constraint firstItem="xdd-Vl-nut" firstAttribute="leading" secondItem="hr3-kc-Il9" secondAttribute="trailing" constant="8" id="QdR-WS-JtP"/>
                         <constraint firstItem="sDF-fa-XfS" firstAttribute="leading" secondItem="hr3-kc-Il9" secondAttribute="trailing" constant="8" id="TzL-Zh-8QH"/>
                         <constraint firstItem="xdd-Vl-nut" firstAttribute="top" secondItem="K7k-qP-bak" secondAttribute="top" constant="8" id="cnp-j9-uEt"/>
@@ -65,6 +74,7 @@
             <viewLayoutGuide key="safeArea" id="vvt-zY-g0H"/>
             <connections>
                 <outlet property="descriptionView" destination="sDF-fa-XfS" id="Qaa-VT-5ib"/>
+                <outlet property="posterContainer" destination="vp5-Ev-ScC" id="6iY-8a-Rgu"/>
                 <outlet property="posterView" destination="hr3-kc-Il9" id="RJP-a5-bOH"/>
                 <outlet property="titleView" destination="xdd-Vl-nut" id="5CB-1y-aGd"/>
             </connections>
