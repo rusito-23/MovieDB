@@ -22,6 +22,7 @@
 		9B4A4A86222983E800B20399 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; };
 		9B4A4A882229861800B20399 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; };
 		9B4A4A892229861800B20399 /* SwiftyBeaver.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9B4A4A8B2229892800B20399 /* SwiftyBeaverExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */; };
 		9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E81B221EE0BF00B84486 /* FloatingButton.swift */; };
 		9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82E81E221EE4B700B84486 /* FloatingMenu.xib */; };
 		9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E822221EE9C500B84486 /* FloatingMenu.swift */; };
@@ -106,6 +107,7 @@
 		9B4A4A7F22296D9B00B20399 /* MovieCellLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCellLoading.swift; sourceTree = "<group>"; };
 		9B4A4A832229713E00B20399 /* poster_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = poster_loading.json; sourceTree = "<group>"; };
 		9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverExtensions.swift; sourceTree = "<group>"; };
 		9B82E81B221EE0BF00B84486 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		9B82E81E221EE4B700B84486 /* FloatingMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingMenu.xib; sourceTree = "<group>"; };
 		9B82E822221EE9C500B84486 /* FloatingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				9BA4984B221B52A7007B37B3 /* DateExtensions.swift */,
 				9B82E824221F1C6000B84486 /* ViewExtensions.swift */,
 				9BD28D9A22244CC000B9661A /* ButtonExtensions.swift */,
+				9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				9B82E825221F1C6000B84486 /* ViewExtensions.swift in Sources */,
 				9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */,
 				9B8C9A27221B4D8A00709385 /* MoviesViewController.swift in Sources */,
+				9B4A4A8B2229892800B20399 /* SwiftyBeaverExtensions.swift in Sources */,
 				9B8C9A23221B4D8A00709385 /* MoviesPresenter.swift in Sources */,
 				9BA4984F221C4331007B37B3 /* MovieCell.swift in Sources */,
 				9B8C9A28221B4D8A00709385 /* MoviesInteractor.swift in Sources */,

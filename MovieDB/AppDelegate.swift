@@ -8,16 +8,16 @@
 
 import UIKit
 import SwiftyBeaver
-let logger = SwiftyBeaver.self
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
-  let console = ConsoleDestination()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    logger.addDestination(console)
+    
+    SwiftyBeaver.setUpConsole()
+    
     return true
   }
   
