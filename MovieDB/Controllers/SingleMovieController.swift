@@ -30,6 +30,7 @@ class SingleMovieViewController: UIViewController {
   @IBOutlet weak var titleView: UILabel!
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
+  @IBOutlet weak var backButton: UIButton!
   let errorView = ErrorView()
   let loadingView = LoadingView()
 
@@ -85,6 +86,19 @@ class SingleMovieViewController: UIViewController {
     }
   }
   
+  func defineBackButton() {
+    guard let image = self.posterView.image?
+      .cropped(boundingBox: CGRect(x: 0, y: 0, width: 40, height: 40)) else { return }
+    
+    // change button color depending on background image
+    if image.isDark, let clearImage = UIImage(named: "ic_arrow_back_white") {
+      self.backButton.setImage(clearImage, for: .normal)
+    } else if let darkImage = UIImage(named: "ic_arrow_back") {
+      self.backButton.setImage(darkImage, for: .normal)
+    }
+    
+  }
+  
 }
 
 // MARK: protocol implementation
@@ -96,6 +110,8 @@ extension SingleMovieViewController: SingleMovieDisplay {
     titleView.text = movie.title
     descriptionView.text = movie.overview
     posterView.image = movie.poster
+    
+    defineBackButton()
   }
   
   func displayError(_ msg: String) {
