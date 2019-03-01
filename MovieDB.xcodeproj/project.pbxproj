@@ -16,15 +16,13 @@
 		9B25C6BA2220680A00338D41 /* GenericDAOImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25C6B92220680A00338D41 /* GenericDAOImpl.swift */; };
 		9B25C6BE2220824D00338D41 /* GenericDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25C6BD2220824D00338D41 /* GenericDAO.swift */; };
 		9B25C6C0222088C200338D41 /* SingleMovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25C6BF222088C200338D41 /* SingleMovieInteractor.swift */; };
-		9B4A4A7C22296C0500B20399 /* MovieCellLoading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4A4A7B22296C0500B20399 /* MovieCellLoading.xib */; };
-		9B4A4A8022296D9C00B20399 /* MovieCellLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A4A7F22296D9B00B20399 /* MovieCellLoading.swift */; };
-		9B4A4A842229713E00B20399 /* poster_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B4A4A832229713E00B20399 /* poster_loading.json */; };
 		9B4A4A86222983E800B20399 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; };
 		9B4A4A882229861800B20399 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; };
 		9B4A4A892229861800B20399 /* SwiftyBeaver.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B4A4A8B2229892800B20399 /* SwiftyBeaverExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */; };
 		9B4A4A8E22298C3500B20399 /* reach_the_end.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B4A4A8D22298C1F00B20399 /* reach_the_end.otf */; };
 		9B7174C52229ACCE00EF5962 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7174C42229ACCE00EF5962 /* CustomNavigationController.swift */; };
+		9B7174CC2229C7B400EF5962 /* poster_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7174CB2229C7B400EF5962 /* poster_loading.json */; };
 		9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E81B221EE0BF00B84486 /* FloatingButton.swift */; };
 		9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82E81E221EE4B700B84486 /* FloatingMenu.xib */; };
 		9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E822221EE9C500B84486 /* FloatingMenu.swift */; };
@@ -105,13 +103,11 @@
 		9B25C6B92220680A00338D41 /* GenericDAOImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDAOImpl.swift; sourceTree = "<group>"; };
 		9B25C6BD2220824D00338D41 /* GenericDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDAO.swift; sourceTree = "<group>"; };
 		9B25C6BF222088C200338D41 /* SingleMovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMovieInteractor.swift; sourceTree = "<group>"; };
-		9B4A4A7B22296C0500B20399 /* MovieCellLoading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCellLoading.xib; sourceTree = "<group>"; };
-		9B4A4A7F22296D9B00B20399 /* MovieCellLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCellLoading.swift; sourceTree = "<group>"; };
-		9B4A4A832229713E00B20399 /* poster_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = poster_loading.json; sourceTree = "<group>"; };
 		9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverExtensions.swift; sourceTree = "<group>"; };
 		9B4A4A8D22298C1F00B20399 /* reach_the_end.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = reach_the_end.otf; sourceTree = "<group>"; };
 		9B7174C42229ACCE00EF5962 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		9B7174CB2229C7B400EF5962 /* poster_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = poster_loading.json; sourceTree = "<group>"; };
 		9B82E81B221EE0BF00B84486 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		9B82E81E221EE4B700B84486 /* FloatingMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingMenu.xib; sourceTree = "<group>"; };
 		9B82E822221EE9C500B84486 /* FloatingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
@@ -220,7 +216,6 @@
 				9B82E822221EE9C500B84486 /* FloatingMenu.swift */,
 				9BD28D942224253800B9661A /* ErrorView.swift */,
 				9BD28D9C22244DA600B9661A /* RoundShadowButton.swift */,
-				9B4A4A7F22296D9B00B20399 /* MovieCellLoading.swift */,
 				9BD28DA7222463C400B9661A /* LoadingView.swift */,
 			);
 			path = CustomViews;
@@ -232,7 +227,6 @@
 				9B82E81E221EE4B700B84486 /* FloatingMenu.xib */,
 				9BD28D92222423DB00B9661A /* ErrorView.xib */,
 				9BD28DA52224633100B9661A /* LoadingView.xib */,
-				9B4A4A7B22296C0500B20399 /* MovieCellLoading.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -391,7 +385,7 @@
 		9BD28DA2222462B600B9661A /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
-				9B4A4A832229713E00B20399 /* poster_loading.json */,
+				9B7174CB2229C7B400EF5962 /* poster_loading.json */,
 				9BD19EFE2224732500DA094B /* loading.json */,
 			);
 			path = Lotties;
@@ -508,12 +502,11 @@
 				9B8C99F2221B48DA00709385 /* LaunchScreen.storyboard in Resources */,
 				9B8C99EF221B48DA00709385 /* Assets.xcassets in Resources */,
 				9B4A4A8E22298C3500B20399 /* reach_the_end.otf in Resources */,
+				9B7174CC2229C7B400EF5962 /* poster_loading.json in Resources */,
 				9B8C99ED221B48D900709385 /* Main.storyboard in Resources */,
-				9B4A4A842229713E00B20399 /* poster_loading.json in Resources */,
 				9BD28DA62224633100B9661A /* LoadingView.xib in Resources */,
 				9BD19EFF2224732500DA094B /* loading.json in Resources */,
 				9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */,
-				9B4A4A7C22296C0500B20399 /* MovieCellLoading.xib in Resources */,
 				9BA4C56222258A43004FC90D /* MovieCell.xib in Resources */,
 				9BD28D93222423DB00B9661A /* ErrorView.xib in Resources */,
 			);
@@ -631,7 +624,6 @@
 				9B8C9A28221B4D8A00709385 /* MoviesInteractor.swift in Sources */,
 				9BE7BA632228828700CF69CD /* MovieCellPresenter.swift in Sources */,
 				9BD28D8F22208BA400B9661A /* SingleMoviePresenter.swift in Sources */,
-				9B4A4A8022296D9C00B20399 /* MovieCellLoading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

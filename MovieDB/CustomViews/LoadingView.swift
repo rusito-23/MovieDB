@@ -9,11 +9,23 @@
 import UIKit
 import Lottie
 
+enum LoadingType: String {
+  case poster = "poster_loading"
+  case movie = "loading"
+}
+
 class LoadingView: UIView {
   
   //   MARK: setup
   @IBOutlet var contentView: UIView!
   @IBOutlet weak var loadingView: LOTAnimationView!
+  private var type: LoadingType = .movie
+  
+  required convenience init(type: LoadingType) {
+    self.init(frame: CGRect.zero)
+    self.type = type
+    customSetup()
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -38,7 +50,7 @@ class LoadingView: UIView {
   }
   
   private func loadAnimation() {
-    loadingView.setAnimation(named: "loading")
+    loadingView.setAnimation(named: self.type.rawValue)
     loadingView.loopAnimation = true
     loadingView.play()
   }

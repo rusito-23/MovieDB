@@ -66,7 +66,7 @@ class MovieCell: UITableViewCell {
   }
   
   // loading indicator handler
-  var loadingView = MovieCellLoading()
+  var loadingView = LoadingView(type: .poster)
   private func loadingPoster(_ run: Bool) {
     if run {
       cancelPoster()
