@@ -23,6 +23,7 @@
 		9B4A4A882229861800B20399 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; };
 		9B4A4A892229861800B20399 /* SwiftyBeaver.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B4A4A8B2229892800B20399 /* SwiftyBeaverExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */; };
+		9B4A4A8E22298C3500B20399 /* reach_the_end.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B4A4A8D22298C1F00B20399 /* reach_the_end.otf */; };
 		9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E81B221EE0BF00B84486 /* FloatingButton.swift */; };
 		9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82E81E221EE4B700B84486 /* FloatingMenu.xib */; };
 		9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E822221EE9C500B84486 /* FloatingMenu.swift */; };
@@ -108,6 +109,7 @@
 		9B4A4A832229713E00B20399 /* poster_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = poster_loading.json; sourceTree = "<group>"; };
 		9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverExtensions.swift; sourceTree = "<group>"; };
+		9B4A4A8D22298C1F00B20399 /* reach_the_end.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = reach_the_end.otf; sourceTree = "<group>"; };
 		9B82E81B221EE0BF00B84486 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		9B82E81E221EE4B700B84486 /* FloatingMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingMenu.xib; sourceTree = "<group>"; };
 		9B82E822221EE9C500B84486 /* FloatingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
@@ -201,6 +203,14 @@
 			path = DAOS;
 			sourceTree = "<group>";
 		};
+		9B4A4A8C22298C0A00B20399 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9B4A4A8D22298C1F00B20399 /* reach_the_end.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		9B82E81A221EE0A700B84486 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +262,7 @@
 		9B8C99E6221B48D900709385 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				9B4A4A8C22298C0A00B20399 /* Fonts */,
 				9BA4C5632225AE06004FC90D /* Segues */,
 				9BD28DA2222462B600B9661A /* Lotties */,
 				9B25C6B422204B2A00338D41 /* DAOS */,
@@ -493,6 +504,7 @@
 			files = (
 				9B8C99F2221B48DA00709385 /* LaunchScreen.storyboard in Resources */,
 				9B8C99EF221B48DA00709385 /* Assets.xcassets in Resources */,
+				9B4A4A8E22298C3500B20399 /* reach_the_end.otf in Resources */,
 				9B8C99ED221B48D900709385 /* Main.storyboard in Resources */,
 				9B4A4A842229713E00B20399 /* poster_loading.json in Resources */,
 				9BD28DA62224633100B9661A /* LoadingView.xib in Resources */,
