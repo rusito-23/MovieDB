@@ -32,7 +32,7 @@ class MoviesInteractor: MoviesBusinessLogic
     if movies.count != 0 {
       // populate with db content
       print("Finding from db")
-      self.populateWithPostersAndPresent(for: movies)
+      self.presentWithoutPosters(movies)
     } else {
       // bring the movies from the api
       print("Fetching from Service")
@@ -46,8 +46,8 @@ class MoviesInteractor: MoviesBusinessLogic
       presenter?.presentMovies(nil)
       return
     }
-    populateWithPostersAndPresent(for: res.movies)
-    
+    self.presentWithoutPosters(res.movies)
+
     // save them into the db
     _ = movieDAO.saveAll(res.movies)
   }
@@ -55,14 +55,14 @@ class MoviesInteractor: MoviesBusinessLogic
   // MARK: common methods for Service and DB responses
   
   // present without posters, currently used
-  func presentWithoutPosters(for movies: [Movie]) {
+  func presentWithoutPosters(_ movies: [Movie]) {
     let viewModels: [Movies.ViewModel] = movies.map { $0.asViewModel(poster: nil) }
     self.presenter?.presentMovies(viewModels)
   }
   
   // populate posters and send movies to presenter
   // currently unused
-  func populateWithPostersAndPresent(for movies: [Movie]) {
+  func populateWithPostersAndPresent(_ movies: [Movie]) {
     print("Start poster fetch")
     let dispatchGroup = DispatchGroup()
     

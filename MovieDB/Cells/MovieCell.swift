@@ -19,15 +19,23 @@ class MovieCell: UITableViewCell {
   @IBOutlet weak var posterView: UIImageView!
   
   //  MARK: SETUP
-  let interactor: MovieCellInteractor
+  var interactor: MovieCellInteractor?
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    setup()
+  }
   
   override required init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
+    setup()
+  }
+  
+  private func setup() {
     interactor = MovieCellInteractor()
     let presenter = MovieCellPresenter()
-    interactor.presenter = presenter
+    interactor?.presenter = presenter
     presenter.viewController = self
-    
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
   }
 
   //  MARK: populate logic
@@ -45,9 +53,13 @@ class MovieCell: UITableViewCell {
     if let poster = movie.poster {
       self.posterView.image = poster
     } else {
-      interactor.loadPoster(for: movie)
+      interactor?.loadPoster(for: movie)
     }
     
+  }
+  
+  func populatePoster(poster: UIImage?) {
+    self.posterView.image = poster
   }
   
 
