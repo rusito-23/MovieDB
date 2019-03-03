@@ -145,22 +145,9 @@
             <objects>
                 <viewController id="Ipy-kV-kw8" customClass="SingleMovieViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lEu-4p-HBv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQG-5I-MNz">
-                                <rect key="frame" x="16" y="308" width="343" height="36.5"/>
-                                <fontDescription key="fontDescription" name="ReachtheEnd" family="Reach the End" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wg-Gd-l4x">
-                                <rect key="frame" x="16" y="352.5" width="343" height="294.5"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rI4-fv-SRZ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                 <gestureRecognizers/>
@@ -174,29 +161,68 @@
                                     <constraint firstAttribute="height" constant="32" id="2Vn-OR-yeE"/>
                                     <constraint firstAttribute="width" constant="32" id="w7f-ld-bSG"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="ic_arrow_back_white"/>
+                                <state key="normal" image="ic_arrow_back_white"/>
                                 <connections>
                                     <segue destination="6t6-BP-Kb2" kind="unwind" unwindAction="unwindSingleMovieWithSegue:" id="2cw-dN-v0o"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEb-sb-18P">
+                                <rect key="frame" x="0.0" y="300" width="375" height="500"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhy-kj-PN9">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQG-5I-MNz">
+                                                <rect key="frame" x="16" y="23" width="343" height="36.5"/>
+                                                <fontDescription key="fontDescription" name="ReachtheEnd" family="Reach the End" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wg-Gd-l4x">
+                                                <rect key="frame" x="16" y="82.5" width="343" height="291"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="JQG-5I-MNz" firstAttribute="top" secondItem="jhy-kj-PN9" secondAttribute="top" constant="23" id="6HL-Aa-NzB"/>
+                                            <constraint firstAttribute="bottom" secondItem="9Wg-Gd-l4x" secondAttribute="bottom" constant="126.5" id="8yd-1V-Ld6"/>
+                                            <constraint firstAttribute="trailing" secondItem="JQG-5I-MNz" secondAttribute="trailing" constant="16" id="D98-IQ-ev3"/>
+                                            <constraint firstItem="9Wg-Gd-l4x" firstAttribute="top" secondItem="JQG-5I-MNz" secondAttribute="bottom" constant="23" id="LeM-uW-6w1"/>
+                                            <constraint firstItem="JQG-5I-MNz" firstAttribute="leading" secondItem="jhy-kj-PN9" secondAttribute="leading" constant="16" id="czA-TV-FDK"/>
+                                            <constraint firstAttribute="trailing" secondItem="9Wg-Gd-l4x" secondAttribute="trailing" constant="16" id="dT3-gO-xYm"/>
+                                            <constraint firstItem="JQG-5I-MNz" firstAttribute="leading" secondItem="jhy-kj-PN9" secondAttribute="leading" constant="16" id="mlz-8e-5te"/>
+                                            <constraint firstItem="9Wg-Gd-l4x" firstAttribute="leading" secondItem="jhy-kj-PN9" secondAttribute="leading" constant="16" id="rZA-DQ-M6x"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="jhy-kj-PN9" secondAttribute="bottom" id="5LJ-DE-TaU"/>
+                                    <constraint firstItem="jhy-kj-PN9" firstAttribute="leading" secondItem="iEb-sb-18P" secondAttribute="leading" id="YpN-rZ-AhX"/>
+                                    <constraint firstAttribute="trailing" secondItem="jhy-kj-PN9" secondAttribute="trailing" id="gpY-dL-ecd"/>
+                                    <constraint firstItem="jhy-kj-PN9" firstAttribute="top" secondItem="iEb-sb-18P" secondAttribute="top" id="ulw-eq-O5h"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.51764705879999995" green="0.1058823529" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zLr-3U-CAp" firstAttribute="trailing" secondItem="JQG-5I-MNz" secondAttribute="trailing" constant="16" id="1M8-S5-QTK"/>
-                            <constraint firstItem="JQG-5I-MNz" firstAttribute="top" secondItem="rI4-fv-SRZ" secondAttribute="bottom" constant="8" id="6lM-mg-VFl"/>
+                            <constraint firstItem="iEb-sb-18P" firstAttribute="bottom" secondItem="zLr-3U-CAp" secondAttribute="bottom" id="FX5-k9-yiM"/>
                             <constraint firstItem="rI4-fv-SRZ" firstAttribute="top" secondItem="lEu-4p-HBv" secondAttribute="top" id="Jkh-Pd-GrH"/>
                             <constraint firstItem="nDG-y1-oov" firstAttribute="top" secondItem="zLr-3U-CAp" secondAttribute="top" id="NkG-Zk-y4l"/>
+                            <constraint firstItem="jhy-kj-PN9" firstAttribute="width" secondItem="lEu-4p-HBv" secondAttribute="width" id="WAg-54-fHC"/>
+                            <constraint firstItem="iEb-sb-18P" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" id="Zcl-9J-1YK"/>
                             <constraint firstItem="rI4-fv-SRZ" firstAttribute="trailing" secondItem="zLr-3U-CAp" secondAttribute="trailing" id="aoU-Cm-Imz"/>
-                            <constraint firstItem="9Wg-Gd-l4x" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" constant="16" id="cPI-rP-f2W"/>
                             <constraint firstItem="rI4-fv-SRZ" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" id="cuB-Yn-8t3"/>
-                            <constraint firstItem="9Wg-Gd-l4x" firstAttribute="top" secondItem="JQG-5I-MNz" secondAttribute="bottom" constant="8" id="hqh-LH-u9a"/>
-                            <constraint firstItem="zLr-3U-CAp" firstAttribute="trailing" secondItem="9Wg-Gd-l4x" secondAttribute="trailing" constant="16" id="hwp-4J-r8f"/>
-                            <constraint firstItem="zLr-3U-CAp" firstAttribute="bottom" secondItem="9Wg-Gd-l4x" secondAttribute="bottom" constant="20" id="jtt-1W-FBm"/>
                             <constraint firstItem="nDG-y1-oov" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" constant="16" id="lTI-ut-v5L"/>
-                            <constraint firstItem="JQG-5I-MNz" firstAttribute="leading" secondItem="zLr-3U-CAp" secondAttribute="leading" constant="16" id="pf0-Wu-FGp"/>
+                            <constraint firstItem="iEb-sb-18P" firstAttribute="top" secondItem="rI4-fv-SRZ" secondAttribute="bottom" id="nVH-7A-S5F"/>
+                            <constraint firstItem="iEb-sb-18P" firstAttribute="trailing" secondItem="zLr-3U-CAp" secondAttribute="trailing" id="npf-el-GjJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zLr-3U-CAp"/>
                     </view>
+                    <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="backButton" destination="nDG-y1-oov" id="IS3-gf-PtM"/>
                         <outlet property="descriptionView" destination="9Wg-Gd-l4x" id="0wj-59-TYB"/>
@@ -208,7 +234,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxV-b9-jji" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6t6-BP-Kb2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2508" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2508" y="133.13343328335833"/>
         </scene>
     </scenes>
     <resources>
