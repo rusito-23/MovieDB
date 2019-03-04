@@ -34,10 +34,18 @@ class MovieCellInteractor: MovieCellBuisnessLogic {
         return
     }
     
-    request = movieService?.fetchPoster(for: movie, completion: { [weak self] (_ poster: UIImage!) in
+    
+    let posterCompletion = { [weak self] (_ poster: UIImage?) -> Void in
       guard let `self` = self else { return }
-      self.presenter?.presentPoster(poster)
-    })
+      if let `poster` = poster {
+        self.presenter?.presentPoster(poster)
+      }
+    }
+    
+    if !fetchPosterCache(movie, completion: posterCompletion) {
+      // if image doesn't exist in cache, fetch from service
+      fetchPosterService(movie, completion: posterCompletion)
+    }
 
   }
   
@@ -45,4 +53,25 @@ class MovieCellInteractor: MovieCellBuisnessLogic {
     self.request?.cancel()
   }
 
+  private func fetchPosterCache(_ movie : Movie, completion: @escaping (UIImage?) -> Void) -> Bool {
+    // fetching poster from cache
+    if let poster = UIImage.fromCache(key: movie.posterUrl) {
+      completion(poster)
+      return true
+    } else {
+      return false
+    }
+  }
+  
+  private func fetchPosterService(_ movie : Movie, completion: @escaping (UIImage?) -> Void) {
+    // fetching poster from service
+    request = movieService?.fetchPoster(for: movie, completion: { (_ poster: UIImage!) in
+      if let url = movie.posterUrl, let `poster` = poster {
+        // save poster to cache
+        poster.toCache(key: url)
+      }
+      completion(poster)
+    })
+  }
+  
 }

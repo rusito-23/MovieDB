@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */; };
 		9B25C6A82220442D00338D41 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B25C6A72220442D00338D41 /* Alamofire.framework */; };
 		9B25C6AA2220443700338D41 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B25C6A92220443700338D41 /* Realm.framework */; };
 		9B25C6AC2220444000338D41 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B25C6AB2220444000338D41 /* RealmSwift.framework */; };
@@ -95,6 +96,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageCacheExtensions.swift; sourceTree = "<group>"; };
 		9B25C6A72220442D00338D41 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		9B25C6A92220443700338D41 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		9B25C6AB2220444000338D41 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -223,14 +225,14 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
-		9B82E81D221EE49700B84486 /* Views */ = {
+		9B82E81D221EE49700B84486 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
 				9B82E81E221EE4B700B84486 /* FloatingMenu.xib */,
 				9BD28D92222423DB00B9661A /* ErrorView.xib */,
 				9BD28DA52224633100B9661A /* LoadingView.xib */,
 			);
-			path = Views;
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 		9B8C99DB221B48D900709385 = {
@@ -264,7 +266,7 @@
 				9BA4C5632225AE06004FC90D /* Segues */,
 				9BD28DA2222462B600B9661A /* Lotties */,
 				9B25C6B422204B2A00338D41 /* DAOS */,
-				9B82E81D221EE49700B84486 /* Views */,
+				9B82E81D221EE49700B84486 /* Xibs */,
 				9B82E81A221EE0A700B84486 /* CustomViews */,
 				9BA4984D221C4323007B37B3 /* Cells */,
 				9BA4984A221B5294007B37B3 /* Extensions */,
@@ -364,6 +366,7 @@
 				9BD28D9A22244CC000B9661A /* ButtonExtensions.swift */,
 				9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */,
 				9B7174D12229D10C00EF5962 /* UIImageExtensions.swift */,
+				78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				9B8C99E8221B48D900709385 /* AppDelegate.swift in Sources */,
 				9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */,
 				9BD28D9B22244CC000B9661A /* ButtonExtensions.swift in Sources */,
+				78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */,
 				9B8C9A24221B4D8A00709385 /* MovieService.swift in Sources */,
 				9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */,
 				9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */,
