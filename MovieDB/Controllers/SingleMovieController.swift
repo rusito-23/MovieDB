@@ -89,7 +89,7 @@ class SingleMovieViewController: UIViewController {
   
   func defineBackButton() {
     guard let image = self.posterView.image?
-      .cropped(boundingBox: CGRect(x: 0, y: 0, width: 40, height: 40)) else { return }
+      .cropped(boundingBox: CGRect(x: 16, y: 0, width: 32, height: 32)) else { return }
     
     // change button color depending on background image
     if image.isDark, let clearImage = UIImage(named: "ic_arrow_back_white") {

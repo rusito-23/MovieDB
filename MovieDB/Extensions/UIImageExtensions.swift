@@ -22,7 +22,7 @@ extension CGImage {
         let g = ptr[i + 1]
         let b = ptr[i + 2]
         let luminance = (0.299 * Double(r) + 0.587 * Double(g) + 0.114 * Double(b))
-        if luminance < 150 {
+        if luminance < 50 {
           darkPixels += 1
           if darkPixels > threshold {
             return true
