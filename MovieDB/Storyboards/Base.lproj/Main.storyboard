@@ -225,8 +225,11 @@
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="backButton" destination="nDG-y1-oov" id="IS3-gf-PtM"/>
+                        <outlet property="contentView" destination="jhy-kj-PN9" id="KNp-o6-qdi"/>
                         <outlet property="descriptionView" destination="9Wg-Gd-l4x" id="0wj-59-TYB"/>
+                        <outlet property="posterHeightConstraint" destination="bHT-zF-7Zg" id="BJa-jr-oj6"/>
                         <outlet property="posterView" destination="rI4-fv-SRZ" id="kIL-40-0FV"/>
+                        <outlet property="scrollView" destination="iEb-sb-18P" id="Tzv-iR-cq9"/>
                         <outlet property="titleView" destination="JQG-5I-MNz" id="4it-xt-JKP"/>
                         <segue destination="6t6-BP-Kb2" kind="unwind" identifier="UnwindSegue" unwindAction="unwindSingleMovieWithSegue:" id="Bn8-CX-MG4"/>
                     </connections>

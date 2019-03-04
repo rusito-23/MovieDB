@@ -31,9 +31,17 @@ class SingleMovieViewController: UIViewController {
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
   @IBOutlet weak var backButton: UIButton!
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var contentView: UIView!
   let errorView = ErrorView()
   let loadingView = LoadingView()
+  var posterSwipeDown: UISwipeGestureRecognizer?
+  var scrollSwipeDown: UISwipeGestureRecognizer?
+  var scrollSwipeUp: UISwipeGestureRecognizer?
 
+  // MARK: Constraint Outlets
+  @IBOutlet weak var posterHeightConstraint: NSLayoutConstraint!
+  
   // MARK: Object lifecycle
   
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -67,15 +75,8 @@ class SingleMovieViewController: UIViewController {
   override func viewDidLoad() {
     loading(true)
     self.interactor?.find(by: self.id)
-    
-    // TODO: hacer que esto sea un PanGesture, para poder mover la imagen junto con el usuario
-    let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(back))
-    swipeDown.direction = .down
-    self.posterView.addGestureRecognizer(swipeDown)
-  }
-  
-  @objc func back() {
-    self.performSegue(withIdentifier: "UnwindSegue", sender: self)
+    self.scrollView.delegate = self
+    prepareSwipeGestures()
   }
   
   func loading(_ run: Bool) {
@@ -118,6 +119,52 @@ extension SingleMovieViewController: SingleMovieDisplay {
     loading(false)
     self.errorView.errorMessage.text = msg
     self.errorView.setupForSuperView(self.view)
+  }
+  
+}
+
+// MARK: Swipe Gestures Controll
+
+extension SingleMovieViewController {
+  
+  func prepareSwipeGestures() {
+    
+    // TODO: hacer que esto sea un PanGesture, para poder mover la imagen junto con el usuario
+    self.posterSwipeDown = UISwipeGestureRecognizer(target: self, action: #selector(back))
+    self.posterSwipeDown!.direction = .down
+    self.posterView.addGestureRecognizer(posterSwipeDown!)
+  }
+  
+  //  MARK: swipe actions
+
+  @objc func back() {
+    self.performSegue(withIdentifier: "UnwindSegue", sender: self)
+  }
+
+}
+
+// MARK: UIScrollViewDelegate
+
+extension SingleMovieViewController: UIScrollViewDelegate {
+  
+  // change poster size on scroll to let the user read the overview
+  func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+    let actualPosition = scrollView.panGestureRecognizer.translation(in: scrollView.superview)
+    
+    if actualPosition.y > 0 {
+      if scrollView.contentOffset.y <= 10 {
+        UIView.animate(withDuration: 0.4, animations: {
+          self.posterHeightConstraint.constant = 300
+          self.view.layoutSubviews()
+        })
+      }
+    }else{
+      UIView.animate(withDuration: 0.4, animations: {
+        self.posterHeightConstraint.constant = 150
+        self.view.layoutSubviews()
+      })
+    }
+    
   }
   
 }
