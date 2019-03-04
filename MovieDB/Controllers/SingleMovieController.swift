@@ -152,7 +152,7 @@ extension SingleMovieViewController {
       }
     } else {
       let translation = sender.translation(in: self.view)
-      guard translation.y > 0 else { return }
+      guard self.view.center.y > (originalY ?? 333.5) - 5 else { return }
       
       // move the view
       self.backButton.isHidden = true
