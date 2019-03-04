@@ -57,6 +57,7 @@ class MoviesViewController: UIViewController
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.destination is SingleMovieViewController {
       let vc = segue.destination as? SingleMovieViewController
+      vc?.modalPresentationStyle = .overCurrentContext
       vc?.id = self.selectedMovie
     }
   }

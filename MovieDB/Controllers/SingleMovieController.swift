@@ -35,9 +35,6 @@ class SingleMovieViewController: UIViewController {
   @IBOutlet weak var contentView: UIView!
   let errorView = ErrorView()
   let loadingView = LoadingView()
-  var posterSwipeDown: UISwipeGestureRecognizer?
-  var scrollSwipeDown: UISwipeGestureRecognizer?
-  var scrollSwipeUp: UISwipeGestureRecognizer?
 
   // MARK: Constraint Outlets
   @IBOutlet weak var posterHeightConstraint: NSLayoutConstraint!
@@ -72,6 +69,7 @@ class SingleMovieViewController: UIViewController {
   }
 
   // MARK: view lifecycle
+  private var originalY: CGFloat?
   override func viewDidLoad() {
     loading(true)
     self.interactor?.find(by: self.id)
@@ -129,16 +127,39 @@ extension SingleMovieViewController {
   
   func prepareSwipeGestures() {
     
-    // TODO: hacer que esto sea un PanGesture, para poder mover la imagen junto con el usuario
-    self.posterSwipeDown = UISwipeGestureRecognizer(target: self, action: #selector(back))
-    self.posterSwipeDown!.direction = .down
-    self.posterView.addGestureRecognizer(posterSwipeDown!)
+    originalY = self.view.center.y
+    
+    let posterPanGesture = UIPanGestureRecognizer(target: self, action: #selector(back))
+    self.posterView.addGestureRecognizer(posterPanGesture)
   }
   
   //  MARK: swipe actions
 
-  @objc func back() {
-    self.performSegue(withIdentifier: "UnwindSegue", sender: self)
+  // function to let the user drag the view
+  @objc func back(_ sender: UIPanGestureRecognizer) {
+    // check if finished
+    if sender.state == .ended {
+      // if over the first half of the screen
+      if self.view.center.y > UIScreen.main.bounds.height  {
+        // perform segue
+        self.performSegue(withIdentifier: "UnwindSegue", sender: self)
+      } else {
+        // set original center y
+        UIView.animate(withDuration: 0.4, animations: {
+          self.view.center.y = self.originalY ?? 333.5
+          self.backButton.isHidden = false
+        })
+      }
+    } else {
+      let translation = sender.translation(in: self.view)
+      guard translation.y > 0 else { return }
+      
+      // move the view
+      self.backButton.isHidden = true
+      self.view.center.y += translation.y
+      sender.setTranslation(CGPoint.zero, in: self.view)
+    }
+
   }
 
 }
