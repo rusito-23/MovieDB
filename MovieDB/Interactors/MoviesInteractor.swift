@@ -60,27 +60,4 @@ class MoviesInteractor: MoviesBusinessLogic
     self.presenter?.presentMovies(viewModels)
   }
   
-  // populate posters and send movies to presenter
-  // currently unused
-  func populateWithPostersAndPresent(_ movies: [Movie]) {
-    logger.verbose("Start poster fetch")
-    let dispatchGroup = DispatchGroup()
-    
-    var viewModels: [Movies.ViewModel] = []
-    for movie in movies {
-      dispatchGroup.enter()
-      _ = movieService?.fetchPoster(for: movie, completion: { (_ poster: UIImage?) -> Void in
-        viewModels.append(movie.asViewModel(poster: poster))
-        dispatchGroup.leave()
-      })
-    }
-    
-    // wait for all images to be loaded
-    dispatchGroup.notify(queue: .main) { [weak self] in
-      logger.verbose("Finished fetching posters")
-      guard let `self` = self else { return }
-      self.presenter?.presentMovies(viewModels)
-    }
-  }
-  
 }
