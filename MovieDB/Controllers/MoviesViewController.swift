@@ -188,6 +188,7 @@ extension MoviesViewController: SingleMovieCaller {
   }
   
   func unLoadBlur() {
+    self.blurView?.fadeOut()
     self.blurView?.removeFromSuperview()
     self.blurView = nil
   }

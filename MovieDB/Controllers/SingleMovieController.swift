@@ -170,7 +170,7 @@ extension SingleMovieViewController {
       sender.setTranslation(CGPoint.zero, in: self.view)
       
       // unblur/blur the caller ViewController
-      caller?.blur(alpha: 1 - self.view.center.y.map(from: originalY...UIScreen.main.bounds.height,
+      caller?.blur(alpha: 1 - self.view.center.y.map(from: originalY...UIScreen.main.bounds.height * 2,
                                                  to: 0...(caller?.getOriginalBlur() ?? 1)))
     }
 
