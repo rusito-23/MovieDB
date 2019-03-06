@@ -16,6 +16,7 @@ import UIKit
 protocol MoviesBusinessLogic
 {
   func findMovies()
+  func deleteOldMovies()
 }
 
 class MoviesInteractor: MoviesBusinessLogic
@@ -58,6 +59,12 @@ class MoviesInteractor: MoviesBusinessLogic
   func presentWithoutPosters(_ movies: [Movie]) {
     let viewModels: [Movies.ViewModel] = movies.map { $0.asViewModel(poster: nil) }
     self.presenter?.presentMovies(viewModels)
+  }
+  
+  // MARK: delete old Movies
+  func deleteOldMovies() {
+    imageCache.removeAllObjects()
+    movieDAO.deleteAll()
   }
   
 }

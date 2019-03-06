@@ -71,7 +71,7 @@ class MoviesViewController: UIViewController
   override func viewDidLoad() {
     super.viewDidLoad()
     prepareNib()
-    refreshMovies()
+    loadMovies()
   }
   
   func loading(_ run: Bool) {
@@ -87,7 +87,12 @@ class MoviesViewController: UIViewController
   var movies: [Movies.ViewModel] = []
   var selectedMovie: Int?
   
-  func refreshMovies() {
+  @IBAction func refreshMovies(_ sender: Any) {
+    interactor?.deleteOldMovies()
+    loadMovies()
+  }
+  
+  func loadMovies() {
     loading(true)
     interactor?.findMovies()
   }

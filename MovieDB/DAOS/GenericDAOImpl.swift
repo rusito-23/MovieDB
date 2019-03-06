@@ -19,7 +19,7 @@ class GenericDAOImpl <T:Object> : GenericDAO {
     do {
       realm = try Realm()
     } catch {
-      logger.error("Error al inicializar Realm: \(error)")
+      logger.error("Realm Initialization Error: \(error)")
     }
   }
 
@@ -49,11 +49,12 @@ class GenericDAOImpl <T:Object> : GenericDAO {
     return count
   }
   
+  private func findAllResults() -> Results<T>? {
+    return realm?.objects(T.self)
+  }
+  
   func findAll() -> [T] {
-    let results = realm?.objects(T.self)
-    guard let res = results else {
-      return []
-    }
+    guard let res = findAllResults() else { return [] }
     return Array(res)
   }
 
@@ -61,4 +62,17 @@ class GenericDAOImpl <T:Object> : GenericDAO {
     return self.realm?.object(ofType: T.self, forPrimaryKey: id)
   }
   
+  func deleteAll() {
+    guard let res = findAllResults() else { return }
+    
+    do {
+      try realm?.write {
+        self.realm?.delete(res)
+      }
+    } catch {
+      logger.error("Realm Error Deleting Objects: \(error)")
+      return
+    }
+  }
+
 }

@@ -17,6 +17,8 @@ class FloatingButton: UIButton {
     // custom configuration
     self.round()
     self.shadow()
+    
+    logger.info("Custom configuration")
   }
   
   private func round() {

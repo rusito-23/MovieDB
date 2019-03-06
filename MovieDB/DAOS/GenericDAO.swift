@@ -20,4 +20,6 @@ protocol GenericDAO {
   
   func findByPrimaryKey(_ id: Any) -> T?
   
+  func deleteAll()
+  
 }
