@@ -53,17 +53,21 @@ class MoviesViewController: UIViewController
   }
   
   // MARK: Routing
+  var blurView: UIView?
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.destination is SingleMovieViewController {
       let vc = segue.destination as? SingleMovieViewController
       vc?.modalPresentationStyle = .overCurrentContext
       vc?.id = self.selectedMovie
+      vc?.caller = self
+      loadBlur()
     }
   }
   
   @IBAction func unwindSingleMovie(segue: UIStoryboardSegue) {
     logger.verbose("unwindSingleMovie")
+    unLoadBlur()
   }
   
   // MARK: View lifecycle
@@ -158,3 +162,35 @@ extension MoviesViewController: UITableViewDelegate {
     self.didSelectMovie(movie)
   }
 }
+
+
+// MARK: SingleMovie Caller protocol
+
+extension MoviesViewController: SingleMovieCaller {
+  
+  func blur(alpha: CGFloat) {
+    blurView?.alpha = alpha
+  }
+  
+  func resetBlur() {
+    blurView?.alpha = getOriginalBlur()
+  }
+  
+  func getOriginalBlur() -> CGFloat {
+    return 0.8
+  }
+  
+  func loadBlur() {
+    blurView = UIView(frame: self.view.frame)
+    blurView?.backgroundColor = UIColor.black
+    blurView?.alpha = getOriginalBlur()
+    self.view.addSubview(blurView!)
+  }
+  
+  func unLoadBlur() {
+    self.blurView?.removeFromSuperview()
+    self.blurView = nil
+  }
+
+}
+

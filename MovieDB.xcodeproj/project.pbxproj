@@ -22,6 +22,7 @@
 		9B4A4A892229861800B20399 /* SwiftyBeaver.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B4A4A8B2229892800B20399 /* SwiftyBeaverExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */; };
 		9B4A4A8E22298C3500B20399 /* reach_the_end.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B4A4A8D22298C1F00B20399 /* reach_the_end.otf */; };
+		9B4E1A4222301C9A00ED1D61 /* MapFloatRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4E1A4122301C9A00ED1D61 /* MapFloatRange.swift */; };
 		9B7174C52229ACCE00EF5962 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7174C42229ACCE00EF5962 /* CustomNavigationController.swift */; };
 		9B7174CC2229C7B400EF5962 /* poster_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7174CB2229C7B400EF5962 /* poster_loading.json */; };
 		9B7174D22229D10C00EF5962 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7174D12229D10C00EF5962 /* UIImageExtensions.swift */; };
@@ -109,6 +110,7 @@
 		9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverExtensions.swift; sourceTree = "<group>"; };
 		9B4A4A8D22298C1F00B20399 /* reach_the_end.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = reach_the_end.otf; sourceTree = "<group>"; };
+		9B4E1A4122301C9A00ED1D61 /* MapFloatRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFloatRange.swift; sourceTree = "<group>"; };
 		9B7174C42229ACCE00EF5962 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		9B7174CB2229C7B400EF5962 /* poster_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = poster_loading.json; sourceTree = "<group>"; };
 		9B7174D12229D10C00EF5962 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */,
 				9B7174D12229D10C00EF5962 /* UIImageExtensions.swift */,
 				78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */,
+				9B4E1A4122301C9A00ED1D61 /* MapFloatRange.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				9B8C9A26221B4D8A00709385 /* MoviesModels.swift in Sources */,
 				9BD28D952224253800B9661A /* ErrorView.swift in Sources */,
 				9BD28DA8222463C400B9661A /* LoadingView.swift in Sources */,
+				9B4E1A4222301C9A00ED1D61 /* MapFloatRange.swift in Sources */,
 				9BD28D912224192600B9661A /* Movie.swift in Sources */,
 				9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */,
 				9B25C6C0222088C200338D41 /* SingleMovieInteractor.swift in Sources */,
