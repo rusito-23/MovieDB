@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+// MARK: Caller protocol
+protocol SingleMovieCaller {
+  func blur(alpha: CGFloat)
+  func resetBlur()
+  func getOriginalBlur() -> CGFloat
+}
+
+
 // MARK: Display protocol
 
 protocol SingleMovieDisplay: class {
@@ -25,6 +33,7 @@ class SingleMovieViewController: UIViewController {
   
   //  MARK: self variables
   var id: Int?
+  var caller: SingleMovieCaller?
 
   // MARK: Outlets
   @IBOutlet weak var titleView: UILabel!
@@ -69,7 +78,7 @@ class SingleMovieViewController: UIViewController {
   }
 
   // MARK: view lifecycle
-  private var originalY: CGFloat?
+  private var originalY: CGFloat = 333.5
   override func viewDidLoad() {
     loading(true)
     self.interactor?.find(by: self.id)
@@ -126,17 +135,16 @@ extension SingleMovieViewController: SingleMovieDisplay {
 extension SingleMovieViewController {
   
   func prepareSwipeGestures() {
-    
     originalY = self.view.center.y
     
-    let posterPanGesture = UIPanGestureRecognizer(target: self, action: #selector(back))
+    let posterPanGesture = UIPanGestureRecognizer(target: self, action: #selector(dragPosterView))
     self.posterView.addGestureRecognizer(posterPanGesture)
   }
   
   //  MARK: swipe actions
 
   // function to let the user drag the view
-  @objc func back(_ sender: UIPanGestureRecognizer) {
+  @objc func dragPosterView(_ sender: UIPanGestureRecognizer) {
     // check if finished
     if sender.state == .ended {
       // if over the first half of the screen
@@ -146,18 +154,24 @@ extension SingleMovieViewController {
       } else {
         // set original center y
         UIView.animate(withDuration: 0.4, animations: {
-          self.view.center.y = self.originalY ?? 333.5
+          self.view.center.y = self.originalY
           self.backButton.isHidden = false
         })
+        // reset caller blur
+        caller?.resetBlur()
       }
     } else {
       let translation = sender.translation(in: self.view)
-      guard self.view.center.y > (originalY ?? 333.5) - 5 else { return }
+      guard self.view.center.y > (originalY) - 5 else { return }
       
       // move the view
       self.backButton.isHidden = true
       self.view.center.y += translation.y
       sender.setTranslation(CGPoint.zero, in: self.view)
+      
+      // unblur/blur the caller ViewController
+      caller?.blur(alpha: 1 - self.view.center.y.map(from: originalY...UIScreen.main.bounds.height,
+                                                 to: 0...(caller?.getOriginalBlur() ?? 1)))
     }
 
   }
