@@ -10,8 +10,11 @@ import Foundation
 import UIKit
 import Alamofire
 
+protocol MovieCellDisplay {
+  func populatePoster(poster: UIImage?)
+}
 
-class MovieCell: UITableViewCell {
+class MovieCell: UITableViewCell, MovieCellDisplay {
   
   // MARK: Outlets
   @IBOutlet weak var titleView: UILabel!
@@ -20,7 +23,7 @@ class MovieCell: UITableViewCell {
   @IBOutlet weak var posterContainer: UIView!
   
   //  MARK: SETUP
-  var interactor: MovieCellInteractor? = injector.resolve(MovieCellInteractor.self)
+  var interactor: MovieCellInteractor?
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -33,9 +36,7 @@ class MovieCell: UITableViewCell {
   }
   
   private func setup() {
-    let presenter = MovieCellPresenterImpl()
-    interactor?.presenter = presenter
-    presenter.viewController = self
+    interactor = injector.resolve(MovieCellInteractor.self, argument: self)
   }
 
   //  MARK: populate logic

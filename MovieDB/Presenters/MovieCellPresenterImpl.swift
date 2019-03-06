@@ -11,12 +11,12 @@ import UIKit
 
 protocol MovieCellPresenter {
   func presentPoster(_ poster: UIImage?)
-  var viewController: MovieCell? { get set }
+  var viewController: MovieCellDisplay? { get set }
 }
 
 class MovieCellPresenterImpl: MovieCellPresenter {
   
-  var viewController: MovieCell?
+  var viewController: MovieCellDisplay?
   
   func presentPoster(_ poster: UIImage?) {
     if poster != nil {

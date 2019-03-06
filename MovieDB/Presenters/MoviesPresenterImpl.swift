@@ -14,11 +14,11 @@ import UIKit
 
 protocol MoviesPresenter {
   func presentMovies(_ movies: [Movies.ViewModel]?)
-  var viewController: MoviesDisplayLogic? { get set }
+  var viewController: MoviesDisplay? { get set }
 }
 
 class MoviesPresenterImpl: MoviesPresenter {
-  weak var viewController: MoviesDisplayLogic?
+  weak var viewController: MoviesDisplay?
   
   // MARK: Do something
   

@@ -11,16 +11,19 @@
 //
 
 import UIKit
+import Swinject
 
-protocol MoviesDisplayLogic: class
+protocol MoviesDisplay: class
 {
   func displayMovies(movies: [Movies.ViewModel])
   func displayError(_ msg: String)
 }
 
-class MoviesViewController: UIViewController
-{
-  var interactor: MoviesInteractor? = injector.resolve(MoviesInteractor.self)
+class MoviesViewController: UIViewController, MoviesDisplay {
+  
+  // MARK: Interactor
+  
+  var interactor: MoviesInteractor?
 
   // MARK: outlets
   
@@ -28,29 +31,8 @@ class MoviesViewController: UIViewController
   let loadingView = LoadingView()
   let errorView = ErrorView()
 
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup() {
-    let presenter = MoviesPresenterImpl()
-    interactor?.presenter = presenter
-    presenter.viewController = self
-  }
-  
   // MARK: Routing
+  
   var blurView: UIView?
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,9 +54,13 @@ class MoviesViewController: UIViewController
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    interactor = injector.resolve(MoviesInteractor.self, argument: self)
+    
     prepareNib()
     loadMovies()
   }
+  
+  // MARK: fetch movies and selection
   
   func loading(_ run: Bool) {
     if run {
@@ -83,8 +69,6 @@ class MoviesViewController: UIViewController
       loadingView.removeFromSuperview()
     }
   }
-  
-  // MARK: fetch movies and selection
   
   var movies: [Movies.ViewModel] = []
   var selectedMovie: Int?
@@ -104,12 +88,9 @@ class MoviesViewController: UIViewController
     self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
   }
   
-}
 
-// MARK: extensions for MoviesDisplayLogic
+  // MARK: MoviesDisplay
 
-extension MoviesViewController: MoviesDisplayLogic {
-  
   func displayError(_ msg: String) {
     loading(false)
     errorView.errorMessage.text = msg

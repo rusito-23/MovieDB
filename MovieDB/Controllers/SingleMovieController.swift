@@ -29,7 +29,7 @@ protocol SingleMovieDisplay: class {
 
 class SingleMovieViewController: UIViewController {
   
-  var interactor: SingleMovieInteractor? = injector.resolve(SingleMovieInteractor.self)
+  var interactor: SingleMovieInteractor?
   
   //  MARK: self variables
   var id: Int?
@@ -48,40 +48,23 @@ class SingleMovieViewController: UIViewController {
   // MARK: Constraint Outlets
   @IBOutlet weak var posterHeightConstraint: NSLayoutConstraint!
   
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
   // MARK: Setup
   
-  private func setup()
-  {
-    let interactor = SingleMovieInteractorImpl()
-    let presenter = SingleMoviePresenterImpl()
-    self.interactor = interactor
-    interactor.presenter = presenter
-    presenter.viewController = self
-  }
+  private var originalY: CGFloat = 333.5
   
   override var prefersStatusBarHidden: Bool {
     return true
   }
 
   // MARK: view lifecycle
-  private var originalY: CGFloat = 333.5
+  
   override func viewDidLoad() {
-    loading(true)
+    super.viewDidLoad()
+    
+    self.interactor = injector.resolve(SingleMovieInteractor.self, argument: self)
     self.interactor?.find(by: self.id)
+    
+    loading(true)
     self.scrollView.delegate = self
     prepareSwipeGestures()
   }

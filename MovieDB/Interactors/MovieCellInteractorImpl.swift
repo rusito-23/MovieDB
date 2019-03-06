@@ -13,14 +13,14 @@ import Alamofire
 protocol MovieCellInteractor {
   func loadPoster(for viewModel: Movies.ViewModel)
   func cancelOldPoster()
-  var presenter: MovieCellPresenterImpl? { get set }
+  var presenter: MovieCellPresenter? { get set }
 }
 
 class MovieCellInteractorImpl: MovieCellInteractor {
   
   //  MARK: setup
   
-  var presenter: MovieCellPresenterImpl?
+  var presenter: MovieCellPresenter?
   var movieService: MovieService? = MovieService()
   var movieDAO = GenericDAOImpl<Movie>()
   var request: Request?

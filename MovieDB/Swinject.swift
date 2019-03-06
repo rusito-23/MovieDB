@@ -16,9 +16,40 @@ class Swinject {
 
   public static func setup() {
 
-    container.register(MoviesInteractor.self) { _ in MoviesInteractorImpl() }
-    container.register(SingleMovieInteractor.self) { _ in SingleMovieInteractorImpl() }
-    container.register(MovieCellInteractor.self) { _ in MovieCellInteractorImpl() }
+
+    // Presenters
+    container.register(MoviesPresenter.self) { (r: Resolver, viewController: MoviesViewController) in
+      let presenter = MoviesPresenterImpl()
+      presenter.viewController = viewController
+      return presenter
+    }
+    container.register(SingleMoviePresenter.self) { (r: Resolver, viewController: SingleMovieViewController) in
+      let presenter = SingleMoviePresenterImpl()
+      presenter.viewController = viewController
+      return presenter
+    }
+    container.register(MovieCellPresenter.self) { (r: Resolver, viewController: MovieCell) in
+      let presenter = MovieCellPresenterImpl()
+      presenter.viewController = viewController
+      return presenter
+    }
+    
+    // Interactors
+    container.register(MoviesInteractor.self) { (r: Resolver, viewController: MoviesViewController) in
+      let interactor = MoviesInteractorImpl()
+      interactor.presenter = r.resolve(MoviesPresenter.self, argument: viewController)
+      return interactor
+    }
+    container.register(SingleMovieInteractor.self) { (r: Resolver, viewController: SingleMovieViewController) in
+      let interactor = SingleMovieInteractorImpl()
+      interactor.presenter = r.resolve(SingleMoviePresenter.self, argument: viewController)
+      return interactor
+    }
+    container.register(MovieCellInteractor.self) { (r: Resolver, viewController: MovieCell) in
+      let interactor = MovieCellInteractorImpl()
+      interactor.presenter = r.resolve(MovieCellPresenter.self, argument: viewController)
+      return interactor
+    }
 
   }
 
