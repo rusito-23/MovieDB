@@ -21,7 +21,10 @@ protocol MoviesInteractor {
 
 class MoviesInteractorImpl: MoviesInteractor {
   var presenter: MoviesPresenter?
-  var movieService: MovieService? = MovieService()
+  
+  // MARK: setup
+  
+  var movieService: MovieService?
   var movieDAO = GenericDAOImpl<Movie>()
   
   // MARK: find Movies

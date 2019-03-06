@@ -18,10 +18,11 @@ protocol MovieCellInteractor {
 
 class MovieCellInteractorImpl: MovieCellInteractor {
   
+  var presenter: MovieCellPresenter?
+  
   //  MARK: setup
   
-  var presenter: MovieCellPresenter?
-  var movieService: MovieService? = MovieService()
+  var movieService: MovieService?
   var movieDAO = GenericDAOImpl<Movie>()
   var request: Request?
 

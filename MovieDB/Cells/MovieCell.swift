@@ -14,16 +14,20 @@ protocol MovieCellDisplay {
   func populatePoster(poster: UIImage?)
 }
 
-class MovieCell: UITableViewCell, MovieCellDisplay {
+class MovieCell: UITableViewCell {
+  
+  var interactor: MovieCellInteractor?
   
   // MARK: Outlets
+  
   @IBOutlet weak var titleView: UILabel!
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
   @IBOutlet weak var posterContainer: UIView!
   
   //  MARK: SETUP
-  var interactor: MovieCellInteractor?
+  
+  var loadingView = LoadingView(type: .poster)
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -55,18 +59,12 @@ class MovieCell: UITableViewCell, MovieCellDisplay {
     interactor?.loadPoster(for: movie)
   }
   
-  func populatePoster(poster: UIImage?) {
-    loadingPoster(false)
-    self.posterView.image = poster
-  }
-  
   func cancelPoster() {
     self.interactor?.cancelOldPoster()
     self.posterView.image = nil
   }
   
   // loading indicator handler
-  var loadingView = LoadingView(type: .poster)
   private func loadingPoster(_ run: Bool) {
     if run {
       cancelPoster()
@@ -82,5 +80,15 @@ class MovieCell: UITableViewCell, MovieCellDisplay {
     loadingPoster(true)
   }
   
+
+}
+
+
+extension MovieCell: MovieCellDisplay {
+  
+  func populatePoster(poster: UIImage?) {
+    loadingPoster(false)
+    self.posterView.image = poster
+  }
 
 }

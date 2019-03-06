@@ -19,10 +19,8 @@ protocol MoviesDisplay: class
   func displayError(_ msg: String)
 }
 
-class MoviesViewController: UIViewController, MoviesDisplay {
-  
-  // MARK: Interactor
-  
+class MoviesViewController: UIViewController {
+
   var interactor: MoviesInteractor?
 
   // MARK: outlets
@@ -50,6 +48,10 @@ class MoviesViewController: UIViewController, MoviesDisplay {
     unLoadBlur()
   }
   
+  // MARK: Setup
+  var movies: [Movies.ViewModel] = []
+  var selectedMovie: Int?
+  
   // MARK: View lifecycle
   
   override func viewDidLoad() {
@@ -60,7 +62,11 @@ class MoviesViewController: UIViewController, MoviesDisplay {
     loadMovies()
   }
   
-  // MARK: fetch movies and selection
+}
+
+// MARK: UI Logic
+
+extension MoviesViewController {
   
   func loading(_ run: Bool) {
     if run {
@@ -70,9 +76,7 @@ class MoviesViewController: UIViewController, MoviesDisplay {
     }
   }
   
-  var movies: [Movies.ViewModel] = []
-  var selectedMovie: Int?
-  
+
   @IBAction func refreshMovies(_ sender: Any) {
     interactor?.deleteOldMovies()
     loadMovies()
@@ -88,8 +92,11 @@ class MoviesViewController: UIViewController, MoviesDisplay {
     self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
   }
   
+}
 
-  // MARK: MoviesDisplay
+// MARK: MoviesDisplay implementation
+
+extension MoviesViewController: MoviesDisplay {
 
   func displayError(_ msg: String) {
     loading(false)

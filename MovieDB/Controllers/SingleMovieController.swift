@@ -31,26 +31,26 @@ class SingleMovieViewController: UIViewController {
   
   var interactor: SingleMovieInteractor?
   
-  //  MARK: self variables
-  var id: Int?
-  var caller: SingleMovieCaller?
-
   // MARK: Outlets
+  
   @IBOutlet weak var titleView: UILabel!
   @IBOutlet weak var descriptionView: UITextView!
   @IBOutlet weak var posterView: UIImageView!
   @IBOutlet weak var backButton: UIButton!
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
-  let errorView = ErrorView()
-  let loadingView = LoadingView()
 
   // MARK: Constraint Outlets
+  
   @IBOutlet weak var posterHeightConstraint: NSLayoutConstraint!
   
   // MARK: Setup
   
   private var originalY: CGFloat = 333.5
+  var id: Int?
+  var caller: SingleMovieCaller?
+  let errorView = ErrorView()
+  let loadingView = LoadingView()
   
   override var prefersStatusBarHidden: Bool {
     return true
@@ -61,13 +61,19 @@ class SingleMovieViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    loading(true)
     self.interactor = injector.resolve(SingleMovieInteractor.self, argument: self)
     self.interactor?.find(by: self.id)
     
-    loading(true)
     self.scrollView.delegate = self
     prepareSwipeGestures()
   }
+  
+}
+
+// MARK: UI logic
+
+extension SingleMovieViewController {
   
   func loading(_ run: Bool) {
     if run {
@@ -93,6 +99,7 @@ class SingleMovieViewController: UIViewController {
 }
 
 // MARK: protocol implementation
+
 extension SingleMovieViewController: SingleMovieDisplay {
   
   func displayMovie(_ movie: Movies.ViewModel) {

@@ -16,8 +16,11 @@ protocol SingleMovieInteractor {
 
 class SingleMovieInteractorImpl: SingleMovieInteractor {
   var presenter: SingleMoviePresenter?
+  
+  // MARK: setup
+  
   var movieDAO = GenericDAOImpl<Movie>()
-  var movieService = MovieService()
+  var movieService: MovieService?
 
   func find(by id: Int?) {
     guard let `id` = id,
@@ -26,7 +29,7 @@ class SingleMovieInteractorImpl: SingleMovieInteractor {
       return
     }
     
-    movieService.fetchBackDrop(for: movie, completion: { [weak self] (_ poster: UIImage!) in
+    movieService?.fetchBackDrop(for: movie, completion: { [weak self] (_ poster: UIImage!) in
       guard let `self` = self else { return }
 
       let viewModel = movie.asViewModel(poster: poster)
