@@ -10,16 +10,17 @@ import Foundation
 import UIKit
 import Alamofire
 
-protocol MovieCellBuisnessLogic {
+protocol MovieCellInteractor {
   func loadPoster(for viewModel: Movies.ViewModel)
   func cancelOldPoster()
+  var presenter: MovieCellPresenterImpl? { get set }
 }
 
-class MovieCellInteractor: MovieCellBuisnessLogic {
+class MovieCellInteractorImpl: MovieCellInteractor {
   
   //  MARK: setup
   
-  var presenter: MovieCellPresenter?
+  var presenter: MovieCellPresenterImpl?
   var movieService: MovieService? = MovieService()
   var movieDAO = GenericDAOImpl<Movie>()
   var request: Request?

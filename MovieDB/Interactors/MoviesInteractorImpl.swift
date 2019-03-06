@@ -13,15 +13,14 @@
 import UIKit
 
 
-protocol MoviesBusinessLogic
-{
+protocol MoviesInteractor {
   func findMovies()
   func deleteOldMovies()
+  var presenter: MoviesPresenter? { get set }
 }
 
-class MoviesInteractor: MoviesBusinessLogic
-{
-  var presenter: MoviesPresentationLogic?
+class MoviesInteractorImpl: MoviesInteractor {
+  var presenter: MoviesPresenter?
   var movieService: MovieService? = MovieService()
   var movieDAO = GenericDAOImpl<Movie>()
   

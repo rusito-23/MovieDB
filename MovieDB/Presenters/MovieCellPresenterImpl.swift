@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-protocol MovieCellPresentation {
+protocol MovieCellPresenter {
   func presentPoster(_ poster: UIImage?)
+  var viewController: MovieCell? { get set }
 }
 
-class MovieCellPresenter: MovieCellPresentation {
+class MovieCellPresenterImpl: MovieCellPresenter {
   
   var viewController: MovieCell?
   

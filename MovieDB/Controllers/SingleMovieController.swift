@@ -29,7 +29,7 @@ protocol SingleMovieDisplay: class {
 
 class SingleMovieViewController: UIViewController {
   
-  var interactor: SingleMovieBusiness?
+  var interactor: SingleMovieInteractor? = injector.resolve(SingleMovieInteractor.self)
   
   //  MARK: self variables
   var id: Int?
@@ -66,8 +66,8 @@ class SingleMovieViewController: UIViewController {
   
   private func setup()
   {
-    let interactor = SingleMovieInteractor()
-    let presenter = SingleMoviePresenter()
+    let interactor = SingleMovieInteractorImpl()
+    let presenter = SingleMoviePresenterImpl()
     self.interactor = interactor
     interactor.presenter = presenter
     presenter.viewController = self

@@ -20,7 +20,7 @@ class MovieCell: UITableViewCell {
   @IBOutlet weak var posterContainer: UIView!
   
   //  MARK: SETUP
-  var interactor: MovieCellInteractor?
+  var interactor: MovieCellInteractor? = injector.resolve(MovieCellInteractor.self)
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -33,8 +33,7 @@ class MovieCell: UITableViewCell {
   }
   
   private func setup() {
-    interactor = MovieCellInteractor()
-    let presenter = MovieCellPresenter()
+    let presenter = MovieCellPresenterImpl()
     interactor?.presenter = presenter
     presenter.viewController = self
   }

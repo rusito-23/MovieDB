@@ -16,8 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
+    // set up console
     SwiftyBeaver.setUpConsole()
     
+    // set up Swinject
+    Swinject.setup()
+
     return true
   }
   

@@ -2,3 +2,4 @@ github "Alamofire/Alamofire" == 4.5
 github "realm/realm-cocoa"
 github "airbnb/lottie-ios" "master"
 github "SwiftyBeaver/SwiftyBeaver"
+github "Swinject/Swinject"

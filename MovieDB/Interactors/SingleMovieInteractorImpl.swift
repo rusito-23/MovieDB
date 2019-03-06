@@ -9,12 +9,13 @@
 import Foundation
 import UIKit
 
-protocol SingleMovieBusiness {
+protocol SingleMovieInteractor {
   func find(by id: Int?)
+  var presenter: SingleMoviePresenter? { get set }
 }
 
-class SingleMovieInteractor: SingleMovieBusiness {
-  var presenter: SingleMoviePresentation?
+class SingleMovieInteractorImpl: SingleMovieInteractor {
+  var presenter: SingleMoviePresenter?
   var movieDAO = GenericDAOImpl<Movie>()
   var movieService = MovieService()
 

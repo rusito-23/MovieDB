@@ -20,7 +20,7 @@ protocol MoviesDisplayLogic: class
 
 class MoviesViewController: UIViewController
 {
-  var interactor: MoviesBusinessLogic?
+  var interactor: MoviesInteractor? = injector.resolve(MoviesInteractor.self)
 
   // MARK: outlets
   
@@ -45,10 +45,8 @@ class MoviesViewController: UIViewController
   // MARK: Setup
   
   private func setup() {
-    let interactor = MoviesInteractor()
-    let presenter = MoviesPresenter()
-    self.interactor = interactor
-    interactor.presenter = presenter
+    let presenter = MoviesPresenterImpl()
+    interactor?.presenter = presenter
     presenter.viewController = self
   }
   

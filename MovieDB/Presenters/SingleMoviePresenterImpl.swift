@@ -8,11 +8,12 @@
 
 import Foundation
 
-protocol SingleMoviePresentation {
+protocol SingleMoviePresenter {
   func present(_ movie: Movies.ViewModel?)
+  var viewController: SingleMovieDisplay? { get set }
 }
 
-class SingleMoviePresenter: SingleMoviePresentation {
+class SingleMoviePresenterImpl: SingleMoviePresenter {
   weak var viewController: SingleMovieDisplay?
   
   func present(_ movie: Movies.ViewModel?) {
