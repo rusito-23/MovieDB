@@ -49,8 +49,9 @@ class MoviesViewController: UIViewController {
   }
   
   // MARK: Setup
-  var movies: [Movies.ViewModel] = []
-  var selectedMovie: Int?
+  private var movies: [Movies.ViewModel] = []
+  private var selectedMovie: Int?
+  private var refreshControl = UIRefreshControl()
   
   // MARK: View lifecycle
   
@@ -58,6 +59,9 @@ class MoviesViewController: UIViewController {
     super.viewDidLoad()
     interactor = injector.resolve(MoviesInteractor.self, argument: self)
     
+    moviesTableView.refreshControl = refreshControl
+    refreshControl.addTarget(self, action: #selector(refreshMovies(_:)), for: .valueChanged)
+
     prepareNib()
     loadMovies()
   }
@@ -70,15 +74,19 @@ extension MoviesViewController {
   
   func loading(_ run: Bool) {
     if run {
-      loadingView.setupWithSuperView(self.view)
+      self.loadingView.setupWithSuperView(self.view)
+      self.refreshControl.beginRefreshing()
     } else {
-      loadingView.removeFromSuperview()
+      self.refreshControl.endRefreshing()
+      self.loadingView.removeFromSuperview()
     }
   }
   
 
-  @IBAction func refreshMovies(_ sender: Any) {
+  @objc func refreshMovies(_ sender: Any) {
     loading(true)
+    self.movies = []
+    self.moviesTableView.reloadData()
     interactor?.refreshMovies()
   }
   
@@ -109,6 +117,7 @@ extension MoviesViewController: MoviesDisplay {
     loading(false)
     self.movies = movies
     self.moviesTableView.reloadData()
+    self.moviesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
   }
   
 }
@@ -147,6 +156,7 @@ extension MoviesViewController: UITableViewDelegate {
     let movie = self.movies[indexPath.row]
     self.didSelectMovie(movie)
   }
+
 }
 
 

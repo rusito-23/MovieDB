@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popcorn" translatesAutoresizingMaskIntoConstraints="NO" id="xgn-1g-MJF">
-                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="5ib-ux-t8J"/>
                                     <constraint firstAttribute="height" constant="300" id="lUX-UG-gep"/>
@@ -121,29 +121,11 @@
                                     <outlet property="delegate" destination="VtA-Xt-7pm" id="49b-bL-NLX"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXl-LP-roL" customClass="FloatingButton" customModule="MovieDB" customModuleProvider="target">
-                                <rect key="frame" x="293" y="585" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="D3V-cP-zHB"/>
-                                    <constraint firstAttribute="width" constant="50" id="J11-1Z-3vE"/>
-                                </constraints>
-                                <state key="normal" image="ic_refresh"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="refreshMovies:" destination="VtA-Xt-7pm" eventType="touchUpInside" id="ZRt-At-gqq"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.51764705879999995" green="0.1058823529" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lit-uw-VM4" firstAttribute="bottom" secondItem="KXl-LP-roL" secondAttribute="bottom" constant="32" id="4KF-Dy-xhZ"/>
                             <constraint firstItem="lit-uw-VM4" firstAttribute="trailing" secondItem="7AK-lo-2kf" secondAttribute="trailing" id="Hmm-ts-Jbq"/>
                             <constraint firstItem="7AK-lo-2kf" firstAttribute="bottom" secondItem="lit-uw-VM4" secondAttribute="bottom" id="PQ8-W3-BhO"/>
-                            <constraint firstItem="lit-uw-VM4" firstAttribute="trailing" secondItem="KXl-LP-roL" secondAttribute="trailing" constant="32" id="SMZ-r9-jRe"/>
                             <constraint firstItem="7AK-lo-2kf" firstAttribute="leading" secondItem="lit-uw-VM4" secondAttribute="leading" id="hTe-xv-xgH"/>
                             <constraint firstItem="7AK-lo-2kf" firstAttribute="top" secondItem="lit-uw-VM4" secondAttribute="top" id="uDH-DK-DAb"/>
                         </constraints>
@@ -260,7 +242,6 @@
     </scenes>
     <resources>
         <image name="ic_arrow_back_white" width="156.52174377441406" height="156.52174377441406"/>
-        <image name="ic_refresh" width="512" height="512"/>
         <image name="popcorn" width="512" height="512"/>
     </resources>
 </document>
