@@ -13,66 +13,88 @@ import RealmSwift
 class GenericDAOImpl <T:Object> : GenericDAO {
   
   //  MARK: setup
-  
-  var realm: Realm?
-  init() {
-    do {
-      realm = try Realm()
-    } catch {
-      logger.error("Realm Initialization Error: \(error)")
-    }
+  let background = { (block: @escaping () -> ()) in
+    DispatchQueue.global(qos: .background).async (execute: block)
   }
 
   //   MARK: protocol implementation
   
-  func save(_ object: T) -> Bool {
-    guard let `realm` = realm else {
-      return false
-    }
-    
-    do {
-      try realm.write {
-        realm.add(object)
+  func save(_ object: T, completion: @escaping (_ : Bool) -> () ) {
+    background {
+      do {
+        let realm = try! Realm()
+        try realm.write {
+          realm.add(object)
+        }
+      } catch {
+        completion(false)
       }
-    } catch {
-      return false
+      completion(true)
     }
-    
-    return true
   }
   
-  func saveAll(_ objects: [T]) -> Int {
-    var count = 0
-    for obj in objects {
-      if save(obj) { count += 1 }
+  func saveAll(_ objects: [T], completion: @escaping (_ : Int) -> () ){
+    background {
+      var count = 0
+      guard let realm = try? Realm() else { completion(count); return }
+      for obj in objects {
+        do {
+          try realm.write {
+            realm.add(obj)
+            count += 1
+          }
+        } catch {
+        }
+      }
+      completion(count)
     }
-    return count
   }
   
   private func findAllResults() -> Results<T>? {
-    return realm?.objects(T.self)
+    if let realm = try? Realm() {
+      return realm.objects(T.self)
+    }
+    return nil
   }
   
-  func findAll() -> [T] {
-    guard let res = findAllResults() else { return [] }
-    return Array(res)
+  func findAll(completion: @escaping ([T]) -> () ) {
+    background {
+      guard let res = self.findAllResults() else { completion([]); return }
+      completion(Array(res))
+    }
   }
 
-  func findByPrimaryKey(_ id: Any) -> T? {
-    return self.realm?.object(ofType: T.self, forPrimaryKey: id)
+  func findByPrimaryKey(_ id: Any, completion: @escaping (T?) -> () ){
+    background{
+      let realm = try? Realm()
+      completion(realm?.object(ofType: T.self, forPrimaryKey: id))
+    }
   }
   
-  func deleteAll() {
-    guard let res = findAllResults() else { return }
-    
-    do {
-      try realm?.write {
-        self.realm?.delete(res)
+  func deleteAll(completion: @escaping (_ : Bool) -> () ) {
+    background {
+      guard let res = self.findAllResults(),
+            let realm = try? Realm() else {
+              logger.error("No realm")
+              completion(false)
+              return
       }
-    } catch {
-      logger.error("Realm Error Deleting Objects: \(error)")
-      return
+      
+      do {
+        try realm.write {
+          realm.delete(res)
+          completion(true)
+        }
+      } catch {
+        logger.error("error deleting movies")
+        completion(false)
+      }
     }
+  }
+
+  func resolve(_ ref : ThreadSafeReference<T>) -> T? {
+    let realm = try! Realm()
+    return realm.resolve(ref)
   }
 
 }

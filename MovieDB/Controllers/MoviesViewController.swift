@@ -78,8 +78,8 @@ extension MoviesViewController {
   
 
   @IBAction func refreshMovies(_ sender: Any) {
-    interactor?.deleteOldMovies()
-    loadMovies()
+    loading(true)
+    interactor?.refreshMovies()
   }
   
   func loadMovies() {

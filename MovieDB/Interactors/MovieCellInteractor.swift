@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import RealmSwift
 
 protocol MovieCellInteractor {
   func loadPoster(for viewModel: Movies.ViewModel)
@@ -30,13 +31,6 @@ class MovieCellInteractorImpl: MovieCellInteractor {
   
   func loadPoster(for viewModel: Movies.ViewModel) {
     
-    guard let id = viewModel.id,
-          let movie = movieDAO.findByPrimaryKey(id) else {
-        presenter?.presentPoster(nil)
-        return
-    }
-    
-    
     let posterCompletion = { [weak self] (_ poster: UIImage?) -> Void in
       guard let `self` = self else { return }
       if let `poster` = poster {
@@ -44,10 +38,24 @@ class MovieCellInteractorImpl: MovieCellInteractor {
       }
     }
     
-    if !fetchPosterCache(movie, completion: posterCompletion) {
-      // if image doesn't exist in cache, fetch from service
-      fetchPosterService(movie, completion: posterCompletion)
+    guard let id = viewModel.id else {
+        presenter?.presentPoster(nil)
+        return
     }
+    
+    movieDAO.findByPrimaryKey(id, completion: { [weak self] (movie: Movie?) -> () in
+      guard let `self` = self else { return }
+      guard let `movie` = movie else {
+        self.presenter?.presentPoster(nil)
+        return
+      }
+      
+      if !self.fetchPosterCache(movie, completion: posterCompletion) {
+        // if image doesn't exist in cache, fetch from service
+        self.fetchPosterService(movie, completion: posterCompletion)
+      }
+      
+    })
 
   }
   
@@ -67,11 +75,20 @@ class MovieCellInteractorImpl: MovieCellInteractor {
   
   private func fetchPosterService(_ movie : Movie, completion: @escaping (UIImage?) -> Void) {
     // fetching poster from service
-    request = movieService?.fetchPoster(for: movie, completion: { (_ poster: UIImage!) in
+    let movieRef = ThreadSafeReference(to: movie)
+    request = movieService?.fetchPoster(for: movie.posterUrl, completion: { (_ poster: UIImage!) in
+      guard let `movie` = self.movieDAO.resolve(movieRef) else {
+        logger.warning("MovieRef lost!!")
+        completion(nil)
+        return
+      }
+      
       if let url = movie.posterUrl, let `poster` = poster {
         // save poster to cache
         poster.toCache(key: url)
       }
+      
+      logger.verbose("populating poster")
       completion(poster)
     })
   }

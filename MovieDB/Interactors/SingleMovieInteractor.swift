@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 protocol SingleMovieInteractor {
   func find(by id: Int?)
@@ -23,19 +24,33 @@ class SingleMovieInteractorImpl: SingleMovieInteractor {
   var movieService: MovieService?
 
   func find(by id: Int?) {
-    guard let `id` = id,
-          let movie = movieDAO.findByPrimaryKey(id) else {
+    guard let `id` = id else {
       presenter?.present(nil)
       return
     }
     
-    movieService?.fetchBackDrop(for: movie, completion: { [weak self] (_ poster: UIImage!) in
+    movieDAO.findByPrimaryKey(id, completion: { [weak self] (movie: Movie?) -> () in
       guard let `self` = self else { return }
-
-      let viewModel = movie.asViewModel(poster: poster)
-      self.presenter?.present(viewModel)
+      guard let `movie` = movie else {
+        self.presenter?.present(nil)
+        return
+      }
+      
+      let movieRef = ThreadSafeReference(to: movie)
+      
+      self.movieService?.fetchBackDrop(for: movie.backDropPath, completion: { [weak self] (_ poster: UIImage!) in
+        guard let `self` = self else { return }
+        guard let `movie` = self.movieDAO.resolve(movieRef) else {
+          logger.warning("Lost movie reference!!")
+          self.presenter?.present(nil)
+          return
+        }
+        
+        let viewModel = movie.asViewModel(poster: poster)
+        self.presenter?.present(viewModel)
+      })
     })
-    
+
   }
 
 }

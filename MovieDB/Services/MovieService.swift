@@ -16,8 +16,8 @@ import Alamofire
 
 protocol MovieService {
   func findAll(completion: @escaping (Movies.Response?) -> Void)
-  func fetchPoster(for movie: Movie, completion: @escaping (UIImage?) -> Void) -> Request?
-  func fetchBackDrop(for movie: Movie, completion: @escaping (UIImage?) -> Void)
+  func fetchPoster(for url: String?, completion: @escaping (UIImage?) -> Void) -> Request?
+  func fetchBackDrop(for url: String?, completion: @escaping (UIImage?) -> Void)
 }
 
 class MovieServiceImpl: MovieService {
@@ -85,8 +85,8 @@ class MovieServiceImpl: MovieService {
   }
   
   // fetches the backDrop for a specific movie
-  func fetchBackDrop(for movie: Movie, completion: @escaping (UIImage?) -> Void) {
-    guard let url = createUrl(for: .poster, with: movie.backDropPath) else {
+  func fetchBackDrop(for url: String?, completion: @escaping (UIImage?) -> Void) {
+    guard let url = createUrl(for: .poster, with: url) else {
       completion(nil)
       return
     }
@@ -94,8 +94,8 @@ class MovieServiceImpl: MovieService {
   }
 
   // fetches poster for a movie, returns the request so we can cancel it
-  func fetchPoster(for movie: Movie, completion: @escaping (UIImage?) -> Void) -> Request? {
-    guard let url = createUrl(for: .poster, with: movie.posterUrl) else {
+  func fetchPoster(for url: String?, completion: @escaping (UIImage?) -> Void) -> Request? {
+    guard let url = createUrl(for: .poster, with: url) else {
       completion(nil)
       return nil
     }

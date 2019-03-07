@@ -12,14 +12,16 @@ import RealmSwift
 protocol GenericDAO {
   associatedtype T:Object
   
-  func save(_ object: T) -> Bool
+  func save(_ object: T, completion: @escaping (_ : Bool) -> () )
   
-  func saveAll(_ objects: [T]) -> Int
+  func saveAll(_ objects: [T], completion: @escaping (_ : Int) -> () )
   
-  func findAll() -> [T]
+  func findAll(completion: @escaping (_ : [T]) -> () )
   
-  func findByPrimaryKey(_ id: Any) -> T?
+  func findByPrimaryKey(_ id: Any, completion: @escaping (_ : T?) -> () )
   
-  func deleteAll()
+  func deleteAll(completion: @escaping (_ : Bool) -> ())
+  
+  func resolve(_ ref : ThreadSafeReference<T>) -> T?
   
 }

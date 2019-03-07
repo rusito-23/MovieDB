@@ -15,7 +15,7 @@ import UIKit
 
 protocol MoviesInteractor {
   func findMovies()
-  func deleteOldMovies()
+  func refreshMovies()
   var presenter: MoviesPresenter? { get set }
 }
 
@@ -27,23 +27,35 @@ class MoviesInteractorImpl: MoviesInteractor {
   var movieService: MovieService?
   var movieDAO = GenericDAOImpl<Movie>()
   
-  // MARK: find Movies
+  // MARK: protocol implementation
   
-  func findMovies()
-  {
-    let movies: [Movie] = movieDAO.findAll()
-    if movies.count != 0 {
-      // populate with db content
-      logger.verbose("Finding from db")
-      self.presentWithoutPosters(movies)
-    } else {
-      // bring the movies from the api
-      logger.verbose("Fetching from Service")
-      movieService?.findAll(completion: self.onMoviesFetched)
-    }
+  func findMovies() {
+    movieDAO.findAll(completion: { [weak self] (movies: [Movie]) -> () in
+      guard let `self` = self else { return }
+
+      if movies.count != 0 {
+        // populate with db content
+        logger.verbose("Finding from db")
+        self.presentWithoutPosters(movies)
+      } else {
+        // bring the movies from the api
+        logger.verbose("Fetching from Service")
+        self.movieService?.findAll(completion: self.onMoviesFetched)
+      }
+    })
   }
   
-  // MARK: handle MovieService response
+  func refreshMovies() {
+    logger.info("reloading movies")
+    movieDAO.deleteAll(completion: {(error: Bool) -> () in
+      logger.info("reloading movies:: completed")
+      self.findMovies()
+    })
+  }
+  
+  
+  // MARK: handle responses
+  
   func onMoviesFetched(response: Movies.Response?) {
     guard let res = response else {
       presenter?.presentMovies(nil)
@@ -52,21 +64,13 @@ class MoviesInteractorImpl: MoviesInteractor {
     self.presentWithoutPosters(res.movies)
 
     // save them into the db
-    _ = movieDAO.saveAll(res.movies)
+    movieDAO.saveAll(res.movies, completion: {(count: Int) -> () in return } )
   }
 
-  // MARK: common methods for Service and DB responses
-  
-  // present without posters, currently used
   func presentWithoutPosters(_ movies: [Movie]) {
     let viewModels: [Movies.ViewModel] = movies.map { $0.asViewModel(poster: nil) }
     self.presenter?.presentMovies(viewModels)
   }
   
-  // MARK: delete old Movies
-  func deleteOldMovies() {
-    imageCache.removeAllObjects()
-    movieDAO.deleteAll()
-  }
-  
+
 }

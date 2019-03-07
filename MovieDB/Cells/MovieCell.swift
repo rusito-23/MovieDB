@@ -12,6 +12,7 @@ import Alamofire
 
 protocol MovieCellDisplay {
   func populatePoster(poster: UIImage?)
+  func posterError()
 }
 
 class MovieCell: UITableViewCell {
@@ -89,6 +90,11 @@ extension MovieCell: MovieCellDisplay {
   func populatePoster(poster: UIImage?) {
     loadingPoster(false)
     self.posterView.image = poster
+  }
+  
+  func posterError() {
+    loadingPoster(false)
+    self.posterView.image = UIImage.init(named: "no_image")
   }
 
 }
