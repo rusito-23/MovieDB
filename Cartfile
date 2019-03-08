@@ -3,3 +3,4 @@ github "realm/realm-cocoa"
 github "airbnb/lottie-ios" "master"
 github "SwiftyBeaver/SwiftyBeaver"
 github "Swinject/Swinject"
+github "0xced/XCDYouTubeKit" ~> 2.7

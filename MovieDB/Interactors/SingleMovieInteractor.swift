@@ -36,6 +36,8 @@ class SingleMovieInteractorImpl: SingleMovieInteractor {
         return
       }
       
+      print("movie.trailerUrl :   \(String.init(describing: movie.trailerUrl)) ")
+      
       let movieRef = ThreadSafeReference(to: movie)
       
       self.movieService?.fetchBackDrop(for: movie.backDropPath, completion: { [weak self] (_ poster: UIImage!) in

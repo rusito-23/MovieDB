@@ -31,12 +31,21 @@ class MovieServiceImpl: MovieService {
   // poster
   private let posterEndPoint = "https://image.tmdb.org/t/p/original"
   
+  // video
+  private let videoFilter = "/videos?"
+  private let videoMovieFilter = "movie/"
+  
   // general
   private let urlSession = URLSession(configuration: .default)
+  
+  let background = { (block: @escaping () -> ()) in
+    DispatchQueue.global(qos: .background).async (execute: block)
+  }
   
   enum Action: String {
     case discover
     case poster
+    case trailer
   }
   
   // MARK: private util methods
@@ -50,20 +59,23 @@ class MovieServiceImpl: MovieService {
         return nil
       }
       return URL(string: posterEndPoint + path)
+    case .trailer:
+      guard let id = path else { return nil }
+      return URL(string: endPoint + videoMovieFilter + id + videoFilter + apiKey)
     }
   }
   
   // MARK: public methods
   
-  func findAll(completion: @escaping (Movies.Response?) -> Void) {
-    guard let url = createUrl(for: .discover, with: nil) else {
+  func findAll(completion: @escaping (Movies.Response?) -> Void) { background {
+    guard let url = self.createUrl(for: .discover, with: nil) else {
       completion(nil)
       return
     }
     
     Alamofire.request(url,
-               method: .get,
-               parameters: ["include_docs": "true"])
+                      method: .get,
+                      parameters: ["include_docs": "true"])
       .validate()
       .responseJSON { response in
         guard response.result.isSuccess else {
@@ -79,10 +91,56 @@ class MovieServiceImpl: MovieService {
         }
         
         let result = Movies.Response(json: movies)
-        completion(result)
+        self.fetchTrailerUrl(for: result, completion: completion)
     }
+  }}
+  
+  private func fetchTrailerUrl(for res: Movies.Response?, completion: @escaping (Movies.Response?) -> Void) { background {
+    logger.debug("entering fetchTrailerUrl")
+    let group = DispatchGroup()
     
-  }
+    guard let `res` = res else { completion(nil); return}
+    
+    for movie in res.movies {
+      guard let url = self.createUrl(for: .trailer, with: String(movie.id)) else { break }
+      
+      logger.debug("searching for trailer: \(url) !")
+      
+      group.enter()
+      
+      Alamofire.request(url,
+                        method: .get,
+                        parameters: ["include_docs": "true"])
+      .validate()
+      .responseJSON { response in
+        guard response.result.isSuccess else {
+          logger.error("Trailer request failed!")
+          group.leave()
+          return
+        }
+        
+        guard let value = response.result.value as? [String: Any],
+          let videos = value["results"] as? [[String: Any]] else {
+            logger.error("Malformed data received from fetchTrailerUrl service")
+            group.leave()
+            return
+        }
+        
+        for v in videos {
+          if v["type"] as? String == "Trailer" && v["site"] as? String == "YouTube" {
+            // we take the first trailer we find
+            movie.trailerUrl = v["key"] as? String
+            break;
+          }
+        }
+        
+        group.leave()
+      }
+    }
+
+    group.wait()
+    completion(res)
+  }}
   
   // fetches the backDrop for a specific movie
   func fetchBackDrop(for url: String?, completion: @escaping (UIImage?) -> Void) {

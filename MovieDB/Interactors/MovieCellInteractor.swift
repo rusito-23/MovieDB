@@ -53,7 +53,6 @@ class MovieCellInteractorImpl: MovieCellInteractor {
       
       if !self.fetchPosterCache(movie, completion: posterCompletion) {
         // if image doesn't exist in cache, fetch from service
-        logger.info("searching poster from service")
         self.fetchPosterService(movie, completion: posterCompletion)
       }
       
@@ -68,7 +67,6 @@ class MovieCellInteractorImpl: MovieCellInteractor {
   private func fetchPosterCache(_ movie : Movie, completion: @escaping (UIImage?) -> Void) -> Bool {
     // fetching poster from cache
     if let poster = UIImage.fromCache(key: movie.posterUrl) {
-      logger.info("searching poster from cache")
       completion(poster)
       return true
     } else {
@@ -91,7 +89,6 @@ class MovieCellInteractorImpl: MovieCellInteractor {
         poster.toCache(key: url)
       }
       
-      logger.verbose("populating poster")
       completion(poster)
     })
   }

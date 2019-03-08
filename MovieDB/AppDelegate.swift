@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyBeaver
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // set up Swinject
     Swinject.setup()
+    
+    // run realm migrations
+    Realm.runMigrations()
 
     return true
   }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import XCDYouTubeKit
 
 // MARK: Caller protocol
 protocol SingleMovieCaller {
@@ -67,6 +68,7 @@ class SingleMovieViewController: UIViewController {
     
     self.scrollView.delegate = self
     prepareSwipeGestures()
+    
   }
   
 }
@@ -190,6 +192,34 @@ extension SingleMovieViewController: UIScrollViewDelegate {
       })
     }
     
+  }
+  
+}
+
+
+// MARK: youtube video extension
+
+extension SingleMovieViewController {
+  
+  func playVideo() {
+    
+    let id = "Bmwa-20HV_s"
+    XCDYouTubeClient.default().getVideoWithIdentifier(id, cookies: nil, completionHandler: { (video, error) -> () in
+      
+      if (video != nil) {
+        logger.info("video!!")
+        
+        let videoPlayer = XCDYouTubeVideoPlayerViewController.init(videoIdentifier: id)
+        videoPlayer.present(in: self.posterView)
+        videoPlayer.moviePlayer.play()
+        
+        
+      } else {
+        logger.error("no video!!: \(String(describing: error))")
+      }
+      
+    })
+
   }
   
 }

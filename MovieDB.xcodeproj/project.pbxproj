@@ -17,6 +17,10 @@
 		9B25C6BA2220680A00338D41 /* GenericDAOImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25C6B92220680A00338D41 /* GenericDAOImpl.swift */; };
 		9B25C6BE2220824D00338D41 /* GenericDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25C6BD2220824D00338D41 /* GenericDAO.swift */; };
 		9B25C6C0222088C200338D41 /* SingleMovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25C6BF222088C200338D41 /* SingleMovieInteractor.swift */; };
+		9B2CDF702232ADB2001C58AD /* XCDYouTubeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2CDF6F2232ADB2001C58AD /* XCDYouTubeKit.framework */; };
+		9B2CDF712232ADB8001C58AD /* XCDYouTubeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2CDF6F2232ADB2001C58AD /* XCDYouTubeKit.framework */; };
+		9B2CDF722232ADB8001C58AD /* XCDYouTubeKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B2CDF6F2232ADB2001C58AD /* XCDYouTubeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9B2CDF742232B9B5001C58AD /* RealMigrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2CDF732232B9B5001C58AD /* RealMigrations.swift */; };
 		9B4A4A86222983E800B20399 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; };
 		9B4A4A882229861800B20399 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; };
 		9B4A4A892229861800B20399 /* SwiftyBeaver.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -92,6 +96,7 @@
 			files = (
 				9B4A4A892229861800B20399 /* SwiftyBeaver.framework in CopyFiles */,
 				9BD19EFB2224699C00DA094B /* Lottie.framework in CopyFiles */,
+				9B2CDF722232ADB8001C58AD /* XCDYouTubeKit.framework in CopyFiles */,
 				9B25C6AF222044CC00338D41 /* Alamofire.framework in CopyFiles */,
 				9BCBE33A2230445700D5D759 /* Swinject.framework in CopyFiles */,
 				9B25C6B1222044D200338D41 /* Realm.framework in CopyFiles */,
@@ -112,6 +117,8 @@
 		9B25C6B92220680A00338D41 /* GenericDAOImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDAOImpl.swift; sourceTree = "<group>"; };
 		9B25C6BD2220824D00338D41 /* GenericDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDAO.swift; sourceTree = "<group>"; };
 		9B25C6BF222088C200338D41 /* SingleMovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMovieInteractor.swift; sourceTree = "<group>"; };
+		9B2CDF6F2232ADB2001C58AD /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCDYouTubeKit.framework; path = Carthage/Build/iOS/XCDYouTubeKit.framework; sourceTree = "<group>"; };
+		9B2CDF732232B9B5001C58AD /* RealMigrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealMigrations.swift; sourceTree = "<group>"; };
 		9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		9B4A4A8A2229892800B20399 /* SwiftyBeaverExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverExtensions.swift; sourceTree = "<group>"; };
 		9B4A4A8D22298C1F00B20399 /* reach_the_end.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = reach_the_end.otf; sourceTree = "<group>"; };
@@ -167,6 +174,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B2CDF702232ADB2001C58AD /* XCDYouTubeKit.framework in Frameworks */,
+				9B2CDF712232ADB8001C58AD /* XCDYouTubeKit.framework in Frameworks */,
 				9B4A4A86222983E800B20399 /* SwiftyBeaver.framework in Frameworks */,
 				9BCBE3382230444C00D5D759 /* Swinject.framework in Frameworks */,
 				9B4A4A882229861800B20399 /* SwiftyBeaver.framework in Frameworks */,
@@ -198,6 +207,7 @@
 		11F3EE02BCE64716DA04C8C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B2CDF6F2232ADB2001C58AD /* XCDYouTubeKit.framework */,
 				9BCBE3372230444C00D5D759 /* Swinject.framework */,
 				9B4A4A85222983E800B20399 /* SwiftyBeaver.framework */,
 				9BD19EF92224698000DA094B /* Lottie.framework */,
@@ -292,6 +302,7 @@
 				9B8C99E7221B48D900709385 /* AppDelegate.swift */,
 				9B8C99EE221B48DA00709385 /* Assets.xcassets */,
 				9B8C99F3221B48DA00709385 /* Info.plist */,
+				9B2CDF732232B9B5001C58AD /* RealMigrations.swift */,
 			);
 			path = MovieDB;
 			sourceTree = "<group>";
@@ -633,6 +644,7 @@
 				78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */,
 				9B8C9A24221B4D8A00709385 /* MovieService.swift in Sources */,
 				9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */,
+				9B2CDF742232B9B5001C58AD /* RealMigrations.swift in Sources */,
 				9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */,
 				9BD28D9D22244DA600B9661A /* RoundShadowButton.swift in Sources */,
 				9B25C6BE2220824D00338D41 /* GenericDAO.swift in Sources */,

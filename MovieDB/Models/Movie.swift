@@ -19,6 +19,7 @@ class Movie: Object {
   @objc dynamic var releaseDate: Date?
   @objc dynamic var posterUrl: String?
   @objc dynamic var backDropPath: String?
+  @objc dynamic var trailerUrl: String?
   
   override static func primaryKey() -> String? {
     return "id"
