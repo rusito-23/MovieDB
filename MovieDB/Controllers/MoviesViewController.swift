@@ -86,6 +86,7 @@ extension MoviesViewController {
 
   @objc func refreshMovies(_ sender: Any) {
     interactor?.refreshMovies()
+    self.moviesTableView.allowsSelection = false
   }
   
   func loadMovies() {
@@ -114,6 +115,7 @@ extension MoviesViewController: MoviesDisplay {
   {
     loading(false)
     self.movies = movies
+    self.moviesTableView.allowsSelection = true
     self.moviesTableView.reloadData()
   }
   
