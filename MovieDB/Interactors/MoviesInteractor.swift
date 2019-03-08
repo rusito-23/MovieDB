@@ -48,8 +48,9 @@ class MoviesInteractorImpl: MoviesInteractor {
   func refreshMovies() {
     logger.info("reloading movies")
     movieDAO.deleteAll(completion: {(error: Bool) -> () in
-      logger.info("reloading movies:: completed")
-      self.findMovies()
+      logger.info("deleting old movies:: completed")
+      logger.verbose("Fetching from Service")
+      self.movieService?.findAll(completion: self.onMoviesFetched)
     })
   }
   
@@ -61,10 +62,12 @@ class MoviesInteractorImpl: MoviesInteractor {
       presenter?.presentMovies(nil)
       return
     }
-    self.presentWithoutPosters(res.movies)
-
     // save them into the db
-    movieDAO.saveAll(res.movies, completion: {(count: Int) -> () in return } )
+    self.movieDAO.saveAll(res.movies, completion: {(count: Int) -> () in
+      self.movieDAO.findAll(completion: { (movies: [Movie]) -> () in
+        self.presentWithoutPosters(movies)
+      })
+    })
   }
 
   func presentWithoutPosters(_ movies: [Movie]) {

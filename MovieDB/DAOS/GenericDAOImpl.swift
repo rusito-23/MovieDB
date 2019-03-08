@@ -76,18 +76,18 @@ class GenericDAOImpl <T:Object> : GenericDAO {
       guard let res = self.findAllResults(),
             let realm = try? Realm() else {
               logger.error("No realm")
-              completion(false)
+              completion(true)
               return
       }
       
       do {
         try realm.write {
           realm.delete(res)
-          completion(true)
+          completion(false)
         }
       } catch {
         logger.error("error deleting movies")
-        completion(false)
+        completion(true)
       }
     }
   }

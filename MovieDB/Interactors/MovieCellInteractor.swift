@@ -46,12 +46,14 @@ class MovieCellInteractorImpl: MovieCellInteractor {
     movieDAO.findByPrimaryKey(id, completion: { [weak self] (movie: Movie?) -> () in
       guard let `self` = self else { return }
       guard let `movie` = movie else {
+        logger.warning("movie not found?")
         self.presenter?.presentPoster(nil)
         return
       }
       
       if !self.fetchPosterCache(movie, completion: posterCompletion) {
         // if image doesn't exist in cache, fetch from service
+        logger.info("searching poster from service")
         self.fetchPosterService(movie, completion: posterCompletion)
       }
       
@@ -66,6 +68,7 @@ class MovieCellInteractorImpl: MovieCellInteractor {
   private func fetchPosterCache(_ movie : Movie, completion: @escaping (UIImage?) -> Void) -> Bool {
     // fetching poster from cache
     if let poster = UIImage.fromCache(key: movie.posterUrl) {
+      logger.info("searching poster from cache")
       completion(poster)
       return true
     } else {
