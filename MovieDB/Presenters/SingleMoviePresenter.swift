@@ -33,7 +33,7 @@ class SingleMoviePresenterImpl: SingleMoviePresenter {
       if let `id` = id {
         self.viewController?.displayTrailer(id)
       } else {
-        self.viewController?.displayError("No se pudo recuperar el trailer")
+        self.viewController?.displayTrailerError("No se pudo recuperar el trailer")
       }
     }
   }

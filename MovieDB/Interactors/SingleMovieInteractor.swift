@@ -63,7 +63,7 @@ class SingleMovieInteractorImpl: SingleMovieInteractor {
       guard let `self` = self else { return }
       
       guard let trailerUrl = movie?.trailerUrl else {
-        self.presenter?.present(nil)
+        self.presenter?.presentTrailer(nil)
         return
       }
       
@@ -74,7 +74,7 @@ class SingleMovieInteractorImpl: SingleMovieInteractor {
           self.presenter?.presentTrailer(trailerUrl)
         } else {
           logger.error("no video!: \(String(describing: error))")
-          self.presenter?.present(nil)
+          self.presenter?.presentTrailer(nil)
         }
         
       })

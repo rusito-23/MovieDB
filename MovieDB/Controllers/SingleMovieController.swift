@@ -125,6 +125,7 @@ extension SingleMovieViewController: SingleMovieDisplay {
   }
   
   func displayError(_ msg: String) {
+    logger.error(msg)
     loading(false)
     self.errorView.errorMessage.text = msg
     self.errorView.setupForSuperView(self.view)
@@ -140,7 +141,8 @@ extension SingleMovieViewController: SingleMovieDisplay {
   
   func displayTrailerError(_ msg: String) {
     loadingTrailer(false)
-    logger.error(msg)
+    self.errorView.errorMessage.text = msg
+    self.errorView.setupForSuperView(self.posterView)
   }
 
 }
