@@ -49,6 +49,7 @@ class MoviesInteractorImpl: MoviesInteractor {
     logger.info("reloading movies")
     movieDAO.deleteAll(completion: {(error: Bool) -> () in
       logger.info("deleting old movies:: completed")
+      // force populate from service
       logger.verbose("Fetching from Service")
       self.movieService?.findAll(completion: self.onMoviesFetched)
     })

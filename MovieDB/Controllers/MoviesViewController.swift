@@ -84,9 +84,6 @@ extension MoviesViewController {
   
 
   @objc func refreshMovies(_ sender: Any) {
-    loading(true)
-    self.movies = []
-    self.moviesTableView.reloadData()
     interactor?.refreshMovies()
   }
   
@@ -117,7 +114,6 @@ extension MoviesViewController: MoviesDisplay {
     loading(false)
     self.movies = movies
     self.moviesTableView.reloadData()
-    self.moviesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
   }
   
 }
