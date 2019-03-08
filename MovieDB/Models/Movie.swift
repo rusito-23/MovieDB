@@ -12,7 +12,9 @@ import RealmSwift
 
 // MARK: REALM object
 
-class Movie: Object {
+class Movie: Object, Structable {
+  typealias S = MovieStruct
+  
   @objc dynamic var id: Int = 0
   @objc dynamic var title: String?
   @objc dynamic var overview: String?
@@ -56,6 +58,28 @@ class Movie: Object {
     return viewModel
   }
   
+  func toStruct() -> MovieStruct {
+    var movie = MovieStruct()
+    movie.id = self.id
+    movie.title = self.title
+    movie.overview = self.overview
+    movie.releaseDate = self.releaseDate
+    movie.posterUrl = self.posterUrl
+    movie.backDropPath = self.backDropPath
+    movie.trailerUrl = self.trailerUrl
+    return movie
+  }
+  
+}
+
+struct MovieStruct {
+  var id: Int = 0
+  var title: String?
+  var overview: String?
+  var releaseDate: Date?
+  var posterUrl: String?
+  var backDropPath: String?
+  var trailerUrl: String?
 }
 
 

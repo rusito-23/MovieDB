@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 
-class GenericDAOImpl <T:Object> : GenericDAO {
+class GenericDAOImpl <T:Object, Structable> : GenericDAO {
   
   //  MARK: setup
   let background = { (block: @escaping () -> ()) in
