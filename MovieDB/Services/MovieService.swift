@@ -112,10 +112,6 @@ class MovieServiceImpl: MovieService {
       .validate()
       .responseJSON(queue: queue) { response in // weak self?
 
-        logger.debug("before")
-        sleep(10)
-        logger.debug("aftterrr")
-        
         guard response.result.isSuccess else {
           logger.error("Trailer request failed!")
           group.leave()
