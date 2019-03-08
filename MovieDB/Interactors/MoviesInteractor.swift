@@ -48,7 +48,6 @@ class MoviesInteractorImpl: MoviesInteractor {
   func refreshMovies() {
     logger.info("reloading movies")
     movieDAO.deleteAll(completion: {(error: Bool) -> () in
-      sleep(10)
       logger.info("deleting old movies:: completed")
       // force populate from service
       logger.verbose("Fetching from Service")
