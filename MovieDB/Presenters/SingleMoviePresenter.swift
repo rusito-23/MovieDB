@@ -10,6 +10,7 @@ import Foundation
 
 protocol SingleMoviePresenter {
   func present(_ movie: Movies.ViewModel?)
+  func presentTrailer(_ id: String?)
   var viewController: SingleMovieDisplay? { get set }
 }
 
@@ -24,6 +25,16 @@ class SingleMoviePresenterImpl: SingleMoviePresenter {
       }
       
       self.viewController?.displayMovie(movie)
+    }
+  }
+  
+  func presentTrailer(_ id: String?) {
+    DispatchQueue.main.async {
+      if let `id` = id {
+        self.viewController?.displayTrailer(id)
+      } else {
+        self.viewController?.displayError("No se pudo recuperar el trailer")
+      }
     }
   }
   

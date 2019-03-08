@@ -47,7 +47,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOVIE  DB" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yeg-GW-qdj">
-                                <rect key="frame" x="16" y="80" width="343" height="64.5"/>
+                                <rect key="frame" x="16" y="80" width="343" height="57.5"/>
                                 <fontDescription key="fontDescription" name="ReachtheEnd" family="Reach the End" pointSize="55"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -185,11 +185,23 @@
                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODU-m3-feh">
+                                                <rect key="frame" x="16" y="405.5" width="343" height="34"/>
+                                                <state key="normal" title="Watch trailer!">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playTrailer" destination="Ipy-kV-kw8" eventType="touchUpInside" id="0w9-F5-PDk"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="ODU-m3-feh" firstAttribute="leading" secondItem="jhy-kj-PN9" secondAttribute="leading" constant="16" id="2Oq-Hv-ODe"/>
                                             <constraint firstItem="JQG-5I-MNz" firstAttribute="top" secondItem="jhy-kj-PN9" secondAttribute="top" constant="23" id="6HL-Aa-NzB"/>
                                             <constraint firstAttribute="bottom" secondItem="9Wg-Gd-l4x" secondAttribute="bottom" constant="126.5" id="8yd-1V-Ld6"/>
+                                            <constraint firstItem="ODU-m3-feh" firstAttribute="top" secondItem="9Wg-Gd-l4x" secondAttribute="bottom" constant="32" id="Ay4-3f-YF4"/>
+                                            <constraint firstAttribute="trailing" secondItem="ODU-m3-feh" secondAttribute="trailing" constant="16" id="BPO-rD-pt5"/>
                                             <constraint firstAttribute="trailing" secondItem="JQG-5I-MNz" secondAttribute="trailing" constant="16" id="D98-IQ-ev3"/>
                                             <constraint firstItem="9Wg-Gd-l4x" firstAttribute="top" secondItem="JQG-5I-MNz" secondAttribute="bottom" constant="23" id="LeM-uW-6w1"/>
                                             <constraint firstItem="JQG-5I-MNz" firstAttribute="leading" secondItem="jhy-kj-PN9" secondAttribute="leading" constant="16" id="czA-TV-FDK"/>

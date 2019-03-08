@@ -23,6 +23,8 @@ protocol SingleMovieCaller {
 protocol SingleMovieDisplay: class {
   func displayMovie(_ movie: Movies.ViewModel)
   func displayError(_ msg: String)
+  func displayTrailer(_ id: String)
+  func displayTrailerError(_ msg: String)
 }
 
 
@@ -52,6 +54,7 @@ class SingleMovieViewController: UIViewController {
   var caller: SingleMovieCaller?
   let errorView = ErrorView()
   let loadingView = LoadingView()
+  var videoPlayer: XCDYouTubeVideoPlayerViewController?
   
   override var prefersStatusBarHidden: Bool {
     return true
@@ -69,6 +72,13 @@ class SingleMovieViewController: UIViewController {
     self.scrollView.delegate = self
     prepareSwipeGestures()
     
+    NotificationCenter.default.addObserver(self, selector: #selector(onTrailerFinished), name: NSNotification.Name.MPMoviePlayerPlaybackDidFinish, object: nil)
+  }
+  
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    dismissVideoPlayer()
   }
   
 }
@@ -76,7 +86,7 @@ class SingleMovieViewController: UIViewController {
 // MARK: UI logic
 
 extension SingleMovieViewController {
-  
+
   func loading(_ run: Bool) {
     if run {
       loadingView.setupWithSuperView(self.view)
@@ -120,6 +130,19 @@ extension SingleMovieViewController: SingleMovieDisplay {
     self.errorView.setupForSuperView(self.view)
   }
   
+  func displayTrailer(_ id: String) {
+    loadingTrailer(false)
+    
+    videoPlayer = XCDYouTubeVideoPlayerViewController.init(videoIdentifier: id)
+    videoPlayer?.present(in: self.posterView)
+    videoPlayer?.moviePlayer.play()
+  }
+  
+  func displayTrailerError(_ msg: String) {
+    loadingTrailer(false)
+    logger.error(msg)
+  }
+
 }
 
 // MARK: Swipe Gestures Controll
@@ -196,30 +219,33 @@ extension SingleMovieViewController: UIScrollViewDelegate {
   
 }
 
-
-// MARK: youtube video extension
+// MARK: extension for video handling
 
 extension SingleMovieViewController {
   
-  func playVideo() {
-    
-    let id = "Bmwa-20HV_s"
-    XCDYouTubeClient.default().getVideoWithIdentifier(id, cookies: nil, completionHandler: { (video, error) -> () in
-      
-      if (video != nil) {
-        logger.info("video!!")
-        
-        let videoPlayer = XCDYouTubeVideoPlayerViewController.init(videoIdentifier: id)
-        videoPlayer.present(in: self.posterView)
-        videoPlayer.moviePlayer.play()
-        
-        
-      } else {
-        logger.error("no video!!: \(String(describing: error))")
-      }
-      
-    })
-
+  func dismissVideoPlayer() {
+    self.videoPlayer?.moviePlayer.stop()
+    self.videoPlayer?.removeFromParent()
+    self.videoPlayer?.moviePlayer.view.removeFromSuperview()
   }
   
+  func loadingTrailer(_ run: Bool) {
+    if run {
+      loadingView.setupWithSuperView(self.posterView)
+      dismissVideoPlayer()
+    } else {
+      loadingView.removeFromSuperview()
+    }
+  }
+  
+  @IBAction func playTrailer() {
+    loadingTrailer(true)
+    self.interactor?.fetchTrailer(id: self.id)
+  }
+  
+  @objc func onTrailerFinished() {
+    logger.verbose("trailer finished")
+    dismissVideoPlayer()
+  }
+
 }

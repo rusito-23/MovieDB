@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 import RealmSwift
+import XCDYouTubeKit
 
 protocol SingleMovieInteractor {
   func find(by id: Int?)
+  func fetchTrailer(id: Int?)
   var presenter: SingleMoviePresenter? { get set }
 }
 
@@ -54,5 +56,29 @@ class SingleMovieInteractorImpl: SingleMovieInteractor {
     })
 
   }
-
+  
+  
+  func fetchTrailer(id: Int?) {
+    self.movieDAO.findByPrimaryKey(id as Any, completion: { [weak self] (movie: Movie?) -> () in
+      guard let `self` = self else { return }
+      
+      guard let trailerUrl = movie?.trailerUrl else {
+        self.presenter?.present(nil)
+        return
+      }
+      
+      XCDYouTubeClient.default().getVideoWithIdentifier(trailerUrl, cookies: nil, completionHandler: { (video, error) -> () in
+        
+        if (video != nil) {
+          logger.info("video available!")
+          self.presenter?.presentTrailer(trailerUrl)
+        } else {
+          logger.error("no video!: \(String(describing: error))")
+          self.presenter?.present(nil)
+        }
+        
+      })
+    })
+  }
+  
 }
