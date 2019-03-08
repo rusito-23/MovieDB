@@ -27,6 +27,7 @@ class MoviesViewController: UIViewController {
   
   @IBOutlet private weak var moviesTableView: UITableView!
   let loadingView = LoadingView()
+  let refreshView = LoadingView()
   let errorView = ErrorView()
 
   // MARK: Routing
@@ -61,6 +62,7 @@ class MoviesViewController: UIViewController {
     
     moviesTableView.refreshControl = refreshControl
     refreshControl.addTarget(self, action: #selector(refreshMovies(_:)), for: .valueChanged)
+    refreshView.setupWithSuperView(refreshControl)
 
     prepareNib()
     loadMovies()
@@ -75,7 +77,6 @@ extension MoviesViewController {
   func loading(_ run: Bool) {
     if run {
       self.loadingView.setupWithSuperView(self.view)
-      self.refreshControl.beginRefreshing()
     } else {
       self.refreshControl.endRefreshing()
       self.loadingView.removeFromSuperview()
