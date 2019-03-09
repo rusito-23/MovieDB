@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import Alamofire
-import RealmSwift
 
 protocol MovieCellInteractor {
   func loadPoster(for viewModel: Movies.ViewModel)
@@ -43,7 +42,7 @@ class MovieCellInteractorImpl: MovieCellInteractor {
         return
     }
     
-    movieDAO.findByPrimaryKey(id, completion: { [weak self] (movie: Movie?) -> () in
+    movieDAO.findByPrimaryKey(id, completion: { [weak self] (movie: MovieStruct?) -> () in
       guard let `self` = self else { return }
       guard let `movie` = movie else {
         logger.warning("movie not found?")
@@ -64,7 +63,7 @@ class MovieCellInteractorImpl: MovieCellInteractor {
     self.request?.cancel()
   }
 
-  private func fetchPosterCache(_ movie : Movie, completion: @escaping (UIImage?) -> Void) -> Bool {
+  private func fetchPosterCache(_ movie : MovieStruct, completion: @escaping (UIImage?) -> Void) -> Bool {
     // fetching poster from cache
     if let poster = UIImage.fromCache(key: movie.posterUrl) {
       completion(poster)
@@ -74,15 +73,9 @@ class MovieCellInteractorImpl: MovieCellInteractor {
     }
   }
   
-  private func fetchPosterService(_ movie : Movie, completion: @escaping (UIImage?) -> Void) {
+  private func fetchPosterService(_ movie : MovieStruct, completion: @escaping (UIImage?) -> Void) {
     // fetching poster from service
-    let movieRef = ThreadSafeReference(to: movie)
     request = movieService?.fetchPoster(for: movie.posterUrl, completion: { (_ poster: UIImage!) in
-      guard let `movie` = self.movieDAO.resolve(movieRef) else {
-        logger.warning("MovieRef lost!!")
-        completion(nil)
-        return
-      }
       
       if let url = movie.posterUrl, let `poster` = poster {
         // save poster to cache

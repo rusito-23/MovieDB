@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import RealmSwift
 import XCDYouTubeKit
 
 protocol SingleMovieInteractor {
@@ -31,23 +30,16 @@ class SingleMovieInteractorImpl: SingleMovieInteractor {
       return
     }
     
-    movieDAO.findByPrimaryKey(id, completion: { [weak self] (movie: Movie?) -> () in
+    movieDAO.findByPrimaryKey(id, completion: { [weak self] (movie: MovieStruct?) -> () in
       guard let `self` = self else { return }
       guard let `movie` = movie else {
         self.presenter?.present(nil)
         return
       }
       
-      let movieRef = ThreadSafeReference(to: movie)
-      
       self.movieService?.fetchBackDrop(for: movie.backDropPath, completion: { [weak self] (_ poster: UIImage!) in
         guard let `self` = self else { return }
-        guard let `movie` = self.movieDAO.resolve(movieRef) else {
-          logger.warning("Lost movie reference!!")
-          self.presenter?.present(nil)
-          return
-        }
-        
+
         let viewModel = movie.asViewModel(poster: poster)
         self.presenter?.present(viewModel)
       })
@@ -57,7 +49,7 @@ class SingleMovieInteractorImpl: SingleMovieInteractor {
   
   
   func fetchTrailer(id: Int?) {
-    self.movieDAO.findByPrimaryKey(id as Any, completion: { [weak self] (movie: Movie?) -> () in
+    self.movieDAO.findByPrimaryKey(id as Any, completion: { [weak self] (movie: MovieStruct?) -> () in
       guard let `self` = self else { return }
       
       guard let trailerUrl = movie?.trailerUrl else {

@@ -30,7 +30,7 @@ class MoviesInteractorImpl: MoviesInteractor {
   // MARK: protocol implementation
   
   func findMovies() {
-    movieDAO.findAll(completion: { [weak self] (movies: [Movie]) -> () in
+    movieDAO.findAll(completion: { [weak self] (movies: [MovieStruct]) -> () in
       guard let `self` = self else { return }
 
       if movies.count != 0 {
@@ -65,13 +65,13 @@ class MoviesInteractorImpl: MoviesInteractor {
     }
     // save them into the db
     self.movieDAO.saveAll(res.movies, completion: {(count: Int) -> () in
-      self.movieDAO.findAll(completion: { (movies: [Movie]) -> () in
+      self.movieDAO.findAll(completion: { (movies: [MovieStruct]) -> () in
         self.presentWithoutPosters(movies)
       })
     })
   }
 
-  func presentWithoutPosters(_ movies: [Movie]) {
+  func presentWithoutPosters(_ movies: [MovieStruct]) {
     let viewModels: [Movies.ViewModel] = movies.map { $0.asViewModel(poster: nil) }
     self.presenter?.presentMovies(viewModels)
   }

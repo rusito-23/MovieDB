@@ -13,7 +13,6 @@
 import Foundation
 import UIKit
 import Alamofire
-import RealmSwift
 
 protocol MovieService {
   func findAll(completion: @escaping (Movies.Response?) -> Void)

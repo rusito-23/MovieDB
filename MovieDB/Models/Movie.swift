@@ -48,16 +48,7 @@ class Movie: Object, Structable {
     self.posterUrl = posterUrl
     self.backDropPath = backDropPath
   }
-  
-  func asViewModel(poster: UIImage?) -> Movies.ViewModel {
-    var viewModel = Movies.ViewModel()
-    viewModel.id = self.id
-    viewModel.title = self.title
-    viewModel.overview = self.overview
-    viewModel.poster = poster
-    return viewModel
-  }
-  
+
   func toStruct() -> MovieStruct {
     var movie = MovieStruct()
     movie.id = self.id
@@ -80,6 +71,16 @@ struct MovieStruct {
   var posterUrl: String?
   var backDropPath: String?
   var trailerUrl: String?
+  
+  func asViewModel(poster: UIImage?) -> Movies.ViewModel {
+    var viewModel = Movies.ViewModel()
+    viewModel.id = self.id
+    viewModel.title = self.title
+    viewModel.overview = self.overview
+    viewModel.poster = poster
+    return viewModel
+  }
+  
 }
 
 

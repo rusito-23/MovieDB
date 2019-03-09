@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 
-class GenericDAOImpl <T:Object, Structable> : GenericDAO {
+class GenericDAOImpl <T> : GenericDAO where T:Object, T:Structable {
   
   //  MARK: setup
   let background = { (block: @escaping () -> ()) in
@@ -57,17 +57,17 @@ class GenericDAOImpl <T:Object, Structable> : GenericDAO {
     return nil
   }
   
-  func findAll(completion: @escaping ([T]) -> () ) {
+  func findAll(completion: @escaping ([T.S]) -> () ) {
     background {
       guard let res = self.findAllResults() else { completion([]); return }
-      completion(Array(res))
+      completion(Array(res).map {$0.toStruct()} )
     }
   }
 
-  func findByPrimaryKey(_ id: Any, completion: @escaping (T?) -> () ){
+  func findByPrimaryKey(_ id: Any, completion: @escaping (T.S?) -> () ){
     background{
       let realm = try? Realm()
-      completion(realm?.object(ofType: T.self, forPrimaryKey: id))
+      completion(realm?.object(ofType: T.self, forPrimaryKey: id)?.toStruct())
     }
   }
   
