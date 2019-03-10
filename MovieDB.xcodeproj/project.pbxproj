@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7880A8582234B21A00EA0503 /* MovieServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7880A8572234B21A00EA0503 /* MovieServiceProtocol.swift */; };
 		78933A5E223497A5003DE75D /* RealmDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78933A5D223497A5003DE75D /* RealmDAO.framework */; };
 		78933A5F223497A9003DE75D /* RealmDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78933A5D223497A5003DE75D /* RealmDAO.framework */; };
 		78933A60223497A9003DE75D /* RealmDAO.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 78933A5D223497A5003DE75D /* RealmDAO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -109,6 +110,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7880A8572234B21A00EA0503 /* MovieServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceProtocol.swift; sourceTree = "<group>"; };
 		78933A5D223497A5003DE75D /* RealmDAO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmDAO.framework; path = Carthage/Build/iOS/RealmDAO.framework; sourceTree = "<group>"; };
 		78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageCacheExtensions.swift; sourceTree = "<group>"; };
 		9B25C6A72220442D00338D41 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				9BCBE33C223044DF00D5D759 /* Swinject.swift */,
+				9B2CDF732232B9B5001C58AD /* RealMigrations.swift */,
 				9B4A4A8C22298C0A00B20399 /* Fonts */,
 				9BA4C5632225AE06004FC90D /* Segues */,
 				9BD28DA2222462B600B9661A /* Lotties */,
@@ -296,7 +299,6 @@
 				9B8C99E7221B48D900709385 /* AppDelegate.swift */,
 				9B8C99EE221B48DA00709385 /* Assets.xcassets */,
 				9B8C99F3221B48DA00709385 /* Info.plist */,
-				9B2CDF732232B9B5001C58AD /* RealMigrations.swift */,
 			);
 			path = MovieDB;
 			sourceTree = "<group>";
@@ -362,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				9B8C9A1E221B4D8A00709385 /* MovieService.swift */,
+				7880A8572234B21A00EA0503 /* MovieServiceProtocol.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				9B8C99E8221B48D900709385 /* AppDelegate.swift in Sources */,
 				9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */,
 				9BD28D9B22244CC000B9661A /* ButtonExtensions.swift in Sources */,
+				7880A8582234B21A00EA0503 /* MovieServiceProtocol.swift in Sources */,
 				78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */,
 				9B8C9A24221B4D8A00709385 /* MovieService.swift in Sources */,
 				9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */,

@@ -9,7 +9,7 @@
 import Foundation
 import Swinject
 
-let container = Container()
+fileprivate let container = Container()
 let injector = container
 
 class Swinject {

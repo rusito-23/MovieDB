@@ -14,12 +14,6 @@ import Foundation
 import UIKit
 import Alamofire
 
-protocol MovieService {
-  func findAll(completion: @escaping (Movies.Response?) -> Void)
-  func fetchPoster(for url: String?, completion: @escaping (UIImage?) -> Void)
-  func fetchBackDrop(for url: String?, completion: @escaping (UIImage?) -> Void)
-}
-
 class MovieServiceImpl: MovieService {
 
   // MARK: variables
