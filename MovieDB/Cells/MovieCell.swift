@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Alamofire
 
 protocol MovieCellDisplay {
   func populatePoster(poster: UIImage?)

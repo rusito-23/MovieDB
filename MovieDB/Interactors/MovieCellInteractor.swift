@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Alamofire
 import RealmDAO
 
 protocol MovieCellInteractor {
@@ -25,7 +24,7 @@ class MovieCellInteractorImpl: MovieCellInteractor {
   
   var movieService: MovieService?
   var movieDAO = GenericDAO<Movie>()
-  var request: Request?
+  var request: Bool = false
 
   //  MARK: load poster
   
@@ -61,7 +60,7 @@ class MovieCellInteractorImpl: MovieCellInteractor {
   }
   
   func cancelOldPoster() {
-    self.request?.cancel()
+    request = false
   }
 
   private func fetchPosterCache(_ movie : MovieStruct, completion: @escaping (UIImage?) -> Void) -> Bool {
@@ -76,9 +75,11 @@ class MovieCellInteractorImpl: MovieCellInteractor {
   
   private func fetchPosterService(_ movie : MovieStruct, completion: @escaping (UIImage?) -> Void) {
     // fetching poster from service
-    request = movieService?.fetchPoster(for: movie.posterUrl, completion: { (_ poster: UIImage!) in
+    request = true
+    movieService?.fetchPoster(for: movie.posterUrl, completion: { [weak self] (_ poster: UIImage!) in
+      guard let `self` = self else { return }
       
-      if let url = movie.posterUrl, let `poster` = poster {
+      if let url = movie.posterUrl, let `poster` = poster, self.request {
         // save poster to cache
         poster.toCache(key: url)
       }

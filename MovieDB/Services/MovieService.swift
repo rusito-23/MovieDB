@@ -16,7 +16,7 @@ import Alamofire
 
 protocol MovieService {
   func findAll(completion: @escaping (Movies.Response?) -> Void)
-  func fetchPoster(for url: String?, completion: @escaping (UIImage?) -> Void) -> Request?
+  func fetchPoster(for url: String?, completion: @escaping (UIImage?) -> Void)
   func fetchBackDrop(for url: String?, completion: @escaping (UIImage?) -> Void)
 }
 
@@ -146,20 +146,20 @@ class MovieServiceImpl: MovieService {
       completion(nil)
       return
     }
-    _ = fetchImage(with: url, completion: completion)
+    fetchImage(with: url, completion: completion)
   }
 
   // fetches poster for a movie, returns the request so we can cancel it
-  func fetchPoster(for url: String?, completion: @escaping (UIImage?) -> Void) -> Request? {
+  func fetchPoster(for url: String?, completion: @escaping (UIImage?) -> Void) {
     guard let url = createUrl(for: .poster, with: url) else {
       completion(nil)
-      return nil
+      return
     }
-    return fetchImage(with: url, completion: completion)
+    fetchImage(with: url, completion: completion)
   }
     
-  private func fetchImage(with url: URL, completion: @escaping (UIImage?) -> Void) -> Request {
-    return Alamofire.request(url, method: .get)
+  private func fetchImage(with url: URL, completion: @escaping (UIImage?) -> Void) {
+    Alamofire.request(url, method: .get)
       .validate()
       .responseData(queue: queue, completionHandler: { (responseData) in
         guard let image = UIImage(data: responseData.data!) else {
