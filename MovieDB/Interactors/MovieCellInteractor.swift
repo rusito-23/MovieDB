@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import RealmDAO
 
 protocol MovieCellInteractor {
   func loadPoster(for viewModel: Movies.ViewModel)
@@ -23,7 +24,7 @@ class MovieCellInteractorImpl: MovieCellInteractor {
   //  MARK: setup
   
   var movieService: MovieService?
-  var movieDAO = GenericDAOImpl<Movie>()
+  var movieDAO = GenericDAO<Movie>()
   var request: Request?
 
   //  MARK: load poster

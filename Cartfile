@@ -4,3 +4,5 @@ github "airbnb/lottie-ios" "master"
 github "SwiftyBeaver/SwiftyBeaver"
 github "Swinject/Swinject"
 github "0xced/XCDYouTubeKit" ~> 2.7
+
+github "rusito-23/RealmDAO" ~> 1.0.0

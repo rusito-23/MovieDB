@@ -9,10 +9,11 @@
 import Foundation
 import UIKit
 import RealmSwift
+import RealmDAO
 
 // MARK: REALM object
 
-class Movie: Object, Structable {
+class Movie: Object, Transferrable {
   typealias S = MovieStruct
   
   @objc dynamic var id: Int = 0
@@ -49,7 +50,7 @@ class Movie: Object, Structable {
     self.backDropPath = backDropPath
   }
 
-  func toStruct() -> MovieStruct {
+  func transfer() -> MovieStruct {
     var movie = MovieStruct()
     movie.id = self.id
     movie.title = self.title

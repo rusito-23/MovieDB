@@ -11,7 +11,7 @@
 //
 
 import UIKit
-
+import RealmDAO
 
 protocol MoviesInteractor {
   func findMovies()
@@ -25,7 +25,7 @@ class MoviesInteractorImpl: MoviesInteractor {
   // MARK: setup
   
   var movieService: MovieService?
-  var movieDAO = GenericDAOImpl<Movie>()
+  var movieDAO = GenericDAO<Movie>()
   
   // MARK: protocol implementation
   

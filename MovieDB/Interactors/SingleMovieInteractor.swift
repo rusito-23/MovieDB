@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import XCDYouTubeKit
+import RealmDAO
 
 protocol SingleMovieInteractor {
   func find(by id: Int?)
@@ -21,7 +22,7 @@ class SingleMovieInteractorImpl: SingleMovieInteractor {
   
   // MARK: setup
   
-  var movieDAO = GenericDAOImpl<Movie>()
+  var movieDAO = GenericDAO<Movie>()
   var movieService: MovieService?
 
   func find(by id: Int?) {

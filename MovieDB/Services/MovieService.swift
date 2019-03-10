@@ -38,7 +38,6 @@ class MovieServiceImpl: MovieService {
   // general
   private let urlSession = URLSession(configuration: .default)
   private let queue = DispatchQueue(label: "alamofire.background", qos: .background, attributes: .concurrent)
-  private let movieDAO = GenericDAOImpl<Movie>()
 
   enum Action: String {
     case discover
