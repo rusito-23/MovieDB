@@ -50,6 +50,10 @@
 		9B8C9A28221B4D8A00709385 /* MoviesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C9A22221B4D8A00709385 /* MoviesInteractor.swift */; };
 		9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B922B19221C9184007E8AE7 /* SingleMovieController.swift */; };
 		9B9E8A4B223697FE000F96B8 /* MovieServiceUrlCreatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E8A4A223697FE000F96B8 /* MovieServiceUrlCreatorImpl.swift */; };
+		9B9E8A4D223699FC000F96B8 /* MovieServiceImplAFNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E8A4C223699FC000F96B8 /* MovieServiceImplAFNet.swift */; };
+		9B9E8A4F22369EEC000F96B8 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9E8A4E22369EEC000F96B8 /* AFNetworking.framework */; };
+		9B9E8A5022369EEF000F96B8 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9E8A4E22369EEC000F96B8 /* AFNetworking.framework */; };
+		9B9E8A5122369EEF000F96B8 /* AFNetworking.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B9E8A4E22369EEC000F96B8 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984B221B52A7007B37B3 /* DateExtensions.swift */; };
 		9BA4984F221C4331007B37B3 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984E221C4331007B37B3 /* MovieCell.swift */; };
 		9BA4C56222258A43004FC90D /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4C56122258A42004FC90D /* MovieCell.xib */; };
@@ -104,6 +108,7 @@
 				9B25C6AF222044CC00338D41 /* Alamofire.framework in CopyFiles */,
 				9BCBE33A2230445700D5D759 /* Swinject.framework in CopyFiles */,
 				9B25C6B1222044D200338D41 /* Realm.framework in CopyFiles */,
+				9B9E8A5122369EEF000F96B8 /* AFNetworking.framework in CopyFiles */,
 				9B25C6B3222044D700338D41 /* RealmSwift.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +159,8 @@
 		9B8C9A22221B4D8A00709385 /* MoviesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInteractor.swift; sourceTree = "<group>"; };
 		9B922B19221C9184007E8AE7 /* SingleMovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMovieController.swift; sourceTree = "<group>"; };
 		9B9E8A4A223697FE000F96B8 /* MovieServiceUrlCreatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceUrlCreatorImpl.swift; sourceTree = "<group>"; };
+		9B9E8A4C223699FC000F96B8 /* MovieServiceImplAFNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceImplAFNet.swift; sourceTree = "<group>"; };
+		9B9E8A4E22369EEC000F96B8 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		9BA4984B221B52A7007B37B3 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9BA4984E221C4331007B37B3 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		9BA4C56122258A42004FC90D /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
@@ -179,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B9E8A4F22369EEC000F96B8 /* AFNetworking.framework in Frameworks */,
 				78933A5E223497A5003DE75D /* RealmDAO.framework in Frameworks */,
 				9B2CDF702232ADB2001C58AD /* XCDYouTubeKit.framework in Frameworks */,
 				9B2CDF712232ADB8001C58AD /* XCDYouTubeKit.framework in Frameworks */,
@@ -187,6 +195,7 @@
 				9B4A4A882229861800B20399 /* SwiftyBeaver.framework in Frameworks */,
 				9B25C6AA2220443700338D41 /* Realm.framework in Frameworks */,
 				78933A5F223497A9003DE75D /* RealmDAO.framework in Frameworks */,
+				9B9E8A5022369EEF000F96B8 /* AFNetworking.framework in Frameworks */,
 				9BD19EFA2224698300DA094B /* Lottie.framework in Frameworks */,
 				9BCBE3392230445700D5D759 /* Swinject.framework in Frameworks */,
 				9B25C6A82220442D00338D41 /* Alamofire.framework in Frameworks */,
@@ -214,6 +223,7 @@
 		11F3EE02BCE64716DA04C8C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B9E8A4E22369EEC000F96B8 /* AFNetworking.framework */,
 				78933A5D223497A5003DE75D /* RealmDAO.framework */,
 				9B2CDF6F2232ADB2001C58AD /* XCDYouTubeKit.framework */,
 				9BCBE3372230444C00D5D759 /* Swinject.framework */,
@@ -368,6 +378,7 @@
 				7880A8572234B21A00EA0503 /* MovieServiceProtocol.swift */,
 				9B8C9A1E221B4D8A00709385 /* MovieServiceImpl.swift */,
 				9B9E8A4A223697FE000F96B8 /* MovieServiceUrlCreatorImpl.swift */,
+				9B9E8A4C223699FC000F96B8 /* MovieServiceImplAFNet.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -637,6 +648,7 @@
 				9BD28D912224192600B9661A /* Movie.swift in Sources */,
 				9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */,
 				9B25C6C0222088C200338D41 /* SingleMovieInteractor.swift in Sources */,
+				9B9E8A4D223699FC000F96B8 /* MovieServiceImplAFNet.swift in Sources */,
 				9BE7BA612228810700CF69CD /* MovieCellInteractor.swift in Sources */,
 				9B8C99E8221B48D900709385 /* AppDelegate.swift in Sources */,
 				9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */,

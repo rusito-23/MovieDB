@@ -9,7 +9,10 @@
 import Foundation
 
 class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
+  // TODO: all private info from this file should be inside a plist
+  
   // MARK: variables
+  
   // discover
   private let endPoint = "https://api.themoviedb.org/3/"
   private let filterStarter = "/movie?"
