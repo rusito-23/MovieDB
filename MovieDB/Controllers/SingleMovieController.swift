@@ -207,12 +207,14 @@ extension SingleMovieViewController: UIScrollViewDelegate {
       if scrollView.contentOffset.y <= 10 {
         UIView.animate(withDuration: 0.4, animations: {
           self.posterHeightConstraint.constant = 300
+          self.errorView.frame.size.height = 300
           self.view.layoutSubviews()
         })
       }
     }else{
       UIView.animate(withDuration: 0.4, animations: {
         self.posterHeightConstraint.constant = 150
+          self.errorView.frame.size.height = 150
         self.view.layoutSubviews()
       })
     }

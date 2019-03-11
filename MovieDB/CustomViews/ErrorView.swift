@@ -38,12 +38,19 @@ class ErrorView: UIView {
   }
   
   func setupForSuperView(_ superView: UIView) {
+    self.translatesAutoresizingMaskIntoConstraints = false
     
     // setup size
     self.frame.size = superView.frame.size
 
     // add to superView
     superView.addSubview(self)
+    
+    // constraints
+    superView.addConstraints([
+      NSLayoutConstraint(item: self.contentView, attribute: .height, relatedBy: .equal, toItem: superView, attribute: .height, multiplier: 1, constant: 0),
+      NSLayoutConstraint(item: self.contentView, attribute: .width, relatedBy: .equal, toItem: superView, attribute: .width, multiplier: 1, constant: 0),
+    ])
   }
 
 }
