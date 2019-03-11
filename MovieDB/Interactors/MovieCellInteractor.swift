@@ -32,9 +32,7 @@ class MovieCellInteractorImpl: MovieCellInteractor {
     
     let posterCompletion = { [weak self] (_ poster: UIImage?) -> Void in
       guard let `self` = self else { return }
-      if let `poster` = poster {
-        self.presenter?.presentPoster(poster)
-      }
+      self.presenter?.presentPoster(poster)
     }
     
     guard let id = viewModel.id else {
