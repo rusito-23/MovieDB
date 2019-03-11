@@ -20,6 +20,9 @@ class Swinject {
     container.register(MovieService.self) { _ in
       MovieServiceImpl()
     }
+    container.register(MovieServiceUrlCreator.self) { _ in
+      MovieServiceUrlCreatorImpl()
+    }
 
     // MARK: Presenters
     

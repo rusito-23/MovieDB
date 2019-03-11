@@ -16,50 +16,15 @@ import Alamofire
 
 class MovieServiceImpl: MovieService {
 
-  // MARK: variables
-  // discover
-  private let endPoint = "https://api.themoviedb.org/3/"
-  private let filterStarter = "/movie?"
-  private let apiKey = "api_key=***REMOVED***"
-  
-  // poster
-  private let posterEndPoint = "https://image.tmdb.org/t/p/original"
-  
-  // video
-  private let videoFilter = "/videos?"
-  private let videoMovieFilter = "movie/"
-  
   // general
   private let urlSession = URLSession(configuration: .default)
   private let queue = DispatchQueue(label: "alamofire.background", qos: .background, attributes: .concurrent)
+  private let urlCreator = injector.resolve(MovieServiceUrlCreator.self)
 
-  enum Action: String {
-    case discover
-    case poster
-    case trailer
-  }
-  
-  // MARK: private util methods
-  
-  private func createUrl(for action: Action, with path: String?) -> URL? {
-    switch action {
-    case .discover:
-      return URL(string: endPoint + action.rawValue + filterStarter + apiKey)
-    case .poster:
-      guard let `path` = path else {
-        return nil
-      }
-      return URL(string: posterEndPoint + path)
-    case .trailer:
-      guard let id = path else { return nil }
-      return URL(string: endPoint + videoMovieFilter + id + videoFilter + apiKey)
-    }
-  }
-  
   // MARK: public methods
   
   func findAll(completion: @escaping (Movies.Response?) -> Void) {
-    guard let url = self.createUrl(for: .discover, with: nil) else {
+    guard let url = urlCreator?.createUrl(for: .discover, with: nil) else {
       completion(nil)
       return
     }
@@ -94,7 +59,7 @@ class MovieServiceImpl: MovieService {
     guard let `res` = res else { completion(nil); return}
     
     for movie in res.movies {
-      guard let url = self.createUrl(for: .trailer, with: String(movie.id)) else { break }
+      guard let url = urlCreator?.createUrl(for: .trailer, with: String(movie.id)) else { break }
       
       group.enter()
       
@@ -136,7 +101,7 @@ class MovieServiceImpl: MovieService {
   
   // fetches the backDrop for a specific movie
   func fetchBackDrop(for url: String?, completion: @escaping (UIImage?) -> Void) {
-    guard let url = createUrl(for: .poster, with: url) else {
+    guard let url = urlCreator?.createUrl(for: .poster, with: url) else {
       completion(nil)
       return
     }
@@ -145,7 +110,7 @@ class MovieServiceImpl: MovieService {
 
   // fetches poster for a movie, returns the request so we can cancel it
   func fetchPoster(for url: String?, completion: @escaping (UIImage?) -> Void) {
-    guard let url = createUrl(for: .poster, with: url) else {
+    guard let url = urlCreator?.createUrl(for: .poster, with: url) else {
       completion(nil)
       return
     }
