@@ -15,6 +15,7 @@ let injector = container
 class Swinject {
 
   public static func setup() {
+    logger.info("Setting up Swinject Dependencies")
 
     // MARK: Services
     container.register(MovieService.self) { _ in
