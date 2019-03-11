@@ -133,7 +133,7 @@
                     </view>
                     <connections>
                         <outlet property="moviesTableView" destination="7AK-lo-2kf" id="qYN-rv-oGo"/>
-                        <segue destination="Ipy-kV-kw8" kind="modal" identifier="SingleMovieSegue" id="iYl-Nm-zxv"/>
+                        <segue destination="Ipy-kV-kw8" kind="presentation" identifier="SingleMovieSegue" id="iYl-Nm-zxv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Krl-6c-bo2" userLabel="First Responder" sceneMemberID="firstResponder"/>
