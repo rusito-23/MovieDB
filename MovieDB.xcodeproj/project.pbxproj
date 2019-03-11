@@ -44,7 +44,7 @@
 		9B8C99FD221B48DA00709385 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C99FC221B48DA00709385 /* MovieDBTests.swift */; };
 		9B8C9A08221B48DA00709385 /* MovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C9A07221B48DA00709385 /* MovieDBUITests.swift */; };
 		9B8C9A23221B4D8A00709385 /* MoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C9A1D221B4D8A00709385 /* MoviesPresenter.swift */; };
-		9B8C9A24221B4D8A00709385 /* MovieServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C9A1E221B4D8A00709385 /* MovieServiceImpl.swift */; };
+		9B8C9A24221B4D8A00709385 /* MovieServiceImplAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C9A1E221B4D8A00709385 /* MovieServiceImplAlamofire.swift */; };
 		9B8C9A26221B4D8A00709385 /* MoviesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C9A20221B4D8A00709385 /* MoviesModels.swift */; };
 		9B8C9A27221B4D8A00709385 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C9A21221B4D8A00709385 /* MoviesViewController.swift */; };
 		9B8C9A28221B4D8A00709385 /* MoviesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C9A22221B4D8A00709385 /* MoviesInteractor.swift */; };
@@ -153,7 +153,7 @@
 		9B8C9A07221B48DA00709385 /* MovieDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBUITests.swift; sourceTree = "<group>"; };
 		9B8C9A09221B48DA00709385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B8C9A1D221B4D8A00709385 /* MoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPresenter.swift; sourceTree = "<group>"; };
-		9B8C9A1E221B4D8A00709385 /* MovieServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceImpl.swift; sourceTree = "<group>"; };
+		9B8C9A1E221B4D8A00709385 /* MovieServiceImplAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceImplAlamofire.swift; sourceTree = "<group>"; };
 		9B8C9A20221B4D8A00709385 /* MoviesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModels.swift; sourceTree = "<group>"; };
 		9B8C9A21221B4D8A00709385 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		9B8C9A22221B4D8A00709385 /* MoviesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInteractor.swift; sourceTree = "<group>"; };
@@ -376,8 +376,8 @@
 			isa = PBXGroup;
 			children = (
 				7880A8572234B21A00EA0503 /* MovieServiceProtocol.swift */,
-				9B8C9A1E221B4D8A00709385 /* MovieServiceImpl.swift */,
 				9B9E8A4A223697FE000F96B8 /* MovieServiceUrlCreatorImpl.swift */,
+				9B8C9A1E221B4D8A00709385 /* MovieServiceImplAlamofire.swift */,
 				9B9E8A4C223699FC000F96B8 /* MovieServiceImplAFNet.swift */,
 			);
 			path = Services;
@@ -655,7 +655,7 @@
 				9BD28D9B22244CC000B9661A /* ButtonExtensions.swift in Sources */,
 				7880A8582234B21A00EA0503 /* MovieServiceProtocol.swift in Sources */,
 				78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */,
-				9B8C9A24221B4D8A00709385 /* MovieServiceImpl.swift in Sources */,
+				9B8C9A24221B4D8A00709385 /* MovieServiceImplAlamofire.swift in Sources */,
 				9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */,
 				9B2CDF742232B9B5001C58AD /* RealMigrations.swift in Sources */,
 				9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */,

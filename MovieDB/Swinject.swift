@@ -18,7 +18,7 @@ class Swinject {
 
     // MARK: Services
     container.register(MovieService.self) { _ in
-      MovieServiceImplAFNet()
+      MovieServiceImplAlamofire()
     }
     container.register(MovieServiceUrlCreator.self) { _ in
       MovieServiceUrlCreatorImpl()

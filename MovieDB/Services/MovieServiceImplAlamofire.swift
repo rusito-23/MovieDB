@@ -14,7 +14,7 @@ import Foundation
 import UIKit
 import Alamofire
 
-class MovieServiceImpl: MovieService {
+class MovieServiceImplAlamofire: MovieService {
 
   // general
   private let urlSession = URLSession(configuration: .default)
