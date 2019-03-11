@@ -9,10 +9,25 @@
 import UIKit
 import Lottie
 
-enum LoadingType: String {
-  case poster = "poster_loading"
-  case movie = "loading"
+enum LoadingType {
+  case poster
+  case movie
+  case refresh
+  
+  var rawValue: (file: String, anim: String) {
+    get {
+      switch self {
+      case .movie:
+        return ("LoadingView", "loading")
+      case .poster:
+        return ("LoadingView", "poster_loading")
+      case .refresh:
+        return ("RefreshView", "loading")
+      }
+    }
+  }
 }
+
 
 class LoadingView: UIView {
   
@@ -43,14 +58,14 @@ class LoadingView: UIView {
   }
   
   private func loadBundle() {
-    Bundle.main.loadNibNamed("LoadingView", owner: self, options: nil)
+    Bundle.main.loadNibNamed(self.type.rawValue.file, owner: self, options: nil)
     addSubview(contentView)
     contentView.frame = self.bounds
     contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
   }
   
   private func loadAnimation() {
-    loadingView.setAnimation(named: self.type.rawValue)
+    loadingView.setAnimation(named: self.type.rawValue.anim)
     loadingView.loopAnimation = true
     loadingView.play()
   }
@@ -71,5 +86,7 @@ class LoadingView: UIView {
       ])
   }
   
-
+  
 }
+
+

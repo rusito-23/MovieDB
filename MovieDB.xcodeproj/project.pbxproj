@@ -65,6 +65,7 @@
 		9B9E8A902236C907000F96B8 /* XCDYouTubeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2CDF6F2232ADB2001C58AD /* XCDYouTubeKit.framework */; };
 		9B9E8A922236DB0E000F96B8 /* MoviesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E8A912236DB0E000F96B8 /* MoviesInteractorTests.swift */; };
 		9B9E8A942236E2A3000F96B8 /* MoviesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E8A932236E2A3000F96B8 /* MoviesPresenterTests.swift */; };
+		9B9E8A982236FEF6000F96B8 /* RefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9E8A972236FEF6000F96B8 /* RefreshView.xib */; };
 		9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984B221B52A7007B37B3 /* DateExtensions.swift */; };
 		9BA4984F221C4331007B37B3 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984E221C4331007B37B3 /* MovieCell.swift */; };
 		9BA4C56222258A43004FC90D /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4C56122258A42004FC90D /* MovieCell.xib */; };
@@ -166,6 +167,7 @@
 		9B9E8A852236C8A4000F96B8 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		9B9E8A912236DB0E000F96B8 /* MoviesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInteractorTests.swift; sourceTree = "<group>"; };
 		9B9E8A932236E2A3000F96B8 /* MoviesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPresenterTests.swift; sourceTree = "<group>"; };
+		9B9E8A972236FEF6000F96B8 /* RefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RefreshView.xib; sourceTree = "<group>"; };
 		9BA4984B221B52A7007B37B3 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		9BA4984E221C4331007B37B3 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		9BA4C56122258A42004FC90D /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				9B82E81E221EE4B700B84486 /* FloatingMenu.xib */,
 				9BD28D92222423DB00B9661A /* ErrorView.xib */,
 				9BD28DA52224633100B9661A /* LoadingView.xib */,
+				9B9E8A972236FEF6000F96B8 /* RefreshView.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				9BD28DA62224633100B9661A /* LoadingView.xib in Resources */,
 				9BD19EFF2224732500DA094B /* loading.json in Resources */,
 				9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */,
+				9B9E8A982236FEF6000F96B8 /* RefreshView.xib in Resources */,
 				9BA4C56222258A43004FC90D /* MovieCell.xib in Resources */,
 				9BD28D93222423DB00B9661A /* ErrorView.xib in Resources */,
 			);

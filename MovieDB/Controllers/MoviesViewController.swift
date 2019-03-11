@@ -27,7 +27,7 @@ class MoviesViewController: UIViewController {
   
   @IBOutlet private weak var moviesTableView: UITableView!
   let loadingView = LoadingView()
-  let refreshView = LoadingView()
+  let refreshView = LoadingView(type: .refresh)
   let errorView = ErrorView()
 
   // MARK: Routing
@@ -60,10 +60,8 @@ class MoviesViewController: UIViewController {
     super.viewDidLoad()
     interactor = injector.resolve(MoviesInteractor.self, argument: self as MoviesDisplay)
 
-    moviesTableView.refreshControl = refreshControl
-    refreshControl.addTarget(self, action: #selector(refreshMovies(_:)), for: .valueChanged)
-    refreshView.setupWithSuperView(refreshControl)
 
+    prepareRefreshControl()
     prepareNib()
     loadMovies()
   }
@@ -82,13 +80,7 @@ extension MoviesViewController {
       self.loadingView.removeFromSuperview()
     }
   }
-  
 
-  @objc func refreshMovies(_ sender: Any) {
-    interactor?.refreshMovies()
-    self.moviesTableView.allowsSelection = false
-  }
-  
   func loadMovies() {
     loading(true)
     interactor?.findMovies()
@@ -190,3 +182,24 @@ extension MoviesViewController: SingleMovieCaller {
 
 }
 
+// MARK: refresh Control
+
+extension MoviesViewController {
+  
+  func prepareRefreshControl() {
+    refreshControl.tintColor = .clear
+    refreshControl.backgroundColor = .clear
+    
+    moviesTableView.refreshControl = refreshControl
+    
+    refreshControl.addTarget(self, action: #selector(refreshMovies(_:)), for: .valueChanged)
+    refreshView.setupWithSuperView(refreshControl)
+  }
+  
+  
+  @objc func refreshMovies(_ sender: Any) {
+    interactor?.refreshMovies()
+    self.moviesTableView.allowsSelection = false
+  }
+
+}
