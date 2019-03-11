@@ -58,7 +58,7 @@ class MoviesViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    interactor = injector.resolve(MoviesInteractor.self, argument: self)
+    interactor = injector.resolve(MoviesInteractor.self, argument: self as MoviesDisplay)
 
     moviesTableView.refreshControl = refreshControl
     refreshControl.addTarget(self, action: #selector(refreshMovies(_:)), for: .valueChanged)

@@ -26,7 +26,9 @@ class MoviesInteractorTests: XCTestCase {
   }
   
   override func tearDown() {
+    logger.debug("Tearing down tests")
     super.tearDown()
+    Swinject.setup()
   }
   
   // MARK: Test Setup
@@ -36,12 +38,12 @@ class MoviesInteractorTests: XCTestCase {
     let bundle = Bundle.main
     let storyboard = UIStoryboard(name: "Main", bundle: bundle)
     let moviesViewController = (storyboard.instantiateViewController(withIdentifier: "MoviesViewController") as! MoviesViewController)
-    sut = injector.resolve(MoviesInteractor.self, argument: moviesViewController)
+    sut = injector.resolve(MoviesInteractor.self, argument: moviesViewController as MoviesDisplay)
   }
   
   func setupSpy() {
     spy = MoviesPresenterSpy(group)
-    injector.register(MoviesPresenter.self, factory: { (r: Resolver, viewController: MoviesViewController) in
+    injector.register(MoviesPresenter.self, factory: { (r: Resolver, viewController: MoviesDisplay) in
       logger.debug("Registering Spy")
       return self.spy
     })

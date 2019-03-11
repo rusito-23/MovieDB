@@ -9,7 +9,7 @@
 import XCTest
 import Swinject
 
-class MoviesViewControllerTests: XCTestCase {
+class MoviesDisplayTests: XCTestCase {
   // MARK: Subject under test
   
   var sut: MoviesViewController!
@@ -26,6 +26,8 @@ class MoviesViewControllerTests: XCTestCase {
   override func tearDown() {
     window = nil
     super.tearDown()
+    logger.debug("Tearing down tests")
+    Swinject.setup()
   }
   
   // MARK: Test setup
@@ -63,7 +65,7 @@ class MoviesViewControllerTests: XCTestCase {
   func testShouldLoadMoviesWhenViewIsLoaded() {
     // Given
     let spy = MoviesInteractorSpy()
-    injector.register(MoviesInteractor.self, factory: { (r: Resolver, viewController: MoviesViewController) in
+    injector.register(MoviesInteractor.self, factory: { (r: Resolver, viewController: MoviesDisplay) in
       return spy
     })
 

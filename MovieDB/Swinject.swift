@@ -28,21 +28,22 @@ class Swinject {
     // MARK: Presenters
     
     //MoviesPresenter
-    container.register(MoviesPresenter.self) { (r: Resolver, viewController: MoviesViewController) in
+    container.register(MoviesPresenter.self) { (r: Resolver, viewController: MoviesDisplay) in
+      logger.debug("Resolving moviesPresenter")
       let presenter = MoviesPresenterImpl()
       presenter.viewController = viewController
       return presenter
     }
     
     //SingleMoviePresenter
-    container.register(SingleMoviePresenter.self) { (r: Resolver, viewController: SingleMovieViewController) in
+    container.register(SingleMoviePresenter.self) { (r: Resolver, viewController: SingleMovieDisplay) in
       let presenter = SingleMoviePresenterImpl()
       presenter.viewController = viewController
       return presenter
     }
     
     //MovieCellPresenter
-    container.register(MovieCellPresenter.self) { (r: Resolver, viewController: MovieCell) in
+    container.register(MovieCellPresenter.self) { (r: Resolver, viewController: MovieCellDisplay) in
       let presenter = MovieCellPresenterImpl()
       presenter.viewController = viewController
       return presenter
@@ -51,7 +52,7 @@ class Swinject {
     // MARK: Interactors
     
     //MoviesInteractor
-    container.register(MoviesInteractor.self) { (r: Resolver, viewController: MoviesViewController) in
+    container.register(MoviesInteractor.self) { (r: Resolver, viewController: MoviesDisplay) in
       let interactor = MoviesInteractorImpl()
       interactor.presenter = r.resolve(MoviesPresenter.self, argument: viewController)
       interactor.movieService = r.resolve(MovieService.self)
@@ -59,7 +60,7 @@ class Swinject {
     }
     
     //SingleMovieInteractor
-    container.register(SingleMovieInteractor.self) { (r: Resolver, viewController: SingleMovieViewController) in
+    container.register(SingleMovieInteractor.self) { (r: Resolver, viewController: SingleMovieDisplay) in
       let interactor = SingleMovieInteractorImpl()
       interactor.presenter = r.resolve(SingleMoviePresenter.self, argument: viewController)
       interactor.movieService = r.resolve(MovieService.self)
@@ -67,7 +68,7 @@ class Swinject {
     }
     
     //MovieCellInteractor
-    container.register(MovieCellInteractor.self) { (r: Resolver, viewController: MovieCell) in
+    container.register(MovieCellInteractor.self) { (r: Resolver, viewController: MovieCellDisplay) in
       let interactor = MovieCellInteractorImpl()
       interactor.presenter = r.resolve(MovieCellPresenter.self, argument: viewController)
       interactor.movieService = r.resolve(MovieService.self)

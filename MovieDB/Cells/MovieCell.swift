@@ -40,7 +40,7 @@ class MovieCell: UITableViewCell {
   }
   
   private func setup() {
-    interactor = injector.resolve(MovieCellInteractor.self, argument: self)
+    interactor = injector.resolve(MovieCellInteractor.self, argument: self as MovieCellDisplay)
   }
 
   //  MARK: populate logic

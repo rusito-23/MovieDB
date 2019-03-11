@@ -29,15 +29,18 @@ class MoviesPresenterImpl: MoviesPresenter {
       }
       
       guard let `movies` = movies else {
+        logger.warning("Movies are nil!")
         self.viewController?.displayError("Ocurrió un error al buscar las peliculas")
         return
       }
       
       guard movies.count != 0 else {
+        logger.warning("Movies are empty!")
         self.viewController?.displayError("No se encontraron peliculas")
         return
       }
 
+      logger.verbose("Movies are OK!")
       self.viewController?.displayMovies(movies: movies)
     }
   }

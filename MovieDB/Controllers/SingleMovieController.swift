@@ -66,7 +66,7 @@ class SingleMovieViewController: UIViewController {
     super.viewDidLoad()
     
     loading(true)
-    self.interactor = injector.resolve(SingleMovieInteractor.self, argument: self)
+    self.interactor = injector.resolve(SingleMovieInteractor.self, argument: self as SingleMovieDisplay)
     self.interactor?.find(by: self.id)
     
     self.scrollView.delegate = self
