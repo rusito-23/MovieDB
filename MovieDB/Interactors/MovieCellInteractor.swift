@@ -46,14 +46,20 @@ class MovieCellInteractorImpl: MovieCellInteractor {
       guard let `self` = self else { return }
       guard let `movie` = movie else {
         logger.warning("movie not found?")
-        self.presenter?.presentPoster(nil)
+        posterCompletion(nil)
         return
       }
       
-      if !self.fetchPosterCache(movie, completion: posterCompletion) {
+      self.fetchPosterCache(movie, completion: { [weak self] (_ poster: UIImage?) in
+        guard let `self` = self else { return }
+
         // if image doesn't exist in cache, fetch from service
-        self.fetchPosterService(movie, completion: posterCompletion)
-      }
+        if let `poster` = poster {
+          posterCompletion(poster)
+        } else {
+          self.fetchPosterService(movie, completion: posterCompletion)
+        }
+      })
       
     })
 
@@ -63,13 +69,14 @@ class MovieCellInteractorImpl: MovieCellInteractor {
     request = false
   }
 
-  private func fetchPosterCache(_ movie : MovieStruct, completion: @escaping (UIImage?) -> Void) -> Bool {
-    // fetching poster from cache
-    if let poster = UIImage.fromCache(key: movie.posterUrl) {
-      completion(poster)
-      return true
-    } else {
-      return false
+  private func fetchPosterCache(_ movie : MovieStruct, completion: @escaping (UIImage?) -> Void) {
+    DispatchQueue.global(qos: .background).async {
+      // fetching poster from cache
+      if let poster = UIImage.fromCache(key: movie.posterUrl) {
+        completion(poster)
+      } else {
+        completion(nil)
+      }
     }
   }
   
