@@ -28,32 +28,36 @@ class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
   // MARK: protocol implementation
   
   func createUrl(for action: MovieServiceAction, with path: String?) -> URL? {
+    logger.verbose("Creating url for action: \(action)")
+    
     guard let `apiKey` = apiKey else {
       logger.error("API KEY required!")
       return nil
     }
     
+    var str : String?
+    
     switch action {
       
         case .discover:
-          guard let str = String.concat([url(for: action), action.rawValue, movieFilter, apiKey])  else { return nil }
-          return URL(string: str)
-    
+          str = String.concat([url(for: action), action.rawValue, movieFilter, apiKey])
+          break
+
         case .poster:
-          guard let `path` = path,
-                let str = String.concat([url(for: action), path])  else { return nil }
-          return URL(string: str)
-    
+          str = String.concat([url(for: action), path])
+          break
+
         case .trailer:
-          guard let id = path,
-                let str = String.concat([url(for: action), id, videoFilter, apiKey]) else { return nil }
-          return URL(string: str)
-    
+          str = String.concat([url(for: action), path, videoFilter, apiKey])
+          break
+
         case .trailer_yt:
-          guard let trailerID = path,
-                let str = String.concat([url(for: action), trailerID]) else { return nil }
-          return URL(string: str)
+          str = String.concat([url(for: action), path])
+          break
+      
     }
+    logger.verbose("Created url: \(String(describing: str))")
+    return URL(string: str!)
   }
   
   
@@ -62,12 +66,14 @@ class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
   var apiKey: String? {
     get {
       guard let key = dictionary?["key"] as? String else { return nil }
-      return "apikey=\(key)"
+      return "api_key=\(key)"
     }
   }
   
   func url(for action: MovieServiceAction) -> String? {
-    return dictionary?[action.rawValue] as? String
+    let url = dictionary?[action.rawValue] as? String
+    if url == nil { logger.error("No value found for key: \(action.rawValue) in file API_INFO.plist") }
+    return url
   }
 
 }
