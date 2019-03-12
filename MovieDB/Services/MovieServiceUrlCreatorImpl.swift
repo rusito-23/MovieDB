@@ -10,7 +10,7 @@ import Foundation
 
 class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
   
-  // MARK: variables
+  // MARK: dictionary
   
   var dictionary: NSDictionary? {
     if let path = Bundle.main.path(forResource: "API_INFO", ofType: "plist") {
@@ -20,7 +20,8 @@ class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
     return nil
   }
 
-  // todo
+  // MARK: filters
+  
   private let movieFilter = "/movie?"
   private let videoFilter = "/videos?"
 
