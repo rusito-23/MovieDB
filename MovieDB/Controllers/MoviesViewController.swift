@@ -197,8 +197,11 @@ extension MoviesViewController {
   
   
   @objc func refreshMovies(_ sender: Any) {
-    interactor?.refreshMovies()
-    self.moviesTableView.allowsSelection = false
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { [weak self] in
+      guard let `self` = self else { return }
+      self.interactor?.refreshMovies()
+      self.moviesTableView.allowsSelection = false
+    })
   }
 
 }
