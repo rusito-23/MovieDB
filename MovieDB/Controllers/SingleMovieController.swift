@@ -151,7 +151,11 @@ extension SingleMovieViewController {
     originalY = self.view.center.y
     
     let posterPanGesture = UIPanGestureRecognizer(target: self, action: #selector(dragPosterView))
+    let trailerPanGesture = UIPanGestureRecognizer(target: self, action: #selector(dragPosterView))
+    trailerPanGesture.delegate = self
+
     self.posterView.addGestureRecognizer(posterPanGesture)
+    self.trailerPlayer.addGestureRecognizer(trailerPanGesture)
   }
   
   //  MARK: swipe actions
@@ -204,13 +208,15 @@ extension SingleMovieViewController: UIScrollViewDelegate {
         UIView.animate(withDuration: 0.4, animations: {
           self.posterHeightConstraint.constant = 300
           self.errorView.frame.size.height = 300
+          self.trailerPlayer.frame.size.height = 300
           self.view.layoutSubviews()
         })
       }
     }else{
       UIView.animate(withDuration: 0.4, animations: {
         self.posterHeightConstraint.constant = 150
-          self.errorView.frame.size.height = 150
+        self.errorView.frame.size.height = 150
+          self.trailerPlayer.frame.size.height = 150
         self.view.layoutSubviews()
       })
     }
@@ -246,4 +252,13 @@ extension SingleMovieViewController {
     dismissVideoPlayer()
   }
 
+}
+
+
+extension SingleMovieViewController: UIGestureRecognizerDelegate {
+  
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    return true
+  }
+  
 }
