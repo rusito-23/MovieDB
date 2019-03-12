@@ -70,12 +70,15 @@ class LoadingView: UIView {
     loadingView.play()
   }
   
+  // MARK: Size and constraints handling
+  
   public func setupWithSuperView(_ superView: UIView) {
-    self.translatesAutoresizingMaskIntoConstraints = false
-    
+
     // setup size
-    self.frame.size = superView.frame.size
-    
+    self.translatesAutoresizingMaskIntoConstraints = false
+    self.clipsToBounds = true
+    self.frame = superView.bounds
+
     // add to superView
     superView.addSubview(self)
     
@@ -85,7 +88,6 @@ class LoadingView: UIView {
       NSLayoutConstraint(item: self.contentView, attribute: .width, relatedBy: .equal, toItem: superView, attribute: .width, multiplier: 1, constant: 0),
       ])
   }
-  
   
 }
 

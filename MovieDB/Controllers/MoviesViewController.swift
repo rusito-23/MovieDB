@@ -23,12 +23,13 @@ class MoviesViewController: UIViewController {
 
   var interactor: MoviesInteractor?
 
-  // MARK: outlets
+  // MARK: outlets and views
   
   @IBOutlet private weak var moviesTableView: UITableView!
-  let loadingView = LoadingView()
-  let refreshView = LoadingView(type: .refresh)
-  let errorView = ErrorView()
+  private let loadingView = LoadingView()
+  private let refreshView = LoadingView(type: .refresh)
+  private let errorView = ErrorView()
+  private let refreshControl = UIRefreshControl()
 
   // MARK: Routing
   
@@ -52,8 +53,7 @@ class MoviesViewController: UIViewController {
   // MARK: Setup
   private var movies: [Movies.ViewModel] = []
   private var selectedMovie: Int?
-  private var refreshControl = UIRefreshControl()
-  
+
   // MARK: View lifecycle
   
   override func viewDidLoad() {
@@ -189,11 +189,10 @@ extension MoviesViewController {
   func prepareRefreshControl() {
     refreshControl.tintColor = .clear
     refreshControl.backgroundColor = .clear
-    
-    moviesTableView.refreshControl = refreshControl
-    
     refreshControl.addTarget(self, action: #selector(refreshMovies(_:)), for: .valueChanged)
     refreshView.setupWithSuperView(refreshControl)
+    
+    moviesTableView.refreshControl = refreshControl
   }
   
   
