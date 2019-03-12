@@ -14,17 +14,17 @@ class TrailerYTPlayer: WKWebView {
   
   var urlCreator = injector.resolve(MovieServiceUrlCreator.self)
   
-  func play(videoID: String) {
+  func play(videoID: String, superView: UIView) {
     guard let url = urlCreator?.createUrl(for: .trailer_yt, with: videoID) else {
-      // TODO: check this value from the viewController
       return
     }
     
     let request = URLRequest(url: url)
     self.load(request)
+    self.setupWithSuperView(superView)
   }
   
-  func setupWithSuperView(_ superView: UIView) {
+  private func setupWithSuperView(_ superView: UIView) {
     
     // setup size
     self.translatesAutoresizingMaskIntoConstraints = false

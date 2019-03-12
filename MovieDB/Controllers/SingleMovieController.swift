@@ -131,8 +131,7 @@ extension SingleMovieViewController: SingleMovieDisplay {
   
   func displayTrailer(_ id: String) {
     loadingTrailer(false)
-    trailerPlayer.play(videoID: id)
-    trailerPlayer.setupWithSuperView(posterView)
+    trailerPlayer.play(videoID: id, superView: posterView)
   }
   
   func displayTrailerError(_ msg: String) {
@@ -195,6 +194,15 @@ extension SingleMovieViewController {
 
 }
 
+// delegate for trailerView pan gesture
+extension SingleMovieViewController: UIGestureRecognizerDelegate {
+  
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    return true
+  }
+  
+}
+
 // MARK: UIScrollViewDelegate
 
 extension SingleMovieViewController: UIScrollViewDelegate {
@@ -254,11 +262,3 @@ extension SingleMovieViewController {
 
 }
 
-
-extension SingleMovieViewController: UIGestureRecognizerDelegate {
-  
-  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-    return true
-  }
-  
-}
