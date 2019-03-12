@@ -9,43 +9,64 @@
 import Foundation
 
 class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
-  // TODO: all private info from this file should be inside a plist
   
   // MARK: variables
   
-  // discover
-  private let endPoint = "https://api.themoviedb.org/3/"
-  private let filterStarter = "/movie?"
-  private let apiKey = "api_key=***REMOVED***" // WARNING: this shouldn't be here
-  
-  // poster
-  private let posterEndPoint = "https://image.tmdb.org/t/p/original"
-  
-  // video
+  var dictionary: NSDictionary? {
+    if let path = Bundle.main.path(forResource: "API_INFO", ofType: "plist") {
+      return NSDictionary(contentsOfFile: path)
+    }
+    logger.error("API_INFO.plist required!")
+    return nil
+  }
+
+  // todo
+  private let movieFilter = "/movie?"
   private let videoFilter = "/videos?"
-  private let videoMovieFilter = "movie/"
-  
-  // youtube
-  private let youtube = "https://www.youtube.com/embed/"
-  
+
   // MARK: protocol implementation
   
   func createUrl(for action: MovieServiceAction, with path: String?) -> URL? {
+    guard let `apiKey` = apiKey else {
+      logger.error("API KEY required!")
+      return nil
+    }
+    
     switch action {
-    case .discover:
-      return URL(string: endPoint + action.rawValue + filterStarter + apiKey)
-    case .poster:
-      guard let `path` = path else {
-        return nil
-      }
-      return URL(string: posterEndPoint + path)
-    case .trailer:
-      guard let id = path else { return nil }
-      return URL(string: endPoint + videoMovieFilter + id + videoFilter + apiKey)
-    case .trailer_yt:
-      guard let trailerID = path else { return nil }
-      return URL(string: youtube + trailerID)
+      
+        case .discover:
+          guard let str = String.concat([url(for: action), action.rawValue, movieFilter, apiKey])  else { return nil }
+          return URL(string: str)
+    
+        case .poster:
+          guard let `path` = path,
+                let str = String.concat([url(for: action), path])  else { return nil }
+          return URL(string: str)
+    
+        case .trailer:
+          guard let id = path,
+                let str = String.concat([url(for: action), id, videoFilter, apiKey]) else { return nil }
+          return URL(string: str)
+    
+        case .trailer_yt:
+          guard let trailerID = path,
+                let str = String.concat([url(for: action), trailerID]) else { return nil }
+          return URL(string: str)
     }
   }
   
+  
+  // MARK: PLIST data
+  
+  var apiKey: String? {
+    get {
+      guard let key = dictionary?["key"] as? String else { return nil }
+      return "apikey=\(key)"
+    }
+  }
+  
+  func url(for action: MovieServiceAction) -> String? {
+    return dictionary?[action.rawValue] as? String
+  }
+
 }

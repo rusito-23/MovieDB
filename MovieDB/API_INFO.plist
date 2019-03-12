@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>discover</key>
+	<string>https://api.themoviedb.org/3/</string>
+	<key>poster</key>
+	<string>https://image.tmdb.org/t/p/original</string>
+	<key>trailer</key>
+	<string>https://api.themoviedb.org/3/movie/</string>
+	<key>trailer_yt</key>
+	<string>https://www.youtube.com/embed/</string>
+	<key>key</key>
+	<string>***REMOVED***</string>
+</dict>
+</plist>

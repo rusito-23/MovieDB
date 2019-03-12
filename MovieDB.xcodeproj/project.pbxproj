@@ -71,6 +71,8 @@
 		9BA4C56222258A43004FC90D /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4C56122258A42004FC90D /* MovieCell.xib */; };
 		9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4C5642225AE25004FC90D /* PosterSegue.swift */; };
 		9BBD052D2237F6120010658D /* TrailerYTPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */; };
+		9BBD052F223802810010658D /* API_INFO.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BBD052E223802810010658D /* API_INFO.plist */; };
+		9BBD053122380A5B0010658D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD053022380A5B0010658D /* StringExtension.swift */; };
 		9BCBE3382230444C00D5D759 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCBE3372230444C00D5D759 /* Swinject.framework */; };
 		9BCBE3392230445700D5D759 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCBE3372230444C00D5D759 /* Swinject.framework */; };
 		9BCBE33A2230445700D5D759 /* Swinject.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9BCBE3372230444C00D5D759 /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -174,6 +176,8 @@
 		9BA4C56122258A42004FC90D /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		9BA4C5642225AE25004FC90D /* PosterSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterSegue.swift; sourceTree = "<group>"; };
 		9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerYTPlayer.swift; sourceTree = "<group>"; };
+		9BBD052E223802810010658D /* API_INFO.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_INFO.plist; sourceTree = "<group>"; };
+		9BBD053022380A5B0010658D /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		9BCBE3372230444C00D5D759 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		9BCBE33C223044DF00D5D759 /* Swinject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swinject.swift; sourceTree = "<group>"; };
 		9BD19EF92224698000DA094B /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
@@ -323,6 +327,7 @@
 				9B8C99E7221B48D900709385 /* AppDelegate.swift */,
 				9B8C99EE221B48DA00709385 /* Assets.xcassets */,
 				9B8C99F3221B48DA00709385 /* Info.plist */,
+				9BBD052E223802810010658D /* API_INFO.plist */,
 			);
 			path = MovieDB;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				9B7174D12229D10C00EF5962 /* UIImageExtensions.swift */,
 				78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */,
 				9B4E1A4122301C9A00ED1D61 /* MapFloatRange.swift */,
+				9BBD053022380A5B0010658D /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -531,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B8C99F2221B48DA00709385 /* LaunchScreen.storyboard in Resources */,
+				9BBD052F223802810010658D /* API_INFO.plist in Resources */,
 				9B8C99EF221B48DA00709385 /* Assets.xcassets in Resources */,
 				9B4A4A8E22298C3500B20399 /* reach_the_end.otf in Resources */,
 				9B7174CC2229C7B400EF5962 /* poster_loading.json in Resources */,
@@ -600,6 +607,7 @@
 				9B2CDF742232B9B5001C58AD /* RealMigrations.swift in Sources */,
 				9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */,
 				9BD28D9D22244DA600B9661A /* RoundShadowButton.swift in Sources */,
+				9BBD053122380A5B0010658D /* StringExtension.swift in Sources */,
 				9B82E825221F1C6000B84486 /* ViewExtensions.swift in Sources */,
 				9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */,
 				9B8C9A27221B4D8A00709385 /* MoviesViewController.swift in Sources */,
