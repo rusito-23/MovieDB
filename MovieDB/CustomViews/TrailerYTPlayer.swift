@@ -21,7 +21,9 @@ class TrailerYTPlayer: WKWebView {
     }
     
     let request = URLRequest(url: url)
+    
     self.load(request)
+    self.scrollView.isScrollEnabled = false
     self.setupWithSuperView(superView)
   }
   
