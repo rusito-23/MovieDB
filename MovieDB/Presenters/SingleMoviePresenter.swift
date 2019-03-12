@@ -19,8 +19,9 @@ class SingleMoviePresenterImpl: SingleMoviePresenter {
   
   func present(_ movie: Movies.ViewModel?) {
     DispatchQueue.main.async {
+      
       guard let `movie` = movie else {
-        self.viewController?.displayError("Ocurrió un error al recuperar la pelicula")
+        self.viewController?.displayError("An error ocurred while loading the movie")
         return
       }
       
@@ -33,7 +34,7 @@ class SingleMoviePresenterImpl: SingleMoviePresenter {
       if let `id` = id {
         self.viewController?.displayTrailer(id)
       } else {
-        self.viewController?.displayTrailerError("No se pudo recuperar el trailer")
+        self.viewController?.displayTrailerError("An error ocurred while loading the trailer")
       }
     }
   }

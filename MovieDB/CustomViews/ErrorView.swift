@@ -14,8 +14,16 @@ class ErrorView: UIView {
   
   @IBOutlet var contentView: UIView!
   @IBOutlet weak var errorMessage: UILabel!
+  @IBOutlet weak var backButton: UIButton!
   
   //  MARK: Setup
+  var delegate: ErrorViewDelegate? {
+    didSet {
+      guard let `delegate` = delegate else { return }
+      backButton.addTarget(delegate, action: #selector(delegate.errorBackButtonPressed), for: .touchUpInside)
+    }
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     customSetup()
@@ -53,4 +61,9 @@ class ErrorView: UIView {
     ])
   }
 
+}
+
+
+@objc protocol ErrorViewDelegate {
+  func errorBackButtonPressed()
 }

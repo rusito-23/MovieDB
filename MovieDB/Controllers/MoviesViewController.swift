@@ -60,7 +60,10 @@ class MoviesViewController: UIViewController {
     super.viewDidLoad()
     interactor = injector.resolve(MoviesInteractor.self, argument: self as MoviesDisplay)
 
+    // hide back button
+    errorView.backButton.isHidden = true
 
+    // setup
     prepareRefreshControl()
     prepareNib()
     loadMovies()

@@ -13,3 +13,5 @@ github "0xced/XCDYouTubeKit" ~> 2.7
 github "rusito-23/RealmDAO" ~> 1.0.0
 
 github "AFNetworking/AFNetworking" ~> 3.0
+
+github "scalessec/Toast-Swift" ~> 4.0.0

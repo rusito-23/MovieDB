@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import XCDYouTubeKit
+import ToastSwiftFramework
 
 // MARK: Caller protocol
 protocol SingleMovieCaller {
@@ -64,12 +65,15 @@ class SingleMovieViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     loading(true)
     self.interactor = injector.resolve(SingleMovieInteractor.self, argument: self as SingleMovieDisplay)
     self.interactor?.find(by: self.id)
     
+    // delegations
     self.scrollView.delegate = self
+    self.errorView.delegate = self
+    
+    // setup
     prepareSwipeGestures()
   }
   
@@ -131,13 +135,13 @@ extension SingleMovieViewController: SingleMovieDisplay {
   
   func displayTrailer(_ id: String) {
     loadingTrailer(false)
-    trailerPlayer.play(videoID: id, superView: posterView)
+    trailerPlayer.play(videoID: id, superView: posterView, errorCompletion: displayTrailerError)
   }
   
   func displayTrailerError(_ msg: String) {
     loadingTrailer(false)
-    self.errorView.errorMessage.text = msg
-    self.errorView.setupForSuperView(self.posterView)
+    trailerPlayer.removeFromSuperview()
+    self.view.makeToast(msg)
   }
 
 }
@@ -260,5 +264,15 @@ extension SingleMovieViewController {
     dismissVideoPlayer()
   }
 
+}
+
+
+// MARK: extension for errorViewDelegate
+extension SingleMovieViewController: ErrorViewDelegate {
+  
+  @objc func errorBackButtonPressed() {
+    self.performSegue(withIdentifier: "UnwindSegue", sender: self)
+  }
+  
 }
 

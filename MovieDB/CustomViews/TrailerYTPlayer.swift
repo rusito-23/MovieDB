@@ -14,8 +14,9 @@ class TrailerYTPlayer: WKWebView {
   
   var urlCreator = injector.resolve(MovieServiceUrlCreator.self)
   
-  func play(videoID: String, superView: UIView) {
+  func play(videoID: String, superView: UIView, errorCompletion: @escaping (String) -> Void) {
     guard let url = urlCreator?.createUrl(for: .trailer_yt, with: videoID) else {
+      errorCompletion("Could not load the trailer")
       return
     }
     

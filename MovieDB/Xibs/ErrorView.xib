@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorView" customModule="MovieDB" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="93A-mr-90g" id="qNy-hs-rg3"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="JR7-Vg-qik"/>
                 <outlet property="errorMessage" destination="hLb-s8-Ied" id="2oG-Eg-d9f"/>
             </connections>
@@ -47,13 +48,25 @@
                         <constraint firstAttribute="bottom" secondItem="hLb-s8-Ied" secondAttribute="bottom" constant="8" id="vPY-YN-7gv"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93A-mr-90g">
+                    <rect key="frame" x="16" y="36" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="Qp8-w1-sxX"/>
+                        <constraint firstAttribute="width" constant="32" id="hWz-tU-aCt"/>
+                        <constraint firstAttribute="height" constant="32" id="irJ-OE-dok"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="jXA-GT-bEL"/>
+                    </constraints>
+                    <state key="normal" image="ic_arrow_back_white"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.51764705879999995" green="0.1058823529" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="93A-mr-90g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="4yX-NB-JV7"/>
                 <constraint firstItem="AzE-dh-jp2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8hK-Ri-6uY"/>
                 <constraint firstItem="AzE-dh-jp2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JNw-xs-HmH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AzE-dh-jp2" secondAttribute="trailing" constant="16" id="WFg-Hr-yvE"/>
                 <constraint firstItem="AzE-dh-jp2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="c8T-NU-7E7"/>
+                <constraint firstItem="93A-mr-90g" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="yPW-8n-JKl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -61,6 +74,7 @@
         </view>
     </objects>
     <resources>
+        <image name="ic_arrow_back_white" width="156.52174377441406" height="156.52174377441406"/>
         <image name="warning" width="160" height="160"/>
     </resources>
 </document>

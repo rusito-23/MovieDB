@@ -73,6 +73,9 @@
 		9BBD052D2237F6120010658D /* TrailerYTPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */; };
 		9BBD052F223802810010658D /* API_INFO.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BBD052E223802810010658D /* API_INFO.plist */; };
 		9BBD053122380A5B0010658D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD053022380A5B0010658D /* StringExtension.swift */; };
+		9BBD0532223831DE0010658D /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9E8A852236C8A4000F96B8 /* ToastSwiftFramework.framework */; };
+		9BBD0533223831E20010658D /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9E8A852236C8A4000F96B8 /* ToastSwiftFramework.framework */; };
+		9BBD0534223831E20010658D /* ToastSwiftFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9B9E8A852236C8A4000F96B8 /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9BCBE3382230444C00D5D759 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCBE3372230444C00D5D759 /* Swinject.framework */; };
 		9BCBE3392230445700D5D759 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCBE3372230444C00D5D759 /* Swinject.framework */; };
 		9BCBE33A2230445700D5D759 /* Swinject.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9BCBE3372230444C00D5D759 /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -114,6 +117,7 @@
 				9B2CDF722232ADB8001C58AD /* XCDYouTubeKit.framework in CopyFiles */,
 				78933A60223497A9003DE75D /* RealmDAO.framework in CopyFiles */,
 				9B25C6AF222044CC00338D41 /* Alamofire.framework in CopyFiles */,
+				9BBD0534223831E20010658D /* ToastSwiftFramework.framework in CopyFiles */,
 				9BCBE33A2230445700D5D759 /* Swinject.framework in CopyFiles */,
 				9B25C6B1222044D200338D41 /* Realm.framework in CopyFiles */,
 				9B9E8A5122369EEF000F96B8 /* AFNetworking.framework in CopyFiles */,
@@ -199,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BBD0532223831DE0010658D /* ToastSwiftFramework.framework in Frameworks */,
 				9B9E8A4F22369EEC000F96B8 /* AFNetworking.framework in Frameworks */,
 				78933A5E223497A5003DE75D /* RealmDAO.framework in Frameworks */,
 				9B2CDF702232ADB2001C58AD /* XCDYouTubeKit.framework in Frameworks */,
@@ -213,6 +218,7 @@
 				9BCBE3392230445700D5D759 /* Swinject.framework in Frameworks */,
 				9B25C6A82220442D00338D41 /* Alamofire.framework in Frameworks */,
 				9B25C6AC2220444000338D41 /* RealmSwift.framework in Frameworks */,
+				9BBD0533223831E20010658D /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
