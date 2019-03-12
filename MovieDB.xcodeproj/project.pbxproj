@@ -70,6 +70,7 @@
 		9BA4984F221C4331007B37B3 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984E221C4331007B37B3 /* MovieCell.swift */; };
 		9BA4C56222258A43004FC90D /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4C56122258A42004FC90D /* MovieCell.xib */; };
 		9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4C5642225AE25004FC90D /* PosterSegue.swift */; };
+		9BBD052D2237F6120010658D /* TrailerYTPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */; };
 		9BCBE3382230444C00D5D759 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCBE3372230444C00D5D759 /* Swinject.framework */; };
 		9BCBE3392230445700D5D759 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCBE3372230444C00D5D759 /* Swinject.framework */; };
 		9BCBE33A2230445700D5D759 /* Swinject.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9BCBE3372230444C00D5D759 /* Swinject.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -172,6 +173,7 @@
 		9BA4984E221C4331007B37B3 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		9BA4C56122258A42004FC90D /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		9BA4C5642225AE25004FC90D /* PosterSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterSegue.swift; sourceTree = "<group>"; };
+		9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerYTPlayer.swift; sourceTree = "<group>"; };
 		9BCBE3372230444C00D5D759 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		9BCBE33C223044DF00D5D759 /* Swinject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swinject.swift; sourceTree = "<group>"; };
 		9BD19EF92224698000DA094B /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				9BD28D942224253800B9661A /* ErrorView.swift */,
 				9BD28D9C22244DA600B9661A /* RoundShadowButton.swift */,
 				9BD28DA7222463C400B9661A /* LoadingView.swift */,
+				9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				9BD28DA8222463C400B9661A /* LoadingView.swift in Sources */,
 				9B4E1A4222301C9A00ED1D61 /* MapFloatRange.swift in Sources */,
 				9BD28D912224192600B9661A /* Movie.swift in Sources */,
+				9BBD052D2237F6120010658D /* TrailerYTPlayer.swift in Sources */,
 				9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */,
 				9B25C6C0222088C200338D41 /* SingleMovieInteractor.swift in Sources */,
 				9B9E8A4D223699FC000F96B8 /* MovieServiceImplAFNet.swift in Sources */,

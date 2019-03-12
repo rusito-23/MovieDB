@@ -13,6 +13,7 @@ enum MovieServiceAction: String {
   case discover
   case poster
   case trailer
+  case trailer_yt
 }
 
 protocol MovieService {

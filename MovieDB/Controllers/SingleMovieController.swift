@@ -54,7 +54,7 @@ class SingleMovieViewController: UIViewController {
   var caller: SingleMovieCaller?
   let errorView = ErrorView()
   let loadingView = LoadingView()
-  var videoPlayer: XCDYouTubeVideoPlayerViewController?
+  var trailerPlayer = TrailerYTPlayer()
   
   override var prefersStatusBarHidden: Bool {
     return true
@@ -71,8 +71,6 @@ class SingleMovieViewController: UIViewController {
     
     self.scrollView.delegate = self
     prepareSwipeGestures()
-    
-    NotificationCenter.default.addObserver(self, selector: #selector(onTrailerFinished), name: NSNotification.Name.MPMoviePlayerPlaybackDidFinish, object: nil)
   }
   
 
@@ -133,10 +131,8 @@ extension SingleMovieViewController: SingleMovieDisplay {
   
   func displayTrailer(_ id: String) {
     loadingTrailer(false)
-    
-    videoPlayer = XCDYouTubeVideoPlayerViewController.init(videoIdentifier: id)
-    videoPlayer?.present(in: self.posterView)
-    videoPlayer?.moviePlayer.play()
+    trailerPlayer.play(videoID: id)
+    trailerPlayer.setupWithSuperView(posterView)
   }
   
   func displayTrailerError(_ msg: String) {
@@ -228,9 +224,7 @@ extension SingleMovieViewController: UIScrollViewDelegate {
 extension SingleMovieViewController {
   
   func dismissVideoPlayer() {
-    self.videoPlayer?.moviePlayer.stop()
-    self.videoPlayer?.removeFromParent()
-    self.videoPlayer?.moviePlayer.view.removeFromSuperview()
+    trailerPlayer.removeFromSuperview()
   }
   
   func loadingTrailer(_ run: Bool) {

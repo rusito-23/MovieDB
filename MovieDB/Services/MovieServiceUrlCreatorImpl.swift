@@ -25,6 +25,9 @@ class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
   private let videoFilter = "/videos?"
   private let videoMovieFilter = "movie/"
   
+  // youtube
+  private let youtube = "https://www.youtube.com/embed/"
+  
   // MARK: protocol implementation
   
   func createUrl(for action: MovieServiceAction, with path: String?) -> URL? {
@@ -39,6 +42,9 @@ class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
     case .trailer:
       guard let id = path else { return nil }
       return URL(string: endPoint + videoMovieFilter + id + videoFilter + apiKey)
+    case .trailer_yt:
+      guard let trailerID = path else { return nil }
+      return URL(string: youtube + trailerID)
     }
   }
   
