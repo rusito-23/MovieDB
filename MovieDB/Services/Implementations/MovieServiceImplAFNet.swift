@@ -104,5 +104,9 @@ class MovieServiceImplAFNet: MovieService {
             completion(nil)
     })
   }
+  
+  func findGenres(completion: @escaping (Genres.Response?) -> Void) {
+    return
+  }
 
 }

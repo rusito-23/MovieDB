@@ -129,4 +129,32 @@ class MovieServiceImplAlamofire: MovieService {
       })
   }
   
+  func findGenres(completion: @escaping (Genres.Response?) -> Void) {
+    guard let url = urlCreator?.createUrl(for: .genres, with: nil) else {
+      logger.error("Could not create genres url")
+      completion(nil)
+      return
+    }
+    
+    Alamofire.request(url, method: .get)
+      .validate()
+      .responseJSON(queue: queue) { response in
+
+        guard response.result.isSuccess else {
+          logger.error("Trailer request failed!")
+          return
+        }
+        
+        guard let value = response.result.value as? [String: Any],
+              let genres = value["genres"] as? [[String: Any]] else {
+            logger.error("Malformed received json!")
+            completion(nil)
+            return
+        }
+        
+        let res = Genres.Response(json: genres)
+        completion(res)
+      }
+  }
+
 }

@@ -30,6 +30,7 @@ class MoviesViewController: UIViewController {
   private let refreshView = LoadingView(type: .refresh)
   private let errorView = ErrorView()
   private let refreshControl = UIRefreshControl()
+  private let genresView = GenresViewController()
 
   // MARK: Routing
   
@@ -62,6 +63,9 @@ class MoviesViewController: UIViewController {
 
     // hide back button
     errorView.backButton.isHidden = true
+    
+    // setup genres view
+    genresView.setupWithSuperView(self.view)
 
     // setup
     prepareRefreshControl()

@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // run realm migrations
     Realm.runMigrations()
-
+    
     return true
   }
   

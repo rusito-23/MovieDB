@@ -14,12 +14,14 @@ enum MovieServiceAction: String {
   case poster
   case trailer
   case trailer_yt
+  case genres
 }
 
 protocol MovieService {
   func findAll(completion: @escaping (Movies.Response?) -> Void)
   func fetchPoster(for url: String?, completion: @escaping (UIImage?) -> Void)
   func fetchBackDrop(for url: String?, completion: @escaping (UIImage?) -> Void)
+  func findGenres(completion: @escaping (Genres.Response?) -> Void)
 }
 
 protocol MovieServiceUrlCreator {

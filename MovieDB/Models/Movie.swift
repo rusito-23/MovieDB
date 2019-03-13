@@ -85,3 +85,37 @@ struct MovieStruct {
 }
 
 
+// MARK: Service/View structs
+enum Movies
+{
+  
+  //  MARK: Request
+  struct Request
+  {
+  }
+  
+  //  MARK: Response
+  struct Response
+  {
+    var movies: [Movie] = []
+    
+    init? (json movies: [[String: Any]]) {
+      for json in movies {
+        if let movie = Movie(json: json) {
+          self.movies.append(movie)
+        }
+      }
+    }
+  }
+  
+  //  MARK: ViewModel
+  struct ViewModel
+  {
+    var id: Int?
+    var title: String?
+    var overview: String?
+    var releaseDate: Date?
+    var poster: UIImage?
+  }
+  
+}

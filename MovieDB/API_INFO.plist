@@ -10,6 +10,8 @@
 	<string>https://api.themoviedb.org/3/movie/</string>
 	<key>trailer_yt</key>
 	<string>https://www.youtube.com/embed/</string>
+	<key>genres</key>
+	<string>https://api.themoviedb.org/3/genre/movie/list?</string>
 	<key>key</key>
 	<string>***REMOVED***</string>
 </dict>

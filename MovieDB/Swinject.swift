@@ -27,7 +27,7 @@ class Swinject {
 
     // MARK: Presenters
     
-    //MoviesPresenter
+    // MoviesPresenter
     container.register(MoviesPresenter.self) { (r: Resolver, viewController: MoviesDisplay) in
       logger.debug("Resolving moviesPresenter")
       let presenter = MoviesPresenterImpl()
@@ -35,23 +35,30 @@ class Swinject {
       return presenter
     }
     
-    //SingleMoviePresenter
+    // SingleMoviePresenter
     container.register(SingleMoviePresenter.self) { (r: Resolver, viewController: SingleMovieDisplay) in
       let presenter = SingleMoviePresenterImpl()
       presenter.viewController = viewController
       return presenter
     }
     
-    //MovieCellPresenter
+    // MovieCellPresenter
     container.register(MovieCellPresenter.self) { (r: Resolver, viewController: MovieCellDisplay) in
       let presenter = MovieCellPresenterImpl()
       presenter.viewController = viewController
       return presenter
     }
     
+    // GenrePresenter
+    container.register(GenresPresenter.self) { (r: Resolver, display: GenresDisplay) in
+      let presenter = GenresPresenterImpl()
+      presenter.display = display
+      return presenter
+    }
+    
     // MARK: Interactors
     
-    //MoviesInteractor
+    // MoviesInteractor
     container.register(MoviesInteractor.self) { (r: Resolver, viewController: MoviesDisplay) in
       let interactor = MoviesInteractorImpl()
       interactor.presenter = r.resolve(MoviesPresenter.self, argument: viewController)
@@ -59,7 +66,7 @@ class Swinject {
       return interactor
     }
     
-    //SingleMovieInteractor
+    // SingleMovieInteractor
     container.register(SingleMovieInteractor.self) { (r: Resolver, viewController: SingleMovieDisplay) in
       let interactor = SingleMovieInteractorImpl()
       interactor.presenter = r.resolve(SingleMoviePresenter.self, argument: viewController)
@@ -67,10 +74,18 @@ class Swinject {
       return interactor
     }
     
-    //MovieCellInteractor
+    // MovieCellInteractor
     container.register(MovieCellInteractor.self) { (r: Resolver, viewController: MovieCellDisplay) in
       let interactor = MovieCellInteractorImpl()
       interactor.presenter = r.resolve(MovieCellPresenter.self, argument: viewController)
+      interactor.movieService = r.resolve(MovieService.self)
+      return interactor
+    }
+    
+    // GenresInteractor
+    container.register(GenresInteractor.self) { (r: Resolver, display: GenresDisplay) in
+      let interactor = GenresInteractorImpl()
+      interactor.presenter = r.resolve(GenresPresenter.self, argument: display)
       interactor.movieService = r.resolve(MovieService.self)
       return interactor
     }

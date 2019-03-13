@@ -28,8 +28,7 @@ class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
   // MARK: protocol implementation
   
   func createUrl(for action: MovieServiceAction, with path: String?) -> URL? {
-    logger.verbose("Creating url for action: \(action)")
-    
+
     guard let `apiKey` = apiKey else {
       logger.error("API KEY required!")
       return nil
@@ -54,9 +53,12 @@ class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
         case .trailer_yt:
           str = String.concat([url(for: action), path])
           break
+    
+        case .genres:
+          str = String.concat([url(for: action), apiKey])
       
     }
-    logger.verbose("Created url: \(String(describing: str))")
+    guard str != nil else { return nil }
     return URL(string: str!)
   }
   
