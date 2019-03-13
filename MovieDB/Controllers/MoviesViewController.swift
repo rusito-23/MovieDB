@@ -94,8 +94,9 @@ extension MoviesViewController {
   }
   
   func didSelectMovie(_ movie: Movies.ViewModel) {
-    self.selectedMovie = movie.id
-    self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
+    genresView.show()
+//    self.selectedMovie = movie.id
+//    self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
   }
   
 }

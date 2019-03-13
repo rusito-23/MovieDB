@@ -80,7 +80,22 @@ extension GenresViewController {
   
   func setupWithSuperView(_ superView: UIView) {
     
-    // TODO: add the view
+    self.frame.size.width = 250
+    self.frame.size.height = superView.frame.height
+
+    superView.addSubview(self)
+    
+    // add constraints
+    superView.addConstraints([
+      // contraint to top of superView
+      NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: superView, attribute: .top, multiplier: 1, constant: 0),
+    ])
+  }
+  
+  func show() {
+    UIView.animate(withDuration: 0.4, animations: {
+      
+    })
   }
   
 }
