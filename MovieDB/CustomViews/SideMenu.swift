@@ -21,7 +21,7 @@ class SideMenu : UIView {
   
   // UI vars
   var isVisible = false
-  var originalX: CGFloat?
+  var originalX = UIScreen.main.bounds.width
   
 }
 
@@ -36,8 +36,7 @@ extension SideMenu {
     self.frame.size.height = superView.frame.height
     // hide view on the right of superView
     self.frame.origin.x = super.frame.origin.x + superView.frame.width
-    originalX = self.frame.origin.x
-    
+
     // add self on top of superView navigation bar
     UIApplication.shared.keyWindow?.addSubview(self)
     
@@ -58,39 +57,45 @@ extension SideMenu {
       UIView.animate(withDuration: 0.4, animations: { [weak self] in
         guard let `self` = self else { return }
         // show
-        self.frame.origin.x -= self.frame.width
+        
+        self.frame.origin.x = UIScreen.main.bounds.width - self.frame.width
         self.isVisible = true
         self.delegate?.onVisibilityChanged(self.isVisible)
         
         // change blurry
-        if let `originalX` = self.originalX {
-          self.blurry?.blur(alpha: self.center.x.map(from: 0...originalX,
-                                                     to: 0...1))
-        }
+        self.blurry?.blur(alpha: self.center.x.map(from: 0...self.originalX,
+                                                   to: 0...1))
       })
     } else {
       UIView.animate(withDuration: 0.4, animations: { [weak self] in
         guard let `self` = self else { return }
         // hide
-        self.frame.origin.x += self.frame.width
+        self.frame.origin.x = UIScreen.main.bounds.width
         self.isVisible = false
         
         // change blurry
-        if let `originalX` = self.originalX {
-          self.blurry?.blur(alpha: 1 - self.center.x.map(from: 0...originalX,
-                                                         to: 0...1))
-        }
-        }, completion: { _ in
-          self.delegate?.onVisibilityChanged(self.isVisible)
-          self.blurry?.unLoadBlur()
+        self.blurry?.blur(alpha: 1 - self.center.x.map(from: 0...self.originalX,
+                                                       to: 0...1))
+      }, completion: { _ in
+        self.delegate?.onVisibilityChanged(self.isVisible)
+        self.blurry?.unLoadBlur()
       })
     }
   }
   
   @objc func onManualSlide(_ sender: UIPanGestureRecognizer) {
-    let translation = sender.translation(in: self)
-    self.center.x += translation.x
-    sender.setTranslation(CGPoint.zero, in: sender.view)
+    
+    if (sender.state == .ended) {
+      self.showHide()
+    } else {
+      if (self.frame.origin.x < (self.originalX - self.frame.width)) { return }
+      
+      let translation = sender.translation(in: self)
+      self.center.x += translation.x
+      sender.setTranslation(CGPoint.zero, in: self)
+      
+    }
+    
   }
   
   
