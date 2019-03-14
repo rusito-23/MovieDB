@@ -17,10 +17,14 @@ class GenreCell: UITableViewCell {
   // MARK: Setup
 
   override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
+    if (selected) {
+      self.name.textColor = .yellow
+    } else {
+      self.name.textColor = .white
+    }
+    self.backgroundColor = .clear
   }
-  
-  
+
   func populate(_ genre: GenreTO) {
     self.name.text = genre.name
   }
