@@ -140,6 +140,7 @@ extension MoviesViewController: MoviesDisplay {
     self.movies = movies
     self.moviesTableView.allowsSelection = true
     self.moviesTableView.reloadData()
+    self.moviesTableView.scrollToTop(animated: true)
   }
   
 }
@@ -262,7 +263,6 @@ extension MoviesViewController: SideMenuDelegate, GenresDelegate {
   func onGenreSelected(_ genreID: Int) {
     self.loading(true)
     self.interactor?.filterMovies(by: genreID)
-    self.moviesTableView.scrollToTop(animated: true)
   }
   
   func onVisibilityChanged(_ visible: Bool) {
