@@ -133,8 +133,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="YyN-jh-2r0">
                         <barButtonItem key="rightBarButtonItem" id="uWO-CI-Vyx">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wJV-IO-ukJ">
-                                <rect key="frame" x="276" y="7" width="107" height="49"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wJV-IO-ukJ">
+                                <rect key="frame" x="252" y="0.0" width="107" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="ic_genres"/>
                                 <connections>

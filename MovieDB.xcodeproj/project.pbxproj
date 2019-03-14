@@ -70,6 +70,7 @@
 		9BA4C56222258A43004FC90D /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4C56122258A42004FC90D /* MovieCell.xib */; };
 		9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4C5642225AE25004FC90D /* PosterSegue.swift */; };
 		9BA5E05A223AB9A900B4848E /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5E059223AB9A900B4848E /* TableViewExtension.swift */; };
+		9BA5E05C223ACF8700B4848E /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5E05B223ACF8700B4848E /* SideMenu.swift */; };
 		9BBD052D2237F6120010658D /* TrailerYTPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */; };
 		9BBD052F223802810010658D /* API_INFO.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BBD052E223802810010658D /* API_INFO.plist */; };
 		9BBD053122380A5B0010658D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD053022380A5B0010658D /* StringExtension.swift */; };
@@ -186,6 +187,7 @@
 		9BA4C56122258A42004FC90D /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		9BA4C5642225AE25004FC90D /* PosterSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterSegue.swift; sourceTree = "<group>"; };
 		9BA5E059223AB9A900B4848E /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
+		9BA5E05B223ACF8700B4848E /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerYTPlayer.swift; sourceTree = "<group>"; };
 		9BBD052E223802810010658D /* API_INFO.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_INFO.plist; sourceTree = "<group>"; };
 		9BBD053022380A5B0010658D /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				9BD28D9C22244DA600B9661A /* RoundShadowButton.swift */,
 				9BD28DA7222463C400B9661A /* LoadingView.swift */,
 				9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */,
+				9BA5E05B223ACF8700B4848E /* SideMenu.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				9B8C99E8221B48D900709385 /* AppDelegate.swift in Sources */,
 				9B922B1A221C9184007E8AE7 /* SingleMovieController.swift in Sources */,
 				9BD28D9B22244CC000B9661A /* ButtonExtensions.swift in Sources */,
+				9BA5E05C223ACF8700B4848E /* SideMenu.swift in Sources */,
 				7880A8582234B21A00EA0503 /* MovieServiceProtocol.swift in Sources */,
 				78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */,
 				9B8C9A24221B4D8A00709385 /* MovieServiceImplAlamofire.swift in Sources */,

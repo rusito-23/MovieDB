@@ -78,6 +78,7 @@ class MoviesViewController: UIViewController {
     genresView.setupWithSuperView(self.view)
     genresView.delegate = self
     genresView.blurry = self
+    genresView.genresDelegate = self
 
     // setup
     prepareRefreshControl()
@@ -239,7 +240,7 @@ extension MoviesViewController {
 
 // MARK: genres view control
 
-extension MoviesViewController: GenresDelegate {
+extension MoviesViewController: SideMenuDelegate, GenresDelegate {
   
   @IBAction func onGenresButtonTapped(_ sender: Any?) {
     // TODO: llamar este método desde un protocolo en vez de guardar la referencia de la vista?
