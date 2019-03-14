@@ -21,8 +21,7 @@ class SideMenu : UIView {
   
   // UI vars
   var isVisible = false
-  var originalX = UIScreen.main.bounds.width
-  
+
 }
 
 
@@ -33,14 +32,13 @@ extension SideMenu {
     // fixed width
     self.frame.size.width = 250
     // same height as subview
-    self.frame.size.height = superView.frame.height
+    self.frame.size.height = UIScreen.main.bounds.height
     // hide view on the right of superView
-    self.frame.origin.x = super.frame.origin.x + superView.frame.width
+    self.frame.origin.x = superView.frame.origin.x + superView.frame.width
 
     // add self on top of superView navigation bar
     UIApplication.shared.keyWindow?.addSubview(self)
-    
-    
+
     // add gesture control for superView
     let slideGesture = UIPanGestureRecognizer(target: self, action: #selector(onManualSlide))
     superView.addGestureRecognizer(slideGesture)
@@ -63,7 +61,7 @@ extension SideMenu {
         self.delegate?.onVisibilityChanged(self.isVisible)
         
         // change blurry
-        self.blurry?.blur(alpha: self.center.x.map(from: 0...self.originalX,
+        self.blurry?.blur(alpha: self.center.x.map(from: 0...UIScreen.main.bounds.width,
                                                    to: 0...1))
       })
     } else {
@@ -74,7 +72,7 @@ extension SideMenu {
         self.isVisible = false
         
         // change blurry
-        self.blurry?.blur(alpha: 1 - self.center.x.map(from: 0...self.originalX,
+        self.blurry?.blur(alpha: 1 - self.center.x.map(from: 0...UIScreen.main.bounds.width,
                                                        to: 0...1))
       }, completion: { _ in
         self.delegate?.onVisibilityChanged(self.isVisible)
@@ -86,14 +84,23 @@ extension SideMenu {
   @objc func onManualSlide(_ sender: UIPanGestureRecognizer) {
     
     if (sender.state == .ended) {
+      self.blurry?.unLoadBlur()
       self.showHide()
     } else {
-      if (self.frame.origin.x < (self.originalX - self.frame.width)) { return }
-      
+      // translation
       let translation = sender.translation(in: self)
+
+      if (translation.x < 0 && self.frame.origin.x < (UIScreen.main.bounds.width - self.frame.width)) { return }
       self.center.x += translation.x
       sender.setTranslation(CGPoint.zero, in: self)
       
+      // blur
+      if (!(self.blurry?.isBlurLoaded ?? true)) {
+        self.blurry?.loadBlur()
+      }
+      
+      let newAlpha =  self.center.x.map(from: (UIScreen.main.bounds.width - self.frame.width)...UIScreen.main.bounds.width, to: 0...1)
+      self.blurry?.blur(alpha: 1 - newAlpha)
     }
     
   }

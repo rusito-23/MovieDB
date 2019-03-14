@@ -102,6 +102,7 @@ extension GenresViewController: GenresDisplay {
   
   func error(_ msg: String) {
     logger.error(msg)
+    self.slide(show: false)
   }
 
 }

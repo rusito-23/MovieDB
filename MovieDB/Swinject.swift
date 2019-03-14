@@ -29,7 +29,6 @@ class Swinject {
     
     // MoviesPresenter
     container.register(MoviesPresenter.self) { (r: Resolver, viewController: MoviesDisplay) in
-      logger.debug("Resolving moviesPresenter")
       let presenter = MoviesPresenterImpl()
       presenter.viewController = viewController
       return presenter

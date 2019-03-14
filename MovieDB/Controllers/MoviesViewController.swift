@@ -26,6 +26,7 @@ protocol Blurry {
   func loadBlur(blur: CGFloat)
   func loadBlur()
   func unLoadBlur()
+  var isBlurLoaded: Bool { get }
 }
 
 class MoviesViewController: UIViewController {
@@ -84,6 +85,11 @@ class MoviesViewController: UIViewController {
     prepareRefreshControl()
     prepareNib()
     loadMovies()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    genresView.removeFromSuperview()
   }
   
 }
@@ -211,6 +217,12 @@ extension MoviesViewController: Blurry {
     self.blurView?.removeFromSuperview()
     self.blurView = nil
   }
+  
+  var isBlurLoaded: Bool {
+    get {
+      return self.blurView != nil
+    }
+  }
 
 }
 
@@ -255,6 +267,15 @@ extension MoviesViewController: SideMenuDelegate, GenresDelegate {
   
   func onVisibilityChanged(_ visible: Bool) {
     genresButton.isHidden = visible
+  }
+  
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    super.viewWillTransition(to: size, with: coordinator)
+    DispatchQueue.main.async {
+      self.genresView.slide(show: false)
+      self.genresView.removeFromSuperview()
+      self.genresView.setupWithSuperView(self.view)
+    }
   }
 
 }
