@@ -34,6 +34,7 @@ class MoviesPresenterImpl: MoviesPresenter {
       }
       
       guard movies.count != 0 else {
+        self.viewController?.displayError("No movies were found")
         return
       }
 

@@ -17,6 +17,7 @@ class Movie: Object, Transferrable {
   typealias S = MovieStruct
   
   @objc dynamic var id: Int = 0
+  var genres = List<Int>()
   @objc dynamic var title: String?
   @objc dynamic var overview: String?
   @objc dynamic var releaseDate: Date?
@@ -37,6 +38,7 @@ class Movie: Object, Transferrable {
       let description = json["overview"] as? String,
       let releaseDateString = json["release_date"] as? String,
       let backDropPath = json["backdrop_path"] as? String,
+      let genres = json["genre_ids"] as? [Int],
       let posterUrl = json["poster_path"] as? String else {
         logger.error("Error parsing movie: \(json) ")
         return nil
@@ -48,6 +50,7 @@ class Movie: Object, Transferrable {
     self.releaseDate = Date(string: releaseDateString, format: .snakeFormat)
     self.posterUrl = posterUrl
     self.backDropPath = backDropPath
+    self.genres.append(objectsIn: genres)
   }
 
   func transfer() -> MovieStruct {
@@ -59,6 +62,7 @@ class Movie: Object, Transferrable {
     movie.posterUrl = self.posterUrl
     movie.backDropPath = self.backDropPath
     movie.trailerUrl = self.trailerUrl
+    movie.genres.append(contentsOf: self.genres)
     return movie
   }
   
@@ -72,6 +76,7 @@ struct MovieStruct {
   var posterUrl: String?
   var backDropPath: String?
   var trailerUrl: String?
+  var genres: [Int] = []
   
   func asViewModel(poster: UIImage?) -> Movies.ViewModel {
     var viewModel = Movies.ViewModel()

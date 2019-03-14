@@ -69,6 +69,7 @@
 		9BA4984F221C4331007B37B3 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4984E221C4331007B37B3 /* MovieCell.swift */; };
 		9BA4C56222258A43004FC90D /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA4C56122258A42004FC90D /* MovieCell.xib */; };
 		9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4C5642225AE25004FC90D /* PosterSegue.swift */; };
+		9BA5E05A223AB9A900B4848E /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5E059223AB9A900B4848E /* TableViewExtension.swift */; };
 		9BBD052D2237F6120010658D /* TrailerYTPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */; };
 		9BBD052F223802810010658D /* API_INFO.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BBD052E223802810010658D /* API_INFO.plist */; };
 		9BBD053122380A5B0010658D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD053022380A5B0010658D /* StringExtension.swift */; };
@@ -184,6 +185,7 @@
 		9BA4984E221C4331007B37B3 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		9BA4C56122258A42004FC90D /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		9BA4C5642225AE25004FC90D /* PosterSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterSegue.swift; sourceTree = "<group>"; };
+		9BA5E059223AB9A900B4848E /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
 		9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerYTPlayer.swift; sourceTree = "<group>"; };
 		9BBD052E223802810010658D /* API_INFO.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_INFO.plist; sourceTree = "<group>"; };
 		9BBD053022380A5B0010658D /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 				78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */,
 				9B4E1A4122301C9A00ED1D61 /* MapFloatRange.swift */,
 				9BBD053022380A5B0010658D /* StringExtension.swift */,
+				9BA5E059223AB9A900B4848E /* TableViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */,
 				9B8C9A24221B4D8A00709385 /* MovieServiceImplAlamofire.swift in Sources */,
 				9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */,
+				9BA5E05A223AB9A900B4848E /* TableViewExtension.swift in Sources */,
 				9B2CDF742232B9B5001C58AD /* RealMigrations.swift in Sources */,
 				9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */,
 				9BD28D9D22244DA600B9661A /* RoundShadowButton.swift in Sources */,

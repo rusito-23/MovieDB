@@ -70,7 +70,7 @@ class GenresViewController: UIView {
 }
 
 
-extension GenresViewController: UITableViewDataSource {
+extension GenresViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return genres.count
@@ -83,7 +83,16 @@ extension GenresViewController: UITableViewDataSource {
     cell.populate(genre)
     return cell
   }
-
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    logger.debug("Genre selected!!!")
+    
+    let genre = genres[indexPath.row]
+    guard let genreID = genre.id else { return }
+    self.slide(show: false)
+    delegate?.onGenreSelected(genreID)
+  }
+  
 }
 
 

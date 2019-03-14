@@ -125,7 +125,11 @@ extension MoviesViewController: MoviesDisplay {
   
   func displayMovies(movies: [Movies.ViewModel])
   {
+    // cancel loading and error
     loading(false)
+    errorView.removeFromSuperview()
+    
+    // show movies
     self.movies = movies
     self.moviesTableView.allowsSelection = true
     self.moviesTableView.reloadData()
@@ -243,8 +247,9 @@ extension MoviesViewController: GenresDelegate {
   }
 
   func onGenreSelected(_ genreID: Int) {
-    // TODO: posiblemente llamar a mi interactor, para ver como filtrar las peliculas
-    return
+    self.loading(true)
+    self.interactor?.filterMovies(by: genreID)
+    self.moviesTableView.scrollToTop(animated: true)
   }
   
   func onVisibilityChanged(_ visible: Bool) {

@@ -15,6 +15,7 @@ import RealmDAO
 
 protocol MoviesInteractor {
   func findMovies()
+  func filterMovies(by genre: Int)
   func refreshMovies()
   var presenter: MoviesPresenter? { get set }
 }
@@ -42,6 +43,14 @@ class MoviesInteractorImpl: MoviesInteractor {
         logger.verbose("Fetching from Service")
         self.movieService?.findAll(completion: self.onMoviesFetched)
       }
+    })
+  }
+  
+  func filterMovies(by genre: Int) {
+    logger.debug("Filtering movies by genre: \(genre)")
+    movieDAO.findAll(completion: {  [weak self] (movies: [MovieStruct]) -> () in
+      guard let `self` = self else { return }
+      self.presentWithoutPosters(movies.filter { $0.genres.contains(genre) })
     })
   }
   
