@@ -11,14 +11,6 @@ import UIKit
 import XCDYouTubeKit
 import ToastSwiftFramework
 
-// MARK: Caller protocol
-protocol SingleMovieCaller {
-  func blur(alpha: CGFloat)
-  func resetBlur()
-  func getOriginalBlur() -> CGFloat
-}
-
-
 // MARK: Display protocol
 
 protocol SingleMovieDisplay: class {
@@ -52,7 +44,7 @@ class SingleMovieViewController: UIViewController {
   
   private var originalY: CGFloat = 333.5
   var id: Int?
-  var caller: SingleMovieCaller?
+  var blurry: Blurry?
   let errorView = ErrorView()
   let loadingView = LoadingView()
   var trailerPlayer = TrailerYTPlayer()
@@ -178,7 +170,7 @@ extension SingleMovieViewController {
           self.backButton.isHidden = false
         })
         // reset caller blur
-        caller?.resetBlur()
+        blurry?.resetBlur()
       }
     } else {
       let translation = sender.translation(in: self.view)
@@ -190,8 +182,8 @@ extension SingleMovieViewController {
       sender.setTranslation(CGPoint.zero, in: self.view)
       
       // unblur/blur the caller ViewController
-      caller?.blur(alpha: 1 - self.view.center.y.map(from: originalY...UIScreen.main.bounds.height * 2,
-                                                 to: 0...(caller?.getOriginalBlur() ?? 1)))
+      blurry?.blur(alpha: 1 - self.view.center.y.map(from: originalY...UIScreen.main.bounds.height * 2,
+                                                 to: 0...(blurry?.getOriginalBlur() ?? 1)))
     }
 
   }

@@ -131,7 +131,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lit-uw-VM4"/>
                     </view>
+                    <navigationItem key="navigationItem" id="YyN-jh-2r0">
+                        <barButtonItem key="rightBarButtonItem" id="uWO-CI-Vyx">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wJV-IO-ukJ">
+                                <rect key="frame" x="276" y="7" width="107" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ic_genres"/>
+                                <connections>
+                                    <action selector="onGenresButtonTapped:" destination="VtA-Xt-7pm" eventType="touchUpInside" id="SdY-wT-3qw"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="genresButton" destination="wJV-IO-ukJ" id="rrZ-Zs-wSr"/>
                         <outlet property="moviesTableView" destination="7AK-lo-2kf" id="qYN-rv-oGo"/>
                         <segue destination="Ipy-kV-kw8" kind="presentation" identifier="SingleMovieSegue" id="iYl-Nm-zxv"/>
                     </connections>
@@ -254,6 +267,7 @@
     </scenes>
     <resources>
         <image name="ic_arrow_back_white" width="156.52174377441406" height="156.52174377441406"/>
+        <image name="ic_genres" width="49" height="49"/>
         <image name="popcorn" width="512" height="512"/>
     </resources>
 </document>

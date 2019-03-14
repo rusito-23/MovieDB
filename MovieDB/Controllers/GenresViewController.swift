@@ -13,16 +13,25 @@ protocol GenresDisplay {
   func error(_ msg: String)
 }
 
+protocol GenresDelegate {
+  func onVisibilityChanged(_ visible: Bool)
+  func onGenreSelected(_ genreID: Int)
+}
+
 class GenresViewController: UIView {
   
   var interactor: GenresInteractor?
-  
+  var delegate: GenresDelegate?
+  var blurry: Blurry?
+
   // MARK: outlets
   @IBOutlet var contentView: UIView!
   @IBOutlet weak var genresTableView: UITableView!
   
   // MARK: setup
   var genres: [GenreTO] = []
+  var isVisible = false
+  var originalX: CGFloat?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -54,6 +63,10 @@ class GenresViewController: UIView {
     contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
   }
   
+  @IBAction func onBackButton(_ sender: Any) {
+    self.slide(show: false)
+  }
+
 }
 
 
@@ -80,22 +93,56 @@ extension GenresViewController {
   
   func setupWithSuperView(_ superView: UIView) {
     
+    // fixed width
     self.frame.size.width = 250
+    // same height as subview
     self.frame.size.height = superView.frame.height
+    // hide view on the right of superView
+    self.frame.origin.x = super.frame.origin.x + superView.frame.width
+    originalX = self.frame.origin.x
 
-    superView.addSubview(self)
-    
-    // add constraints
-    superView.addConstraints([
-      // contraint to top of superView
-      NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: superView, attribute: .top, multiplier: 1, constant: 0),
-    ])
+    // add self on top of superView navigation bar
+    UIApplication.shared.keyWindow?.addSubview(self)
   }
   
-  func show() {
-    UIView.animate(withDuration: 0.4, animations: {
-      
-    })
+  func showHide() {
+    slide(show: !self.isVisible)
+  }
+  
+  func slide(show: Bool) {
+    
+    if show {
+      self.blurry?.loadBlur(blur: 0.3)
+      UIView.animate(withDuration: 0.4, animations: { [weak self] in
+        guard let `self` = self else { return }
+        // show
+        self.frame.origin.x -= self.frame.width
+        self.isVisible = true
+        self.delegate?.onVisibilityChanged(self.isVisible)
+        
+        // change blurry
+        if let `originalX` = self.originalX {
+          self.blurry?.blur(alpha: self.center.x.map(from: 0...originalX,
+                                                         to: 0...1))
+        }
+      })
+    } else {
+      UIView.animate(withDuration: 0.4, animations: { [weak self] in
+        guard let `self` = self else { return }
+        // hide
+        self.frame.origin.x += self.frame.width
+        self.isVisible = false
+        
+        // change blurry
+        if let `originalX` = self.originalX {
+          self.blurry?.blur(alpha: 1 - self.center.x.map(from: 0...originalX,
+                                                     to: 0...1))
+        }
+      }, completion: { _ in
+        self.delegate?.onVisibilityChanged(self.isVisible)
+        self.blurry?.unLoadBlur()
+      })
+    }
   }
   
 }

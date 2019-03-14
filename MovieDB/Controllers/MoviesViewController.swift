@@ -19,12 +19,22 @@ protocol MoviesDisplay: class
   func displayError(_ msg: String)
 }
 
+protocol Blurry {
+  func blur(alpha: CGFloat)
+  func resetBlur()
+  func getOriginalBlur() -> CGFloat
+  func loadBlur(blur: CGFloat)
+  func loadBlur()
+  func unLoadBlur()
+}
+
 class MoviesViewController: UIViewController {
 
   var interactor: MoviesInteractor?
 
   // MARK: outlets and views
   
+  @IBOutlet weak var genresButton: UIButton!
   @IBOutlet private weak var moviesTableView: UITableView!
   private let loadingView = LoadingView()
   private let refreshView = LoadingView(type: .refresh)
@@ -41,7 +51,7 @@ class MoviesViewController: UIViewController {
       let vc = segue.destination as? SingleMovieViewController
       vc?.modalPresentationStyle = .overCurrentContext
       vc?.id = self.selectedMovie
-      vc?.caller = self
+      vc?.blurry = self
       loadBlur()
     }
   }
@@ -66,6 +76,8 @@ class MoviesViewController: UIViewController {
     
     // setup genres view
     genresView.setupWithSuperView(self.view)
+    genresView.delegate = self
+    genresView.blurry = self
 
     // setup
     prepareRefreshControl()
@@ -94,11 +106,11 @@ extension MoviesViewController {
   }
   
   func didSelectMovie(_ movie: Movies.ViewModel) {
-    genresView.show()
-//    self.selectedMovie = movie.id
-//    self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
+    self.selectedMovie = movie.id
+    self.performSegue(withIdentifier: "SingleMovieSegue", sender: self)
   }
   
+
 }
 
 // MARK: MoviesDisplay implementation
@@ -161,7 +173,7 @@ extension MoviesViewController: UITableViewDelegate {
 
 // MARK: SingleMovie Caller protocol
 
-extension MoviesViewController: SingleMovieCaller {
+extension MoviesViewController: Blurry {
   
   func blur(alpha: CGFloat) {
     blurView?.alpha = alpha
@@ -173,6 +185,13 @@ extension MoviesViewController: SingleMovieCaller {
   
   func getOriginalBlur() -> CGFloat {
     return 0.8
+  }
+  
+  func loadBlur(blur: CGFloat) {
+    blurView = UIView(frame: self.view.frame)
+    blurView?.backgroundColor = UIColor.black
+    blurView?.alpha = blur
+    self.view.addSubview(blurView!)
   }
   
   func loadBlur() {
@@ -210,6 +229,26 @@ extension MoviesViewController {
       self.interactor?.refreshMovies()
       self.moviesTableView.allowsSelection = false
     })
+  }
+
+}
+
+// MARK: genres view control
+
+extension MoviesViewController: GenresDelegate {
+  
+  @IBAction func onGenresButtonTapped(_ sender: Any?) {
+    // TODO: llamar este método desde un protocolo en vez de guardar la referencia de la vista?
+    genresView.showHide()
+  }
+
+  func onGenreSelected(_ genreID: Int) {
+    // TODO: posiblemente llamar a mi interactor, para ver como filtrar las peliculas
+    return
+  }
+  
+  func onVisibilityChanged(_ visible: Bool) {
+    genresButton.isHidden = visible
   }
 
 }
