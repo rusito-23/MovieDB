@@ -22,16 +22,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AzE-dh-jp2">
-                    <rect key="frame" x="16" y="283.5" width="343" height="100"/>
+                    <rect key="frame" x="0.0" y="307.5" width="375" height="52"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message large enough to take two lines and maybe some more" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLb-s8-Ied">
-                            <rect key="frame" x="66" y="8" width="269" height="84"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message large enough to take two lines and maybe some more" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLb-s8-Ied">
+                            <rect key="frame" x="66" y="8" width="301" height="36"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="W5c-OM-f0Y">
-                            <rect key="frame" x="8" y="25" width="50" height="50"/>
+                            <rect key="frame" x="8" y="1" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Oz0-Jt-lpw"/>
                                 <constraint firstAttribute="width" constant="50" id="jbe-t2-MpU"/>
@@ -43,7 +43,6 @@
                         <constraint firstItem="hLb-s8-Ied" firstAttribute="leading" secondItem="W5c-OM-f0Y" secondAttribute="trailing" constant="8" id="L27-rq-Shl"/>
                         <constraint firstItem="W5c-OM-f0Y" firstAttribute="centerY" secondItem="AzE-dh-jp2" secondAttribute="centerY" id="Nmm-Yu-9n1"/>
                         <constraint firstAttribute="trailing" secondItem="hLb-s8-Ied" secondAttribute="trailing" constant="8" id="SAC-UE-XN0"/>
-                        <constraint firstAttribute="height" constant="100" id="XDk-qf-SsI"/>
                         <constraint firstItem="hLb-s8-Ied" firstAttribute="top" secondItem="AzE-dh-jp2" secondAttribute="top" constant="8" id="avJ-PM-rBj"/>
                         <constraint firstAttribute="bottom" secondItem="hLb-s8-Ied" secondAttribute="bottom" constant="8" id="vPY-YN-7gv"/>
                     </constraints>
@@ -64,8 +63,7 @@
                 <constraint firstItem="93A-mr-90g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="4yX-NB-JV7"/>
                 <constraint firstItem="AzE-dh-jp2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8hK-Ri-6uY"/>
                 <constraint firstItem="AzE-dh-jp2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JNw-xs-HmH"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AzE-dh-jp2" secondAttribute="trailing" constant="16" id="WFg-Hr-yvE"/>
-                <constraint firstItem="AzE-dh-jp2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="c8T-NU-7E7"/>
+                <constraint firstItem="AzE-dh-jp2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="PIK-Hd-5b2"/>
                 <constraint firstItem="93A-mr-90g" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="yPW-8n-JKl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

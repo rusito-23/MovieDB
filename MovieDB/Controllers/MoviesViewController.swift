@@ -304,20 +304,30 @@ extension MoviesViewController: UISearchBarDelegate, UISearchControllerDelegate,
     searchController?.searchBar.searchBarStyle = .minimal
     searchController?.searchBar.sizeToFit()
     searchController?.searchBar.placeholder = "Search by title"
+    searchController?.searchBar.showsBookmarkButton = true
+    searchController?.searchBar.setImage(UIImage(named: "ic_trash"), for: .bookmark, state: .normal)
 
     // add to navigationBar
     self.navigationItem.titleView = searchController?.searchBar
   }
   
   func updateSearchResults(for searchController: UISearchController) {
-    if let text = searchController.searchBar.text, !text.isEmptyTrimmed {
+  }
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    if let text = searchBar.text, !text.isEmptyTrimmed {
       // filter
-      logger.info("Updating results with search: \(text)")
+      logger.info("Filtering results with search: \(text)")
       interactor?.filterMovies(by: text)
     } else {
       // clear filters
       self.loadMovies()
     }
+  }
+  
+  func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+    logger.debug("Clear filters clicked!")
+    self.loadMovies()
   }
   
 }
