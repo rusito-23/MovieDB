@@ -310,9 +310,14 @@ extension MoviesViewController: UISearchBarDelegate, UISearchControllerDelegate,
   }
   
   func updateSearchResults(for searchController: UISearchController) {
-    guard let text = searchController.searchBar.text else { return }
-    logger.info("Updating results with search: \(text)")
-    interactor?.filterMovies(by: text)
+    if let text = searchController.searchBar.text, !text.isEmptyTrimmed {
+      // filter
+      logger.info("Updating results with search: \(text)")
+      interactor?.filterMovies(by: text)
+    } else {
+      // clear filters
+      self.loadMovies()
+    }
   }
   
 }

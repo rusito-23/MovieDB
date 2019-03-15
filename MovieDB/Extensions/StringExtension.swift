@@ -18,4 +18,14 @@ extension String {
     }
   }
   
+  func trim() -> String {
+    return self.trimmingCharacters(in: .whitespacesAndNewlines)
+  }
+  
+  var isEmptyTrimmed: Bool {
+    get {
+      return self.trim().isEmpty
+    }
+  }
+
 }
