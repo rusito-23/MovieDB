@@ -42,6 +42,7 @@ class MoviesViewController: UIViewController {
   private let errorView = ErrorView()
   private let refreshControl = UIRefreshControl()
   private let genresView = GenresViewController()
+  private var searchController: UISearchController?
 
   // MARK: Routing
   
@@ -74,15 +75,11 @@ class MoviesViewController: UIViewController {
 
     // hide back button
     errorView.backButton.isHidden = true
-    
-    // setup genres view
-    genresView.setupWithSuperView(self.view)
-    genresView.delegate = self
-    genresView.blurry = self
-    genresView.genresDelegate = self
 
     // setup
-    prepareRefreshControl()
+    setupGenresView()
+    setupSearchController()
+    setupRefreshControl()
     prepareNib()
     loadMovies()
   }
@@ -140,7 +137,6 @@ extension MoviesViewController: MoviesDisplay {
     self.movies = movies
     self.moviesTableView.allowsSelection = true
     self.moviesTableView.reloadData()
-    self.moviesTableView.scrollToTop(animated: true)
   }
   
 }
@@ -231,7 +227,7 @@ extension MoviesViewController: Blurry {
 
 extension MoviesViewController {
   
-  func prepareRefreshControl() {
+  func setupRefreshControl() {
     refreshControl.tintColor = .clear
     refreshControl.backgroundColor = .clear
     refreshControl.addTarget(self, action: #selector(refreshMovies(_:)), for: .valueChanged)
@@ -254,6 +250,14 @@ extension MoviesViewController {
 // MARK: genres view control
 
 extension MoviesViewController: SideMenuDelegate, GenresDelegate {
+  
+  func setupGenresView() {
+    // setup genres view
+    genresView.setupWithSuperView(self.view)
+    genresView.delegate = self
+    genresView.blurry = self
+    genresView.genresDelegate = self
+  }
   
   @IBAction func onGenresButtonTapped(_ sender: Any?) {
     // TODO: llamar este método desde un protocolo en vez de guardar la referencia de la vista?
@@ -278,4 +282,37 @@ extension MoviesViewController: SideMenuDelegate, GenresDelegate {
     }
   }
 
+}
+
+// MARK: searchController
+
+extension MoviesViewController: UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+  
+  // SETUP
+  
+  func setupSearchController() {
+    // setup search controller
+    searchController = UISearchController(searchResultsController: nil)
+    
+    // setup delegates
+    searchController?.searchResultsUpdater = self
+    searchController?.delegate = self
+    searchController?.searchBar.delegate = self
+
+    // ui prefs
+    searchController?.hidesNavigationBarDuringPresentation = false
+    searchController?.searchBar.searchBarStyle = .minimal
+    searchController?.searchBar.sizeToFit()
+    searchController?.searchBar.placeholder = "Search by title"
+
+    // add to navigationBar
+    self.navigationItem.titleView = searchController?.searchBar
+  }
+  
+  func updateSearchResults(for searchController: UISearchController) {
+    guard let text = searchController.searchBar.text else { return }
+    logger.info("Updating results with search: \(text)")
+    interactor?.filterMovies(by: text)
+  }
+  
 }

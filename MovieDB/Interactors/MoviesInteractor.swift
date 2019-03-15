@@ -16,6 +16,7 @@ import RealmDAO
 protocol MoviesInteractor {
   func findMovies()
   func filterMovies(by genre: Int)
+  func filterMovies(by title: String?)
   func refreshMovies()
   var presenter: MoviesPresenter? { get set }
 }
@@ -47,10 +48,27 @@ class MoviesInteractorImpl: MoviesInteractor {
   }
   
   func filterMovies(by genre: Int) {
-    logger.debug("Filtering movies by genre: \(genre)")
+    logger.info("Filtering movies by genre: \(genre)")
     movieDAO.findAll(completion: {  [weak self] (movies: [MovieStruct]) -> () in
       guard let `self` = self else { return }
       self.presentWithoutPosters(movies.filter { $0.genres.contains(genre) })
+    })
+  }
+  
+  func filterMovies(by title: String?) {
+    logger.debug("Filtering movies by title: \(String(describing: title))")
+    movieDAO.findAll(completion: { [weak self] (movies: [MovieStruct]) -> () in
+      guard let `self` = self else { return }
+      
+      // filter
+      let filteredMovies = movies.filter { (movie: MovieStruct) in
+        let filterTitle = title?.uppercased()
+        let movieTitle = movie.title?.uppercased()
+        
+        return (movieTitle?.contains(filterTitle ?? "")) ?? true || (filterTitle?.contains(movieTitle ?? "")) ?? true
+      }
+      
+      self.presentWithoutPosters(filteredMovies)
     })
   }
   
