@@ -35,7 +35,8 @@ class SingleMovieViewController: UIViewController {
   @IBOutlet weak var backButton: UIButton!
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
-
+  @IBOutlet weak var actionsCollectionView: ActionsCollectionView!
+  
   // MARK: Constraint Outlets
   
   @IBOutlet weak var posterHeightConstraint: NSLayoutConstraint!
@@ -67,6 +68,7 @@ class SingleMovieViewController: UIViewController {
     
     // setup
     prepareSwipeGestures()
+    prepareActions()
   }
   
 
@@ -245,12 +247,7 @@ extension SingleMovieViewController {
       loadingView.removeFromSuperview()
     }
   }
-  
-  @IBAction func playTrailer() {
-    loadingTrailer(true)
-    self.interactor?.fetchTrailer(id: self.id)
-  }
-  
+
   @objc func onTrailerFinished() {
     logger.verbose("trailer finished")
     dismissVideoPlayer()
@@ -268,3 +265,29 @@ extension SingleMovieViewController: ErrorViewDelegate {
   
 }
 
+// MARK: actions
+
+extension SingleMovieViewController {
+  
+  func prepareActions() {
+    actionsCollectionView.actions = [
+      Action(name: "Watch trailer", icon: "ic_play", action: self.playTrailer),
+      Action(name: "Explore cast", icon: "ic_cast", action: self.exploreCast),
+      Action(name: "Genres", icon: "ic_genres", action: self.genres),
+    ]
+  }
+  
+  func playTrailer() {
+    loadingTrailer(true)
+    self.interactor?.fetchTrailer(id: self.id)
+  }
+  
+  func exploreCast() {
+    logger.warning("Explore cast has no implementation")
+  }
+  
+  func genres() {
+    logger.warning("Genres is not yet implemented")
+  }
+
+}

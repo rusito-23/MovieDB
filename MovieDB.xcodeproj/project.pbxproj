@@ -71,6 +71,8 @@
 		9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4C5642225AE25004FC90D /* PosterSegue.swift */; };
 		9BA5E05A223AB9A900B4848E /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5E059223AB9A900B4848E /* TableViewExtension.swift */; };
 		9BA5E05C223ACF8700B4848E /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA5E05B223ACF8700B4848E /* SideMenu.swift */; };
+		9BB606E8223FDF3400009679 /* ActionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB606E7223FDF3400009679 /* ActionCollectionViewCell.swift */; };
+		9BB606EA223FF48300009679 /* ActionsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB606E9223FF48300009679 /* ActionsCollectionView.swift */; };
 		9BBD052D2237F6120010658D /* TrailerYTPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */; };
 		9BBD052F223802810010658D /* API_INFO.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BBD052E223802810010658D /* API_INFO.plist */; };
 		9BBD053122380A5B0010658D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBD053022380A5B0010658D /* StringExtension.swift */; };
@@ -188,6 +190,8 @@
 		9BA4C5642225AE25004FC90D /* PosterSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterSegue.swift; sourceTree = "<group>"; };
 		9BA5E059223AB9A900B4848E /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
 		9BA5E05B223ACF8700B4848E /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+		9BB606E7223FDF3400009679 /* ActionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCollectionViewCell.swift; sourceTree = "<group>"; };
+		9BB606E9223FF48300009679 /* ActionsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsCollectionView.swift; sourceTree = "<group>"; };
 		9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerYTPlayer.swift; sourceTree = "<group>"; };
 		9BBD052E223802810010658D /* API_INFO.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_INFO.plist; sourceTree = "<group>"; };
 		9BBD053022380A5B0010658D /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -292,6 +296,7 @@
 				9BD28DA7222463C400B9661A /* LoadingView.swift */,
 				9BBD052C2237F6120010658D /* TrailerYTPlayer.swift */,
 				9BA5E05B223ACF8700B4848E /* SideMenu.swift */,
+				9BB606E9223FF48300009679 /* ActionsCollectionView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 				9BA4C56122258A42004FC90D /* MovieCell.xib */,
 				9BBD0545223949410010658D /* GenreCell.swift */,
 				9BBD0547223953E90010658D /* GenreCell.xib */,
+				9BB606E7223FDF3400009679 /* ActionCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -642,6 +648,7 @@
 				9BD28D9B22244CC000B9661A /* ButtonExtensions.swift in Sources */,
 				9BA5E05C223ACF8700B4848E /* SideMenu.swift in Sources */,
 				7880A8582234B21A00EA0503 /* MovieServiceProtocol.swift in Sources */,
+				9BB606EA223FF48300009679 /* ActionsCollectionView.swift in Sources */,
 				78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */,
 				9B8C9A24221B4D8A00709385 /* MovieServiceImplAlamofire.swift in Sources */,
 				9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */,
@@ -653,6 +660,7 @@
 				9B82E825221F1C6000B84486 /* ViewExtensions.swift in Sources */,
 				9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */,
 				9B8C9A27221B4D8A00709385 /* MoviesViewController.swift in Sources */,
+				9BB606E8223FDF3400009679 /* ActionCollectionViewCell.swift in Sources */,
 				9BCBE33D223044DF00D5D759 /* Swinject.swift in Sources */,
 				9BBD053622392A630010658D /* Genre.swift in Sources */,
 				9B7174C52229ACCE00EF5962 /* CustomNavigationController.swift in Sources */,
