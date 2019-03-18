@@ -22,7 +22,7 @@ class CastCell: UITableViewCell {
     super.awakeFromNib()
   }
   
-  func populate(with cast: CastTO) {
+  func populate(with cast: Casts.ViewModel) {
     self.nameLabel.text = cast.name
     self.characterLabel.text = cast.character
     // TODO: la imagen del chaboncito

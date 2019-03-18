@@ -33,16 +33,16 @@ class Cast: Object, Transferrable {
     
     guard let id = json["id"] as? Int,
           let name = json["name"] as? String,
-          let profilePath = json["profilePath"] as? String,
           let character = json["character"] as? String else {
             logger.error("Error parsing cast!")
+            logger.debug(json)
             return nil
     }
     
     self.id = RealmOptional<Int>(id)
     self.name = name
     self.character = character
-    self.profilePath = profilePath
+    self.profilePath = json["profile_path"] as? String
   }
   
 }
@@ -53,6 +53,23 @@ struct CastTO {
   var name: String?
   var character: String?
   var profilePath: String?
+  
+  func asObject() -> Cast {
+    let cast = Cast()
+    cast.id = RealmOptional<Int>(self.id)
+    cast.name = self.name
+    cast.character = self.character
+    cast.profilePath = self.profilePath
+    return cast
+  }
+  
+  func asViewModel(poster: UIImage?) -> Casts.ViewModel {
+    var viewModel = Casts.ViewModel()
+    viewModel.name = self.name
+    viewModel.character = self.character
+    return viewModel
+  }
+  
 }
 
 // MARK: Service/View structs
@@ -76,6 +93,13 @@ enum Casts
         }
       }
     }
+  }
+  
+  struct ViewModel
+  {
+    var name: String?
+    var character: String?
+    var image: UIImage?
   }
   
 }

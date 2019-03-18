@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CastDisplay {
-  func displayCast(_ cast: [CastTO])
+  func displayCast(_ cast: [Casts.ViewModel])
   func displayError(_ msg: String)
 }
 
@@ -22,7 +22,7 @@ class CastViewController: UIViewController {
   
   // MARK: Setup
   var movieID: Int?
-  var cast: [CastTO]?
+  var cast: [Casts.ViewModel] = []
 
   // MARK: lifecycle
   override func viewDidLoad() {
@@ -38,12 +38,14 @@ class CastViewController: UIViewController {
 
 extension CastViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return cast?.count ?? 0
+    return cast.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    logger.debug("Entering cellForRowAt")
     let cell = tableView.dequeueReusableCell(withIdentifier: "CastCell") as! CastCell
-    
+    let character = cast[indexPath.row]
+    cell.populate(with: character)
     return cell
   }
 
@@ -54,8 +56,10 @@ extension CastViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension CastViewController: CastDisplay {
   
-  func displayCast(_ cast: [CastTO]) {
-    logger.debug("displayCASTT")
+  func displayCast(_ cast: [Casts.ViewModel]) {
+    logger.debug(cast)
+    self.cast = cast
+    self.castTableView.reloadData()
   }
   
   func displayError(_ msg: String) {

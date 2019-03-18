@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol CastPresenter {
-  func present(_ cast: [CastTO]?)
+  func present(_ cast: [Casts.ViewModel]?)
   var display: CastDisplay? { get set }
 }
 
@@ -20,7 +20,7 @@ class CastPresenterImpl: CastPresenter {
   
   // MARK: protocol implementation
   
-  func present(_ cast: [CastTO]?) {
+  func present(_ cast: [Casts.ViewModel]?) {
     DispatchQueue.main.async { [weak self] in
       guard let `self` = self else { return }
       
