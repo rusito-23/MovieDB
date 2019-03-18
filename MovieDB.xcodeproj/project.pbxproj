@@ -12,6 +12,8 @@
 		78933A5F223497A9003DE75D /* RealmDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78933A5D223497A5003DE75D /* RealmDAO.framework */; };
 		78933A60223497A9003DE75D /* RealmDAO.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 78933A5D223497A5003DE75D /* RealmDAO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */; };
+		9B1C854822402BE400866F0F /* CastInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C854722402BE400866F0F /* CastInteractor.swift */; };
+		9B1C854A22402C5F00866F0F /* CastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C854922402C5F00866F0F /* CastPresenter.swift */; };
 		9B25C6A82220442D00338D41 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B25C6A72220442D00338D41 /* Alamofire.framework */; };
 		9B25C6AA2220443700338D41 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B25C6A92220443700338D41 /* Realm.framework */; };
 		9B25C6AC2220444000338D41 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B25C6AB2220444000338D41 /* RealmSwift.framework */; };
@@ -32,6 +34,9 @@
 		9B7174C52229ACCE00EF5962 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7174C42229ACCE00EF5962 /* CustomNavigationController.swift */; };
 		9B7174CC2229C7B400EF5962 /* poster_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B7174CB2229C7B400EF5962 /* poster_loading.json */; };
 		9B7174D22229D10C00EF5962 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7174D12229D10C00EF5962 /* UIImageExtensions.swift */; };
+		9B7D9ADD22400B350014EE0B /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D9ADC22400B350014EE0B /* Cast.swift */; };
+		9B7D9ADF224026240014EE0B /* CastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D9ADE224026240014EE0B /* CastCell.swift */; };
+		9B7D9AE1224027100014EE0B /* CastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7D9AE0224027100014EE0B /* CastViewController.swift */; };
 		9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E81B221EE0BF00B84486 /* FloatingButton.swift */; };
 		9B82E81F221EE4B700B84486 /* FloatingMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B82E81E221EE4B700B84486 /* FloatingMenu.xib */; };
 		9B82E823221EE9C500B84486 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B82E822221EE9C500B84486 /* FloatingMenu.swift */; };
@@ -141,6 +146,8 @@
 		7880A8572234B21A00EA0503 /* MovieServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceProtocol.swift; sourceTree = "<group>"; };
 		78933A5D223497A5003DE75D /* RealmDAO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmDAO.framework; path = Carthage/Build/iOS/RealmDAO.framework; sourceTree = "<group>"; };
 		78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageCacheExtensions.swift; sourceTree = "<group>"; };
+		9B1C854722402BE400866F0F /* CastInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastInteractor.swift; sourceTree = "<group>"; };
+		9B1C854922402C5F00866F0F /* CastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastPresenter.swift; sourceTree = "<group>"; };
 		9B25C6A72220442D00338D41 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		9B25C6A92220443700338D41 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		9B25C6AB2220444000338D41 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -157,6 +164,9 @@
 		9B7174C42229ACCE00EF5962 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		9B7174CB2229C7B400EF5962 /* poster_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = poster_loading.json; sourceTree = "<group>"; };
 		9B7174D12229D10C00EF5962 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		9B7D9ADC22400B350014EE0B /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
+		9B7D9ADE224026240014EE0B /* CastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCell.swift; sourceTree = "<group>"; };
+		9B7D9AE0224027100014EE0B /* CastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewController.swift; sourceTree = "<group>"; };
 		9B82E81B221EE0BF00B84486 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		9B82E81E221EE4B700B84486 /* FloatingMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingMenu.xib; sourceTree = "<group>"; };
 		9B82E822221EE9C500B84486 /* FloatingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenu.swift; sourceTree = "<group>"; };
@@ -388,6 +398,7 @@
 				9B922B19221C9184007E8AE7 /* SingleMovieController.swift */,
 				9B7174C42229ACCE00EF5962 /* CustomNavigationController.swift */,
 				9BBD054122393B1B0010658D /* GenresViewController.swift */,
+				9B7D9AE0224027100014EE0B /* CastViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -399,6 +410,7 @@
 				9B8C9A22221B4D8A00709385 /* MoviesInteractor.swift */,
 				9B25C6BF222088C200338D41 /* SingleMovieInteractor.swift */,
 				9BBD053B2239334F0010658D /* GenresInteractor.swift */,
+				9B1C854722402BE400866F0F /* CastInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -408,6 +420,7 @@
 			children = (
 				9BD28D902224192600B9661A /* Movie.swift */,
 				9BBD053522392A630010658D /* Genre.swift */,
+				9B7D9ADC22400B350014EE0B /* Cast.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -428,6 +441,7 @@
 				9BD28D8E22208BA400B9661A /* SingleMoviePresenter.swift */,
 				9BE7BA622228828700CF69CD /* MovieCellPresenter.swift */,
 				9BBD053D223935770010658D /* GenresPresenter.swift */,
+				9B1C854922402C5F00866F0F /* CastPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -466,6 +480,7 @@
 				9BBD0545223949410010658D /* GenreCell.swift */,
 				9BBD0547223953E90010658D /* GenreCell.xib */,
 				9BB606E7223FDF3400009679 /* ActionCollectionViewCell.swift */,
+				9B7D9ADE224026240014EE0B /* CastCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -634,11 +649,14 @@
 				9B8C99EA221B48D900709385 /* ViewController.swift in Sources */,
 				9B9E8A4B223697FE000F96B8 /* MovieServiceUrlCreatorImpl.swift in Sources */,
 				9BBD054222393B1B0010658D /* GenresViewController.swift in Sources */,
+				9B1C854822402BE400866F0F /* CastInteractor.swift in Sources */,
 				9BD28D952224253800B9661A /* ErrorView.swift in Sources */,
 				9BD28DA8222463C400B9661A /* LoadingView.swift in Sources */,
 				9B4E1A4222301C9A00ED1D61 /* MapFloatRange.swift in Sources */,
 				9BD28D912224192600B9661A /* Movie.swift in Sources */,
 				9BBD052D2237F6120010658D /* TrailerYTPlayer.swift in Sources */,
+				9B7D9ADD22400B350014EE0B /* Cast.swift in Sources */,
+				9B7D9AE1224027100014EE0B /* CastViewController.swift in Sources */,
 				9B82E81C221EE0BF00B84486 /* FloatingButton.swift in Sources */,
 				9B25C6C0222088C200338D41 /* SingleMovieInteractor.swift in Sources */,
 				9B9E8A4D223699FC000F96B8 /* MovieServiceImplAFNet.swift in Sources */,
@@ -649,6 +667,7 @@
 				9BA5E05C223ACF8700B4848E /* SideMenu.swift in Sources */,
 				7880A8582234B21A00EA0503 /* MovieServiceProtocol.swift in Sources */,
 				9BB606EA223FF48300009679 /* ActionsCollectionView.swift in Sources */,
+				9B7D9ADF224026240014EE0B /* CastCell.swift in Sources */,
 				78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */,
 				9B8C9A24221B4D8A00709385 /* MovieServiceImplAlamofire.swift in Sources */,
 				9BA4C5652225AE25004FC90D /* PosterSegue.swift in Sources */,
@@ -660,6 +679,7 @@
 				9B82E825221F1C6000B84486 /* ViewExtensions.swift in Sources */,
 				9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */,
 				9B8C9A27221B4D8A00709385 /* MoviesViewController.swift in Sources */,
+				9B1C854A22402C5F00866F0F /* CastPresenter.swift in Sources */,
 				9BB606E8223FDF3400009679 /* ActionCollectionViewCell.swift in Sources */,
 				9BCBE33D223044DF00D5D759 /* Swinject.swift in Sources */,
 				9BBD053622392A630010658D /* Genre.swift in Sources */,

@@ -55,6 +55,13 @@ class Swinject {
       return presenter
     }
     
+    // CastPresenter
+    container.register(CastPresenter.self) { (r: Resolver, display: CastDisplay) in
+      let presenter = CastPresenterImpl()
+      presenter.display = display
+      return presenter
+    }
+    
     // MARK: Interactors
     
     // MoviesInteractor
@@ -85,6 +92,14 @@ class Swinject {
     container.register(GenresInteractor.self) { (r: Resolver, display: GenresDisplay) in
       let interactor = GenresInteractorImpl()
       interactor.presenter = r.resolve(GenresPresenter.self, argument: display)
+      interactor.movieService = r.resolve(MovieService.self)
+      return interactor
+    }
+    
+    // GenresInteractor
+    container.register(CastInteractor.self) { (r: Resolver, display: CastDisplay) in
+      let interactor = CastInteractorImpl()
+      interactor.presenter = r.resolve(CastPresenter.self, argument: display)
       interactor.movieService = r.resolve(MovieService.self)
       return interactor
     }

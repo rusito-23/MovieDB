@@ -18,6 +18,7 @@ class Movie: Object, Transferrable {
   
   @objc dynamic var id: Int = 0
   var genres = List<Int>()
+  var cast = List<Int>()
   @objc dynamic var title: String?
   @objc dynamic var overview: String?
   @objc dynamic var releaseDate: Date?
@@ -63,6 +64,7 @@ class Movie: Object, Transferrable {
     movie.backDropPath = self.backDropPath
     movie.trailerUrl = self.trailerUrl
     movie.genres.append(contentsOf: self.genres)
+    movie.cast.append(contentsOf: self.cast)
     return movie
   }
   
@@ -77,6 +79,7 @@ struct MovieStruct {
   var backDropPath: String?
   var trailerUrl: String?
   var genres: [Int] = []
+  var cast: [Int] = []
   
   func asViewModel(poster: UIImage?) -> Movies.ViewModel {
     var viewModel = Movies.ViewModel()

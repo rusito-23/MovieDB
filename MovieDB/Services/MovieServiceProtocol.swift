@@ -15,6 +15,7 @@ enum MovieServiceAction: String {
   case trailer
   case trailer_yt
   case genres
+  case cast
 }
 
 protocol MovieService {
@@ -22,6 +23,7 @@ protocol MovieService {
   func fetchPoster(for url: String?, completion: @escaping (UIImage?) -> Void)
   func fetchBackDrop(for url: String?, completion: @escaping (UIImage?) -> Void)
   func findGenres(completion: @escaping (Genres.Response?) -> Void)
+  func findCast(for movieID: Int, completion: @escaping (Casts.Response?) -> Void)
 }
 
 protocol MovieServiceUrlCreator {

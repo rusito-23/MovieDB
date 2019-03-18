@@ -12,6 +12,8 @@
 	<string>https://www.youtube.com/embed/</string>
 	<key>genres</key>
 	<string>https://api.themoviedb.org/3/genre/movie/list?</string>
+	<key>cast</key>
+	<string>https://api.themoviedb.org/3/movie/</string>
 	<key>key</key>
 	<string>***REMOVED***</string>
 </dict>

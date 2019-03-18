@@ -77,6 +77,20 @@ class SingleMovieViewController: UIViewController {
     dismissVideoPlayer()
   }
   
+  @IBAction func unwindCastSegue(segue: UIStoryboardSegue) {
+    logger.verbose("unwindCastSegue")
+  }
+  
+  
+  // MARK: Routing
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.destination is CastViewController {
+      let vc = segue.destination as? CastViewController
+      vc?.movieID = self.id
+    }
+  }
+
 }
 
 // MARK: UI logic
@@ -283,7 +297,7 @@ extension SingleMovieViewController {
   }
   
   func exploreCast() {
-    logger.warning("Explore cast has no implementation")
+    self.performSegue(withIdentifier: "CastSegue", sender: self)
   }
   
   func genres() {

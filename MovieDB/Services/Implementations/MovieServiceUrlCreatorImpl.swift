@@ -24,6 +24,7 @@ class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
   
   private let movieFilter = "/movie?"
   private let videoFilter = "/videos?"
+  private let castFilter = "/credits?"
 
   // MARK: protocol implementation
   
@@ -57,6 +58,9 @@ class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
         case .genres:
           str = String.concat([url(for: action), apiKey])
       
+        case .cast:
+          str = String.concat([url(for: action), path, castFilter, apiKey])
+
     }
     guard str != nil else { return nil }
     return URL(string: str!)

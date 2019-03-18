@@ -12,7 +12,7 @@ import AFNetworking
 
 
 class MovieServiceImplAFNet: MovieService {
-  
+
   //  MARK: private setup
   
   init() {
@@ -109,4 +109,8 @@ class MovieServiceImplAFNet: MovieService {
     return
   }
 
+  func findCast(for movieID: Int, completion: @escaping (Casts.Response?) -> Void) {
+    return
+  }
+  
 }
