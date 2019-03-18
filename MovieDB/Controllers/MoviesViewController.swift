@@ -77,7 +77,6 @@ class MoviesViewController: UIViewController {
     errorView.backButton.isHidden = true
 
     // setup
-    setupGenresView()
     setupSearchController()
     setupRefreshControl()
     prepareNib()
@@ -87,6 +86,12 @@ class MoviesViewController: UIViewController {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     genresView.removeFromSuperview()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    genresView.removeFromSuperview()
+    setupGenresView()
   }
   
 }

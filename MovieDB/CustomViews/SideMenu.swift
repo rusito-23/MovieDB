@@ -21,6 +21,14 @@ class SideMenu : UIView {
   
   // UI vars
   var isVisible = false
+  
+  var showPoint: CGFloat { get {
+      return UIScreen.main.bounds.width - self.frame.width
+  }}
+  
+  var hidePoint: CGFloat { get {
+    return UIScreen.main.bounds.width
+  }}
 
 }
 
@@ -56,23 +64,23 @@ extension SideMenu {
         guard let `self` = self else { return }
         // show
         
-        self.frame.origin.x = UIScreen.main.bounds.width - self.frame.width
+        self.frame.origin.x = self.showPoint
         self.isVisible = true
         self.delegate?.onVisibilityChanged(self.isVisible)
         
         // change blurry
-        self.blurry?.blur(alpha: self.center.x.map(from: 0...UIScreen.main.bounds.width,
+        self.blurry?.blur(alpha: self.center.x.map(from: 0...self.hidePoint,
                                                    to: 0...1))
       })
     } else {
       UIView.animate(withDuration: 0.4, animations: { [weak self] in
         guard let `self` = self else { return }
         // hide
-        self.frame.origin.x = UIScreen.main.bounds.width
+        self.frame.origin.x = self.hidePoint
         self.isVisible = false
         
         // change blurry
-        self.blurry?.blur(alpha: 1 - self.center.x.map(from: 0...UIScreen.main.bounds.width,
+        self.blurry?.blur(alpha: 1 - self.center.x.map(from: 0...self.hidePoint,
                                                        to: 0...1))
       }, completion: { _ in
         self.delegate?.onVisibilityChanged(self.isVisible)
@@ -85,21 +93,33 @@ extension SideMenu {
     
     if (sender.state == .ended) {
       self.blurry?.unLoadBlur()
-      self.showHide()
+      
+      let showDist = abs(self.showPoint - self.frame.origin.x)
+      let hideDist = abs(self.hidePoint - self.frame.origin.x)
+      
+      if (showDist >= hideDist) {
+        // menu is closer to the hidePoint
+        self.slide(show: false)
+      } else {
+        // menu is closer to the showPoint
+        self.slide(show: true)
+      }
+
     } else {
       // translation
       let translation = sender.translation(in: self)
 
-      if (translation.x < 0 && self.frame.origin.x < (UIScreen.main.bounds.width - self.frame.width)) { return }
+      // enclose the drag movement in a safe area
+      if (translation.x < 0 && self.frame.origin.x < self.showPoint) { return }
+      if (translation.x > 0 && self.frame.origin.x > self.hidePoint) { return }
+      
+      // perform the drag movement
       self.center.x += translation.x
       sender.setTranslation(CGPoint.zero, in: self)
       
-      // blur
-      if (!(self.blurry?.isBlurLoaded ?? true)) {
-        self.blurry?.loadBlur()
-      }
-      
-      let newAlpha =  self.center.x.map(from: (UIScreen.main.bounds.width - self.frame.width)...UIScreen.main.bounds.width, to: 0...1)
+      // blur superView
+      if (!(self.blurry?.isBlurLoaded ?? true)) { self.blurry?.loadBlur() }
+      let newAlpha =  self.center.x.map(from: self.showPoint...self.hidePoint, to: 0...1)
       self.blurry?.blur(alpha: 1 - newAlpha)
     }
     
