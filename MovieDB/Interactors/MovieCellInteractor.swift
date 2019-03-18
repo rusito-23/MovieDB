@@ -25,6 +25,7 @@ class MovieCellInteractorImpl: MovieCellInteractor {
   var movieService: MovieService?
   var movieDAO = GenericDAO<Movie>()
   var request: Bool = false
+  var movieID: Int?
 
   //  MARK: load poster
   
@@ -39,6 +40,8 @@ class MovieCellInteractorImpl: MovieCellInteractor {
         presenter?.presentPoster(nil)
         return
     }
+    
+    self.movieID = id
     
     movieDAO.findByPrimaryKey(id, completion: { [weak self] (movie: MovieStruct?) -> () in
       guard let `self` = self else { return }
@@ -83,12 +86,13 @@ class MovieCellInteractorImpl: MovieCellInteractor {
     request = true
     movieService?.fetchPoster(for: movie.posterUrl, completion: { [weak self] (_ poster: UIImage!) in
       guard let `self` = self else { return }
-      
-      if let url = movie.posterUrl, let `poster` = poster, self.request {
-        // save poster to cache
+      if let url = movie.posterUrl, let `poster` = poster {
+        // save poster to cache (allways)
         poster.toCache(key: url)
       }
       
+      // if the cell is already loading another movie, escape
+      guard self.request, movie.id == self.movieID else { return }
       completion(poster)
     })
   }
