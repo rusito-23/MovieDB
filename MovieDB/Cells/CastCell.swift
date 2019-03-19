@@ -40,6 +40,8 @@ class CastCell: UITableViewCell {
   @IBOutlet weak private var nameLabel: UILabel!
   @IBOutlet weak private var characterLabel: UILabel!
   
+  let loadingView = LoadingView(type: .poster)
+  
   // MARK: lifecycle
   
   override func awakeFromNib() {
@@ -54,17 +56,45 @@ class CastCell: UITableViewCell {
 
 }
 
+// MARK: protocol implementation
 
 extension CastCell: CastCellDisplay {
   
   func displayProfile(_ profile: UIImage) {
+    self.loadingProfile(false)
     self.profileView.image = profile
   }
   
   func displayError(_ msg: String) {
-    logger.error(msg)
+    self.loadingProfile(false)
+    self.profileView.image = UIImage(named: "no_image")
   }
 
 }
 
+// MARK: loading handler and setup
 
+extension CastCell {
+  
+  func cancelProfile() {
+    self.interactor?.cancelOldProfile()
+    self.profileView.image = nil
+  }
+  
+  // loading indicator handler
+  private func loadingProfile(_ run: Bool) {
+    if run {
+      cancelProfile()
+      loadingView.setupWithSuperView(self.profileView)
+    } else {
+      loadingView.removeFromSuperview()
+    }
+  }
+  
+  // prevent cell from loading the wrong image by canceling old request
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    loadingProfile(true)
+  }
+  
+}
