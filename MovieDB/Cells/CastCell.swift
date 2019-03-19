@@ -24,7 +24,7 @@ class CastCell: UITableViewCell {
   
   func populate(with cast: Casts.ViewModel) {
     self.nameLabel.text = cast.name
-    self.characterLabel.text = cast.character
+    self.characterLabel.text = "As \(cast.character ?? "guess!")"
     // TODO: la imagen del chaboncito
   }
 

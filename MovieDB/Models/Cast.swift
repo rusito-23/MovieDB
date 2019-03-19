@@ -19,6 +19,10 @@ class Cast: Object, Transferrable {
   @objc dynamic var character: String?
   @objc dynamic var profilePath: String?
 
+  override static func primaryKey() -> String? {
+    return "id"
+  }
+  
   func transfer() -> S {
     var to = CastTO()
     to.id = self.id.value
