@@ -20,8 +20,7 @@ class CastInteractorImpl: CastInteractor {
   var presenter: CastPresenter?
   var movieService: MovieService?
   var movieDAO = GenericDAO<Movie>()
-  var castDAO = GenericDAO<Cast>()
-  
+
   // MARK: protocol implementation
   
   func findAll(for movieID: Int?) {
@@ -39,39 +38,19 @@ class CastInteractorImpl: CastInteractor {
         return
       }
       
-      // first check if cast is in db
-      let castIDS = movie.cast
-      var castTO: [CastTO] = []
-      if castIDS.isEmpty {
-        // fetch cast from service
-        logger.info("Fetching cast from service")
-        castTO = self.fetchCastsFromService(movieStruct: movie)
-      } else {
-        // for each cast id, search it, if not found, break and fetch from service
-        logger.info("Searching for casts in db")
-        let group = DispatchGroup()
-        
-        for id in castIDS {
-          group.enter()
-          self.castDAO.findByPrimaryKey(id, completion: { (_ c : CastTO?) in
-            if c != nil { castTO.append(c!) } else { logger.warning("Cast \(id) not found!") }
-            group.leave()
-          })
-        }
-        
-        group.wait()
-      }
-
+      // fetch cast from service
+      logger.info("Fetching cast from service")
+      let castTO = self.fetchCastsFromService(movieStruct: movie)
       self.findAndPresentCast(castTO)
     })
   }
   
-  private func findAndPresentCast(_ cast: [CastTO]) {
+  private func findAndPresentCast(_ cast: [Cast]) {
     self.presenter?.present(cast.compactMap { $0.asViewModel(poster: nil) })
   }
   
   
-  private func fetchCastsFromService(movieStruct: MovieStruct) -> [CastTO] {
+  private func fetchCastsFromService(movieStruct: MovieStruct) -> [Cast] {
     logger.debug("fetchCastsFromService")
     
     let group = DispatchGroup()
@@ -82,25 +61,11 @@ class CastInteractorImpl: CastInteractor {
       guard let `self` = self else { return }
       guard res?.casts != nil else { self.presenter?.present(nil); return}
       cast = res!.casts
-      
-      let movie: Movie = movieStruct.asObject()
-      
-      // save all casts into db
-      for c in cast {
-        self.castDAO.save(c, completion: { _ in } )
-        movie.cast.append(c.id.value ?? 0)
-      }
-      
-      // save all ids into the movie
-      self.movieDAO.updateByPrimaryKey(movie, completion: { _ in })
-      
-      // leave group so we can return the cast
       group.leave()
-
     })
     
     group.wait()
-    return cast.compactMap { $0.transfer() }
+    return cast
   }
   
   

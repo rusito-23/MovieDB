@@ -14,6 +14,8 @@
 		78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */; };
 		9B1C854822402BE400866F0F /* CastInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C854722402BE400866F0F /* CastInteractor.swift */; };
 		9B1C854A22402C5F00866F0F /* CastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C854922402C5F00866F0F /* CastPresenter.swift */; };
+		9B1C854F2241762700866F0F /* CastCellInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C854E2241762700866F0F /* CastCellInteractor.swift */; };
+		9B1C8551224176F000866F0F /* CastCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C8550224176F000866F0F /* CastCellPresenter.swift */; };
 		9B25C6A82220442D00338D41 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B25C6A72220442D00338D41 /* Alamofire.framework */; };
 		9B25C6AA2220443700338D41 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B25C6A92220443700338D41 /* Realm.framework */; };
 		9B25C6AC2220444000338D41 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B25C6AB2220444000338D41 /* RealmSwift.framework */; };
@@ -148,6 +150,8 @@
 		78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageCacheExtensions.swift; sourceTree = "<group>"; };
 		9B1C854722402BE400866F0F /* CastInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastInteractor.swift; sourceTree = "<group>"; };
 		9B1C854922402C5F00866F0F /* CastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastPresenter.swift; sourceTree = "<group>"; };
+		9B1C854E2241762700866F0F /* CastCellInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCellInteractor.swift; sourceTree = "<group>"; };
+		9B1C8550224176F000866F0F /* CastCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCellPresenter.swift; sourceTree = "<group>"; };
 		9B25C6A72220442D00338D41 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		9B25C6A92220443700338D41 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		9B25C6AB2220444000338D41 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -411,6 +415,7 @@
 				9B25C6BF222088C200338D41 /* SingleMovieInteractor.swift */,
 				9BBD053B2239334F0010658D /* GenresInteractor.swift */,
 				9B1C854722402BE400866F0F /* CastInteractor.swift */,
+				9B1C854E2241762700866F0F /* CastCellInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 				9BE7BA622228828700CF69CD /* MovieCellPresenter.swift */,
 				9BBD053D223935770010658D /* GenresPresenter.swift */,
 				9B1C854922402C5F00866F0F /* CastPresenter.swift */,
+				9B1C8550224176F000866F0F /* CastCellPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -653,6 +659,7 @@
 				9BD28D952224253800B9661A /* ErrorView.swift in Sources */,
 				9BD28DA8222463C400B9661A /* LoadingView.swift in Sources */,
 				9B4E1A4222301C9A00ED1D61 /* MapFloatRange.swift in Sources */,
+				9B1C8551224176F000866F0F /* CastCellPresenter.swift in Sources */,
 				9BD28D912224192600B9661A /* Movie.swift in Sources */,
 				9BBD052D2237F6120010658D /* TrailerYTPlayer.swift in Sources */,
 				9B7D9ADD22400B350014EE0B /* Cast.swift in Sources */,
@@ -680,6 +687,7 @@
 				9BA4984C221B52A7007B37B3 /* DateExtensions.swift in Sources */,
 				9B8C9A27221B4D8A00709385 /* MoviesViewController.swift in Sources */,
 				9B1C854A22402C5F00866F0F /* CastPresenter.swift in Sources */,
+				9B1C854F2241762700866F0F /* CastCellInteractor.swift in Sources */,
 				9BB606E8223FDF3400009679 /* ActionCollectionViewCell.swift in Sources */,
 				9BCBE33D223044DF00D5D759 /* Swinject.swift in Sources */,
 				9BBD053622392A630010658D /* Genre.swift in Sources */,

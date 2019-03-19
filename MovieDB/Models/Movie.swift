@@ -64,7 +64,6 @@ class Movie: Object, Transferrable {
     movie.backDropPath = self.backDropPath
     movie.trailerUrl = self.trailerUrl
     movie.genres.append(contentsOf: self.genres)
-    movie.cast.append(contentsOf: self.cast)
     return movie
   }
   
@@ -79,8 +78,7 @@ struct MovieStruct {
   var backDropPath: String?
   var trailerUrl: String?
   var genres: [Int] = []
-  var cast: [Int] = []
-  
+
   func asViewModel(poster: UIImage?) -> Movies.ViewModel {
     var viewModel = Movies.ViewModel()
     viewModel.id = self.id
@@ -100,7 +98,6 @@ struct MovieStruct {
     movie.backDropPath = self.backDropPath
     movie.trailerUrl = self.trailerUrl
     movie.genres = List(self.genres)
-    movie.cast = List(self.cast)
     return movie
   }
   
