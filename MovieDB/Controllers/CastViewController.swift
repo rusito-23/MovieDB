@@ -42,7 +42,6 @@ extension CastViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    logger.debug("Entering cellForRowAt")
     let cell = tableView.dequeueReusableCell(withIdentifier: "CastCell") as! CastCell
     let character = cast[indexPath.row]
     cell.populate(with: character)
