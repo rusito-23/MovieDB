@@ -90,6 +90,20 @@ struct MovieStruct {
     return viewModel
   }
   
+  func asObject() -> Movie {
+    let movie = Movie()
+    movie.id = self.id
+    movie.title = self.title
+    movie.overview = self.overview
+    movie.releaseDate = self.releaseDate
+    movie.posterUrl = self.posterUrl
+    movie.backDropPath = self.backDropPath
+    movie.trailerUrl = self.trailerUrl
+    movie.genres = List(self.genres)
+    movie.cast = List(self.cast)
+    return movie
+  }
+  
 }
 
 

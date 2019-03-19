@@ -40,53 +40,68 @@ class CastInteractorImpl: CastInteractor {
       }
       
       // first check if cast is in db
-      var cast = movie.cast
-      if cast.isEmpty {
-        
-        // if no casts where found in db
-        self.movieService?.findCast(for: movie.id, completion: { [weak self] (_ res: Casts.Response?) in
-          guard let `self` = self else { return }
-          guard let castObjs = res?.casts else {
-            self.presenter?.present(nil)
-            return
-          }
-          
-          // save retrieved casts
-          self.castDAO.saveAll(castObjs, completion: { _ in
-            self.castDAO.findAll(completion: { (_ casts: [CastTO]) in
-              logger.debug(casts)
-              cast = casts.compactMap { $0.id }
-              // TODO: update the movie!
-              self.findAndPresentCast(cast)
-            })
-          })
-        })
+      let castIDS = movie.cast
+      var castTO: [CastTO] = []
+      if castIDS.isEmpty {
+        // fetch cast from service
+        logger.info("Fetching cast from service")
+        castTO = self.fetchCastsFromService(movieStruct: movie)
       } else {
-        self.findAndPresentCast(cast)
+        // for each cast id, search it, if not found, break and fetch from service
+        logger.info("Searching for casts in db")
+        let group = DispatchGroup()
+        
+        for id in castIDS {
+          group.enter()
+          self.castDAO.findByPrimaryKey(id, completion: { (_ c : CastTO?) in
+            if c != nil { castTO.append(c!) } else { logger.warning("Cast \(id) not found!") }
+            group.leave()
+          })
+        }
+        
+        group.wait()
       }
 
+      self.findAndPresentCast(castTO)
     })
   }
   
-  private func findAndPresentCast(_ castIDS: [Int]) {
-    var cast: [CastTO] = []
-    let group = DispatchGroup()
-
-    logger.debug(castIDS)
-    for id in castIDS {
-      group.enter()
-      
-      castDAO.findByPrimaryKey(id, completion: { (_ char: CastTO?) in
-        if let `char` = char { cast.append(char) }
-        group.leave()
-      })
-      
-    }
-    
-    group.wait()
+  private func findAndPresentCast(_ cast: [CastTO]) {
     self.presenter?.present(cast.compactMap { $0.asViewModel(poster: nil) })
   }
   
+  
+  private func fetchCastsFromService(movieStruct: MovieStruct) -> [CastTO] {
+    logger.debug("fetchCastsFromService")
+    
+    let group = DispatchGroup()
+    var cast: [Cast] = []
+    
+    group.enter()
+    movieService?.findCast(for: movieStruct.id, completion: { [weak self] (_ res: Casts.Response?) -> Void in
+      guard let `self` = self else { return }
+      guard res?.casts != nil else { self.presenter?.present(nil); return}
+      cast = res!.casts
+      
+      let movie: Movie = movieStruct.asObject()
+      
+      // save all casts into db
+      for c in cast {
+        self.castDAO.save(c, completion: { _ in } )
+        movie.cast.append(c.id.value ?? 0)
+      }
+      
+      // save all ids into the movie
+      self.movieDAO.updateByPrimaryKey(movie, completion: { _ in })
+      
+      // leave group so we can return the cast
+      group.leave()
+
+    })
+    
+    group.wait()
+    return cast.compactMap { $0.transfer() }
+  }
   
   
 }

@@ -2,7 +2,7 @@
 
 github "Alamofire/Alamofire" == 4.5
 
-github "airbnb/lottie-ios" "master"
+github "airbnb/lottie-ios" "65402f3cf81e9148bc6daad1d6e5f8e310169711"
 
 github "SwiftyBeaver/SwiftyBeaver"
 
@@ -10,7 +10,7 @@ github "Swinject/Swinject"
 
 github "0xced/XCDYouTubeKit" ~> 2.7
 
-github "rusito-23/RealmDAO" ~> 1.0.0
+github "rusito-23/RealmDAO" "development"
 
 github "AFNetworking/AFNetworking" ~> 3.0
 
