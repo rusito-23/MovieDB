@@ -27,6 +27,7 @@ class MoviesInteractorImpl: MoviesInteractor {
   // MARK: setup
   
   var movieService: MovieService?
+  var stringMatch: StringSearch?
   var movieDAO = GenericDAO<Movie>()
   
   // MARK: protocol implementation
@@ -55,17 +56,18 @@ class MoviesInteractorImpl: MoviesInteractor {
     })
   }
   
-  func filterMovies(by title: String?) {
-    logger.debug("Filtering movies by title: \(String(describing: title))")
+  func filterMovies(by needle: String?) {
+    logger.debug("Filtering movies by title: \(String(describing: needle))")
     movieDAO.findAll(completion: { [weak self] (movies: [MovieStruct]) -> () in
       guard let `self` = self else { return }
       
       // filter
       let filteredMovies = movies.filter { (movie: MovieStruct) in
-        let filterTitle = title?.uppercased()
-        let movieTitle = movie.title?.uppercased()
-        
-        return (movieTitle?.contains(filterTitle ?? "")) ?? true || (filterTitle?.contains(movieTitle ?? "")) ?? true
+        guard let haystack = movie.title, let `needle` = needle else {
+          logger.info("No needle found?")
+          return true
+        }
+        return (self.stringMatch?.compare(haystack: haystack, needle: needle) ?? true)
       }
       
       self.presentWithoutPosters(filteredMovies)

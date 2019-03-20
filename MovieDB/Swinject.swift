@@ -16,6 +16,11 @@ class Swinject {
 
   public static func setup() {
     logger.info("Setting up Swinject Dependencies")
+    
+    // MARK: Tools
+    container.register(StringSearch.self) { _ in
+      NaiveStringSearchImpl()
+    }
 
     // MARK: Services
     container.register(MovieService.self) { _ in
@@ -76,6 +81,7 @@ class Swinject {
       let interactor = MoviesInteractorImpl()
       interactor.presenter = r.resolve(MoviesPresenter.self, argument: viewController)
       interactor.movieService = r.resolve(MovieService.self)
+      interactor.stringMatch = r.resolve(StringSearch.self)
       return interactor
     }
     
