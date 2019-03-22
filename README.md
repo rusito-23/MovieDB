@@ -1,5 +1,6 @@
 # MovieDB :popcorn:
-App to show movies using MovieDB API
+iOS app written in Swift to explore movies using the <a href="https://www.themoviedb.org">MovieDB</a> API.
+This project was made as an exercise in Globant by Igor Andruskiewitsch.
 
 ## Setup :wrench:
 This project was made with XCode 10.1 and has the following requisites:
