@@ -15,20 +15,11 @@ extension Realm {
   static public func runMigrations() {
     
     Realm.Configuration.defaultConfiguration = Realm.Configuration(
-      schemaVersion: 2,
+      schemaVersion: 1,
       migrationBlock: { migration, oldSchemaVersion in
-        if (oldSchemaVersion < 1) {
-          // The enumerateObjects(ofType:_:) method iterates
-          // over every Movie object stored in the Realm file
-          migration.enumerateObjects(ofType: Movie.className()) { oldObject, newObject in
-            newObject!["trailerUrl"] = ""
-          }
-        } else if (oldSchemaVersion < 2) {
-          migration.enumerateObjects(ofType: Movie.className()) { oldObject, newObject in
-            newObject!["genres"] = List<Int>()
-          }
-        }
-    })
+        // MIGRATIONS!
+      }
+    )
 
   }
   
