@@ -6,6 +6,7 @@ Carthage/
 .DS_Store
 *.swp
 *~.nib
+MovieDB.xcodeproj/project.xcworkspace/xcuserdata/
 
 # no subir binarios
 build/
