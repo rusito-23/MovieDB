@@ -12,6 +12,7 @@
 		78933A5F223497A9003DE75D /* RealmDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78933A5D223497A5003DE75D /* RealmDAO.framework */; };
 		78933A60223497A9003DE75D /* RealmDAO.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 78933A5D223497A5003DE75D /* RealmDAO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78FCBF86222DB8F00096D1D7 /* UIImageCacheExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */; };
+		9B023DB12245191400872029 /* API_KEY.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B023DB02245191400872029 /* API_KEY.plist */; };
 		9B1C854822402BE400866F0F /* CastInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C854722402BE400866F0F /* CastInteractor.swift */; };
 		9B1C854A22402C5F00866F0F /* CastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C854922402C5F00866F0F /* CastPresenter.swift */; };
 		9B1C854F2241762700866F0F /* CastCellInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1C854E2241762700866F0F /* CastCellInteractor.swift */; };
@@ -149,6 +150,7 @@
 		7880A8572234B21A00EA0503 /* MovieServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceProtocol.swift; sourceTree = "<group>"; };
 		78933A5D223497A5003DE75D /* RealmDAO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmDAO.framework; path = Carthage/Build/iOS/RealmDAO.framework; sourceTree = "<group>"; };
 		78FCBF85222DB8F00096D1D7 /* UIImageCacheExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageCacheExtensions.swift; sourceTree = "<group>"; };
+		9B023DB02245191400872029 /* API_KEY.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_KEY.plist; sourceTree = "<group>"; };
 		9B1C854722402BE400866F0F /* CastInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastInteractor.swift; sourceTree = "<group>"; };
 		9B1C854922402C5F00866F0F /* CastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastPresenter.swift; sourceTree = "<group>"; };
 		9B1C854E2241762700866F0F /* CastCellInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCellInteractor.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				9B8C99EE221B48DA00709385 /* Assets.xcassets */,
 				9B8C99F3221B48DA00709385 /* Info.plist */,
 				9BBD052E223802810010658D /* API_INFO.plist */,
+				9B023DB02245191400872029 /* API_KEY.plist */,
 			);
 			path = MovieDB;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 				9B4A4A8E22298C3500B20399 /* reach_the_end.otf in Resources */,
 				9B7174CC2229C7B400EF5962 /* poster_loading.json in Resources */,
 				9B8C99ED221B48D900709385 /* Main.storyboard in Resources */,
+				9B023DB12245191400872029 /* API_KEY.plist in Resources */,
 				9BD28DA62224633100B9661A /* LoadingView.xib in Resources */,
 				9BBD0548223953E90010658D /* GenreCell.xib in Resources */,
 				9BD19EFF2224732500DA094B /* loading.json in Resources */,

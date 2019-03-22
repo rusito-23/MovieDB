@@ -9,3 +9,6 @@ Carthage/
 
 # no subir binarios
 build/
+
+# NO subir la api_key
+MovieDB/API_KEY.plist

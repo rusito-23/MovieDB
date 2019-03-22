@@ -19,7 +19,7 @@ class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
     logger.error("API_INFO.plist required!")
     return nil
   }
-
+  
   // MARK: filters
   
   private let movieFilter = "/movie?"
@@ -71,7 +71,13 @@ class MovieServiceUrlCreatorImpl: MovieServiceUrlCreator {
   
   var apiKey: String? {
     get {
-      guard let key = dictionary?["key"] as? String else { return nil }
+      guard let path = Bundle.main.path(forResource: "API_KEY", ofType: "plist") else {
+        logger.error("API_KEY.plist required!")
+        return nil
+      }
+      
+      let dict = NSDictionary(contentsOfFile: path)
+      guard let key = dict?["API_KEY"] as? String else { return nil }
       return "api_key=\(key)"
     }
   }
